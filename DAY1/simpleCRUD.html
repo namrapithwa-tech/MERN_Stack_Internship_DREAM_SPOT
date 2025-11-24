@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Simple CRUD with HTML and JS</title>
+    </head>
+    <body></body>
+        <h2>Simple CRUD with HTML & JS</h1>
+        
+        <label>Name :</label>
+        <input type="text" id="name" required />
+        <br/><br/>
+        <label>Age :</label>
+        <input type="number" id="age" required />
+        <br/><br/>
+        <button onclick="addData()">Add Data</button>
+        
+        <table border="1" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="dataTableId">
+                
+            </tbody>
+        </table>
+        <script src="script.js"></script>
+    </body>
+</html>

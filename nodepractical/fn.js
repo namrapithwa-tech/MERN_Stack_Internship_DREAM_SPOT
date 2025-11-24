@@ -1,0 +1,1 @@
+console.log("This is a practical example of a Node.js function.");
