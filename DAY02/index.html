@@ -1,60 +1,177 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home Default || Inbio - Personal Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Jone Lee</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: #1c1f26;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .hero-title span,
+        .buy-now {
+            color: #bc3a5b;
+        }
+
+        .hero-sub {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .social-box,
+        .skill-box {
+            background: #2a2d34;
+            padding: 15px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        /* ✒️ Typing container */
+        .type-container {
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 🔁 Blinking cursor */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: white;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        /* ✨ Blink animation */
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Navbar start -->
-
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="./assets/media/logo.png" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
-            </a>
-            <div class="d-flex">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Client</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Contact</a>
-                    </li>
-                    <button class="btn btn-outline-success" type="submit">Buy Now</button>
-                </ul>
-            </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-expand-lg px-4 py-3">
+        <a class="navbar-brand fw-bold" href="#"><img src="./assets/media/logo.png"></a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">HOME</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">FEATURES</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">PORTFOLIO</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">RESUME</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">CLIENT</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">PRICING</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#">BLOG</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <button type="button" class="btn btn-outline-dark"><span class="buy-now">BUY NOW</span></button>
+                </li>
+            </ul>
         </div>
     </nav>
-    <!-- Navbar close -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+    <!-- HERO SECTION -->
+    <div class="container py-5">
+        <div class="row align-items-center">
+
+            <!-- LEFT TEXT -->
+            <div class="col-md-6 mt-5">
+                <p class="text-uppercase text-light small">WELCOME TO MY WORLD</p>
+
+                <h1 class="hero-title">
+                    Hi, I'm <span>Namra Pithwa</span>
+                </h1>
+
+                <div class="type-container">
+                    <span>a &nbsp;</span>
+                    <span class="typed-text"></span>
+                    <span class="cursor"></span>
+                </div>
+
+
+                <p class="mt-4 text-light">
+                    I use animation as a third dimension to simplify experiences and
+                    guide every interaction. I'm not adding motion just to decorate
+                    things, but to enhance the user's experience.
+                </p>
+
+
+                <div class="row">
+                    <!-- FIND WITH ME -->
+                    <div class="col mt-4">
+                        <p>FIND WITH ME</p>
+                        <div class="d-flex">
+                            <div class="social-box"><img src="./assets/icon/linkedin.png" width="24"></div>
+                            <div class="social-box"><img src="./assets/icon/instagram.png" width="24"></div>
+                            <div class="social-box"><img src="./assets/icon/call.png" width="24"></div>
+                        </div>
+                    </div>
+
+                    <!-- SKILLS -->
+                    <div class="col mt-4">
+                        <p>BEST SKILL ON</p>
+                        <div class="d-flex">
+                            <div class="skill-box"><img src="./assets/icon/react.png" width="28"></div>
+                            <div class="skill-box"><img src="./assets/icon/net.png" width="28"></div>
+                            <div class="skill-box"><img src="./assets/icon/python.png" width="28"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="col-md-6 text-center">
+                <img src="./assets/media/banner-01.png" alt="Profile" class="img-fluid" style="max-height:500px;">
+            </div>
+
+        </div>
+    </div>
+    <script src="./Js/typewriter_animation.js"></script>
 </body>
 
 </html>
