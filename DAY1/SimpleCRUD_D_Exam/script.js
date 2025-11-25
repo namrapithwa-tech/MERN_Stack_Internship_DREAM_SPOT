@@ -40,6 +40,7 @@ function displayFaculty_In_Table(){
         </tr>
     `).join('');
 }
+
 function deleteFaculty(index){
     facultyData.splice(index, 1);
     alert("Faculty Deleted Successfully..!!");
