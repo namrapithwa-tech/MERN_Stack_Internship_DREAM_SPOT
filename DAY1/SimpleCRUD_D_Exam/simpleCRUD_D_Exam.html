@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Simple HTML & Javascript</h2>
+
+    <label class="">Faculty Name :</label>
+    <input type="text" id="facultyName" />
+    <br /><br />
+    <label>Faculty Department :</label>
+    <input type="text" id="facultyDepartment" />
+    <br /><br />
+    <label>Faculty Email :</label>
+    <input type="text" id="facultyEmail" />
+    <br /><br />
+    <label>Faculty Phone :</label>
+    <input type="text" id="facultyPhone" />
+    <br /><br />
+    <label>Faculty Designation :</label>
+    <input type="text" id="facultyDesignation" />
+    <br /><br />
+    <button onclick="addFaculty()">Add Faculty</button>
+
+    <table border="1" id="facultyTable">
+        <thead>
+            <tr>
+                <th>Faculty Name</th>
+                <th>Faculty Department</th>
+                <th>Faculty Email</th>
+                <th>Faculty Phone</th>
+                <th>Faculty Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="facultyTableBody">
+            <!-- Entries will be added here....!!!! -->
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+
+</html>
