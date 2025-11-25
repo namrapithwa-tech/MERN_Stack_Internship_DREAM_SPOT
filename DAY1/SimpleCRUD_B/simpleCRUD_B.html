@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Simple HTML & JavaScript</title>
+    </head>
+    <body>
+        <h2>Simple HTML & JavaScript</h2>
+
+        <label>First Name :</label>
+        <input type="text" id="firstName"/>
+        <br/><br/>
+        <label>Last Name :</label>
+        <input type="text" id="lastName"/>
+        <br/><br/>
+        <label>Email :</label>
+        <input type="email" id="email"/>
+        <br/><br/>
+        <button onclick="addEntry()">Add Entry</button>
+        
+        <table border="1" id="entryTable">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="entryTableBody">
+                <!-- Entries will be added here....!!!! -->
+            </tbody>
+        </table>
+        <script src="script.js"></script>
+    </body>
+</html>

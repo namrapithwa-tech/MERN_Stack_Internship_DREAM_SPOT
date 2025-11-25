@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Simple HTML & JavaScript</title>
+    </head>
+    <body>
+        <h2>Simple HTML & JavaScript</h2>
+
+        <label>Class Name :</label>
+        <input type="text" id="className"/>
+        <br/><br/>
+        <label>Class Floor :</label>
+        <input type="text" id="classFloor"/>
+        <br/><br/>
+        <label>Class Location :</label>
+        <input type="text" id="classLocation"/>
+        <br/><br/>
+        <label>Class Capacity :</label>
+        <input type="text" id="classCapacity"/>
+        <br/><br/>
+        <label>Class Type :</label>
+        <input type="text" id="classType"/>
+        <br/><br/>
+        <button onclick="addClass()">Add Class</button>
+        
+        <table border="1" id="classTable">
+            <thead>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Claas Floor</th>
+                    <th>Class Location</th>
+                    <th>Class Capacity</th>
+                    <th>Class Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="classTableBody">
+                <!-- Entries will be added here....!!!! -->
+            </tbody>
+        </table>
+        <script src="script.js"></script>
+    </body>
+</html>
