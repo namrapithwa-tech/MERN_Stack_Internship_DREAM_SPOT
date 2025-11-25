@@ -1,3 +1,6 @@
 -- Day 01 
 	Javascript basics.
 	HTML and Javascript CRUD (Insert & Select) with table and form.
+
+-- Day 02
+	
