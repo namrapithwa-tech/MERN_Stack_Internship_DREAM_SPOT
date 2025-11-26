@@ -1,0 +1,64 @@
+body {
+    background: #1c1f26;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.hero-title span,
+.buy-now {
+    color: #bc3a5b;
+}
+
+.hero-sub {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.social-box,
+.skill-box {
+    background: #2a2d34;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+/* ✒️ Typing container */
+.type-container {
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* 🔁 Blinking cursor */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+/* ✨ Blink animation */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
