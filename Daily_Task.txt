@@ -6,3 +6,7 @@
 	DAY 01 Work Exam and Follow Up.
 	In CRUD Delete Operation Perform.
 	Webpage Design from (https://rainbowit.net/html/inbio/)
+
+-- Day 03
+	Simple CRUD Presentation to all Team Members.
+	Local Data Storage
