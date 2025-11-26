@@ -9,4 +9,5 @@
 
 -- Day 03
 	Simple CRUD Presentation to all Team Members.
-	Local Data Storage
+	Local Data Storage in Javascript
+	Fillter Method in Delete Operation

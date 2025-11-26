@@ -1,7 +1,7 @@
-const facultyData = JSON.parse(localStorage.getItem("point")) || [];
-function displayFaculty_In_Table(){
+let facultyData = JSON.parse(localStorage.getItem("point")) || [];
+function displayFaculty_In_Table() {
     document.getElementById("facultyTableBody").innerHTML =
-    facultyData.map((faculty, index) => `
+        facultyData.map((faculty, index) => `
         <tr>
             <td>${faculty.fac_name}</td>
             <td>${faculty.fac_department}</td>
@@ -13,14 +13,16 @@ function displayFaculty_In_Table(){
     `).join('');
 }
 
-function deleteFaculty(index){
-    facultyData.splice(index, 1);
+function deleteFaculty(index) {
+    // facultyData.splice(index, 1);
+    // let deletedata = facultyData.filter((i, item) => item !== index); next time this way always use
+    facultyData = facultyData.filter((faculty, i) => i !== index);
     alert("Faculty Deleted Successfully..!!");
     localStorage.setItem("point", JSON.stringify(facultyData));
     displayFaculty_In_Table();
 }
 
-function addFaculty(){
+function addFaculty() {
     let facName = document.getElementById("facultyName").value;
     let facDept = document.getElementById("facultyDepartment").value;
     let facEmail = document.getElementById("facultyEmail").value;
@@ -44,9 +46,8 @@ function addFaculty(){
     console.log(facultyData);
     // Storing in Local Storage
     localStorage.setItem("point", JSON.stringify(facultyData));
-    
+
     displayFaculty_In_Table();
 }
-
 
 displayFaculty_In_Table();
