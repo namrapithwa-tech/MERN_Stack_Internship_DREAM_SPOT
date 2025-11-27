@@ -4,6 +4,7 @@ body {
     color: white;
 }
 
+/* Hero section CSS */
 .hero-title {
     font-size: 3.2rem;
     font-weight: 700;
@@ -61,4 +62,63 @@ body {
     50% {
         opacity: 0;
     }
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* Feature section CSS */
+
+.feature-section {
+    padding-top: 50px;
+}
+.feature-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #dce2f0;
+}
+
+
+.feature-card {
+    background: #1f232b;
+    padding: 40px;
+    border-radius: 15px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    height: 100%;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+}
+
+/* smooth icon style */
+.feature-icon img {
+    /* color: #ff2f62; */
+    width: 40px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-out;
+}
+
+.feature-icon-arrow img {
+    /* color: #ff2f62; */
+    width: 25px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+    transition: transform 0.2s ease-out;
+}
+
+.feature-card:hover .feature-icon {
+    transform: translateZ(20px);
 }

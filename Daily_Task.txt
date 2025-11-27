@@ -1,13 +1,19 @@
--- Day 01 
-	Javascript basics.
-	HTML and Javascript CRUD (Insert & Select) with table and form.
+-->Week 1
+	-- Day 01 
+		Javascript basics.
+		HTML and Javascript CRUD (Insert & Select) with table and form.
 
--- Day 02
-	DAY 01 Work Exam and Follow Up.
-	In CRUD Delete Operation Perform.
-	Webpage Design from (https://rainbowit.net/html/inbio/)
+	-- Day 02
+		DAY 01 Work Exam and Follow Up.
+		In CRUD Delete Operation Perform.
+		Webpage Design from (https://rainbowit.net/html/inbio/)
 
--- Day 03
-	Simple CRUD Presentation to all Team Members.
-	Local Data Storage in Javascript
-	Fillter Method in Delete Operation
+	-- Day 03
+		Simple CRUD Presentation to all Team Members.
+		Local Data Storage in Javascript
+		Fillter Method in Delete Operation
+		Webpage next part design started.
+
+		intro , education , skills , short time goals and long term goals , streangth and weekness.
+
+	-- Day 04
