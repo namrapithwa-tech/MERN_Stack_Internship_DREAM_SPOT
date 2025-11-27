@@ -17,3 +17,7 @@
 		intro , education , skills , short time goals and long term goals , streangth and weekness.
 
 	-- Day 04
+		Splice method array retrived
+		New webpage design started (https://demo.xpeedstudio.com/marketov2/watch/).
+		
+

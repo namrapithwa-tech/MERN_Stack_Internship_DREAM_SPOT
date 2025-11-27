@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+body {
+    background: #f5f6fa;
+    font-family: 'Google Sans Flex', sans-serif;
+
+}
+
+.top-bar {
+    background: #fff;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.top-bar img {
+    margin-right: 7px;
+}
+
+.nav-section {
+    background: #f7f8fc;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #f26b21;
+}
+
+.nav-link {
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+.icons i {
+    font-size: 22px;
+    color: #e85c0d;
+    margin-left: 15px;
+    cursor: pointer;
+}
