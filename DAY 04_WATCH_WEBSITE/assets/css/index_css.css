@@ -1,44 +1,436 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
 body {
-    background: #f5f6fa;
-    font-family: 'Google Sans Flex', sans-serif;
+  /* background: #F6F7FB; */
+  font-family: 'Google Sans Flex', sans-serif;
 
 }
 
 .top-bar {
-    background: #fff;
-    font-size: 14px;
-    padding: 8px 0;
-    border-bottom: 1px solid #e5e5e5;
+  background: #F6F7FB;
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .top-bar img {
-    margin-right: 7px;
+  margin-right: 7px;
 }
 
 .nav-section {
-    background: #f7f8fc;
-    padding: 18px 0;
+  background: #f7f8fc;
+  padding: 18px 0;
 }
 
 .logo {
-    font-size: 32px;
-    font-weight: bold;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .logo span {
-    color: #f26b21;
+  color: #f26b21;
 }
 
 .nav-link {
-    font-size: 17px;
-    font-weight: 500;
-    margin: 0 10px;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0 10px;
+  color: black
 }
 
-.icons i {
-    font-size: 22px;
-    color: #e85c0d;
-    margin-left: 15px;
-    cursor: pointer;
+/* Badge Notification */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.position {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon {
+  position: relative;
+  width: 30px;
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  right: -28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40px;
+  height: 30px;
+  padding: 1px 10px 0 10px;
+  border: 5px solid #f4fdff;
+  border-radius: 500px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  transition: transform 0.15s, background-color 0.5s;
+}
+
+.black {
+  background: #000;
+}
+
+.position:hover .badge {
+  background-color: #000;
+  transform: scale(1.08);
+}
+
+.position:active .badge {
+  background-color: #555;
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.75);
+}
+
+@media (max-width: 600px) {
+  .position:active .badge {
+    transition: none;
+  }
+
+  .icon {
+    width: 44px;
+  }
+
+  .badge {
+    position: absolute;
+    top: -16px;
+    right: -18px;
+    min-width: 35px;
+    height: 35px;
+    padding: 0 7px;
+    font-size: 11px;
+    transition: transform 0.1s, background-color 0.2s;
+  }
+
+  .position:hover .badge {
+    transform: scale(1);
+  }
+}
+
+/* End Badge Notification */
+
+/* Caurosol_Banner CSS Start */
+.view-collection {
+  padding: 50px;
+  background-color: #EB6A2A;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.view-collection:hover {
+  background-color: #d1551f;
+  color: white;
+}
+
+/* Ad Section CSS Start */
+
+.banner-wrapper {
+  overflow: hidden;
+  transition: box-shadow 0.5s ease-in-out;
+  border-radius: 0.25rem;
+
+}
+
+.banner-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.banner-link:hover .banner-wrapper {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  cursor: pointer;
+}
+
+.banner-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Trending now and Top Brand CSS Start */
+/* --- Trending Now Product Card Styles --- */
+
+/* The link wrapper makes the entire card clickable */
+.product-card-link {
+  transition: all 0.3s ease;
+  /* Ensure smooth transition for hover effects */
+}
+
+.product-card {
+  /* Base card styles */
+  border: 1px solid #dee2e6 !important;
+  /* Light border */
+  border-radius: 0;
+  /* Square corners */
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  /* Smooth hover transition */
+}
+
+/* Hover Effect: Add a shadow and change the border color */
+.product-card-link:hover .product-card {
+  border-color: #ffffff !important;
+  /* Make border white/invisible on hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow effect */
+
+}
+
+.product-title {
+  font-size: 1.1rem;
+  /* Slightly larger title */
+}
+
+.price-section .text-decoration-line-through {
+  font-size: 0.9rem;
+  /* Smaller old price */
+}
+
+/* Wishlist Icon Positioning and style */
+.heart-icon {
+  color: #f3773b;
+  /* Use an orange color similar to the previous banners */
+  cursor: pointer;
+  line-height: 0;
+  opacity: 0;
+  /* Make the heart subtle */
+  transition: opacity 0.2s;
+}
+
+.product-card-link:hover .heart-icon {
+  opacity: 1;
+}
+
+/* --- Top Brands Section Styles --- */
+.brands-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.brand-logo {
+  max-height: 40px;
+  /* Limit logo height for consistent display */
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.brand-logo:hover {
+  opacity: 1;
+  /* Logos become more visible on hover */
+}
+
+/* Luxury section Start */
+/* --- General Banner Section Styling --- */
+.banner-section {
+  background-color: #f8f9fa;
+  /* Light background color */
+  min-height: 500px;
+  /* Ensure sufficient height */
+  overflow: hidden;
+  /* Important to contain the floating watch */
+}
+
+/* --- Content Styling --- */
+.content-heading {
+  color: #212529;
+  /* Dark text for heading */
+  line-height: 1.2;
+}
+
+.content-description {
+  font-size: 1.1rem;
+  /* Slightly larger text for description */
+}
+
+.view-collections-btn {
+  background-color: #343a40;
+  /* Dark background for button */
+  border-color: #343a40;
+  font-size: 0.9rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.view-collections-btn:hover {
+  background-color: #212529;
+  /* Slightly darker on hover */
+  border-color: #212529;
+}
+
+/* --- Watch Image Container for Mouse Effect --- */
+.watch-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-watch-image {
+  position: absolute;
+  width: 70%;
+  max-width: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 991.98px) {
+
+  .watch-image-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    height: auto;
+  }
+
+  .floating-watch-image {
+    position: static;
+    transform: none;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .text-lg-start,
+  .text-lg-end {
+    text-align: center !important;
+  }
+}
+
+/* Discount Section Start */
+/* --- Base Section Styling --- */
+.discount-product-section {
+  background-color: #ffffff;
+  /* Light background for the entire section */
+}
+
+/* --- Left Vertical Banner (Image) Styling --- */
+.vertical-banner-image {
+  /* Set a height to match the content height for symmetry */
+  /* You may need to fine-tune this value (e.g., 850px) based on the number of products and screen size */
+  min-height: 800px;
+  /* Use your uploaded banner image file name here */
+  background-image: url('../media/Apple_Ad_Discount_Section/ad-min-1.jpg');
+  background-size: cover;
+  /* Ensures the image covers the entire area */
+  background-position: center;
+  /* Centers the image */
+  background-repeat: no-repeat;
+}
+
+/* --- Right Side: Tabbed Product Display Styling --- */
+.discount-product-tabs {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.discount-product-tabs .nav-link {
+  color: #6c757d;
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-right: 1.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.discount-product-tabs .nav-link.active {
+  color: #343a40;
+  border-bottom-color: #ff8c00;
+  /* Orange indicator for active tab */
+  background-color: transparent;
+}
+
+.discount-product-tabs .nav-link:hover:not(.active) {
+  color: #000;
+}
+
+/* --- Product Card Styling (Heart Hover) --- */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0;
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  position: relative;
+}
+
+/* Hover Effect: Shadow on card */
+.product-card-link:hover .product-card {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-link .heart-icon {
+  color: #ff8c00;
+  /* Orange heart icon */
+  cursor: pointer;
+  line-height: 0;
+  opacity: 0;
+  /* Hidden by default */
+  transition: opacity 0.2s;
+}
+
+/* Heart is visible on card hover */
+.product-card-link:hover .heart-icon {
+  opacity: 1;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.price-section .text-decoration-line-through {
+  font-size: 0.9rem;
+}
+
+/* Country Section CSS Start */
+.country-section {
+  background-color: #f1f2f5;
+  /* Light gray background color */
+  border-top: 1px solid #e9ecef;
+  /* Very light border on top */
+}
+
+.country-item {
+  padding: 0.5rem 0.75rem;
+  /* Padding around each item */
+  color: #6c757d;
+  /* Muted text color */
+}
+
+.flag-icon {
+  /* Adjust size for flag icons to be small and uniform */
+  width: 20px;
+  height: 15px;
+  object-fit: contain;
+  /* Ensures the flag image scales correctly */
+  border-radius: 2px;
+}
+
+.country-name {
+  font-size: 15px;
+  /* Small font size for country names */
 }
