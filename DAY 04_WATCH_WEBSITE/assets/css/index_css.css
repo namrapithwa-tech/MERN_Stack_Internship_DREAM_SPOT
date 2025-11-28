@@ -434,3 +434,157 @@ body {
   font-size: 15px;
   /* Small font size for country names */
 }
+
+/* Footer and Back on Top CSS Start */
+/* --- Custom CSS for Footer Design --- */
+
+/* Main Footer Area */
+.marketo-footer-top {
+  background-color: #f7f7f7;
+  /* Very light gray background */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #e9ecef;
+  position: relative;
+  /* Needed for the Back To Top button positioning */
+}
+
+/* Logo Styling */
+.footer-logo {
+  max-width: 150px;
+  /* Adjust size as needed for your logo */
+  height: auto;
+  margin-bottom: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Heading Styles */
+.footer-heading {
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Section */
+.contact-text {
+  color: #6c757d;
+}
+
+.contact-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+.contact-address {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+/* View On Map Button */
+.btn-view-map {
+  background-color: #f48c00;
+  /* Orange color */
+  border-color: #f48c00;
+  color: white;
+  font-weight: 600;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.btn-view-map:hover {
+  background-color: #e67e00;
+  border-color: #e67e00;
+  color: white;
+}
+
+/* Quick Links/Stores List */
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link-list li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-link-list a {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-link-list a:hover {
+  color: #212529;
+}
+
+/* Safe Payments Section */
+.secured-text {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.payment-logo {
+  max-width: 50%;
+  height: auto;
+  margin-top: 5px;
+}
+
+/* --- Back To Top Button --- */
+#backToTop {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  /* Center vertically relative to the footer-top */
+  transform: translateY(-50%);
+  width: 50px;
+  /* Width of the button bar */
+  height: 150px;
+  /* Height of the button bar */
+  background-color: #f48c00;
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  /* Text orientation */
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  z-index: 10;
+}
+
+#backToTop:hover {
+  background-color: #e67e00;
+}
+
+/* --- Bottom Copyright Bar --- */
+.marketo-footer-bottom {
+  background-color: #343a40;
+  /* Dark gray/black color */
+  color: #adb5bd;
+  padding: 15px 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 991.98px) {
+  #backToTop {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: 40px;
+    writing-mode: horizontal-tb;
+    display: block;
+    padding-top: 8px;
+  }
+}

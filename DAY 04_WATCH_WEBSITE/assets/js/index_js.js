@@ -30,3 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Back to Top Button
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Optional: Hide/Show the button only when scrolling down past a certain point
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            // Show the button when scrolling past 400px (optional, as per original UI it's always there)
+            // backToTopButton.style.display = "flex";
+        } else {
+            // backToTopButton.style.display = "none";
+        }
+    };
+});
