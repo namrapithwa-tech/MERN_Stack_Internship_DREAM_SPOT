@@ -28,4 +28,4 @@
 --> Week 2
 	-- Day 01
 		Search functionality Work started.
-		
+		Admin panel design work give https://demo.adminkit.io/
