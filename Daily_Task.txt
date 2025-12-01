@@ -29,3 +29,4 @@
 	-- Day 01
 		Search functionality Work started.
 		Admin panel design work give https://demo.adminkit.io/
+		Sidebar and Topbar navbar completed
