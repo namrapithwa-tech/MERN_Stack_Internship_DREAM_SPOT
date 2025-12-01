@@ -1,0 +1,154 @@
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background still while scrolling */
+    color: #fff;
+}
+
+.faculty-box {
+    width: 450px;
+    margin: 50px auto;
+}
+
+.login-box {
+    padding: 40px;
+    background: rgba(0,0,0,.5);
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: white;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* FLOAT UP ON TYPING OR FOCUS */
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #03e9f4;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #03e9f4;
+    background: transparent;
+    color: #03e9f4;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: #03e9f4;
+    color: #000;
+    box-shadow: 0 0 10px #03e9f4;
+}
+
+
+/* TABLE CONTAINER */
+.table-box {
+    width: 85%;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0,0,0,.5);
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    overflow-x: auto; 
+}
+
+.table-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.faculty-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+
+.faculty-table thead {
+    background: rgba(255,255,255,0.05);
+}
+
+.faculty-table th {
+    padding: 12px;
+    color: #03e9f4;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* TABLE ROWS */
+.faculty-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    vertical-align: middle; /* Ensures text aligns nicely */
+}
+
+
+.faculty-table tr, 
+.faculty-table tr:nth-child(even),
+.faculty-table tr:nth-child(odd),
+.faculty-table tr:hover {
+    background: transparent;
+    background-color: transparent;
+}
+
+
+.faculty-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+.delete-btn {
+    padding: 6px 12px;
+    border: 2px solid #ff3b3b;
+    background: transparent;
+    color: #ff6b6b;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+    color: #fff;
+    box-shadow: 0 0 10px #ff3b3b;
+}
