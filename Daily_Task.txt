@@ -33,6 +33,7 @@
 
 	-- Day 02
 		React intro started.
-		React documnetation explained.
+		React documnetation (file intro) explained.
 		In first project My Introduction page done.
+		Components Demo and Implemented. (automatic ,manual)
 		
