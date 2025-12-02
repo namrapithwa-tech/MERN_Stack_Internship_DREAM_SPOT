@@ -85,23 +85,320 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button">
                                 <span class="d-none d-lg-inline text-gray-600 small me-2">Namra Pithwa</span>
-                                <img class="img-profile rounded-circle"
-                                    src="./assets/media/avtar_short.png" alt="Profile Picture"
-                                    style="width: 40px; height: 40px;">
+                                <img class="img-profile rounded-circle" src="./assets/media/avtar_short.png"
+                                    alt="Profile Picture" style="width: 40px; height: 40px;">
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- Footer Part Started -->
-            <footer class="sticky-footer bg-white mt-auto">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Namra Pithwa - 2025</span>
+            <div class="container-fluid pt-2">
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Analytics Dashboard</h1>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-primary me-2">Invite a Friend</button>
+                        <button class="btn btn-primary">New Project</button>
                     </div>
                 </div>
-            </footer>
+
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card dashboard-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="text-uppercase text-muted mb-2">Sales</h6>
+                                        <h2 class="mb-0">2.382</h2>
+                                        <span class="badge bg-danger">-3.65%</span> <span class="text-muted small">Since
+                                            last week</span>
+                                    </div>
+                                    <div class="icon-shape text-primary">
+                                        <i class="fa-solid fa-chart-line fa-2x opacity-50"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card dashboard-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="text-uppercase text-muted mb-2">Earnings</h6>
+                                        <h2 class="mb-0">$21.300</h2>
+                                        <span class="badge bg-success">6.65%</span> <span class="text-muted small">Since
+                                            last week</span>
+                                    </div>
+                                    <div class="icon-shape text-success">
+                                        <i class="fa-solid fa-dollar-sign fa-2x opacity-50"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card dashboard-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="text-uppercase text-muted mb-2">Visitors</h6>
+                                        <h2 class="mb-0">14.212</h2>
+                                        <span class="badge bg-success">5.25%</span> <span class="text-muted small">Since
+                                            last week</span>
+                                    </div>
+                                    <div class="icon-shape text-info">
+                                        <i class="fa-solid fa-users fa-2x opacity-50"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card dashboard-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="text-uppercase text-muted mb-2">Orders</h6>
+                                        <h2 class="mb-0">64</h2>
+                                        <span class="badge bg-danger">-2.25%</span> <span class="text-muted small">Since
+                                            last week</span>
+                                    </div>
+                                    <div class="icon-shape text-warning">
+                                        <i class="fa-solid fa-basket-shopping fa-2x opacity-50"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7 mb-4">
+                        <div class="card dashboard-card h-100">
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                <h6 class="m-0 font-weight-bold text-gray-800">Recent Movement</h6>
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select form-select-sm me-2" style="width: 80px;">
+                                        <option selected>Jan</option>
+                                        <option>Feb</option>
+                                        <option>Dec</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Search..."
+                                        style="width: 120px;">
+                                </div>
+                            </div>
+                            <div class="card-body p-2">
+                                <img src="./assets/media/recent_movemtns.png" class="img-fluid w-100"
+                                    alt="Recent Movement Chart Screenshot" style="height: 350px; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 mb-4">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card dashboard-card h-100">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                        <h6 class="m-0 font-weight-bold text-gray-800">Calendar</h6>
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <img src="./assets/media/calander.png" class="img-fluid w-100"
+                                            alt="Calendar Widget Screenshot"
+                                            style="height: 250px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card dashboard-card h-100">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                        <h6 class="m-0 font-weight-bold text-gray-800">Real-Time</h6>
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <img src="./assets/media/world_map.png" class="img-fluid w-100"
+                                            alt="Real-Time Map Screenshot" style="height: 250px; object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card dashboard-card mb-4">
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                <h6 class="m-0 font-weight-bold text-gray-800">Latest Projects</h6>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">Name</th>
+                                                <th class="border-top-0">Company</th>
+                                                <th class="border-top-0">Author</th>
+                                                <th class="border-top-0">Status</th>
+                                                <th class="border-top-0">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-rocket text-primary fa-lg me-3"></i>
+                                                        <div>
+                                                            <div>Project Apollo</div>
+                                                            <div class="text-muted small">Web, UI/UX Design</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Lechters <div class="text-muted small">Real Estate</div>
+                                                </td>
+                                                <td>Vanessa Tucker</td>
+                                                <td><span class="badge bg-success" style="width: 70px;">65%</span></td>
+                                                <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-bag-shopping text-success fa-lg me-3"></i>
+                                                        <div>
+                                                            <div>Project Bongo</div>
+                                                            <div class="text-muted small">Web</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Cellophane Transportation</td>
+                                                <td>William Harris</td>
+                                                <td><span class="badge bg-danger" style="width: 70px;">33%</span></td>
+                                                <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-diamond text-info fa-lg me-3"></i>
+                                                        <div>
+                                                            <div>Project Canary</div>
+                                                            <div class="text-muted small">Web, UI/UX Design</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Clemens <div class="text-muted small">Insurance</div>
+                                                </td>
+                                                <td>Sharon Lessman</td>
+                                                <td><span class="badge bg-warning" style="width: 70px;">50%</span></td>
+                                                <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-lightbulb text-warning fa-lg me-3"></i>
+                                                        <div>
+                                                            <div>Project Edison</div>
+                                                            <div class="text-muted small">UI/UX Design</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Affinity Investment Group <div class="text-muted small">Finance
+                                                    </div>
+                                                </td>
+                                                <td>Vanessa Tucker</td>
+                                                <td><span class="badge bg-success" style="width: 70px;">80%</span></td>
+                                                <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-cloud text-secondary fa-lg me-3"></i>
+                                                        <div>
+                                                            <div>Project Indigo</div>
+                                                            <div class="text-muted small">Web, UI/UX Design</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Konsilii <div class="text-muted small">Retail</div>
+                                                </td>
+                                                <td>Christina Mason</td>
+                                                <td><span class="badge bg-primary" style="width: 70px;">78%</span></td>
+                                                <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 mb-4">
+                        <div class="card dashboard-card mb-4">
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                <h6 class="m-0 font-weight-bold text-gray-800">Browser Usage</h6>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="./assets/media/browser_usage.png" class="img-fluid"
+                                            alt="Browser Usage Doughnut Chart"
+                                            style="height: 180px; object-fit: contain;">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <ul class="list-unstyled mt-3 mb-0">
+                                            <li class="mb-2"><span class="badge rounded-circle me-2"
+                                                    style="background-color: #0d6efd;"></span> Chrome <span
+                                                    class="float-end">4306</span></li>
+                                            <li class="mb-2"><span class="badge rounded-circle me-2"
+                                                    style="background-color: #dc3545;"></span> Firefox <span
+                                                    class="float-end text-danger">-3%</span> 3801</li>
+                                            <li class="mb-2"><span class="badge rounded-circle me-2"
+                                                    style="background-color: #ffc107;"></span> Edge <span
+                                                    class="float-end">1689</span></li>
+                                            <li class="mb-2"><span class="badge rounded-circle me-2"
+                                                    style="background-color: #212529;"></span> Other <span
+                                                    class="float-end">3251</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card dashboard-card mb-4">
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-bottom">
+                                <h6 class="m-0 font-weight-bold text-gray-800">Monthly Sales</h6>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="card-body">
+                                <img src="./assets/media/monthly_sales.png" class="img-fluid w-100"
+                                    alt="Monthly Sales Bar Chart Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-4 text-muted small">
+                    <span>AdminKit © 2025</span>
+                    <div>
+                        <a href="#" class="me-3 text-muted text-decoration-none">Support</a>
+                        <a href="#" class="me-3 text-muted text-decoration-none">Help Center</a>
+                        <a href="#" class="text-muted text-decoration-none">Privacy</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>
