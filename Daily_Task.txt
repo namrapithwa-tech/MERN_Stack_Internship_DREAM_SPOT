@@ -23,10 +23,16 @@
 	-- Day 05
 		Introduction Conducted.
 		Webpage Tested and Completed.
-		Uestions and Answers for HTML and React.
+		QUestions and Answers for HTML and React.
 
 --> Week 2
 	-- Day 01
 		Search functionality Work started.
 		Admin panel design work give https://demo.adminkit.io/
 		Sidebar and Topbar navbar completed
+
+	-- Day 02
+		React intro started.
+		React documnetation explained.
+		In first project My Introduction page done.
+		
