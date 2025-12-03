@@ -36,4 +36,7 @@
 		React documnetation (file intro) explained.
 		In first project My Introduction page done.
 		Components Demo and Implemented. (automatic ,manual)
-		
+		and myPortfolio site started and Navbar and Herosection completed
+
+	-- Day 03
+		in myPortfolio site next part feature part started.

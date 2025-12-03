@@ -5,8 +5,12 @@
 }
 
 .hero-title span,
-.buy-now, .text-welcome {
+.buy-now {
     color: #bc3a5b;
+}
+
+.text-welcome{
+    color:#ff2f62;
 }
 
 .hero-sub {
