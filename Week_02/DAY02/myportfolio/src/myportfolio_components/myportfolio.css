@@ -1,0 +1,102 @@
+/* Section Titles */
+.section-subtitle {
+    color: #ff2f62;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Portfolio Card Styles */
+.portfolio-card {
+    background: #1f232b;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.35s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #2b2f36;
+}
+
+.portfolio-card:hover {
+    background: #242830;
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.4);
+}
+
+/* Image Container */
+.portfolio-img {
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    width: 100%;
+    transition: 0.4s ease-in-out;
+}
+
+/* IMAGE ZOOM */
+.portfolio-card:hover img {
+    transform: scale(1.15);
+}
+
+/* Content */
+.portfolio-content {
+    padding: 25px;
+    position: relative;
+}
+
+.card-type {
+    color: #ff2f62;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card-title:hover {
+    color: #e0486e;
+    font-weight: 900;
+
+}
+
+/* Arrow Animation Box */
+.arrow-box {
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+    opacity: 0;
+    transition: 0.35s ease;
+    transform: translateX(20px);
+}
+
+.arrow {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff2f62;
+}
+
+/* When hover show arrow */
+.portfolio-card:hover .arrow-box {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
