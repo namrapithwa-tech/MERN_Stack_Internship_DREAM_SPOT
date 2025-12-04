@@ -1,0 +1,236 @@
+/* --- Global Styles --- */
+.resume-container {
+  background-color: #212428;
+  font-family: "Poppins", sans-serif;
+  color: #c4cfde;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.resume-section {
+  padding: 20px 0;
+}
+
+/* --- Section Headers --- */
+.section-heading h4 {
+  color: #ff014f;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.section-heading h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #c4cfde;
+}
+
+/* --- Navigation Tabs --- */
+.resume-tab-nav {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  padding: 10px;
+  display: flex;
+  list-style: none;
+}
+
+.resume-tab-nav .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.resume-tab-nav button {
+  width: 100%;
+  color: #c4cfde;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 25px 0;
+  border-radius: 10px;
+  transition: 0.4s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.resume-tab-nav button:hover {
+  color: #ff014f;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 1, 79, 0.5);
+}
+
+.resume-tab-nav button.active {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  color: #ff014f;
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+}
+
+/* --- Timeline Layout --- */
+.timeline-heading {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.timeline-heading span {
+  color: #ff014f;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.timeline-heading h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.timeline-wrapper {
+  border-left: 5px solid #17191c;
+  padding-left: 35px;
+  position: relative;
+}
+
+/* Individual Card Styles */
+.resume-card {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  transition: 0.4s all ease-in-out;
+  /* FIXED: Minimum height for consistency */
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-card::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #212428;
+  border: 5px solid #17191c;
+  border-radius: 50%;
+  left: -47.5px;
+  top: 35px;
+  z-index: 1;
+  transition: 0.4s;
+}
+
+.resume-card:hover {
+  background: linear-gradient(to right bottom, #212428, #16181c);
+  transform: translateY(-5px);
+}
+.resume-card:hover::before {
+  background-color: #ff014f;
+  border-color: #ff014f;
+}
+.resume-card:hover .text-content h4 {
+  color: #fff;
+}
+
+.card-header-resume {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #1a1d21;
+  padding-bottom: 20px;
+}
+
+.text-content h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  transition: 0.4s;
+  color: #c4cfde;
+}
+.text-content span {
+  font-size: 14px;
+  color: #7c838e;
+}
+
+.rating-badge {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 5px 5px 10px #1c1e22, -5px -5px 10px #262a2e;
+  color: #ff014f;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.resume-card p {
+  color: #878e99;
+  font-size: 16px;
+  line-height: 28px;
+  margin: 0;
+  /* FIXED: Minimum height for text area */
+  min-height: 85px;
+}
+
+/* --- Skills Tab Styles --- */
+.skill-wrapper {
+  margin-bottom: 30px;
+}
+.skill-sub {
+  color: #ff014f;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.skill-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.skill-item {
+  margin-bottom: 30px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.skill-header h6 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c4cfde;
+  margin: 0;
+}
+.skill-header span {
+  color: #c4cfde;
+}
+
+.progress {
+  height: 10px;
+  background: #191b1e;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px #111, inset -2px -2px 5px #252525;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #ff014f, #d10043);
+  border-radius: 10px;
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 2px;
+  background-color: black;
+}

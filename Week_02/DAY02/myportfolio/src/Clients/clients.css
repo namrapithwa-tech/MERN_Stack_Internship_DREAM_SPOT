@@ -1,0 +1,170 @@
+/* General Body Styling */
+body {
+    background-color: #212428; 
+    font-family: 'Poppins', sans-serif;
+    color: #c4cfde;
+}
+
+
+/* Header Styling */
+.subtitle {
+    color: #ff014f;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+/* LEFT SIDEBAR STYLE - Sticky Fixed */
+.sticky-sidebar {
+    position: sticky;
+    top: 50px; /* Distance from top of browser window */
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.sidebar-wrapper {
+    background-color: #212428;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    width: 100%;
+}
+
+.sidebar-wrapper .nav-link {
+    color: #c4cfde;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 0;
+    margin-bottom: 5px;
+    transition: 0.4s all ease;
+    border-radius: 6px;
+    background: transparent; 
+}
+
+/* HOVER EFFECT UPDATED: Only text color changes to red, no background change */
+.sidebar-wrapper .nav-link:hover {
+    color: #ff014f;
+}
+
+.sidebar-wrapper .nav-link.active {
+    color: #ff014f;
+    background: transparent;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* RIGHT SIDE CARDS - SQUARE BOXES */
+.client-card {
+    background: #212428;
+    padding: 0; /* Padding removed so HR can touch the edges */
+    border-radius: 10px;
+    width: 90%;
+    
+    /* Forces the card to be a perfect Square */
+    aspect-ratio: 1 / 1; 
+    
+    /* Neumorphic Shadow */
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    transition: 0.4s all ease-in-out;
+    cursor: pointer;
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, #1e2024, #23272b);
+}
+
+/* TOP HALF: Image Wrapper */
+.img-wrapper {
+    flex-grow: 1; /* Takes up all available space above the line */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.client-card img {
+    max-width: 95%;     /* increased from 80% */
+    max-height: 120px;  /* increased from 60px */
+    object-fit: contain;
+    transition: 0.3s;
+    filter: grayscale(100%) opacity(0.7);
+}
+
+
+.client-card:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* MIDDLE: The Divider Line */
+.card-divider {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    height: 1px;
+    /* Subtle dark gradient line */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+/* BOTTOM HALF: Name Text */
+.text-wrapper {
+    width: 100%;
+    padding: 20px 10px; /* Space around the text */
+    text-align: center;
+    background: rgba(0,0,0,0.1); /* Slightly darker background for footer feel if desired, or remove */
+}
+
+.client-name {
+    font-size: 16px;
+    color: #c4cfde; 
+    font-weight: 500;
+    margin: 0;
+    transition: 0.3s ease-in-out;
+    text-transform: capitalize;
+}
+
+/* TEXT HOVER EFFECT: Name turns Red */
+.client-card:hover .client-name {
+    color: #ff014f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .title {
+        font-size: 40px;
+    }
+    .sticky-sidebar {
+        position: relative; /* Disable sticky on mobile */
+        top: 0;
+    }
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 2px;
+  background-color: black;
+}

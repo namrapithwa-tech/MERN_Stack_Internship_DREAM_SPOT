@@ -1,0 +1,220 @@
+/* --- Global Styles --- */
+body {
+  background-color: #212428;
+  font-family: "Poppins", sans-serif;
+  color: #c4cfde;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial-area {
+  padding: 10px 0;
+}
+
+.carousel-slide{
+    margin-left: 100px;
+}
+
+/* --- Section Heading --- */
+.section-heading h4 {
+  color: #ff014f;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.section-heading h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #c4cfde;
+  margin: 0;
+}
+
+/* --- LEFT CARD (Person) --- */
+.card-person {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+}
+
+.image-box {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.image-box img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  display: block;
+  object-fit: cover;
+}
+.card-person:hover .image-box img {
+  transform: scale(1.1);
+}
+
+.person-info span {
+  color: #ff014f;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.person-info h3 {
+  color: #c4cfde;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+.person-info p {
+  font-size: 15px;
+  color: #878e99;
+  margin: 0;
+}
+
+/* --- RIGHT CARD --- */
+.testimonial-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  min-height: 60px;
+}
+
+.testimonial-nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-btn {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  color: #c4cfde;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  font-size: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: #1e2024;
+  color: #ff014f;
+  transform: translateY(-3px);
+}
+
+.card-review {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  border-radius: 20px;
+  padding: 50px;
+  position: relative;
+  height: 100%;
+}
+
+.review-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: 80px;
+}
+
+.header-left h3 {
+  color: #c4cfde;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.header-left .date {
+  color: #878e99;
+  font-size: 14px;
+}
+
+.header-right-stars {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: inset 4px 4px 8px #1c1e22, inset -4px -4px 8px #262a2e;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+.stars i {
+  color: #ffbc05;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+.review-divider {
+  border: 0;
+  border-top: 1px solid #1a1d21;
+  margin: 30px 0;
+  opacity: 1;
+}
+
+.review-text p {
+  color: #c4cfde;
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.carousel-indicators {
+  bottom: -60px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #1a1d21;
+  border: none;
+  margin: 0 8px;
+  transition: 0.4s;
+  opacity: 1;
+  box-shadow: 1px 1px 2px #000;
+}
+.carousel-indicators .active {
+  background-color: #ff014f;
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+  .card-person {
+    margin-bottom: 30px;
+  }
+
+  .testimonial-top-bar {
+    display: none;
+  }
+
+  .review-header-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-right-stars {
+    margin-top: 10px;
+  }
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 2px;
+  background-color: black;
+}
