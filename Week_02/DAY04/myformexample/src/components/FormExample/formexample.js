@@ -3,11 +3,21 @@ import './formexample.css';
 
 const Formexample = () => {
 
-    const [name, setName] = useState("");
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        position: "",
+        gender: ""
+    });
 
-    function handleChange(e) {
-        setName(e.target.value);
-    }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData({
+            ...data,
+            [name]: value
+        });
+    };
 
     return (
         <>
@@ -18,65 +28,111 @@ const Formexample = () => {
                             <div class="form-items">
                                 <h3>React Form Example</h3>
                                 <p>Fill in the data below.</p>
-                                <form class="requires-validation" novalidate>
 
+                                <form class="requires-validation" noValidate>
+
+                                    {/* NAME */}
                                     <div class="col-md-12">
-                                        <input class="form-control" type="text" name="name" value={name} placeholder="Full Name" onChange={handleChange} required />
-                                        <div class="valid-feedback">Username field is valid!</div>
-                                        <div class="invalid-feedback">Username field cannot be blank!</div>
-                                        <p className='mt-3'> Print Name : {name}</p>
+                                        <input
+                                            class="form-control"
+                                            type="text"
+                                            name="name"
+                                            onChange={handleChange}
+                                            value={data.name}
+                                            placeholder="Full Name"
+                                            required
+                                        />
+                                        <p className='mt-3'>Print Name : {data.name}</p>
                                     </div>
 
-                                    {/* <div class="col-md-12">
-                                        <input class="form-control" type="email" name="email" placeholder="E-mail Address" required />
-                                        <div class="valid-feedback">Email field is valid!</div>
-                                        <div class="invalid-feedback">Email field cannot be blank!</div>
+                                    {/* EMAIL */}
+                                    <div class="col-md-12">
+                                        <input
+                                            class="form-control"
+                                            type="email"
+                                            name="email"
+                                            onChange={handleChange}
+                                            value={data.email}
+                                            placeholder="E-mail Address"
+                                            required
+                                        />
+                                        <p className='mt-3'>Print Email : {data.email}</p>
                                     </div>
 
+                                    {/* POSITION SELECT */}
                                     <div class="col-md-12">
-                                        <select class="form-select mt-3" required>
+                                        <select
+                                            class="form-select mt-3"
+                                            name="position"
+                                            value={data.position}
+                                            onChange={handleChange}
+                                            required
+                                        >
                                             <option selected disabled value="">Position</option>
-                                            <option value="jweb">Junior Web Developer</option>
-                                            <option value="sweb">Senior Web Developer</option>
-                                            <option value="pmanager">Project Manager</option>
+                                            <option value="Junior Web Developer">Junior Web Developer</option>
+                                            <option value="Senior Web Developer">Senior Web Developer</option>
+                                            <option value="Project Manager">Project Manager</option>
                                         </select>
-                                        <div class="valid-feedback">You selected a position!</div>
-                                        <div class="invalid-feedback">Please select a position!</div>
+                                        <p className='mt-3'>Print Position : {data.position}</p>
                                     </div>
 
-
+                                    {/* PASSWORD */}
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" name="password" placeholder="Password" required />
-                                        <div class="valid-feedback">Password field is valid!</div>
-                                        <div class="invalid-feedback">Password field cannot be blank!</div>
+                                        <input
+                                            class="form-control"
+                                            type="password"
+                                            name="password"
+                                            onChange={handleChange}
+                                            value={data.password}
+                                            placeholder="Password"
+                                            required
+                                        />
+                                        <p className='mt-3'>Print Password : {data.password}</p>
                                     </div>
 
-
+                                    {/* GENDER BUTTON RADIO */}
                                     <div class="col-md-12 mt-3">
                                         <label class="mb-3 mr-1 me-2" for="gender">Gender: </label>
 
-                                        <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required />
+                                        <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="gender"
+                                            id="male"
+                                            value="Male"
+                                            onChange={handleChange}
+                                        />
                                         <label class="btn btn-sm btn-outline-secondary me-2" for="male">Male</label>
 
-                                        <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required />
+                                        <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="gender"
+                                            id="female"
+                                            value="Female"
+                                            onChange={handleChange}
+                                        />
                                         <label class="btn btn-sm btn-outline-secondary me-2" for="female">Female</label>
 
-                                        <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required />
+                                        <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="gender"
+                                            id="secret"
+                                            value="Secret"
+                                            onChange={handleChange}
+                                        />
                                         <label class="btn btn-sm btn-outline-secondary me-2" for="secret">Secret</label>
-                                        <div class="valid-feedback mv-up">You selected a gender!</div>
-                                        <div class="invalid-feedback mv-up">Please select a gender!</div>
+
+                                        <p className='mt-3'>Print Gender : {data.gender}</p>
                                     </div>
 
+                                    {/* CHECKBOX */}
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                                        <input class="form-check-input" type="checkbox" required />
                                         <label class="form-check-label">I confirm that all data are correct</label>
-                                        <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
                                     </div>
 
-
-                                    <div class="form-button mt-3">
-                                        <button id="submit" type="submit" class="btn btn-primary">Register</button>
-                                    </div> */}
                                 </form>
                             </div>
                         </div>
@@ -85,6 +141,6 @@ const Formexample = () => {
             </div>
         </>
     );
+};
 
-}
 export default Formexample;
