@@ -96,7 +96,7 @@ body {
     background-color: #fff;
     font-size: 15px;
     font-weight: 300;
-    color: #8D8D8D;
+    color: #454141;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-top: 16px;
@@ -113,7 +113,7 @@ body {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    background-color: #495056;
+    background-color: #98c2e7;
     outline: none !important;
     border: none !important;
     box-shadow: none;

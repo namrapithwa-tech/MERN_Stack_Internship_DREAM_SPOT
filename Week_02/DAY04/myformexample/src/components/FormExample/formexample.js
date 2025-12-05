@@ -26,7 +26,7 @@ const Formexample = () => {
                     <div class="form-holder">
                         <div class="form-content">
                             <div class="form-items">
-                                <h3>React Form Example</h3>
+                                <h3>React Form Example with onChange Event</h3>
                                 <p>Fill in the data below.</p>
 
                                 <form class="requires-validation" noValidate>

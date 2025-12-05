@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+/* Navbar CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #212428;
+  color: #c4cfde;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reusable Container */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px; /* Side padding for mobile */
+  width: 100%;
+}
+
+.navbar {
+  background-color: #212428;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+    /* i want glass effect */
+    background: rgba(59, 54, 54, 0.1);
+    backdrop-filter: blur(15.5px);
+    -webkit-backdrop-filter: blur(0.8px);
+    box-shadow: #262a2e;
+}
+
+.navbar-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.logo img {
+  height: 60px;
+  width: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 35px; /* Spacing between links */
+}
+
+.nav-link {
+  color: #c4cfde;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* Buy Now Button */
+.btn-buy-now {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  color: #ff014f;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-buy-now:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(145deg, #23272b, #1e2024);
+  box-shadow: 5px 5px 10px #1c1e22, -5px -5px 10px #262a2e;
+  color: #ff014f;
 }
