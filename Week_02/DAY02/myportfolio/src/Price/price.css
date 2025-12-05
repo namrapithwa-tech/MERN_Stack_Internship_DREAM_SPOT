@@ -1,0 +1,199 @@
+/* --- Global Reset & Body --- */
+body {
+    background-color: #212428;
+    color: #c4cfde;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.main-wrapper {
+    min-height: 100vh;
+    padding: 60px 0;
+}
+
+/* --- Left Side Title --- */
+.pricing-header {
+    margin-top: 10px;
+}
+
+h6.text-danger {
+    color: #ff014f !important;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+h1.display-3 {
+    color: #e4e6ea;
+    font-weight: 700;
+}
+
+/* --- Right Side Card --- */
+.pricing-card {
+    width: 100%;
+    /* Reduced width slightly from previous iteration to approx 660px */
+    max-width: 660px;
+    /* Height maintained */
+    min-height: 780px;
+    margin-left: 170px;
+    background: #212428;
+    border-radius: 20px;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e !important;
+    padding: 0; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Tabs Wrapper --- */
+.tabs-container {
+    background: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    border-radius: 12px;
+    margin: 40px 40px 0 40px; 
+    position: relative;
+    z-index: 2;
+}
+
+.nav-pills .nav-link {
+    color: #c4cfde;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 24px 0;
+    border-radius: 12px;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.nav-pills .nav-link:hover {
+    color: #ff014f;
+}
+
+/* Active Tab Style */
+.nav-pills .nav-link.active {
+    background: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: inset 5px 5px 10px #1c1e22, inset -5px -5px 10px #262a2e;
+    color: #ff014f;
+}
+
+/* --- Recommended Badge --- */
+.badge-recommended {
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #505257; 
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+.badge-recommended::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #505257;
+}
+
+/* --- Content Section --- */
+.card-body-content {
+    /* Adjusted horizontal padding */
+    padding: 50px 50px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: #e4e6ea;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.price-tag {
+    color: #ff014f;
+    font-size: 26px;
+    font-weight: 700;
+    background: #212428;
+    box-shadow: inset 4px 4px 8px #1c1e22, inset -4px -4px 8px #262a2e;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+.small-subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.description-text {
+    font-size: 17px;
+    line-height: 28px;
+    color: #878e99;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* --- Feature List --- */
+.feature-list {
+    color: #c4cfde;
+    font-size: 15px;
+}
+
+.feature-list .fa-check {
+    color: #fff;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* --- Order Now Button --- */
+.order-area {
+    margin-top: auto; 
+}
+
+.order-btn-block {
+    display: block;
+    width: 100%;
+    background: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    color: #ff014f;
+    text-align: center;
+    padding: 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.order-btn-block:hover {
+    background: linear-gradient(145deg, #23272b, #1e2024);
+    color: #ff014f;
+    transform: translateY(-2px);
+}
+
+.delivery-info {
+    font-size: 13px;
+    color: #878e99;
+}
+
+/* Horizontal line CSS */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 2px;
+  background-color: black;
+}

@@ -1,0 +1,21 @@
+/* --- Footer Section --- */
+.footer-section {
+    background-color: #212428;
+    padding: 10px 0 30px 0;
+}
+
+.footer-img {
+    
+    width: auto;       
+    height: 100px;     
+    object-fit: contain; 
+    border: none;     
+    border-radius: 80%;
+}
+
+.footer-copyright {
+
+    color: #878e99;
+    font-size: 17px;
+    margin-top: 20px;
+}
