@@ -1,0 +1,101 @@
+/* Background */
+.date-bg {
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glass Card */
+.glass-card {
+    width: 500px;
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+    text-align: left;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+
+label {
+    color: #fff;
+    font-weight: 500;
+    margin-top: 10px;
+    display: block;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: rgba(255,255,255,0.7);
+    outline: none;
+    font-size: 15px;
+}
+
+input:hover {
+    background: rgba(255,255,255,0.9);
+}
+
+/* Buttons */
+.btn-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.btn {
+    width: 48%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+/* Calculate Button */
+.calculate {
+    background: rgba(0, 150, 70, 0.7);
+}
+
+.calculate:hover {
+    background: rgba(0, 255, 90, 0.9);
+    backdrop-filter: blur(8px);
+}
+
+/* Reset Button */
+.reset {
+    background: rgba(180, 0, 0, 0.7);
+}
+
+.reset:hover {
+    background: rgba(255, 30, 30, 0.9);
+    backdrop-filter: blur(8px);
+}
+
+/* Result box */
+.result-text {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(255, 240, 240, 0.8);
+    font-size: 15px;
+    color: #222;
+}
