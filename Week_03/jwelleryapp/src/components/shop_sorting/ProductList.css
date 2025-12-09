@@ -1,0 +1,78 @@
+/* Container wrappers */
+.product-card-wrapper {
+    transition: all 0.3s ease;
+}
+
+.product-card-wrapper.list {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Image Hover Wrapper */
+.image-box {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Icons Container (Hidden by default) */
+.hover-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    /* Start slightly lower */
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover Effect: Show Icons */
+.product-card-wrapper:hover .hover-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+    /* Move up to center */
+}
+
+/* Individual Icon Style */
+.action-btn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+.action-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Special styling for the 'Add to cart' text button if you want it mixed with icons */
+.action-btn.text-with-icon {
+    width: auto;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* List View specific overrides */
+.product-card-wrapper.list .image-box img {
+    max-width: 300px;
+}
+
+/* Smooth fade for text */
+.details-box {
+    transition: opacity 0.3s;
+}
