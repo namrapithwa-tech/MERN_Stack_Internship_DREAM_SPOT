@@ -53,7 +53,8 @@
 --> Week 03
 	-- Day 01
 		Questions and Answers.
-		Node.js Disscusion.
+		Thoery Disscusion.
 
 	-- Day 02
-		
+		http://preview.themeforest.net/item/corano-jewellery-theme-for-woocommerce-wordpress/full_screen_preview/24061739
+		Website design with sorting functionality
