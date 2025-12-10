@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 
 
 const ProductList = () => {
+    const navigate = useNavigate();
     const initialProducts = [
         {
             id: 1,
@@ -141,6 +143,7 @@ const ProductList = () => {
     const [products, setProducts] = useState(initialProducts);
     const [viewMode, setViewMode] = useState('grid');
     const [sortType, setSortType] = useState('default');
+    
 
     // --- Sorting Logic ---
     useEffect(() => {
@@ -155,7 +158,7 @@ const ProductList = () => {
                     sorted.sort((a, b) => b.rating - a.rating);
                     break;
                 case 'latest':
-                    sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)); 
+                    sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
                     break;
                 case 'lowToHigh':
                     sorted.sort((a, b) => a.price - b.price);
@@ -217,7 +220,11 @@ const ProductList = () => {
                 {products.map((product) => (
                     <div key={product.id} className={viewMode === 'grid' ? 'col-lg-3 col-md-4 col-sm-6 mb-4' : 'row w-100 mb-4'}>
 
-                        <div className={`product-card-wrapper ${viewMode}`}>
+                        <div
+                            className={`product-card-wrapper ${viewMode}`}
+                            onClick={() => navigate(`/product/${product.id}`)}
+                            style={{ cursor: "pointer" }}
+                        >
 
                             {/* Image & Hover Icons */}
                             <div className={`image-box position-relative ${viewMode === 'list' ? 'col-md-4' : ''}`}>

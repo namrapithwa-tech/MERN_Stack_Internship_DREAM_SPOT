@@ -62,3 +62,4 @@
 	-- Day 03 
 		The Video presentation of AI Pre-Summit of spoke person MR. Vinod Khosala. 
 		Add to Cart Funcationality work given.
+		Product Click and new page open funacnality completed add to cart pending
