@@ -58,3 +58,7 @@
 	-- Day 02
 		http://preview.themeforest.net/item/corano-jewellery-theme-for-woocommerce-wordpress/full_screen_preview/24061739
 		Website design with sorting functionality
+
+	-- Day 03 
+		The Video presentation of AI Pre-Summit of spoke person MR. Vinod Khosala. 
+		Add to Cart Funcationality work given.
