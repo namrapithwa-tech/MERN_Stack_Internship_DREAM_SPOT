@@ -1,47 +1,175 @@
+/* Main Background */
 .footer-dark {
-  background: #1b1b1d; /* darker than body */
-  color: white;
-  padding-top: 40px;
+  background: #1a1a1a;
+  color: #e4e4e4;
+  padding-top: 60px;
+  font-family: "Inter", sans-serif;
 }
 
+/* Logo */
 .footer-logo {
   font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
+  color: #fff;
 }
 
+/* Gold Underline Animation */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #c8a049, #e7c670);
+  transition: width 0.35s ease;
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+/* Text */
+.footer-desc {
+  font-size: 15px;
+  color: #cfcfcf;
+}
+
+/* Sitemap */
 .footer-title {
   font-size: 18px;
+  margin-bottom: 15px;
   font-weight: 600;
-  margin-bottom: 12px;
-  color: #c8a049;
+  color: #fff;
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .footer-links li {
-  cursor: pointer;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.footer-links li a {
   color: #ccc;
-  transition: color .3s ease, transform .3s ease;
+  text-decoration: none;
+  transition: 0.25s;
 }
 
-.footer-links li:hover {
+.footer-links li a:hover {
   color: #c8a049;
-  transform: translateX(5px);
+  margin-left: 4px;
 }
 
+/* Contact info */
+.footer-info {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-info i {
+  color: #c8a049;
+  margin-right: 8px;
+}
+
+/* Social icons */
+.footer-social .social-icon {
+  font-size: 22px;
+  color: #e4e4e4;
+  margin-right: 14px;
+  transition: 0.3s;
+}
+
+.footer-social .social-icon:hover {
+  color: #c8a049;
+  transform: translateY(-3px);
+}
+
+/* Newsletter box */
+.newsletter-box {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.newsletter-box input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+
+.newsletter-box input:focus {
+  outline: none;
+}
+
+.newsletter-box button {
+  background: #c8a049;
+  border: none;
+  padding: 10px 14px;
+  color: white;
+  transition: 0.3s;
+}
+
+.newsletter-box button:hover {
+  background: #b7923c;
+}
+
+/* Secure Logo */
+.secure-logo {
+  width: 150px;
+  opacity: 0.85;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+
+.secure-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Divider */
 .footer-line {
-  border-color: rgba(255,255,255,0.1);
+  border-color: #333;
   margin-top: 30px;
 }
 
+/* Copyright */
 .footer-copy {
   color: #aaa;
   font-size: 14px;
   margin-top: 20px;
+}
+
+/* Scroll To Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #c8a049;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-5px);
+  background: #e2b966;
 }
