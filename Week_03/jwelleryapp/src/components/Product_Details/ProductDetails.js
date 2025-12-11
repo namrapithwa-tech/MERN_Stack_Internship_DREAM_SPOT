@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import { CartContext } from "../../context/CartContext";
 
 const products = [
     {
@@ -140,28 +141,24 @@ const products = [
 const ProductDetails = () => {
     const { id } = useParams();
     const product = products.find((p) => p.id === Number(id));
+    const [qty, setQty] = useState(1);
+    const { addToCart } = useContext(CartContext);
 
     if (!product) return <h2>Product Not Found</h2>;
 
     return (
         <div className="details-page container mt-5 mb-5">
             <div className="row glass-box p-4 align-items-center">
-
                 {/* LEFT IMAGE */}
                 <div className="col-md-6 text-center">
-                    <img
-                        src={product.image}
-                        alt={product.name}
-                        className="img-fluid main-product-img shadow-img"
-                    />
+                    <img src={product.image} alt={product.name} className="img-fluid main-product-img shadow-img" />
 
                     {/* THUMBNAILS */}
-                    <div className="thumb-row d-flex gap-3 mt-4">
+                    <div className="thumb-row d-flex gap-3 mt-2">
                         <img src={product.image} className="thumb-img" />
                         <img src={product.image} className="thumb-img" />
                         <img src={product.image} className="thumb-img" />
                     </div>
-
                 </div>
 
                 {/* RIGHT INFO */}
@@ -175,9 +172,22 @@ const ProductDetails = () => {
                     <p className="pd-desc">{product.description}</p>
 
                     {/* CART SECTION */}
-                    <div className="d-flex gap-3 my-4">
-                        <input type="number" defaultValue="1" className="qty-box" />
-                        <button className="add-cart-btn">ADD TO CART</button>
+                    <div className="d-flex gap-3 my-4 align-items-center">
+                        <input
+                            type="number"
+                            value={qty}
+                            min={1}
+                            className="qty-box"
+                            onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
+                        />
+                        <button
+                            className="add-cart-btn"
+                            onClick={() => {
+                                addToCart(product, qty);
+                            }}
+                        >
+                            ADD TO CART
+                        </button>
                     </div>
 
                     {/* EXTRA ACTIONS */}
@@ -189,7 +199,10 @@ const ProductDetails = () => {
                     <hr />
 
                     {/* META */}
-                    <p><b>Category:</b> {product.category}</p>
+                    <p>
+                        <b>Category:</b> {product.category}
+                    </p>
+
                     <div className="pd-share">
                         <b>Share:</b>
 
@@ -206,10 +219,11 @@ const ProductDetails = () => {
                             className="copy-link-btn"
                             onClick={() => {
                                 navigator.clipboard.writeText(window.location.href);
-                                document.querySelector(".copy-msg").classList.add("show");
-                                setTimeout(() => {
-                                    document.querySelector(".copy-msg").classList.remove("show");
-                                }, 1500);
+                                const el = document.querySelector(".copy-msg");
+                                if (el) {
+                                    el.classList.add("show");
+                                    setTimeout(() => el.classList.remove("show"), 1400);
+                                }
                             }}
                         >
                             <i className="bi bi-link-45deg"></i> Copy Link
@@ -217,7 +231,6 @@ const ProductDetails = () => {
 
                         <span className="copy-msg">Link Copied!</span>
                     </div>
-
                 </div>
             </div>
         </div>

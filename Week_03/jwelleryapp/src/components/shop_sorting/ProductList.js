@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import './ProductList.css';
+import React, { useState, useEffect, useContext } from "react";
+import "./ProductList.css";
+import { CartContext } from "../../context/CartContext";
 
 const ProductList = () => {
     const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext);
+
     const initialProducts = [
         {
             id: 1,
@@ -140,27 +143,27 @@ const ProductList = () => {
     ];
 
     const [products, setProducts] = useState(initialProducts);
-    const [viewMode, setViewMode] = useState('grid');
-    const [sortType, setSortType] = useState('default');
-    
+    const [viewMode, setViewMode] = useState("grid");
+    const [sortType, setSortType] = useState("default");
+
     useEffect(() => {
-        const sortArray = type => {
+        const sortArray = (type) => {
             let sorted = [...initialProducts];
 
             switch (type) {
-                case 'popularity':
+                case "popularity":
                     sorted.sort((a, b) => b.popularity - a.popularity);
                     break;
-                case 'rating':
+                case "rating":
                     sorted.sort((a, b) => b.rating - a.rating);
                     break;
-                case 'latest':
+                case "latest":
                     sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
                     break;
-                case 'lowToHigh':
+                case "lowToHigh":
                     sorted.sort((a, b) => a.price - b.price);
                     break;
-                case 'highToLow':
+                case "highToLow":
                     sorted.sort((a, b) => b.price - a.price);
                     break;
                 default:
@@ -179,15 +182,15 @@ const ProductList = () => {
                 <div className="d-flex align-items-center gap-3">
                     <div className="view-toggle">
                         <button
-                            className={`icon-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                            onClick={() => setViewMode('grid')}
+                            className={`icon-btn ${viewMode === "grid" ? "active" : ""}`}
+                            onClick={() => setViewMode("grid")}
                             aria-label="grid view"
                         >
                             <i className="bi bi-grid-3x3-gap-fill"></i>
                         </button>
                         <button
-                            className={`icon-btn ${viewMode === 'list' ? 'active' : ''}`}
-                            onClick={() => setViewMode('list')}
+                            className={`icon-btn ${viewMode === "list" ? "active" : ""}`}
+                            onClick={() => setViewMode("list")}
                             aria-label="list view"
                         >
                             <i className="bi bi-list-ul"></i>
@@ -214,15 +217,15 @@ const ProductList = () => {
                 </div>
             </div>
 
-            <div className={viewMode === 'grid' ? 'row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4' : 'list-column'}>
+            <div className={viewMode === "grid" ? "row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4" : "list-column"}>
                 {products.map((product) => (
-                    <div key={product.id} className={viewMode === 'grid' ? 'col' : 'list-item mb-4'}>
+                    <div key={product.id} className={viewMode === "grid" ? "col" : "list-item mb-4"}>
                         <div
                             className={`pl-card ${viewMode} glass`}
                             onClick={() => navigate(`/product/${product.id}`)}
                             role="button"
                             tabIndex={0}
-                            onKeyDown={() => {}}
+                            onKeyDown={() => { }}
                         >
                             <div className="pl-media">
                                 <img src={product.image} alt={product.name} className="pl-img" />
@@ -230,8 +233,19 @@ const ProductList = () => {
                                     <button className="pl-icon circle"><i className="bi bi-heart"></i></button>
                                     <button className="pl-icon circle"><i className="bi bi-arrow-left-right"></i></button>
                                     <button className="pl-icon circle"><i className="bi bi-search"></i></button>
-                                    <button className="pl-add btn">Add to cart</button>
+
+                                    {/* IMPORTANT: stopPropagation so card click doesn't navigate */}
+                                    <button
+                                        className="pl-add btn"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            addToCart(product, 1);
+                                        }}
+                                    >
+                                        Add to cart
+                                    </button>
                                 </div>
+
                                 <div className="pl-badge">
                                     <span className="gold">₹ {product.price.toFixed(0)}</span>
                                 </div>
@@ -241,24 +255,32 @@ const ProductList = () => {
                                 <div className="pl-meta small text-muted">Category: {product.category}</div>
                                 <h5 className="pl-title">{product.name}</h5>
                                 <div className="d-flex align-items-center justify-content-between w-100">
-                                    <div className="pl-rating small">Rating: <span className="fw-bold">{product.rating}</span>/10</div>
+                                    <div className="pl-rating small">
+                                        Rating: <span className="fw-bold">{product.rating}</span>/10
+                                    </div>
                                     <div className="pl-pop small text-muted">Popularity: {product.popularity}</div>
                                 </div>
 
-                                {viewMode === 'list' && (
+                                {viewMode === "list" && (
                                     <div className="pl-list-details mt-3">
                                         <p className="small text-muted">{product.description}</p>
                                         <div className="d-flex gap-2">
-                                            <button className="btn btn-outline-dark btn-sm">Add to cart</button>
+                                            <button
+                                                className="btn btn-outline-dark btn-sm"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    addToCart(product, 1);
+                                                }}
+                                            >
+                                                Add to cart
+                                            </button>
                                             <button className="btn btn-light btn-sm border"><i className="bi bi-heart"></i></button>
                                             <button className="btn btn-light btn-sm border"><i className="bi bi-search"></i></button>
                                         </div>
                                     </div>
                                 )}
 
-                                <div className="pl-footer small text-muted mt-2">
-                                    Added: {product.dateAdded}
-                                </div>
+                                <div className="pl-footer small text-muted mt-2">Added: {product.dateAdded}</div>
                             </div>
                         </div>
                     </div>

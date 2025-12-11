@@ -1,0 +1,157 @@
+/* Cart.css - Option A theme + Empty Cart Animation (Premium) */
+
+.cart-page {
+  background: linear-gradient(#f3f4f6, #e5e7eb);
+  padding-bottom: 60px;
+  min-height: 60vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* Glass card repeated */
+.glass {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Section title */
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Cart items */
+.cart-item-img {
+  width: 110px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cart-item {
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
+  padding-bottom: 12px;
+}
+
+.qty-btn {
+  border-radius: 8px;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+}
+
+.qty-value {
+  min-width: 28px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #b00;
+  cursor: pointer;
+}
+
+/* summary and buttons */
+.auth-btn {
+  background: #c8a049;
+  color: white;
+  padding: 10px;
+  border-radius: 22px;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+}
+
+/* Empty cart box layout */
+.empty-cart-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Empty animation wrapper */
+.empty-anim-wrap {
+  width: 300px;
+  height: 180px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+/* SVG cart */
+.empty-cart-svg {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+
+/* line drawing animation for cart path */
+.cart-path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 1.4s ease forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* wheel pulse */
+.wheel {
+  fill: transparent;
+  stroke: #c8a049;
+  stroke-width: 2;
+  transform-origin: center;
+  animation: wheelpop 1.6s ease infinite;
+}
+@keyframes wheelpop {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* sparkle dots */
+.empty-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sparkle {
+  position: absolute;
+  top: 18%;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fff 0%, #ffd47a 50%, #c8a049 100%);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(200,160,73,0.15);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.8);
+  animation: sparkleUp 1.6s infinite;
+}
+@keyframes sparkleUp {
+  0% { opacity: 0; transform: translateY(-6px) scale(0.6); }
+  30% { opacity: 0.95; transform: translateY(0) scale(1.06); }
+  100% { opacity: 0; transform: translateY(10px) scale(0.5); }
+}
+
+/* text and layout beneath animation */
+.empty-text h4 {
+  margin: 6px 0;
+  color: #111;
+}
+.empty-text p {
+  color: #666;
+}
+
+/* responsive adjustments */
+@media (max-width: 768px) {
+  .empty-anim-wrap { width: 220px; height: 140px; }
+  .cart-item-img { width: 90px; }
+}

@@ -1,0 +1,104 @@
+/* Checkout.css - Celebration Canvas + Success UI (Option A theme) */
+
+.checkout-page {
+  background: linear-gradient(#f3f4f6, #e5e7eb);
+  min-height: 70vh;
+  padding-bottom: 60px;
+  font-family: "Inter", sans-serif;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* inputs */
+.input-box {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #c8a049;
+  box-shadow: 0 0 4px rgba(200,160,73,0.3);
+}
+
+/* button */
+.auth-btn {
+  background: #c8a049;
+  color: white;
+  padding: 12px;
+  border-radius: 22px;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Checkout SUCCESS full-screen layout */
+.checkout-success {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(#fafafa, #eee);
+  overflow: hidden;
+}
+
+/* slight grey overlay behind canvas (Q2: A) */
+.checkout-success .overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.12);
+  z-index: 4;
+}
+
+/* canvas styles */
+.celebration-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* success box (center card) */
+.success-box {
+  z-index: 8;
+  padding: 36px 48px;
+  border-radius: 14px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.success-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #111;
+}
+
+.order-id {
+  color: #c8a049;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .success-box { padding: 24px; }
+  .success-title { font-size: 26px; }
+}
