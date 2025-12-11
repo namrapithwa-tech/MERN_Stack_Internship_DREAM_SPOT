@@ -1,0 +1,63 @@
+.contact-page {
+  background: linear-gradient(#f3f4f6, #e5e7eb);
+  color: #111;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Office Boxes */
+.office-box {
+  border-radius: 16px;
+}
+
+.office-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c8a049;
+}
+
+/* Toll free */
+.tollfree span {
+  color: #c8a049;
+  font-weight: 700;
+}
+
+/* Form */
+.contact-form {
+  border-radius: 16px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.send-btn {
+  background: #c8a049;
+  color: white;
+  font-weight: bold;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  transition: .3s ease;
+}
+
+.send-btn:hover {
+  background: #a88336;
+  transform: translateY(-3px);
+}
+
+.success-msg {
+  color: #2b9a2b;
+  font-weight: 700;
+  font-size: 18px;
+}

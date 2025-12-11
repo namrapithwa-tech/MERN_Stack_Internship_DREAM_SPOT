@@ -1,0 +1,71 @@
+.auth-page {
+  height: 100vh;
+  background: linear-gradient(#f3f4f6, #e5e7eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+/* Glass UI box */
+.auth-box {
+  width: 380px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.auth-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+.input-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.auth-btn {
+  width: 100%;
+  background: #c8a049;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 17px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.auth-btn:hover {
+  background: #a88336;
+  transform: translateY(-3px);
+}
+
+/* Links */
+.auth-link {
+  color: #c8a049;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Success message */
+.success-msg {
+  color: #2b9a2b;
+  font-weight: 700;
+  text-align: center;
+}

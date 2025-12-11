@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 
-
 const ProductList = () => {
     const navigate = useNavigate();
     const initialProducts = [
@@ -144,8 +143,6 @@ const ProductList = () => {
     const [viewMode, setViewMode] = useState('grid');
     const [sortType, setSortType] = useState('default');
     
-
-    // --- Sorting Logic ---
     useEffect(() => {
         const sortArray = type => {
             let sorted = [...initialProducts];
@@ -177,31 +174,33 @@ const ProductList = () => {
     }, [sortType]);
 
     return (
-        <div className="container mt-5">
-            {/* --- Header Controls --- */}
-            <div className="d-flex justify-content-between align-items-center mb-5 pb-3 border-bottom">
-                <div className="d-flex align-items-center">
-                    {/* View Toggles */}
-                    <button
-                        className={`btn btn-link text-decoration-none p-0 me-3 text-dark ${viewMode === 'grid' ? 'opacity-100' : 'opacity-50'}`}
-                        onClick={() => setViewMode('grid')}
-                    >
-                        <i className="bi bi-grid-3x3-gap-fill fs-4"></i>
-                    </button>
-                    <button
-                        className={`btn btn-link text-decoration-none p-0 me-3 text-dark ${viewMode === 'list' ? 'opacity-100' : 'opacity-50'}`}
-                        onClick={() => setViewMode('list')}
-                    >
-                        <i className="bi bi-list-ul fs-4"></i>
-                    </button>
-                    <span className="text-muted small">Showing 1–{products.length} of {products.length} results</span>
+        <div className="pl-page container p-5 my-5">
+            <div className="pl-topbar d-flex justify-content-between align-items-center mb-4">
+                <div className="d-flex align-items-center gap-3">
+                    <div className="view-toggle">
+                        <button
+                            className={`icon-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                            onClick={() => setViewMode('grid')}
+                            aria-label="grid view"
+                        >
+                            <i className="bi bi-grid-3x3-gap-fill"></i>
+                        </button>
+                        <button
+                            className={`icon-btn ${viewMode === 'list' ? 'active' : ''}`}
+                            onClick={() => setViewMode('list')}
+                            aria-label="list view"
+                        >
+                            <i className="bi bi-list-ul"></i>
+                        </button>
+                    </div>
+                    <div className="results small text-muted">
+                        Showing <span className="fw-semibold">{products.length}</span> results
+                    </div>
                 </div>
 
-                {/* Sorting Dropdown */}
-                <div>
+                <div className="sort-wrap">
                     <select
-                        className="form-select border-0 bg-transparent text-end"
-                        style={{ cursor: 'pointer' }}
+                        className="form-select form-select-sm pl-sort-select"
                         onChange={(e) => setSortType(e.target.value)}
                         value={sortType}
                     >
@@ -215,52 +214,52 @@ const ProductList = () => {
                 </div>
             </div>
 
-            {/* --- Product Map --- */}
-            <div className={viewMode === 'grid' ? 'row' : 'd-flex flex-column gap-5'}>
+            <div className={viewMode === 'grid' ? 'row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4' : 'list-column'}>
                 {products.map((product) => (
-                    <div key={product.id} className={viewMode === 'grid' ? 'col-lg-3 col-md-4 col-sm-6 mb-4' : 'row w-100 mb-4'}>
-
+                    <div key={product.id} className={viewMode === 'grid' ? 'col' : 'list-item mb-4'}>
                         <div
-                            className={`product-card-wrapper ${viewMode}`}
+                            className={`pl-card ${viewMode} glass`}
                             onClick={() => navigate(`/product/${product.id}`)}
-                            style={{ cursor: "pointer" }}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={() => {}}
                         >
-
-                            {/* Image & Hover Icons */}
-                            <div className={`image-box position-relative ${viewMode === 'list' ? 'col-md-4' : ''}`}>
-                                <img src={product.image} alt={product.name} className="img-fluid w-100" />
-
-                                {/* Floating Icons (Visible on Hover in Grid, Always/Conditional in List) */}
-                                <div className={`hover-actions ${viewMode === 'list' ? 'd-none' : ''}`}>
-                                    <div className="action-btn"><i className="bi bi-heart"></i></div>
-                                    <div className="action-btn"><i className="bi bi-arrow-left-right"></i></div>
-                                    <div className="action-btn"><i className="bi bi-search"></i></div>
-                                    <div className="action-btn text-with-icon">Add to cart</div>
+                            <div className="pl-media">
+                                <img src={product.image} alt={product.name} className="pl-img" />
+                                <div className="pl-overlay">
+                                    <button className="pl-icon circle"><i className="bi bi-heart"></i></button>
+                                    <button className="pl-icon circle"><i className="bi bi-arrow-left-right"></i></button>
+                                    <button className="pl-icon circle"><i className="bi bi-search"></i></button>
+                                    <button className="pl-add btn">Add to cart</button>
+                                </div>
+                                <div className="pl-badge">
+                                    <span className="gold">₹ {product.price.toFixed(0)}</span>
                                 </div>
                             </div>
 
-                            {/* Text Details */}
-                            <div className={`details-box ${viewMode === 'list' ? 'col-md-8 px-4 d-flex flex-column justify-content-center align-items-start' : 'text-center mt-3'}`}>
-                                <p className="text-muted small mb-1">Category : {product.category}</p>
-                                <h6 className="fw-bold mb-2 text-dark">{product.name}</h6>
-                                <p className="text-muted fw-bold">₹ {product.price.toFixed(2)}</p>
-                                <p className="text-muted small mb-1">Product Rating : {product.rating} /10</p>
-                                <p className="text-muted small mb-1">Product Added Date : {product.dateAdded}</p>
-                                <p className="text-muted small mb-1">Product Popularity : {product.popularity} / 100</p>
+                            <div className="pl-body">
+                                <div className="pl-meta small text-muted">Category: {product.category}</div>
+                                <h5 className="pl-title">{product.name}</h5>
+                                <div className="d-flex align-items-center justify-content-between w-100">
+                                    <div className="pl-rating small">Rating: <span className="fw-bold">{product.rating}</span>/10</div>
+                                    <div className="pl-pop small text-muted">Popularity: {product.popularity}</div>
+                                </div>
 
-                                {/* List View Specific Elements */}
                                 {viewMode === 'list' && (
-                                    <div className="list-view-content mt-2">
-                                        <p className="text-muted small mb-3">{product.description}</p>
+                                    <div className="pl-list-details mt-3">
+                                        <p className="small text-muted">{product.description}</p>
                                         <div className="d-flex gap-2">
-                                            <button className="btn btn-outline-dark rounded-0 px-4">Add to cart</button>
-                                            <button className="btn btn-light border"><i className="bi bi-heart"></i></button>
-                                            <button className="btn btn-light border"><i className="bi bi-search"></i></button>
+                                            <button className="btn btn-outline-dark btn-sm">Add to cart</button>
+                                            <button className="btn btn-light btn-sm border"><i className="bi bi-heart"></i></button>
+                                            <button className="btn btn-light btn-sm border"><i className="bi bi-search"></i></button>
                                         </div>
                                     </div>
                                 )}
-                            </div>
 
+                                <div className="pl-footer small text-muted mt-2">
+                                    Added: {product.dateAdded}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}

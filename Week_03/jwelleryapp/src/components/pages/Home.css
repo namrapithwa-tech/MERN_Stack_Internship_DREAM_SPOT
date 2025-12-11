@@ -1,0 +1,131 @@
+.home-page {
+  background: linear-gradient(#f3f4f6, #e5e7eb);
+  color: #111;
+  font-family: "Inter", sans-serif;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+/* ABOUT SECTION */
+.about-section {
+  margin-top: 40px;
+}
+
+.hq-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.about-text {
+  color: #444;
+  line-height: 1.7;
+}
+
+/* TITLES */
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* FOUNDER CARD */
+.founder-card:hover {
+  transform: translateY(-6px);
+}
+
+.founder-img {
+  width: 120px;
+  border-radius: 50%;
+}
+
+.founder-name {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.founder-role {
+  color: #c8a049;
+  font-weight: 600;
+}
+
+/* TIMELINE */
+.timeline-wrapper {
+  padding-bottom: 40px;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 90%;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: #c8a049;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.timeline-item.right {
+  left: 50%;
+  padding-left: 30px;
+}
+
+.timeline-content {
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.timeline-content h4 {
+  font-family: "Playfair Display", serif;
+  color: #c8a049;
+  font-size: 22px;
+}
+
+.timeline-content p {
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding: 0 !important;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+}

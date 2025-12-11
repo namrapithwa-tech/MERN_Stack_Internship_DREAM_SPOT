@@ -144,57 +144,81 @@ const ProductDetails = () => {
     if (!product) return <h2>Product Not Found</h2>;
 
     return (
-        <div className="container mt-5 product-details">
-            <div className="row">
+        <div className="details-page container mt-5 mb-5">
+            <div className="row glass-box p-4 align-items-center">
+
                 {/* LEFT IMAGE */}
                 <div className="col-md-6 text-center">
                     <img
                         src={product.image}
                         alt={product.name}
-                        className="img-fluid main-product-img"
+                        className="img-fluid main-product-img shadow-img"
                     />
+
+                    {/* THUMBNAILS */}
+                    <div className="thumb-row d-flex gap-3 mt-4">
+                        <img src={product.image} className="thumb-img" />
+                        <img src={product.image} className="thumb-img" />
+                        <img src={product.image} className="thumb-img" />
+                    </div>
+
                 </div>
 
                 {/* RIGHT INFO */}
                 <div className="col-md-6">
-                    <h2 className="fw-bold">{product.name}</h2>
+                    <h2 className="pd-title">{product.name}</h2>
 
-                    <p className="rating">⭐⭐⭐⭐☆ ({product.rating} / 10)</p>
+                    <p className="pd-rating">⭐⭐⭐⭐☆ ({product.rating} / 10)</p>
 
-                    <h3 className="price">${product.price}</h3>
+                    <h3 className="pd-price">₹ {product.price}</h3>
 
-                    <p className="desc">{product.description}</p>
+                    <p className="pd-desc">{product.description}</p>
 
                     {/* CART SECTION */}
                     <div className="d-flex gap-3 my-4">
                         <input type="number" defaultValue="1" className="qty-box" />
-                        <button className="add-to-cart-btn">ADD TO CART</button>
+                        <button className="add-cart-btn">ADD TO CART</button>
                     </div>
 
                     {/* EXTRA ACTIONS */}
-                    <div className="d-flex gap-4 mb-3">
-                        <span>♡ Add to Wishlist</span>
-                        <span>⇄ Compare</span>
+                    <div className="pd-actions d-flex gap-4 mb-3">
+                        <span className="pd-link">♡ Add to Wishlist</span>
+                        <span className="pd-link">⇄ Compare</span>
                     </div>
 
                     <hr />
 
                     {/* META */}
-                    <p>
-                        <b>Category:</b> {product.category}
-                    </p>
+                    <p><b>Category:</b> {product.category}</p>
+                    <div className="pd-share">
+                        <b>Share:</b>
 
-                    <p>
-                        <b>Share:</b> Facebook | Twitter | Pinterest | Linkedin
-                    </p>
+                        <div className="social-icons">
+                            <i className="bi bi-facebook"></i>
+                            <i className="bi bi-twitter"></i>
+                            <i className="bi bi-pinterest"></i>
+                            <i className="bi bi-linkedin"></i>
+                            <i className="bi bi-instagram"></i>
+                        </div>
+
+                        {/* COPY LINK BUTTON */}
+                        <button
+                            className="copy-link-btn"
+                            onClick={() => {
+                                navigator.clipboard.writeText(window.location.href);
+                                document.querySelector(".copy-msg").classList.add("show");
+                                setTimeout(() => {
+                                    document.querySelector(".copy-msg").classList.remove("show");
+                                }, 1500);
+                            }}
+                        >
+                            <i className="bi bi-link-45deg"></i> Copy Link
+                        </button>
+
+                        <span className="copy-msg">Link Copied!</span>
+                    </div>
+
                 </div>
-            </div>
-
-            {/* THUMBNAILS */}
-            <div className="d-flex gap-3 mt-5">
-                <img src={product.image} className="thumb-img" />
-                <img src={product.image} className="thumb-img" />
-                <img src={product.image} className="thumb-img" />
             </div>
         </div>
     );

@@ -1,78 +1,213 @@
-/* Container wrappers */
-.product-card-wrapper {
-    transition: all 0.3s ease;
+/* Premium Jewellery Light Theme – Glass Effect */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap');
+
+:root{
+    --gold: #c8a049;
+    --text-dark: #111;
+    --muted: #555;
+    --gray-bg-top: #f3f4f6;
+    --gray-bg-bottom: #e5e7eb;
+
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-blur: 12px;
+    --glass-shadow: 0 10px 35px rgba(0,0,0,0.08);
 }
 
-.product-card-wrapper.list {
+/* Page background */
+.pl-page {
+    background: linear-gradient(180deg, var(--gray-bg-top), var(--gray-bg-bottom));
+    min-height: 80vh;
+    padding-bottom: 80px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+}
+
+/* Topbar */
+.pl-topbar {
+    border-bottom: 1px solid #d1d5db;
+    padding-bottom: 18px;
+}
+
+/* View toggle buttons */
+.view-toggle .icon-btn {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all .25s ease;
+    font-size: 1.125rem;
+}
+
+.view-toggle .icon-btn:hover {
+    transform: translateY(-3px);
+    color: var(--text-dark);
+}
+
+.view-toggle .icon-btn.active {
+    color: var(--gold);
+    background: rgba(200,160,73,0.08);
+    border: 1px solid rgba(200,160,73,0.25);
+}
+
+/* Sort dropdown */
+.pl-sort-select {
+    min-width: 220px;
+    background: #fff;
+    color: var(--text-dark);
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* cards layout */
+.row-cols-lg-4 > .col, 
+.list-column .list-item {
     display: flex;
-    flex-direction: row;
 }
 
-/* Image Hover Wrapper */
-.image-box {
+/* Glass Card */
+.pl-card {
+    width: 100%;
+    border-radius: 14px;
     overflow: hidden;
-    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: pointer;
 }
 
-/* Icons Container (Hidden by default) */
-.hover-actions {
+.pl-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.14);
+}
+
+/* Layout modes */
+.pl-card.grid { display: flex; flex-direction: column; }
+.pl-card.list { display: flex; flex-direction: row; gap: 20px; }
+
+/* Image / media */
+.pl-media {
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    background: #fafafa;
+}
+
+.pl-img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform .7s ease;
+}
+
+.pl-card:hover .pl-img {
+    transform: scale(1.12);
+}
+
+/* Hover overlay icons */
+.pl-overlay {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
-    /* Start slightly lower */
+    top: 50%;
+    transform: translate(-50%, 20%);
     display: flex;
     gap: 10px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s ease;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    transition: all .4s ease;
 }
 
-/* Hover Effect: Show Icons */
-.product-card-wrapper:hover .hover-actions {
+.pl-card:hover .pl-overlay {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%);
-    /* Move up to center */
 }
 
-/* Individual Icon Style */
-.action-btn {
-    width: 40px;
-    height: 40px;
-    background: white;
+/* Icon buttons */
+.pl-icon.circle {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    background: white;
+    border: 1px solid #e5e7eb;
+    color: var(--text-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s, color 0.3s;
+    transition: all .25s ease;
 }
 
-.action-btn:hover {
-    background: #000;
-    color: #fff;
+.pl-icon.circle:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-4px);
 }
 
-/* Special styling for the 'Add to cart' text button if you want it mixed with icons */
-.action-btn.text-with-icon {
-    width: auto;
-    padding: 0 15px;
+/* Add to cart in overlay */
+.pl-add {
+    padding: 8px 16px;
     border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
+    background: rgba(200,160,73,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(200,160,73,0.25);
+    font-weight: 600;
 }
 
-/* List View specific overrides */
-.product-card-wrapper.list .image-box img {
-    max-width: 300px;
+.pl-add:hover {
+    background: var(--gold);
+    color: white;
 }
 
-/* Smooth fade for text */
-.details-box {
-    transition: opacity 0.3s;
+/* Price badge */
+.pl-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #e5e7eb;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+.pl-badge .gold {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* Card content */
+.pl-body {
+    padding: 18px;
+}
+
+.pl-meta { color: var(--muted); }
+.pl-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.pl-rating { color: var(--text-dark); }
+.pl-pop { color: var(--muted); }
+
+.pl-footer {
+    font-size: 0.82rem;
+    color: #777;
+}
+
+/* List view adjustments */
+.pl-card.list .pl-media {
+    width: 300px;
+    flex: 0 0 300px;
+}
+
+.pl-card.list .pl-body { padding: 22px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .pl-card.list { flex-direction: column; }
+    .pl-card.list .pl-media { width: 100%; }
 }
