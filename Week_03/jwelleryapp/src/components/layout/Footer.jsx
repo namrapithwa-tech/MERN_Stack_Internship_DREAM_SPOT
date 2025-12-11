@@ -58,12 +58,12 @@ const Footer = () => {
 
                         <p className="footer-info">
                             <i className="bi bi-telephone-fill"></i>
-                            Toll Free: <a href="tel:1800123456">1800-123-456</a>
+                            Toll Free: <a href="tel:1800123456" className="text-decoration-none" ><span className="text-text-decoration-none text-white">1800-123-456</span></a>
                         </p>
 
                         <p className="footer-info">
                             <i className="bi bi-envelope-fill"></i>
-                            <a href="mailto:support@jwellify.com">support@jwellify.com</a>
+                            <a href="mailto:support@jwellify.com" className="text-decoration-none"><span className=" text-decoration-none text-white">support@jwellify.com</span></a>
                         </p>
 
                         <p className="footer-info">

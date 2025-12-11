@@ -76,7 +76,7 @@ const Cart = () => {
                       <span className="qty-value">{item.quantity}</span>
                       <button className="qty-btn" onClick={() => updateQty(item.id, item.quantity + 1)}>+</button>
 
-                      <button className="delete-btn ms-3" onClick={() => removeFromCart(item.id)}>Delete</button>
+                      <button className="delete-btn ms-3" onClick={() => removeFromCart(item.id)}><i className="bi bi-trash"></i></button>
                     </div>
                   </div>
 

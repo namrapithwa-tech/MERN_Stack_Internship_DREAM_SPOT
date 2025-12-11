@@ -73,3 +73,22 @@
   border-radius: 999px;
   font-weight: 700;
 }
+
+/* Wish / Cart badge */
+.nav-icon-btn { position: relative; }
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #c8a049;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.wish-count {
+  right: -6px;
+  top: -10px;
+  background: #e25555; /* red or keep gold if you prefer */
+}

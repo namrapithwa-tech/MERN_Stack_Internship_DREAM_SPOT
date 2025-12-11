@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import "../wishlist/Wishlist.css";
+import { WishlistContext } from "../../context/WishlistContext";
 import { CartContext } from "../../context/CartContext";
 
 const products = [
@@ -137,18 +139,29 @@ const products = [
         description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.'
     }
 ];
-
 const ProductDetails = () => {
     const { id } = useParams();
     const product = products.find((p) => p.id === Number(id));
     const [qty, setQty] = useState(1);
+
     const { addToCart } = useContext(CartContext);
+    const { addToWishlist, removeFromWishlist, isInWishlist } = useContext(WishlistContext);
 
     if (!product) return <h2>Product Not Found</h2>;
 
+    const handleHeart = (e) => {
+        // animation
+        const el = e.currentTarget;
+        el.classList.add("heart-pop");
+        setTimeout(() => el.classList.remove("heart-pop"), 420);
+
+        if (isInWishlist(product.id)) removeFromWishlist(product.id);
+        else addToWishlist(product);
+    };
+
     return (
-        <div className="details-page container mt-5 mb-5">
-            <div className="row glass-box p-4 align-items-center">
+        <div className="details-page container mt-3 mb-4">
+            <div className="row glass-box p-5 align-items-center">
                 {/* LEFT IMAGE */}
                 <div className="col-md-6 text-center">
                     <img src={product.image} alt={product.name} className="img-fluid main-product-img shadow-img" />
@@ -191,21 +204,24 @@ const ProductDetails = () => {
                     </div>
 
                     {/* EXTRA ACTIONS */}
-                    <div className="pd-actions d-flex gap-4 mb-3">
-                        <span className="pd-link">♡ Add to Wishlist</span>
+                    <div className="pd-actions d-flex gap-3 mb-3 align-items-center">
+                        <button
+                            className={`pd-link ${isInWishlist(product.id) ? 'hearted' : ''}`}
+                            onClick={handleHeart}
+                            title="Add to wishlist"
+                        >
+                            <i className="bi bi-heart-fill"></i>
+                        </button>
+
                         <span className="pd-link">⇄ Compare</span>
                     </div>
 
                     <hr />
 
                     {/* META */}
-                    <p>
-                        <b>Category:</b> {product.category}
-                    </p>
-
+                    <p><b>Category:</b> {product.category}</p>
                     <div className="pd-share">
                         <b>Share:</b>
-
                         <div className="social-icons">
                             <i className="bi bi-facebook"></i>
                             <i className="bi bi-twitter"></i>

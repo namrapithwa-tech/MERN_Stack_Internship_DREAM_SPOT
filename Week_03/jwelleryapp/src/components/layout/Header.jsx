@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { CartContext } from "../../context/CartContext";
+import { WishlistContext } from "../../context/WishlistContext";
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { itemsCount } = useContext(CartContext);
+  const { count } = useContext(WishlistContext);
 
   return (
     <nav className="header-glass navbar navbar-expand-lg sticky-top">
@@ -28,42 +30,35 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navMenu">
           <ul className="navbar-nav mx-auto gap-4">
             <li className="nav-item">
-              <Link
-                className={`nav-link ${
-                  location.pathname === "/products" ? "active" : ""
-                }`}
-                to="/products"
-              >
-                Home
-              </Link>
+              <Link className={`nav-link ${location.pathname === "/products" ? "active" : ""}`} to="/products">Home</Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
+              <Link className="nav-link" to="/about">About</Link>
             </li>
 
             <li className="nav-item">
-              <Link
-                className={`nav-link ${
-                  location.pathname.includes("product") ? "active" : ""
-                }`}
-                to="/products"
-              >
-                Products
-              </Link>
+              <Link className={`nav-link ${location.pathname.includes("product") ? "active" : ""}`} to="/products">Products</Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact
-              </Link>
+              <Link className="nav-link" to="/contact">Contact</Link>
             </li>
           </ul>
 
           {/* RIGHT BUTTONS */}
           <div className="d-flex gap-3 align-items-center">
+            {/* WISHLIST */}
+            <button
+              className="nav-icon-btn position-relative"
+              onClick={() => navigate("/wishlist")}
+              aria-label="Go to wishlist"
+              title="Wishlist"
+            >
+              <i className="bi bi-heart"></i>
+              <span className="cart-count wish-count">{count()}</span>
+            </button>
+
             {/* CART */}
             <button
               className="nav-icon-btn position-relative"
