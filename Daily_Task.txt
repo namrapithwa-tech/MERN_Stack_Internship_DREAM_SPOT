@@ -63,3 +63,7 @@
 		The Video presentation of AI Pre-Summit of spoke person MR. Vinod Khosala. 
 		Add to Cart Funcationality work given.
 		Product Click and new page open funacnality completed add to cart pending
+
+	-- Day 04 
+		Home page, Contact Page, Login & Register Page Created and prodcut details page and product list page resdign.
+		Add to Cart and Check Out Funtionality Work Completed.
