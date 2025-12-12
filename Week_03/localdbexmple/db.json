@@ -1,0 +1,204 @@
+{
+    "products": [
+    {
+        "name": "AURA",
+        "brand": "Hyundai",
+        "mfg_year": "2020"
+    },
+    {
+        "name": "VERNA",
+        "brand": "Hyundai",
+        "mfg_year": "2010"
+    },
+    {
+        "name": "i20",
+        "brand": "Hyundai",
+        "mfg_year": "2018"
+    },
+    {
+        "name": "i10 Grand",
+        "brand": "Hyundai",
+        "mfg_year": "2016"
+    },
+    {
+        "name": "CRETA",
+        "brand": "Hyundai",
+        "mfg_year": "2022"
+    },
+    {
+        "name": "VENUE",
+        "brand": "Hyundai",
+        "mfg_year": "2021"
+    },
+    {
+        "name": "SANTRO",
+        "brand": "Hyundai",
+        "mfg_year": "2014"
+    },
+    {
+        "name": "ELANTRA",
+        "brand": "Hyundai",
+        "mfg_year": "2017"
+    },
+    {
+        "name": "TUCSON",
+        "brand": "Hyundai",
+        "mfg_year": "2019"
+    },
+    {
+        "name": "KONA Electric",
+        "brand": "Hyundai",
+        "mfg_year": "2023"
+    },
+    {
+        "name": "CIVIC",
+        "brand": "Honda",
+        "mfg_year": "2015"
+    },
+    {
+        "name": "CITY",
+        "brand": "Honda",
+        "mfg_year": "2020"
+    },
+    {
+        "name": "WR-V",
+        "brand": "Honda",
+        "mfg_year": "2019"
+    },
+    {
+        "name": "BR-V",
+        "brand": "Honda",
+        "mfg_year": "2017"
+    },
+    {
+        "name": "JAZZ",
+        "brand": "Honda",
+        "mfg_year": "2018"
+    },
+    {
+        "name": "SWIFT",
+        "brand": "Maruti Suzuki",
+        "mfg_year": "2021"
+    },
+    {
+        "name": "BALENO",
+        "brand": "Maruti Suzuki",
+        "mfg_year": "2022"
+    },
+    {
+        "name": "DZIRE",
+        "brand": "Maruti Suzuki",
+        "mfg_year": "2020"
+    },
+    {
+        "name": "BREZZA",
+        "brand": "Maruti Suzuki",
+        "mfg_year": "2023"
+    },
+    {
+        "name": "FRONX",
+        "brand": "Maruti Suzuki",
+        "mfg_year": "2024"
+    },
+    {
+        "name": "ALTROZ",
+        "brand": "Tata",
+        "mfg_year": "2021"
+    },
+    {
+        "name": "NEXON",
+        "brand": "Tata",
+        "mfg_year": "2022"
+    }
+],
+    "parts": [
+    {
+        "name": "Silencer-XT500",
+        "equiped_model": "VERNA"
+    },
+    {
+        "name": "Headlight",
+        "equiped_model": "VERNA"
+    },
+    {
+        "name": "Air Filter Pro",
+        "equiped_model": "AURA"
+    },
+    {
+        "name": "Rear Bumper Guard",
+        "equiped_model": "AURA"
+    },
+    {
+        "name": "Fuel Pump XT",
+        "equiped_model": "CRETA"
+    },
+    {
+        "name": "ABS Sensor",
+        "equiped_model": "CRETA"
+    },
+    {
+        "name": "Radiator Cool-Flow",
+        "equiped_model": "i20"
+    },
+    {
+        "name": "Side Mirror Set",
+        "equiped_model": "i20"
+    },
+    {
+        "name": "Spark Plug Pro",
+        "equiped_model": "i10 Grand"
+    },
+    {
+        "name": "Clutch Plate",
+        "equiped_model": "i10 Grand"
+    },
+    {
+        "name": "Brake Pad Set",
+        "equiped_model": "VENUE"
+    },
+    {
+        "name": "Fog Light",
+        "equiped_model": "VENUE"
+    },
+    {
+        "name": "Engine Mount",
+        "equiped_model": "ELANTRA"
+    },
+    {
+        "name": "Tail Lamp",
+        "equiped_model": "ELANTRA"
+    },
+    {
+        "name": "AC Compressor",
+        "equiped_model": "TUCSON"
+    },
+    {
+        "name": "Gearbox Oil Seal",
+        "equiped_model": "TUCSON"
+    },
+    {
+        "name": "Wheel Bearing",
+        "equiped_model": "CITY"
+    },
+    {
+        "name": "Starter Motor",
+        "equiped_model": "CITY"
+    },
+    {
+        "name": "Suspension Strut",
+        "equiped_model": "CIVIC"
+    },
+    {
+        "name": "Horn System DualTone",
+        "equiped_model": "CIVIC"
+    },
+    {
+        "name": "Battery Holder",
+        "equiped_model": "SWIFT"
+    },
+    {
+        "name": "Tyre Pressure Sensor",
+        "equiped_model": "SWIFT"
+    }
+]
+}

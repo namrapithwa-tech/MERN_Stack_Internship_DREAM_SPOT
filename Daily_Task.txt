@@ -67,3 +67,9 @@
 	-- Day 04 
 		Home page, Contact Page, Login & Register Page Created and prodcut details page and product list page resdign.
 		Add to Cart,Check Out and Wishlist Funtionality Work Completed.
+
+	-- Day 05
+		Local db implented in new project implemented
+		db.json and API Tested for the products and parts.
+		
+		
