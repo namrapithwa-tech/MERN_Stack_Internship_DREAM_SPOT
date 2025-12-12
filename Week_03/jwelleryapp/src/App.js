@@ -34,7 +34,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<Home />} />
 
-            {/* NEW ROUTES */}
+            {/* LOGIN/REGISTER ROUTES */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 

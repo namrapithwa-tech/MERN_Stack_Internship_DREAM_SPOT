@@ -1,0 +1,10 @@
+{
+    "product":[
+        {
+            "name":"xyz",
+            "surname":"abc",
+            "age":22
+        }
+    ]
+
+}
