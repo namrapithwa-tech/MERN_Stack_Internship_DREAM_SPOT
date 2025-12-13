@@ -1,69 +1,62 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./products.css";
 
 function DataFetch() {
 
-    // State to store API data
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
 
-    // Function to call backend API
-    const fetchProducts = async () => {
-        try {
-            const response = await axios.get("http://localhost:8000/products");
-            setProducts(response.data);
-        } catch (error) {
-            console.error("Error Fetching Data:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+  useEffect(() => {
+    axios.get("http://localhost:8000/products")
+      .then(res => setProducts(res.data))
+      .catch(err => console.error(err));
+  }, []);
 
-    // Call API when component loads
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+  return (
+    <div className="container mt-4">
+      <h2 className="mb-3">Product List</h2>
 
-    // Loading state
-    // if (loading) {
-    //     return <marquee>Loading Data.....</marquee>;
-    // }
+      <table className="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Brand</th>
+            <th>MFG Year</th>
+            <th className="text-center">Actions</th>
+          </tr>
+        </thead>
 
-    return (
-        <div className="container mt-4">
-            <h2 className="mb-3">Product List</h2>
+        <tbody>
+          {products.length > 0 ? (
+            products.map((item, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{item.name}</td>
+                <td>{item.brand}</td>
+                <td>{item.mfg_year}</td>
+                <td className="text-center">
+                  <button className="btn btn-sm btn-outline-primary action-btn me-2">
+                    <i className="bi bi-pencil-square"></i>
+                  </button>
 
-            <table className="table table-bordered table-hover">
-                <thead className="table-dark">
-                    <tr>
-                        <th>id</th>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>MFG Year</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {products.length > 0 ? (
-                        products.map((item, index) => (
-                            <tr key={item.id || index}>
-                                <td>{index + 1}</td>
-                                <td>{item.name}</td>
-                                <td>{item.brand}</td>
-                                <td>{item.mfg_year}</td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={4} className="text-center">
-                                <h4>No data found...!!!!</h4>
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        </div>
-    );
+                  <button className="btn btn-sm btn-outline-danger action-btn">
+                    <i className="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" className="text-center text-danger">
+                No Data Found
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default DataFetch;

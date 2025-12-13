@@ -1,0 +1,41 @@
+.api-navbar {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 12px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.api-brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  margin-left: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover underline effect */
+.navbar-nav .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #00d4ff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link.active {
+  color: #00d4ff !important;
+}
