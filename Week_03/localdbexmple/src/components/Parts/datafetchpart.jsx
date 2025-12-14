@@ -5,6 +5,10 @@ import "./parts.css";
 function DataFetchParts() {
 
   const [parts, setParts] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    equiped_model: ""
+  });
 
   // FETCH PARTS
   const fetchParts = async () => {
@@ -19,6 +23,39 @@ function DataFetchParts() {
   useEffect(() => {
     fetchParts();
   }, []);
+
+  // HANDLE INPUT CHANGE
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // INSERT PRODUCT
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/parts", formData
+      );
+
+      // Update UI Instantly
+      setParts([...parts, response.data]);
+
+      // Clear form
+      setFormData({
+        name: "",
+        equiped_model: ""
+      });
+      alert("Parts Added Successfully!");
+
+    } catch (error) {
+      console.error("Insert failed:", error);
+      alert("Failed to add parts");
+    }
+
+  };
 
   // DELETE PART
   const handleDelete = async (id) => {
@@ -44,6 +81,51 @@ function DataFetchParts() {
 
   return (
     <div className="container mt-4">
+
+      {/* INSERT FORM */}
+      <div className="card mb-4">
+        <div className="card-header bg-success bg-gradient text-white">
+          Add New Product
+        </div>
+
+        <div className="card-body">
+          <form onSubmit={handleSubmit} className="row g-4">
+
+            <div className="col-md-5">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Part Name"
+                required
+              />
+            </div>
+
+            <div className="col-md-5">
+              <input
+                type="text"
+                name="equiped_model"
+                value={formData.equiped_model}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Equipped Model"
+                required
+              />
+            </div>
+
+            <div className="col-md-2 d-grid">
+              <button className="btn btn-warning bg-gradient text-white">
+                <i className="bi bi-plus-circle"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      {/* Part Table */}
       <h2 className="mb-3 text-success">Parts List</h2>
 
       <table className="table table-bordered table-hover">

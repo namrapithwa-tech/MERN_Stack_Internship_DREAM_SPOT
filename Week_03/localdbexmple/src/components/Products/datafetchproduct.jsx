@@ -68,8 +68,10 @@ function DataFetchProducts() {
     try {
       await axios.delete(`http://localhost:8000/products/${id}`);
       setProducts(products.filter(item => item.id !== id));
+      alert("Product deleted successfully!");
     } catch (error) {
       console.error("Delete failed:", error);
+      alert("Failed to delete product");
     }
   };
 
@@ -78,7 +80,7 @@ function DataFetchProducts() {
 
       {/* INSERT FORM */}
       <div className="card mb-4">
-        <div className="card-header bg-primary text-white">
+        <div className="card-header bg-primary bg-gradient text-white">
           Add New Product
         </div>
 
@@ -122,7 +124,7 @@ function DataFetchProducts() {
             </div>
 
             <div className="col-md-1 d-grid">
-              <button className="btn btn-success">
+              <button className="btn btn-warning bg-gradient text-white">
                 <i className="bi bi-plus-circle"></i>
               </button>
             </div>
@@ -135,7 +137,7 @@ function DataFetchProducts() {
       <h2 className="mb-3">Product List</h2>
 
       <table className="table table-bordered table-hover">
-        <thead className="table-primary">
+        <thead className="bg-primary bg-gradient text-white">
           <tr>
             <th>#</th>
             <th>Product Name</th>
