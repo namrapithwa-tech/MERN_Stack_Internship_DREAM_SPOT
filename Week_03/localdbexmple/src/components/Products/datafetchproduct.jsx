@@ -48,10 +48,10 @@ function DataFetch() {
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="text-center text-danger">
+              <td colSpan="5" className="text-center text-danger">
                 No Data Found
               </td>
-            </tr>
+            </tr> 
           )}
         </tbody>
       </table>

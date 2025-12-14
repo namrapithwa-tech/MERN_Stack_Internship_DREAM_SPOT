@@ -46,7 +46,7 @@ function DataFetchParts() {
             ))
           ) : (
             <tr>
-              <td colSpan="3" className="text-center text-danger">
+              <td colSpan="4" className="text-center text-danger">
                 No Data Found
               </td>
             </tr>
