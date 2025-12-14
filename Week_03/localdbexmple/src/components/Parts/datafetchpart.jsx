@@ -4,13 +4,23 @@ import "./parts.css";
 
 function DataFetchParts() {
 
+  // ================= STATES =================
   const [parts, setParts] = useState([]);
+
+  // Insert form state
   const [formData, setFormData] = useState({
     name: "",
     equiped_model: ""
   });
 
-  // FETCH PARTS
+  // Update modal states
+  const [selectedPart, setSelectedPart] = useState(null);
+  const [editFormData, setEditFormData] = useState({
+    name: "",
+    equiped_model: ""
+  });
+
+  // ================= FETCH PARTS =================
   const fetchParts = async () => {
     try {
       const response = await axios.get("http://localhost:8000/parts");
@@ -24,7 +34,7 @@ function DataFetchParts() {
     fetchParts();
   }, []);
 
-  // HANDLE INPUT CHANGE
+  // ================= INSERT =================
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -32,46 +42,31 @@ function DataFetchParts() {
     });
   };
 
-  // INSERT PRODUCT
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/parts", formData
+        "http://localhost:8000/parts",
+        formData
       );
 
-      // Update UI Instantly
       setParts([...parts, response.data]);
+      setFormData({ name: "", equiped_model: "" });
 
-      // Clear form
-      setFormData({
-        name: "",
-        equiped_model: ""
-      });
-      alert("Parts Added Successfully!");
-
+      alert("Part added successfully!");
     } catch (error) {
       console.error("Insert failed:", error);
-      alert("Failed to add parts");
+      alert("Failed to add part");
     }
-
   };
 
-  // DELETE PART
+  // ================= DELETE =================
   const handleDelete = async (id) => {
-
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this part?"
-    );
-
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this part?")) return;
 
     try {
       await axios.delete(`http://localhost:8000/parts/${id}`);
-
-      // Update UI instantly
       setParts(parts.filter(item => item.id !== id));
-
       alert("Part deleted successfully!");
     } catch (error) {
       console.error("Delete failed:", error);
@@ -79,13 +74,51 @@ function DataFetchParts() {
     }
   };
 
+  // ================= UPDATE =================
+  const handleEditClick = (part) => {
+    setSelectedPart(part);
+    setEditFormData({
+      name: part.name,
+      equiped_model: part.equiped_model
+    });
+  };
+
+  const handleEditChange = (e) => {
+    setEditFormData({
+      ...editFormData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/parts/${selectedPart.id}`,
+        editFormData
+      );
+
+      setParts(
+        parts.map(item =>
+          item.id === selectedPart.id ? response.data : item
+        )
+      );
+
+      setSelectedPart(null);
+      alert("Part updated successfully!");
+    } catch (error) {
+      console.error("Update failed:", error);
+      alert("Failed to update part");
+    }
+  };
+
+  // ================= UI =================
   return (
     <div className="container mt-4">
 
       {/* INSERT FORM */}
       <div className="card mb-4">
         <div className="card-header bg-success bg-gradient text-white">
-          Add New Product
+          Add New Part
         </div>
 
         <div className="card-body">
@@ -125,7 +158,7 @@ function DataFetchParts() {
         </div>
       </div>
 
-      {/* Part Table */}
+      {/* PART TABLE */}
       <h2 className="mb-3 text-success">Parts List</h2>
 
       <table className="table table-bordered table-hover">
@@ -141,13 +174,18 @@ function DataFetchParts() {
         <tbody>
           {parts.length > 0 ? (
             parts.map((item, index) => (
-              <tr key={item.id || index}>
+              <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>{item.equiped_model}</td>
                 <td className="text-center">
 
-                  <button className="btn btn-sm btn-outline-primary action-btn me-2">
+                  <button
+                    className="btn btn-sm btn-outline-primary action-btn me-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editPartModal"
+                    onClick={() => handleEditClick(item)}
+                  >
                     <i className="bi bi-pencil-square"></i>
                   </button>
 
@@ -170,6 +208,54 @@ function DataFetchParts() {
           )}
         </tbody>
       </table>
+
+      {/* UPDATE MODAL */}
+      <div className="modal fade" id="editPartModal" tabIndex="-1">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+
+            <div className="modal-header bg-success text-white">
+              <h5 className="modal-title">Update Part</h5>
+              <button className="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div className="modal-body">
+              <input
+                type="text"
+                name="name"
+                className="form-control mb-3"
+                value={editFormData.name}
+                onChange={handleEditChange}
+                placeholder="Part Name"
+              />
+
+              <input
+                type="text"
+                name="equiped_model"
+                className="form-control"
+                value={editFormData.equiped_model}
+                onChange={handleEditChange}
+                placeholder="Equipped Model"
+              />
+            </div>
+
+            <div className="modal-footer">
+              <button className="btn btn-secondary" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+                onClick={handleUpdate}
+              >
+                Update
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

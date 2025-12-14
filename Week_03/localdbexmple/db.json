@@ -1,10 +1,10 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "AURA",
       "brand": "Hyundai",
-      "mfg_year": "2020"
+      "mfg_year": "2020",
+      "id": "1"
     },
     {
       "id": "2",
@@ -309,9 +309,9 @@
   ],
   "parts": [
     {
-      "id": "1",
       "name": "Rear Bumper Guard",
-      "equiped_model": "AURA"
+      "equiped_model": "AURA",
+      "id": "1"
     },
     {
       "id": "2",

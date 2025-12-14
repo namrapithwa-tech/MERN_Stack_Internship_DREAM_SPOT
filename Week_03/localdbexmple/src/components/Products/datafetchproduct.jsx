@@ -4,15 +4,25 @@ import "./products.css";
 
 function DataFetchProducts() {
 
+  // ================= STATES =================
   const [products, setProducts] = useState([]);
 
+  // Insert form state
   const [formData, setFormData] = useState({
     name: "",
     brand: "",
     mfg_year: ""
   });
 
-  // FETCH PRODUCTS
+  // Update modal states
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [editFormData, setEditFormData] = useState({
+    name: "",
+    brand: "",
+    mfg_year: ""
+  });
+
+  // ================= FETCH PRODUCTS =================
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:8000/products");
@@ -26,7 +36,7 @@ function DataFetchProducts() {
     fetchProducts();
   }, []);
 
-  // HANDLE INPUT CHANGE
+  // ================= INSERT =================
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -34,25 +44,16 @@ function DataFetchProducts() {
     });
   };
 
-  // INSERT PRODUCT
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         "http://localhost:8000/products",
         formData
       );
 
-      // Update UI instantly
       setProducts([...products, response.data]);
-
-      // Clear form
-      setFormData({
-        name: "",
-        brand: "",
-        mfg_year: ""
-      });
+      setFormData({ name: "", brand: "", mfg_year: "" });
 
       alert("Product added successfully!");
     } catch (error) {
@@ -61,7 +62,7 @@ function DataFetchProducts() {
     }
   };
 
-  // DELETE PRODUCT
+  // ================= DELETE =================
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
@@ -75,6 +76,45 @@ function DataFetchProducts() {
     }
   };
 
+  // ================= UPDATE =================
+  const handleEditClick = (product) => {
+    setSelectedProduct(product);
+    setEditFormData({
+      name: product.name,
+      brand: product.brand,
+      mfg_year: product.mfg_year
+    });
+  };
+
+  const handleEditChange = (e) => {
+    setEditFormData({
+      ...editFormData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/products/${selectedProduct.id}`,
+        editFormData
+      );
+
+      setProducts(
+        products.map(item =>
+          item.id === selectedProduct.id ? response.data : item
+        )
+      );
+
+      setSelectedProduct(null);
+      alert("Product updated successfully!");
+    } catch (error) {
+      console.error("Update failed:", error);
+      alert("Failed to update product");
+    }
+  };
+
+  // ================= UI =================
   return (
     <div className="container mt-4">
 
@@ -156,7 +196,13 @@ function DataFetchProducts() {
                 <td>{item.brand}</td>
                 <td>{item.mfg_year}</td>
                 <td className="text-center">
-                  <button className="btn btn-sm btn-outline-primary action-btn me-2">
+
+                  <button
+                    className="btn btn-sm btn-outline-primary action-btn me-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editProductModal"
+                    onClick={() => handleEditClick(item)}
+                  >
                     <i className="bi bi-pencil-square"></i>
                   </button>
 
@@ -166,6 +212,7 @@ function DataFetchProducts() {
                   >
                     <i className="bi bi-trash"></i>
                   </button>
+
                 </td>
               </tr>
             ))
@@ -178,6 +225,62 @@ function DataFetchProducts() {
           )}
         </tbody>
       </table>
+
+      {/* UPDATE MODAL */}
+      <div className="modal fade" id="editProductModal" tabIndex="-1">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+
+            <div className="modal-header bg-primary text-white">
+              <h5 className="modal-title">Update Product</h5>
+              <button className="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div className="modal-body">
+              <input
+                type="text"
+                name="name"
+                className="form-control mb-3"
+                value={editFormData.name}
+                onChange={handleEditChange}
+                placeholder="Product Name"
+              />
+
+              <input
+                type="text"
+                name="brand"
+                className="form-control mb-3"
+                value={editFormData.brand}
+                onChange={handleEditChange}
+                placeholder="Brand"
+              />
+
+              <input
+                type="number"
+                name="mfg_year"
+                className="form-control"
+                value={editFormData.mfg_year}
+                onChange={handleEditChange}
+                placeholder="MFG Year"
+              />
+            </div>
+
+            <div className="modal-footer">
+              <button className="btn btn-danger" data-bs-dismiss="modal">
+                <i className="bi bi-x-square"></i>
+              </button>
+              <button
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={handleUpdate}
+              >
+                <i className="bi bi-pencil-square"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
     </div>
   );
