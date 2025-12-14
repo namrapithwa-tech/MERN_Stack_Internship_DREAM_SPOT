@@ -2,22 +2,51 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./products.css";
 
-function DataFetch() {
+function DataFetchProducts() {
 
   const [products, setProducts] = useState([]);
 
+  // FETCH PRODUCTS
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/products");
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
   useEffect(() => {
-    axios.get("http://localhost:8000/products")
-      .then(res => setProducts(res.data))
-      .catch(err => console.error(err));
+    fetchProducts();
   }, []);
+
+  // DELETE PRODUCT
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://localhost:8000/products/${id}`);
+
+      // Update UI instantly
+      setProducts(products.filter(item => item.id !== id));
+
+      alert("Product deleted successfully!");
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete product");
+    }
+  };
 
   return (
     <div className="container mt-4">
       <h2 className="mb-3">Product List</h2>
 
       <table className="table table-bordered table-hover">
-        <thead>
+        <thead className="bg-primary bg-gradient">
           <tr>
             <th>#</th>
             <th>Product Name</th>
@@ -30,7 +59,7 @@ function DataFetch() {
         <tbody>
           {products.length > 0 ? (
             products.map((item, index) => (
-              <tr key={index}>
+              <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>{item.brand}</td>
@@ -40,7 +69,10 @@ function DataFetch() {
                     <i className="bi bi-pencil-square"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-danger action-btn">
+                  <button
+                    className="btn btn-sm btn-outline-danger action-btn"
+                    onClick={() => handleDelete(item.id)}
+                  >
                     <i className="bi bi-trash"></i>
                   </button>
                 </td>
@@ -51,7 +83,7 @@ function DataFetch() {
               <td colSpan="5" className="text-center text-danger">
                 No Data Found
               </td>
-            </tr> 
+            </tr>
           )}
         </tbody>
       </table>
@@ -59,4 +91,4 @@ function DataFetch() {
   );
 }
 
-export default DataFetch;
+export default DataFetchProducts;
