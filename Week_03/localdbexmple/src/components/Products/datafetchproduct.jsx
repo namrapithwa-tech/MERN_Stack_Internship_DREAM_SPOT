@@ -6,6 +6,12 @@ function DataFetchProducts() {
 
   const [products, setProducts] = useState([]);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    brand: "",
+    mfg_year: ""
+  });
+
   // FETCH PRODUCTS
   const fetchProducts = async () => {
     try {
@@ -20,33 +26,116 @@ function DataFetchProducts() {
     fetchProducts();
   }, []);
 
+  // HANDLE INPUT CHANGE
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // INSERT PRODUCT
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/products",
+        formData
+      );
+
+      // Update UI instantly
+      setProducts([...products, response.data]);
+
+      // Clear form
+      setFormData({
+        name: "",
+        brand: "",
+        mfg_year: ""
+      });
+
+      alert("Product added successfully!");
+    } catch (error) {
+      console.error("Insert failed:", error);
+      alert("Failed to add product");
+    }
+  };
+
   // DELETE PRODUCT
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this product?"
-    );
-
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
       await axios.delete(`http://localhost:8000/products/${id}`);
-
-      // Update UI instantly
       setProducts(products.filter(item => item.id !== id));
-
-      alert("Product deleted successfully!");
     } catch (error) {
       console.error("Delete failed:", error);
-      alert("Failed to delete product");
     }
   };
 
   return (
     <div className="container mt-4">
+
+      {/* INSERT FORM */}
+      <div className="card mb-4">
+        <div className="card-header bg-primary text-white">
+          Add New Product
+        </div>
+
+        <div className="card-body">
+          <form onSubmit={handleSubmit} className="row g-3">
+
+            <div className="col-md-4">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Product Name"
+                required
+              />
+            </div>
+
+            <div className="col-md-4">
+              <input
+                type="text"
+                name="brand"
+                value={formData.brand}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Brand"
+                required
+              />
+            </div>
+
+            <div className="col-md-3">
+              <input
+                type="number"
+                name="mfg_year"
+                value={formData.mfg_year}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="MFG Year"
+                required
+              />
+            </div>
+
+            <div className="col-md-1 d-grid">
+              <button className="btn btn-success">
+                <i className="bi bi-plus-circle"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      {/* PRODUCT TABLE */}
       <h2 className="mb-3">Product List</h2>
 
       <table className="table table-bordered table-hover">
-        <thead className="bg-primary bg-gradient">
+        <thead className="table-primary">
           <tr>
             <th>#</th>
             <th>Product Name</th>
@@ -87,6 +176,7 @@ function DataFetchProducts() {
           )}
         </tbody>
       </table>
+
     </div>
   );
 }
