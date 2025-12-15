@@ -181,7 +181,7 @@ function DataFetchParts() {
                 <td className="text-center">
 
                   <button
-                    className="btn btn-sm btn-outline-primary action-btn me-2"
+                    className="btn btn-sm btn-outline-success action-btn me-2"
                     data-bs-toggle="modal"
                     data-bs-target="#editPartModal"
                     onClick={() => handleEditClick(item)}
@@ -240,15 +240,15 @@ function DataFetchParts() {
             </div>
 
             <div className="modal-footer">
-              <button className="btn btn-secondary" data-bs-dismiss="modal">
-                Cancel
+              <button className="btn btn-danger" data-bs-dismiss="modal">
+                <i className="bi bi-x-square"></i>
               </button>
               <button
                 className="btn btn-success"
                 data-bs-dismiss="modal"
                 onClick={handleUpdate}
               >
-                Update
+                <i className="bi bi-pencil-square"></i>
               </button>
             </div>
 
