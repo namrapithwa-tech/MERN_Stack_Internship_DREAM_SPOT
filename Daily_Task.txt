@@ -74,6 +74,8 @@
 
 --> Week 04 
 	-- Day 01
-		
+		Fetch API Explain and Implemented.
+		Diffrent API tested and status code checked.
+
 		
 		
