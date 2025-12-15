@@ -7,12 +7,6 @@
       "id": "1"
     },
     {
-      "id": "2",
-      "name": "VERNA",
-      "brand": "Hyundai",
-      "mfg_year": "2010"
-    },
-    {
       "id": "3",
       "name": "i20",
       "brand": "Hyundai",
@@ -101,12 +95,6 @@
       "name": "ACCORD",
       "brand": "Honda",
       "mfg_year": "2016"
-    },
-    {
-      "id": "18",
-      "name": "HR-V",
-      "brand": "Honda",
-      "mfg_year": "2022"
     },
     {
       "id": "19",
@@ -299,6 +287,18 @@
       "name": "CIAZ",
       "brand": "Maruti Suzuki",
       "mfg_year": "2020"
+    },
+    {
+      "id": "18e1",
+      "name": "Dieter Tate",
+      "brand": "Expedita soluta prae",
+      "mfg_year": "2001"
+    },
+    {
+      "id": "fdb7",
+      "name": "Cheryl Estes",
+      "brand": "Ut quis id dolorem u",
+      "mfg_year": "1997"
     }
   ],
   "parts": [
