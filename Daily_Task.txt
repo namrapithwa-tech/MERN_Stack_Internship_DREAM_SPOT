@@ -77,5 +77,8 @@
 		Fetch API Explain and Implemented.
 		Diffrent API tested and status code checked.
 
+	-- Day 02
+		In Jwellify Project Invoice funtionallity added.
+
 		
 		
