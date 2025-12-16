@@ -1,13 +1,20 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { OrderContext } from "../../context/OrderContext";
+import Invoice from "../invoice/Invoice";
+import { generateInvoicePDF } from "../invoice/invoicePdf";
 import "./Checkout.css";
 
 const Checkout = () => {
   const { cart, totals, clearCart } = useContext(CartContext);
+  const { placeOrder, order } = useContext(OrderContext);
+
   const { subtotal, delivery, gst, grandTotal } = totals();
 
   const [placed, setPlaced] = useState(false);
-  const [orderId] = useState("OD123JWELLIFY");
+  const [orderId, setOrderId] = useState("");
+
+  const invoiceRef = useRef();
 
   const [form, setForm] = useState({
     name: "",
@@ -29,9 +36,32 @@ const Checkout = () => {
       return;
     }
 
+    const generatedOrderId =
+      "OD" + Math.random().toString(36).substring(2, 8).toUpperCase() + "JWELLIFY";
+
+    const orderData = {
+      orderId: generatedOrderId,
+      date: new Date().toLocaleDateString(),
+      paymentMethod: form.payment,
+      customer: { ...form },
+      items: cart,
+      totals: { subtotal, delivery, gst, grandTotal },
+    };
+
+    placeOrder(orderData);
+    setOrderId(generatedOrderId);
     clearCart();
     setPlaced(true);
   };
+
+  // AUTO PDF DOWNLOAD AFTER SUCCESS
+  useEffect(() => {
+    if (placed && invoiceRef.current) {
+      setTimeout(() => {
+        generateInvoicePDF(invoiceRef.current, orderId);
+      }, 900);
+    }
+  }, [placed, orderId]);
 
   return (
     <>
@@ -40,92 +70,72 @@ const Checkout = () => {
           <h2 className="section-title mb-4">Checkout</h2>
 
           <div className="row">
-            {/* LEFT SIDE – ADDRESS FORM */}
+            {/* LEFT FORM */}
             <div className="col-md-7">
               <div className="glass p-4">
                 <h5>Delivery Address</h5>
 
                 <form onSubmit={handlePlaceOrder}>
-                  <input name="name" className="input-box" placeholder="Full Name"
-                    value={form.name} onChange={handleChange} />
-
-                  <input name="phone" className="input-box" placeholder="Phone Number"
-                    value={form.phone} onChange={handleChange} />
-
-                  <input name="address" className="input-box" placeholder="Address"
-                    value={form.address} onChange={handleChange} />
-
-                  <input name="city" className="input-box" placeholder="City"
-                    value={form.city} onChange={handleChange} />
-
-                  <input name="pincode" className="input-box" placeholder="Pincode"
-                    value={form.pincode} onChange={handleChange} />
+                  <input className="input-box" name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
+                  <input className="input-box" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} />
+                  <input className="input-box" name="address" placeholder="Address" value={form.address} onChange={handleChange} />
+                  <input className="input-box" name="city" placeholder="City" value={form.city} onChange={handleChange} />
+                  <input className="input-box" name="pincode" placeholder="Pincode" value={form.pincode} onChange={handleChange} />
 
                   <h6 className="mt-3">Payment Method</h6>
-                  <select name="payment" className="input-box"
-                    value={form.payment} onChange={handleChange}>
+                  <select className="input-box" name="payment" value={form.payment} onChange={handleChange}>
                     <option>Cash</option>
                     <option>UPI</option>
                     <option>Debit Card</option>
                     <option>Credit Card</option>
                   </select>
 
-                  <button type="submit" className="auth-btn mt-3 w-100">
-                    Place Order
-                  </button>
+                  <button className="auth-btn mt-3 w-100">Place Order</button>
                 </form>
               </div>
             </div>
 
-            {/* RIGHT SIDE – ORDER SUMMARY */}
+            {/* RIGHT SUMMARY */}
             <div className="col-md-5">
               <div className="glass p-4">
                 <h5>Order Summary</h5>
 
                 <div className="d-flex justify-content-between mt-3">
-                  <span>Subtotal</span>
-                  <span>₹ {subtotal.toFixed(2)}</span>
+                  <span>Subtotal</span><span>₹ {subtotal.toFixed(2)}</span>
                 </div>
-
                 <div className="d-flex justify-content-between mt-2">
-                  <span>Delivery Charges</span>
-                  <span>₹ {delivery.toFixed(2)}</span>
+                  <span>Delivery</span><span>₹ {delivery.toFixed(2)}</span>
                 </div>
-
                 <div className="d-flex justify-content-between mt-2">
-                  <span>GST (5%)</span>
-                  <span>₹ {gst.toFixed(2)}</span>
+                  <span>GST (5%)</span><span>₹ {gst.toFixed(2)}</span>
                 </div>
 
                 <hr />
 
-                <div className="d-flex justify-content-between fw-bold mb-3">
-                  <span>Total</span>
-                  <span>₹ {grandTotal.toFixed(2)}</span>
+                <div className="d-flex justify-content-between fw-bold">
+                  <span>Total</span><span>₹ {grandTotal.toFixed(2)}</span>
                 </div>
-
-                <small className="text-muted">
-                  Items in cart: {cart.reduce((s, x) => s + x.quantity, 0)}
-                </small>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        /** SUCCESS PAGE WITH CANVAS CELEBRATION **/
         <div className="checkout-success">
           <div className="overlay"></div>
           <CanvasCelebration />
 
           <div className="success-box glass">
-            <h1 className="success-title">🎉 Your order is placed!</h1>
-            <p className="lead">
-              Order ID: <span className="order-id">{orderId}</span>
-            </p>
-            <p className="mt-3">
-              Thank you for shopping with <strong>Jwellify</strong>.
-            </p>
+            <h1>🎉 Your order is placed!</h1>
+            <p>Order ID: <b>{orderId}</b></p>
+            <p>Thank you for shopping with <b>Jwellify</b></p>
           </div>
+        </div>
+      )}
+
+      {/* HIDDEN INVOICE FOR PDF */}
+      {order && (
+        <div style={{ position: "absolute", left: "-9999px", top: 0 }}>
+          <Invoice ref={invoiceRef} order={order} />
         </div>
       )}
     </>
@@ -133,6 +143,9 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+/* ---- CanvasCelebration remains EXACTLY same as your current code ---- */
+
 
 
 /* ---------------------------------------------------

@@ -3,77 +3,66 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
+import { OrderContext } from "../../context/OrderContext";
+import { generateInvoicePDF } from "../invoice/invoicePdf";
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const { itemsCount } = useContext(CartContext);
   const { count } = useContext(WishlistContext);
+  const { order } = useContext(OrderContext);
 
   return (
     <nav className="header-glass navbar navbar-expand-lg sticky-top">
       <div className="container">
-        {/* LOGO */}
-        <Link className="navbar-brand brand-logo" to="/">
-          Jwellify
-        </Link>
+        <Link className="navbar-brand brand-logo" to="/">Jwellify</Link>
 
-        <button
-          className="navbar-toggler bg-light"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navMenu"
-        >
+        <button className="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#navMenu">
           <span className="navbar-toggler-icon"></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navMenu">
           <ul className="navbar-nav mx-auto gap-4">
-            <li className="nav-item">
-              <Link className={`nav-link ${location.pathname === "/products" ? "active" : ""}`} to="/products">Home</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className={`nav-link ${location.pathname.includes("product") ? "active" : ""}`} to="/products">Products</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contact</Link>
-            </li>
+            <li><Link className="nav-link" to="/products">Home</Link></li>
+            <li><Link className="nav-link" to="/about">About</Link></li>
+            <li><Link className="nav-link" to="/products">Products</Link></li>
+            <li><Link className="nav-link" to="/contact">Contact</Link></li>
           </ul>
 
-          {/* RIGHT BUTTONS */}
           <div className="d-flex gap-3 align-items-center">
+
+            {/* PRINT INVOICE */}
+            {order && (
+              <button
+                className="print-invoice-btn"
+                onClick={() => {
+                  const el = document.querySelector(".invoice-wrapper");
+                  if (el) generateInvoicePDF(el, order.orderId);
+                }}
+              >
+                <i className="bi bi-printer"></i> Print Invoice
+              </button>
+            )}
+
             {/* WISHLIST */}
-            <button
-              className="nav-icon-btn position-relative"
-              onClick={() => navigate("/wishlist")}
-              aria-label="Go to wishlist"
-              title="Wishlist"
-            >
+            <button className="nav-icon-btn position-relative" onClick={() => navigate("/wishlist")}>
               <i className="bi bi-heart"></i>
               <span className="cart-count wish-count">{count()}</span>
             </button>
 
             {/* CART */}
-            <button
-              className="nav-icon-btn position-relative"
-              onClick={() => navigate("/cart")}
-              aria-label="Go to cart"
-            >
+            <button className="nav-icon-btn position-relative" onClick={() => navigate("/cart")}>
               <i className="bi bi-cart3"></i>
               <span className="cart-count">{itemsCount()}</span>
             </button>
 
-            {/* LOGIN */}
-            <Link to="/login" className="nav-icon-btn d-flex align-items-center text-decoration-none">
+            <Link to="/login" className="nav-icon-btn text-decoration-none">
               <i className="bi bi-person-circle"></i>
-              <span className="ms-2">Log in</span>
+              <span className="ms-1">Login</span>
             </Link>
+
           </div>
         </div>
       </div>

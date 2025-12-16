@@ -12,42 +12,41 @@ import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 
-import { CartProvider } from "./context/CartContext";
-import { WishlistProvider } from "./context/WishlistContext";
-
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/Checkout";
 import Wishlist from "./components/wishlist/Wishlist";
+
+import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
+import { OrderProvider } from "./context/OrderContext";
 
 function App() {
   return (
     <BrowserRouter>
       <CartProvider>
         <WishlistProvider>
+          <OrderProvider>
 
-          <Header />
+            <Header />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<Home />} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<Home />} />
 
-            {/* LOGIN/REGISTER ROUTES */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
 
-            {/* Cart & Checkout */}
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+            </Routes>
 
-            {/* Wishlist */}
-            <Route path="/wishlist" element={<Wishlist />} />
-          </Routes>
+            <Footer />
 
-          <Footer />
-
+          </OrderProvider>
         </WishlistProvider>
       </CartProvider>
     </BrowserRouter>
