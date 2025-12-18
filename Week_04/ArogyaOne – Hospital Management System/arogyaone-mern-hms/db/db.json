@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@arogyaone.com",
+      "password": "admin123",
+      "role": "ADMIN",
+      "name": "System Admin"
+    },
+    {
+      "id": 2,
+      "email": "doctor@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "name": "Dr. Mehta",
+      "doctorId": "D101"
+    },
+    {
+      "id": 3,
+      "email": "registration@arogyaone.com",
+      "password": "reg123",
+      "role": "REGISTRATION"
+    },
+    {
+      "id": 4,
+      "email": "billing@arogyaone.com",
+      "password": "bill123",
+      "role": "BILLING"
+    },
+    {
+      "id": 5,
+      "email": "patient@arogyaone.com",
+      "password": "patient123",
+      "role": "PATIENT",
+      "patientId": "P1001"
+    }
+  ]
+}
