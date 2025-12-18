@@ -83,6 +83,9 @@
 	-- Day 03
 		Hospital Management project started and funtionality given.
 		Data Flow diagram designed.
-
+	-- Day 04 
+		All Requirements disscussed
+		Project Logo and Name Done. 
+		Project Structure and db started.
 		
 		
