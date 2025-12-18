@@ -1,38 +1,201 @@
 {
   "users": [
+    { "id": 1, "email": "admin@arogyaone.com", "password": "admin123", "role": "ADMIN", "name": "System Admin" },
+
+    { "id": 2, "email": "registration@arogyaone.com", "password": "reg123", "role": "REGISTRATION", "name": "Registration Desk" },
+
+    { "id": 3, "email": "billing@arogyaone.com", "password": "bill123", "role": "BILLING", "name": "Billing Desk" },
+
+    { "id": 4, "email": "nurse@arogyaone.com", "password": "nurse123", "role": "NURSE", "name": "Ward Nurse" },
+
+    { "id": 5, "email": "lab@arogyaone.com", "password": "lab123", "role": "LAB", "name": "Lab Department" },
+
+    { "id": 6, "email": "ecg@arogyaone.com", "password": "ecg123", "role": "ECG", "name": "ECG Department" },
+
+    { "id": 7, "email": "radiology@arogyaone.com", "password": "radio123", "role": "RADIOLOGY", "name": "Radiology Department" },
+
+    { "id": 8, "email": "mri@arogyaone.com", "password": "mri123", "role": "MRI", "name": "MRI Department" },
+
+    { "id": 9, "email": "surgery@arogyaone.com", "password": "surg123", "role": "SURGERY", "name": "Surgery Department" },
+
+    { "id": 10, "email": "doctor1@arogyaone.com", "password": "doc123", "role": "DOCTOR", "doctorId": "D101" },
+
+    { "id": 11, "email": "doctor2@arogyaone.com", "password": "doc123", "role": "DOCTOR", "doctorId": "D102" },
+
+    { "id": 12, "email": "patient@arogyaone.com", "password": "patient123", "role": "PATIENT", "patientId": "P1001" }
+  ],
+
+  "hospitalInfo": {
+    "name": "ArogyaOne Multispeciality Hospital",
+    "address": "Ahmedabad, Gujarat",
+    "contact": "9999999999",
+    "email": "info@arogyaone.com",
+    "departments": [
+      "Cardiology",
+      "Orthopedics",
+      "Radiology",
+      "MRI",
+      "Lab",
+      "ECG",
+      "Surgery"
+    ]
+  },
+
+  "doctors": [
     {
-      "id": 1,
-      "email": "admin@arogyaone.com",
-      "password": "admin123",
-      "role": "ADMIN",
-      "name": "System Admin"
-    },
-    {
-      "id": 2,
-      "email": "doctor@arogyaone.com",
-      "password": "doctor123",
-      "role": "DOCTOR",
+      "id": "D101",
       "name": "Dr. Mehta",
-      "doctorId": "D101"
+      "department": "Cardiology",
+      "experience": "10 Years",
+      "fees": 500,
+      "available": true
     },
     {
-      "id": 3,
-      "email": "registration@arogyaone.com",
-      "password": "reg123",
-      "role": "REGISTRATION"
-    },
+      "id": "D102",
+      "name": "Dr. Patel",
+      "department": "Orthopedics",
+      "experience": "8 Years",
+      "fees": 600,
+      "available": true
+    }
+  ],
+
+  "patients": [
     {
-      "id": 4,
-      "email": "billing@arogyaone.com",
-      "password": "bill123",
-      "role": "BILLING"
-    },
+      "id": "P1001",
+      "name": "Rahul Patel",
+      "age": 32,
+      "gender": "Male",
+      "phone": "9999999999",
+      "address": "Ahmedabad",
+      "registeredDate": "2025-01-20"
+    }
+  ],
+
+  "appointments": [
     {
-      "id": 5,
-      "email": "patient@arogyaone.com",
-      "password": "patient123",
-      "role": "PATIENT",
+      "id": "A5001",
+      "patientId": "P1001",
+      "doctorId": "D101",
+      "date": "2025-01-22",
+      "time": "10:30 AM",
+      "status": "CONFIRMED"
+    }
+  ],
+
+  "admissions": [
+    {
+      "id": "ADM01",
+      "patientId": "P1001",
+      "roomId": "R101",
+      "admitDate": "2025-01-23",
+      "status": "ADMITTED"
+    }
+  ],
+
+  "rooms": [
+    {
+      "id": "R101",
+      "type": "ICU",
+      "pricePerDay": 3000,
+      "available": false,
       "patientId": "P1001"
+    }
+  ],
+
+  "labReports": [
+    {
+      "id": "LAB01",
+      "patientId": "P1001",
+      "doctorId": "D101",
+      "testName": "Blood Sugar",
+      "findings": "Fasting sugar slightly high",
+      "normalRange": "70-110 mg/dl",
+      "resultValue": "128 mg/dl",
+      "date": "2025-01-23",
+      "charge": 500
+    }
+  ],
+
+  "ecgReports": [
+    {
+      "id": "ECG01",
+      "patientId": "P1001",
+      "doctorId": "D101",
+      "findings": "Normal sinus rhythm",
+      "remarks": "No abnormality detected",
+      "date": "2025-01-23",
+      "charge": 400
+    }
+  ],
+
+  "radiologyReports": [
+    {
+      "id": "RAD01",
+      "patientId": "P1001",
+      "doctorId": "D102",
+      "scanType": "X-Ray Chest",
+      "findings": "Lungs clear, no infection",
+      "impression": "Normal",
+      "date": "2025-01-23",
+      "charge": 1200
+    }
+  ],
+
+  "mriReports": [
+    {
+      "id": "MRI01",
+      "patientId": "P1001",
+      "doctorId": "D102",
+      "scanType": "Brain MRI",
+      "findings": "No abnormal lesions",
+      "impression": "Normal MRI Brain",
+      "date": "2025-01-24",
+      "charge": 3000
+    }
+  ],
+
+  "surgeryRecords": [
+    {
+      "id": "SUR01",
+      "patientId": "P1001",
+      "doctorId": "D102",
+      "surgeryType": "Appendectomy",
+      "preOpNotes": "Patient stable",
+      "postOpNotes": "Recovery normal",
+      "date": "2025-01-25",
+      "charge": 25000
+    }
+  ],
+
+  "prescriptions": [
+    {
+      "id": "PR01",
+      "patientId": "P1001",
+      "doctorId": "D101",
+      "medicines": [
+        { "name": "Paracetamol", "dose": "1-0-1", "days": 5 },
+        { "name": "Pantoprazole", "dose": "1-0-0", "days": 5 }
+      ],
+      "notes": "Drink plenty of water",
+      "date": "2025-01-22"
+    }
+  ],
+
+  "bills": [
+    {
+      "id": "BILL01",
+      "patientId": "P1001",
+      "opd": 500,
+      "lab": 500,
+      "ecg": 400,
+      "radiology": 1200,
+      "mri": 3000,
+      "surgery": 25000,
+      "room": 3000,
+      "total": 33600,
+      "paid": 10000,
+      "due": 23600
     }
   ]
 }
