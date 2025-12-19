@@ -97,7 +97,8 @@
       "MRI",
       "Lab",
       "ECG",
-      "Surgery"
+      "Surgery",
+      "Emergency"
     ]
   },
   "doctors": [
@@ -141,6 +142,20 @@
       "phone": "9054277510",
       "age": "22",
       "gender": "Male"
+    },
+    {
+      "id": "P1766120348029",
+      "name": "meet",
+      "phone": "1234567890",
+      "age": "22",
+      "gender": "Male"
+    },
+    {
+      "id": "P1766120919962",
+      "name": "Jensi",
+      "phone": "8866045280",
+      "age": "23",
+      "gender": "Female"
     }
   ],
   "appointments": [
@@ -175,6 +190,30 @@
       "gender": "Male",
       "date": "2025-12-22",
       "time": "12:40"
+    },
+    {
+      "id": "A1766120274850",
+      "doctorId": "D101",
+      "patientId": "P1766120348029",
+      "status": "CONFIRMED",
+      "name": "meet",
+      "phone": "1234567890",
+      "age": "22",
+      "gender": "Male",
+      "date": "2025-12-22",
+      "time": "11:30"
+    },
+    {
+      "id": "A1766120746092",
+      "doctorId": "D101",
+      "patientId": "P1766120919962",
+      "status": "CONFIRMED",
+      "name": "Jensi",
+      "phone": "8866045280",
+      "age": "23",
+      "gender": "Female",
+      "date": "2025-12-23",
+      "time": "10:40"
     }
   ],
   "admissions": [
@@ -308,6 +347,22 @@
       "height": "5.6",
       "bp": "10",
       "date": "2025-12-19T04:12:18.160Z"
+    },
+    {
+      "id": "734e",
+      "patientId": "P1766120348029",
+      "weight": "95",
+      "height": "5.6",
+      "bp": "80",
+      "date": "2025-12-19T04:59:08.053Z"
+    },
+    {
+      "id": "fc9c",
+      "patientId": "P1766120919962",
+      "weight": "58",
+      "height": "5.10",
+      "bp": "85",
+      "date": "2025-12-19T05:08:39.980Z"
     }
   ]
 }
