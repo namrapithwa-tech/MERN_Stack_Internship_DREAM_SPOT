@@ -1,30 +1,90 @@
 {
   "users": [
-    { "id": 1, "email": "admin@arogyaone.com", "password": "admin123", "role": "ADMIN", "name": "System Admin" },
-
-    { "id": 2, "email": "registration@arogyaone.com", "password": "reg123", "role": "REGISTRATION", "name": "Registration Desk" },
-
-    { "id": 3, "email": "billing@arogyaone.com", "password": "bill123", "role": "BILLING", "name": "Billing Desk" },
-
-    { "id": 4, "email": "nurse@arogyaone.com", "password": "nurse123", "role": "NURSE", "name": "Ward Nurse" },
-
-    { "id": 5, "email": "lab@arogyaone.com", "password": "lab123", "role": "LAB", "name": "Lab Department" },
-
-    { "id": 6, "email": "ecg@arogyaone.com", "password": "ecg123", "role": "ECG", "name": "ECG Department" },
-
-    { "id": 7, "email": "radiology@arogyaone.com", "password": "radio123", "role": "RADIOLOGY", "name": "Radiology Department" },
-
-    { "id": 8, "email": "mri@arogyaone.com", "password": "mri123", "role": "MRI", "name": "MRI Department" },
-
-    { "id": 9, "email": "surgery@arogyaone.com", "password": "surg123", "role": "SURGERY", "name": "Surgery Department" },
-
-    { "id": 10, "email": "doctor1@arogyaone.com", "password": "doc123", "role": "DOCTOR", "doctorId": "D101" },
-
-    { "id": 11, "email": "doctor2@arogyaone.com", "password": "doc123", "role": "DOCTOR", "doctorId": "D102" },
-
-    { "id": 12, "email": "patient@arogyaone.com", "password": "patient123", "role": "PATIENT", "patientId": "P1001" }
+    {
+      "id": "1",
+      "email": "admin@arogyaone.com",
+      "password": "admin123",
+      "role": "ADMIN",
+      "name": "System Admin"
+    },
+    {
+      "id": "2",
+      "email": "registration@arogyaone.com",
+      "password": "reg123",
+      "role": "REGISTRATION",
+      "name": "Registration Desk"
+    },
+    {
+      "id": "3",
+      "email": "billing@arogyaone.com",
+      "password": "bill123",
+      "role": "BILLING",
+      "name": "Billing Desk"
+    },
+    {
+      "id": "4",
+      "email": "nurse@arogyaone.com",
+      "password": "nurse123",
+      "role": "NURSE",
+      "name": "Ward Nurse"
+    },
+    {
+      "id": "5",
+      "email": "lab@arogyaone.com",
+      "password": "lab123",
+      "role": "LAB",
+      "name": "Lab Department"
+    },
+    {
+      "id": "6",
+      "email": "ecg@arogyaone.com",
+      "password": "ecg123",
+      "role": "ECG",
+      "name": "ECG Department"
+    },
+    {
+      "id": "7",
+      "email": "radiology@arogyaone.com",
+      "password": "radio123",
+      "role": "RADIOLOGY",
+      "name": "Radiology Department"
+    },
+    {
+      "id": "8",
+      "email": "mri@arogyaone.com",
+      "password": "mri123",
+      "role": "MRI",
+      "name": "MRI Department"
+    },
+    {
+      "id": "9",
+      "email": "surgery@arogyaone.com",
+      "password": "surg123",
+      "role": "SURGERY",
+      "name": "Surgery Department"
+    },
+    {
+      "id": "10",
+      "email": "doctor1@arogyaone.com",
+      "password": "doc123",
+      "role": "DOCTOR",
+      "doctorId": "D101"
+    },
+    {
+      "id": "11",
+      "email": "doctor2@arogyaone.com",
+      "password": "doc123",
+      "role": "DOCTOR",
+      "doctorId": "D102"
+    },
+    {
+      "id": "12",
+      "email": "patient@arogyaone.com",
+      "password": "patient123",
+      "role": "PATIENT",
+      "patientId": "P1001"
+    }
   ],
-
   "hospitalInfo": {
     "name": "ArogyaOne Multispeciality Hospital",
     "address": "Ahmedabad, Gujarat",
@@ -40,7 +100,6 @@
       "Surgery"
     ]
   },
-
   "doctors": [
     {
       "id": "D101",
@@ -59,7 +118,6 @@
       "available": true
     }
   ],
-
   "patients": [
     {
       "id": "P1001",
@@ -69,9 +127,15 @@
       "phone": "9999999999",
       "address": "Ahmedabad",
       "registeredDate": "2025-01-20"
+    },
+    {
+      "id": "P1766113680197",
+      "name": "Namra Pithwa",
+      "phone": "9173316294",
+      "age": "23",
+      "gender": "Male"
     }
   ],
-
   "appointments": [
     {
       "id": "A5001",
@@ -80,9 +144,20 @@
       "date": "2025-01-22",
       "time": "10:30 AM",
       "status": "CONFIRMED"
+    },
+    {
+      "id": "A1766113590638",
+      "doctorId": "D101",
+      "patientId": "P1766113680197",
+      "status": "CONFIRMED",
+      "name": "Namra Pithwa",
+      "phone": "9173316294",
+      "age": "23",
+      "gender": "Male",
+      "date": "2025-12-20",
+      "time": "12:30"
     }
   ],
-
   "admissions": [
     {
       "id": "ADM01",
@@ -92,7 +167,6 @@
       "status": "ADMITTED"
     }
   ],
-
   "rooms": [
     {
       "id": "R101",
@@ -102,7 +176,6 @@
       "patientId": "P1001"
     }
   ],
-
   "labReports": [
     {
       "id": "LAB01",
@@ -116,7 +189,6 @@
       "charge": 500
     }
   ],
-
   "ecgReports": [
     {
       "id": "ECG01",
@@ -128,7 +200,6 @@
       "charge": 400
     }
   ],
-
   "radiologyReports": [
     {
       "id": "RAD01",
@@ -141,7 +212,6 @@
       "charge": 1200
     }
   ],
-
   "mriReports": [
     {
       "id": "MRI01",
@@ -154,7 +224,6 @@
       "charge": 3000
     }
   ],
-
   "surgeryRecords": [
     {
       "id": "SUR01",
@@ -167,21 +236,27 @@
       "charge": 25000
     }
   ],
-
   "prescriptions": [
     {
       "id": "PR01",
       "patientId": "P1001",
       "doctorId": "D101",
       "medicines": [
-        { "name": "Paracetamol", "dose": "1-0-1", "days": 5 },
-        { "name": "Pantoprazole", "dose": "1-0-0", "days": 5 }
+        {
+          "name": "Paracetamol",
+          "dose": "1-0-1",
+          "days": 5
+        },
+        {
+          "name": "Pantoprazole",
+          "dose": "1-0-0",
+          "days": 5
+        }
       ],
       "notes": "Drink plenty of water",
       "date": "2025-01-22"
     }
   ],
-
   "bills": [
     {
       "id": "BILL01",
@@ -196,6 +271,16 @@
       "total": 33600,
       "paid": 10000,
       "due": 23600
+    }
+  ],
+  "vitals": [
+    {
+      "id": "5a03",
+      "patientId": "P1766113680197",
+      "weight": "95",
+      "height": "5.6",
+      "bp": "80",
+      "date": "2025-12-19T03:08:00.223Z"
     }
   ]
 }

@@ -3,14 +3,32 @@ import Login from "./auth/Login";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Unauthorized from "./pages/Unauthorized";
 
-// Dashboards
+/* =======================
+   PUBLIC WEBSITE PAGES
+======================= */
+import Home from "./pages/Home";
+import Doctors from "./pages/Doctors";
+import DoctorProfile from "./pages/DoctorProfile";
+import BookAppointment from "./pages/BookAppointment";
+import AppointmentSlip from "./pages/AppointmentSlip";
+
+/* =======================
+   DASHBOARDS
+======================= */
 import AdminDashboard from "./dashboards/admin/AdminDashboard";
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
 import RegistrationDashboard from "./dashboards/registration/RegistrationDashboard";
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
 import PatientDashboard from "./dashboards/patient/PatientDashboard";
 
-// Department Dashboards
+/* =======================
+   REGISTRATION FLOW
+======================= */
+import RegistrationConfirm from "./dashboards/registration/RegistrationConfirm";
+
+/* =======================
+   DEPARTMENT DASHBOARDS
+======================= */
 import LabDashboard from "./dashboards/departments/lab/LabDashboard";
 import ECGDashboard from "./dashboards/departments/ecg/ECGDashboard";
 import RadiologyDashboard from "./dashboards/departments/radiology/RadiologyDashboard";
@@ -21,9 +39,25 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+        {/* =======================
+           PUBLIC ROUTES
+        ======================= */}
+        <Route path="/" element={<Home />} />
+        <Route path="/doctors" element={<Doctors />} />
+        <Route path="/doctors/:id" element={<DoctorProfile />} />
+        <Route path="/book-appointment/:doctorId" element={<BookAppointment />} />
+        <Route path="/appointment-slip/:appointmentId" element={<AppointmentSlip />} />
+
+        {/* =======================
+           AUTH ROUTES
+        ======================= */}
         <Route path="/login" element={<Login />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
+        {/* =======================
+           ADMIN & STAFF DASHBOARDS
+        ======================= */}
         <Route
           path="/admin"
           element={
@@ -38,6 +72,15 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["REGISTRATION"]}>
               <RegistrationDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/registration/confirm/:appointmentId"
+          element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <RegistrationConfirm />
             </ProtectedRoute>
           }
         />
@@ -69,7 +112,9 @@ function App() {
           }
         />
 
-        {/* Departments */}
+        {/* =======================
+           DEPARTMENT DASHBOARDS
+        ======================= */}
         <Route
           path="/department/lab"
           element={
@@ -114,6 +159,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
       </Routes>
     </BrowserRouter>
   );
