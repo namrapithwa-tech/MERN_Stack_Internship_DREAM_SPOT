@@ -87,5 +87,9 @@
 		All Requirements disscussed
 		Project Logo and Name Done. 
 		Project Structure and db started.
+		Login and Diffrent Departments Routes Completed 				
+	-- Day 05
+		Appiontment Scheduling Completed and Public Webpage completed
+		Registration Dashboard Work Started.
 		
 		

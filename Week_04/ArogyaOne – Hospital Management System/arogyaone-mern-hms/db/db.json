@@ -134,6 +134,13 @@
       "phone": "9173316294",
       "age": "23",
       "gender": "Male"
+    },
+    {
+      "id": "P1766117538139",
+      "name": "Sumit",
+      "phone": "9054277510",
+      "age": "22",
+      "gender": "Male"
     }
   ],
   "appointments": [
@@ -156,6 +163,18 @@
       "gender": "Male",
       "date": "2025-12-20",
       "time": "12:30"
+    },
+    {
+      "id": "A1766117439839",
+      "doctorId": "D102",
+      "patientId": "P1766117538139",
+      "status": "CONFIRMED",
+      "name": "Sumit",
+      "phone": "9054277510",
+      "age": "22",
+      "gender": "Male",
+      "date": "2025-12-22",
+      "time": "12:40"
     }
   ],
   "admissions": [
@@ -281,6 +300,14 @@
       "height": "5.6",
       "bp": "80",
       "date": "2025-12-19T03:08:00.223Z"
+    },
+    {
+      "id": "e3d3",
+      "patientId": "P1766117538139",
+      "weight": "56",
+      "height": "5.6",
+      "bp": "10",
+      "date": "2025-12-19T04:12:18.160Z"
     }
   ]
 }
