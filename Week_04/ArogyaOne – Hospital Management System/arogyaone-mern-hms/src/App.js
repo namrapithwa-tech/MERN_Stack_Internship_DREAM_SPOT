@@ -27,6 +27,19 @@ import PatientDashboard from "./dashboards/patient/PatientDashboard";
 import RegistrationConfirm from "./dashboards/registration/RegistrationConfirm";
 
 /* =======================
+   ADMIN – DOCTOR MASTER
+======================= */
+import DoctorList from "./dashboards/admin/doctors/DoctorList";
+import DoctorForm from "./dashboards/admin/doctors/DoctorForm";
+import DoctorView from "./dashboards/admin/doctors/DoctorView";
+
+/* =======================
+   ADMIN – ROOM MASTER
+======================= */
+import RoomCards from "./dashboards/admin/rooms/RoomCards";
+import RoomForm from "./dashboards/admin/rooms/RoomForm";
+
+/* =======================
    DEPARTMENT DASHBOARDS
 ======================= */
 import LabDashboard from "./dashboards/departments/lab/LabDashboard";
@@ -56,7 +69,7 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {/* =======================
-           ADMIN & STAFF DASHBOARDS
+           ADMIN DASHBOARD
         ======================= */}
         <Route
           path="/admin"
@@ -67,6 +80,78 @@ function App() {
           }
         />
 
+        {/* =======================
+           ADMIN – DOCTOR MASTER
+        ======================= */}
+        <Route
+          path="/admin/doctors"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <DoctorList />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/doctors/add"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <DoctorForm />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/doctors/edit/:id"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <DoctorForm />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/doctors/view/:id"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <DoctorView />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* =======================
+           ADMIN – ROOM MASTER
+        ======================= */}
+        <Route
+          path="/admin/rooms"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <RoomCards />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/rooms/add"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <RoomForm />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/rooms/edit/:id"
+          element={
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <RoomForm />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* =======================
+           REGISTRATION DESK
+        ======================= */}
         <Route
           path="/registration"
           element={
@@ -85,6 +170,9 @@ function App() {
           }
         />
 
+        {/* =======================
+           STAFF DASHBOARDS
+        ======================= */}
         <Route
           path="/doctor"
           element={

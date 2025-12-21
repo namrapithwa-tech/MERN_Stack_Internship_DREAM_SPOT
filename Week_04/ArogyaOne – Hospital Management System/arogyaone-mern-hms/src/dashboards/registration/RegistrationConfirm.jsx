@@ -1,14 +1,19 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
+import RegistrationLayout from "./RegistrationLayout";
+import generateOPDSlip from "./OPDSlipPDF";
 
 const RegistrationConfirm = () => {
   const { appointmentId } = useParams();
+  const navigate = useNavigate();
+
   const [appointment, setAppointment] = useState(null);
   const [vitals, setVitals] = useState({
     weight: "",
     height: "",
-    bp: ""
+    bp: "",
+    blood_group: ""
   });
 
   useEffect(() => {
@@ -17,59 +22,97 @@ const RegistrationConfirm = () => {
   }, [appointmentId]);
 
   const confirmAppointment = async () => {
-    const patientId = "P" + Date.now();
+    const year = new Date().getFullYear();
+    const patientId = `P/${year}/${Date.now()}`;
 
+    // Create patient
     await api.post("/patients", {
       id: patientId,
-      name: appointment.name,
-      phone: appointment.phone,
+      full_name: appointment.name,
       age: appointment.age,
-      gender: appointment.gender
+      gender: appointment.gender,
+      mobile_number: appointment.phone,
+      blood_group: vitals.blood_group,
+      consultant_doctor_id: appointment.doctorId,
+      registration_type: "APPOINTMENT",
+      created_at: new Date().toISOString()
     });
 
+    // Update appointment
     await api.patch(`/appointments/${appointmentId}`, {
       patientId,
       status: "CONFIRMED"
     });
 
-    // Save vitals (optional future use)
+    // Save vitals
     await api.post("/vitals", {
       patientId,
-      ...vitals,
-      date: new Date().toISOString()
+      weight: vitals.weight,
+      height: vitals.height,
+      blood_pressure: vitals.bp,
+      blood_group: vitals.blood_group,
+      recorded_by: "REGISTRATION",
+      recorded_at: new Date().toISOString()
     });
 
-    alert("Appointment confirmed and Patient ID generated");
+    // Generate OPD Slip
+    generateOPDSlip({
+      patientId,
+      full_name: appointment.name,
+      blood_group: vitals.blood_group,
+      doctorId: appointment.doctorId,
+      date: new Date().toLocaleDateString()
+    });
+
+    alert("Appointment confirmed, Patient ID generated & OPD Slip printed");
+    navigate("/registration");
   };
 
   if (!appointment) return null;
 
   return (
-    <div className="container mt-4">
-      <h3>Confirm Appointment</h3>
+    <RegistrationLayout>
+      <h4>Confirm Appointment</h4>
+
+      <div className="card p-3 mb-3">
+        <p><b>Appointment ID:</b> {appointment.id}</p>
+        <p><b>Name:</b> {appointment.name}</p>
+        <p><b>Doctor:</b> {appointment.doctorId}</p>
+      </div>
 
       <input
-        placeholder="Weight"
         className="form-control mb-2"
+        placeholder="Weight"
         onChange={e => setVitals({ ...vitals, weight: e.target.value })}
       />
 
       <input
-        placeholder="Height"
         className="form-control mb-2"
+        placeholder="Height"
         onChange={e => setVitals({ ...vitals, height: e.target.value })}
       />
 
       <input
+        className="form-control mb-2"
         placeholder="BP"
-        className="form-control mb-3"
         onChange={e => setVitals({ ...vitals, bp: e.target.value })}
       />
 
+      <select
+        className="form-control mb-3"
+        onChange={e => setVitals({ ...vitals, blood_group: e.target.value })}
+      >
+        <option value="">Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+      </select>
+
       <button className="btn btn-success" onClick={confirmAppointment}>
-        Confirm & Generate Patient ID
+        Confirm & Print OPD Slip
       </button>
-    </div>
+    </RegistrationLayout>
   );
 };
 

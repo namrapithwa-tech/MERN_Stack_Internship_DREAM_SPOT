@@ -83,6 +83,13 @@
       "password": "patient123",
       "role": "PATIENT",
       "patientId": "P1001"
+    },
+    {
+      "id": "7c90",
+      "email": "deep.ghetiya@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D/2025/1766321343018"
     }
   ],
   "hospitalInfo": {
@@ -117,6 +124,22 @@
       "experience": "8 Years",
       "fees": 600,
       "available": true
+    },
+    {
+      "id": "D/2025/1766321343018",
+      "full_name": "Dr. Deep Ghetiya",
+      "email": "deep.ghetiya@arogyaone.com",
+      "department": "Physician",
+      "qualification": "MBBS,DNB",
+      "experience_years": "10",
+      "languages_spoken": [],
+      "available_days": [],
+      "opd_timings": {
+        "morning": "",
+        "evening": ""
+      },
+      "consultation_fee": "500",
+      "is_available": true
     }
   ],
   "patients": [
@@ -170,6 +193,33 @@
       "phone": "1234567890",
       "age": "50",
       "gender": "msal"
+    },
+    {
+      "id": "P1766310803398",
+      "name": "Maishbhai",
+      "phone": "1234567890",
+      "age": "35",
+      "gender": "Male"
+    },
+    {
+      "id": "P/2025/1766320661775",
+      "full_name": "JD",
+      "age": "20",
+      "gender": "",
+      "blood_group": "A+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D102"
+    },
+    {
+      "id": "P/2025/1766320727569",
+      "full_name": "Premanshu Pithwa",
+      "age": "20",
+      "gender": "Male",
+      "mobile_number": "8866316294",
+      "blood_group": "A+",
+      "consultant_doctor_id": "D101",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2025-12-21T12:38:47.569Z"
     }
   ],
   "appointments": [
@@ -252,6 +302,42 @@
       "gender": "msal",
       "date": "2025-12-20",
       "time": "16:24"
+    },
+    {
+      "id": "A1766310697666",
+      "doctorId": "D102",
+      "patientId": "P1766310803398",
+      "status": "CONFIRMED",
+      "name": "Maishbhai",
+      "phone": "1234567890",
+      "age": "35",
+      "gender": "Male",
+      "date": "2025-12-22",
+      "time": "10:21"
+    },
+    {
+      "id": "A1766320481571",
+      "doctorId": "D101",
+      "patientId": "P/2025/1766320727569",
+      "status": "CONFIRMED",
+      "name": "Premanshu Pithwa",
+      "phone": "8866316294",
+      "age": "20",
+      "gender": "Male",
+      "date": "2025-12-23",
+      "time": "17:00"
+    },
+    {
+      "id": "A1766320769139",
+      "doctorId": "D102",
+      "patientId": null,
+      "status": "PENDING",
+      "name": "Quidem quia aspernat",
+      "phone": "Ratione qui delectus",
+      "age": "Voluptates commodo c",
+      "gender": "Ducimus voluptatem",
+      "date": "2025-12-21",
+      "time": "18:33"
     }
   ],
   "admissions": [
@@ -270,6 +356,20 @@
       "pricePerDay": 3000,
       "available": false,
       "patientId": "P1001"
+    },
+    {
+      "id": "R/ICU/1766321406151",
+      "room_number": "ICU-1",
+      "room_category": "ICU",
+      "room_rent_per_day": "9500",
+      "facilities": [
+        "AC",
+        "TV",
+        "SOFA",
+        "3 CHAIRS"
+      ],
+      "is_available": true,
+      "allocated_patient_id": null
     }
   ],
   "labReports": [
@@ -417,6 +517,34 @@
       "height": "Ad odit est fugiat v",
       "bp": "Eos exercitation eni",
       "date": "2025-12-20T10:57:01.750Z"
+    },
+    {
+      "id": "16a2",
+      "patientId": "P1766310803398",
+      "weight": "69",
+      "height": "5.8",
+      "bp": "80",
+      "date": "2025-12-21T09:53:23.416Z"
+    },
+    {
+      "id": "6b87",
+      "patientId": "P/2025/1766320661775",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "A+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-21T12:37:41.790Z"
+    },
+    {
+      "id": "a46a",
+      "patientId": "P/2025/1766320727569",
+      "weight": "55",
+      "height": "5.6",
+      "blood_pressure": "110",
+      "blood_group": "A+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-21T12:38:47.589Z"
     }
   ]
 }
