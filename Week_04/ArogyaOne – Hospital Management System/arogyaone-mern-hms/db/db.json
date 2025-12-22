@@ -90,6 +90,13 @@
       "password": "doctor123",
       "role": "DOCTOR",
       "linked_id": "D/2025/1766321343018"
+    },
+    {
+      "id": "a557",
+      "email": "d.p@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2025-102"
     }
   ],
   "hospitalInfo": {
@@ -110,234 +117,143 @@
   },
   "doctors": [
     {
-      "id": "D101",
-      "name": "Dr. Mehta",
-      "department": "Cardiology",
-      "experience": "10 Years",
-      "fees": 500,
-      "available": true
-    },
-    {
-      "id": "D102",
-      "name": "Dr. Patel",
-      "department": "Orthopedics",
-      "experience": "8 Years",
-      "fees": 600,
-      "available": true
-    },
-    {
-      "id": "D/2025/1766321343018",
+      "id": "D-101",
       "full_name": "Dr. Deep Ghetiya",
       "email": "deep.ghetiya@arogyaone.com",
       "department": "Physician",
       "qualification": "MBBS,DNB",
       "experience_years": "10",
-      "languages_spoken": [],
-      "available_days": [],
+      "languages_spoken": [
+        "Gujrati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI,SAT"
+      ],
       "opd_timings": {
-        "morning": "",
-        "evening": ""
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
       },
       "consultation_fee": "500",
+      "introduction": "Deep Ghetiya is a good doctor in rajkot xfdshjlfsdvdfg,admnvasdkjvv,asnv.snvsnvdvn,mvndv",
+      "is_available": true
+    },
+    {
+      "id": "D-2025-102",
+      "full_name": "JEEP",
+      "email": "d.p@arogyaone.com",
+      "department": "Cardiology",
+      "qualification": "MBBS",
+      "experience_years": "10",
+      "languages_spoken": [
+        "Gujrati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI,SAT"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "200",
+      "introduction": "JEEP is a good doctor in rajkot xfdshjlfsdvdfg,admnvasdkjvv,asnv.snvsnvdvn,mvndv",
       "is_available": true
     }
   ],
   "patients": [
     {
-      "id": "P1001",
-      "name": "Rahul Patel",
-      "age": 32,
-      "gender": "Male",
-      "phone": "9999999999",
-      "address": "Ahmedabad",
-      "registeredDate": "2025-01-20"
-    },
-    {
-      "id": "P1766113680197",
-      "name": "Namra Pithwa",
-      "phone": "9173316294",
-      "age": "23",
-      "gender": "Male"
-    },
-    {
-      "id": "P1766117538139",
-      "name": "Sumit",
-      "phone": "9054277510",
+      "id": "P-2025-1766384493970",
+      "full_name": "Rushita",
       "age": "22",
-      "gender": "Male"
-    },
-    {
-      "id": "P1766120348029",
-      "name": "meet",
-      "phone": "1234567890",
-      "age": "22",
-      "gender": "Male"
-    },
-    {
-      "id": "P1766120919962",
-      "name": "Jensi",
-      "phone": "8866045280",
-      "age": "23",
-      "gender": "Female"
-    },
-    {
-      "id": "P1766228007109",
-      "name": "Mollitia neque elige",
-      "phone": "Sequi sit ea vitae o",
-      "age": "Magna officia ex vel",
-      "gender": "Quasi tempor non adi"
-    },
-    {
-      "id": "P1766228221730",
-      "name": "nmmmm",
-      "phone": "1234567890",
-      "age": "50",
-      "gender": "msal"
-    },
-    {
-      "id": "P1766310803398",
-      "name": "Maishbhai",
-      "phone": "1234567890",
-      "age": "35",
-      "gender": "Male"
-    },
-    {
-      "id": "P/2025/1766320661775",
-      "full_name": "JD",
-      "age": "20",
-      "gender": "",
-      "blood_group": "A+",
-      "mobile_number": "",
-      "consultant_doctor_id": "D102"
-    },
-    {
-      "id": "P/2025/1766320727569",
-      "full_name": "Premanshu Pithwa",
-      "age": "20",
-      "gender": "Male",
-      "mobile_number": "8866316294",
-      "blood_group": "A+",
-      "consultant_doctor_id": "D101",
+      "gender": "Female",
+      "mobile_number": "1234567890",
+      "blood_group": "O+",
+      "consultant_doctor_id": "D-101",
       "registration_type": "APPOINTMENT",
-      "created_at": "2025-12-21T12:38:47.569Z"
+      "created_at": "2025-12-22T06:21:33.970Z",
+      "room_number": "ICU-1"
+    },
+    {
+      "id": "P-2025-1766384583937",
+      "full_name": "Cumque omnis velit ",
+      "age": "Delectus sit fugiat",
+      "gender": "Laboriosam culpa l",
+      "mobile_number": "Aute molestiae culpa",
+      "blood_group": "A+",
+      "consultant_doctor_id": "D-101",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2025-12-22T06:23:03.937Z",
+      "room_number": "ICU-2"
+    },
+    {
+      "id": "P/2025/1766384757714",
+      "full_name": "Sumit Chauhan",
+      "age": "21",
+      "gender": "",
+      "blood_group": "AB+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-101"
+    },
+    {
+      "id": "P-2025-1766385098049",
+      "full_name": "MEET",
+      "age": "20",
+      "gender": "Male",
+      "mobile_number": "0123456789",
+      "blood_group": "A+",
+      "consultant_doctor_id": "D-101",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2025-12-22T06:31:38.049Z",
+      "room_number": "DELUXE-1"
     }
   ],
   "appointments": [
     {
-      "id": "A5001",
-      "patientId": "P1001",
-      "doctorId": "D101",
-      "date": "2025-01-22",
-      "time": "10:30 AM",
-      "status": "CONFIRMED"
-    },
-    {
-      "id": "A1766113590638",
-      "doctorId": "D101",
-      "patientId": "P1766113680197",
+      "id": "A-2025-1766381707756",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1766384583937",
       "status": "CONFIRMED",
-      "name": "Namra Pithwa",
-      "phone": "9173316294",
-      "age": "23",
-      "gender": "Male",
-      "date": "2025-12-20",
-      "time": "12:30"
-    },
-    {
-      "id": "A1766117439839",
-      "doctorId": "D102",
-      "patientId": "P1766117538139",
-      "status": "CONFIRMED",
-      "name": "Sumit",
-      "phone": "9054277510",
-      "age": "22",
-      "gender": "Male",
+      "name": "Cumque omnis velit ",
+      "phone": "Aute molestiae culpa",
+      "age": "Delectus sit fugiat",
+      "gender": "Laboriosam culpa l",
       "date": "2025-12-22",
-      "time": "12:40"
+      "time": "21:58"
     },
     {
-      "id": "A1766120274850",
-      "doctorId": "D101",
-      "patientId": "P1766120348029",
+      "id": "A-2025-1766384281773",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1766384493970",
       "status": "CONFIRMED",
-      "name": "meet",
+      "name": "Rushita",
       "phone": "1234567890",
       "age": "22",
-      "gender": "Male",
-      "date": "2025-12-22",
-      "time": "11:30"
-    },
-    {
-      "id": "A1766120746092",
-      "doctorId": "D101",
-      "patientId": "P1766120919962",
-      "status": "CONFIRMED",
-      "name": "Jensi",
-      "phone": "8866045280",
-      "age": "23",
       "gender": "Female",
       "date": "2025-12-23",
-      "time": "10:40"
+      "time": "09:00 AM - 12:30 PM"
     },
     {
-      "id": "A1766227920124",
-      "doctorId": "D101",
-      "patientId": "P1766228007109",
+      "id": "A-2025-1766385030782",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1766385098049",
       "status": "CONFIRMED",
-      "name": "Mollitia neque elige",
-      "phone": "Sequi sit ea vitae o",
-      "age": "Magna officia ex vel",
-      "gender": "Quasi tempor non adi",
-      "date": "2014-01-07",
-      "time": "02:33"
-    },
-    {
-      "id": "A1766228099960",
-      "doctorId": "D101",
-      "patientId": "P1766228221730",
-      "status": "CONFIRMED",
-      "name": "nmmmm",
-      "phone": "1234567890",
-      "age": "50",
-      "gender": "msal",
-      "date": "2025-12-20",
-      "time": "16:24"
-    },
-    {
-      "id": "A1766310697666",
-      "doctorId": "D102",
-      "patientId": "P1766310803398",
-      "status": "CONFIRMED",
-      "name": "Maishbhai",
-      "phone": "1234567890",
-      "age": "35",
-      "gender": "Male",
-      "date": "2025-12-22",
-      "time": "10:21"
-    },
-    {
-      "id": "A1766320481571",
-      "doctorId": "D101",
-      "patientId": "P/2025/1766320727569",
-      "status": "CONFIRMED",
-      "name": "Premanshu Pithwa",
-      "phone": "8866316294",
+      "name": "MEET",
+      "phone": "0123456789",
       "age": "20",
       "gender": "Male",
-      "date": "2025-12-23",
-      "time": "17:00"
-    },
-    {
-      "id": "A1766320769139",
-      "doctorId": "D102",
-      "patientId": null,
-      "status": "PENDING",
-      "name": "Quidem quia aspernat",
-      "phone": "Ratione qui delectus",
-      "age": "Voluptates commodo c",
-      "gender": "Ducimus voluptatem",
-      "date": "2025-12-21",
-      "time": "18:33"
+      "date": "2025-12-22",
+      "time": "05:00 PM - 07:00 PM"
     }
   ],
   "admissions": [
@@ -347,29 +263,91 @@
       "roomId": "R101",
       "admitDate": "2025-01-23",
       "status": "ADMITTED"
+    },
+    {
+      "id": "1fae",
+      "patient_id": "P-2025-1766384493970",
+      "room_id": "R-GENERAL-102",
+      "admission_date": "2025-12-22T06:21:59.258Z",
+      "expected_discharge_date": "2025-12-23",
+      "status": "ADMITTED"
+    },
+    {
+      "id": "6ae6",
+      "patient_id": "P-2025-1766384493970",
+      "room_id": "R-ICU-102",
+      "admission_date": "2025-12-22T06:22:33.838Z",
+      "expected_discharge_date": "2025-12-23",
+      "status": "ADMITTED"
+    },
+    {
+      "id": "1213",
+      "patient_id": "P-2025-1766384583937",
+      "room_id": "R-ICU-1766384669647",
+      "admission_date": "2025-12-22T06:24:47.169Z",
+      "expected_discharge_date": "2025-12-22",
+      "status": "ADMITTED"
+    },
+    {
+      "id": "4270",
+      "patient_id": "P-2025-1766385098049",
+      "room_id": "R-DELUXE-1766384879359",
+      "admission_date": "2025-12-22T06:32:30.037Z",
+      "expected_discharge_date": "2025-12-22",
+      "status": "ADMITTED"
     }
   ],
   "rooms": [
     {
-      "id": "R101",
-      "type": "ICU",
-      "pricePerDay": 3000,
-      "available": false,
-      "patientId": "P1001"
+      "id": "R-GENERAL-102",
+      "room_number": "GEN-1",
+      "room_category": "GENERAL",
+      "room_rent_per_day": "500",
+      "facilities": [
+        "Fan",
+        "1 Chair22"
+      ],
+      "is_available": false,
+      "allocated_patient_id": "P-2025-1766384493970"
     },
     {
-      "id": "R/ICU/1766321406151",
+      "id": "R-ICU-102",
       "room_number": "ICU-1",
       "room_category": "ICU",
       "room_rent_per_day": "9500",
       "facilities": [
         "AC",
-        "TV",
-        "SOFA",
-        "3 CHAIRS"
+        "CHAIR -2"
       ],
-      "is_available": true,
-      "allocated_patient_id": null
+      "is_available": false,
+      "allocated_patient_id": "P-2025-1766384493970"
+    },
+    {
+      "id": "R-ICU-1766384669647",
+      "room_number": "ICU-2",
+      "room_category": "ICU",
+      "room_rent_per_day": "9500",
+      "facilities": [
+        "AC",
+        " CHAIR -2"
+      ],
+      "is_available": false,
+      "allocated_patient_id": "P-2025-1766384583937"
+    },
+    {
+      "id": "R-DELUXE-1766384879359",
+      "room_number": "DELUXE-1",
+      "room_category": "DELUXE",
+      "room_rent_per_day": "25000",
+      "facilities": [
+        "AC",
+        " CHAIR -5",
+        " Sofa-2",
+        "TV",
+        " Extra Bed"
+      ],
+      "is_available": false,
+      "allocated_patient_id": "P-2025-1766385098049"
     }
   ],
   "labReports": [
@@ -545,6 +523,66 @@
       "blood_group": "A+",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2025-12-21T12:38:47.589Z"
+    },
+    {
+      "id": "f1c7",
+      "patientId": "P/2025/1766377906865",
+      "weight": "130",
+      "height": "5.6",
+      "blood_pressure": "120",
+      "blood_group": "B+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T04:31:46.900Z"
+    },
+    {
+      "id": "a04a",
+      "patientId": "P/2025/1766378139555",
+      "weight": "50",
+      "height": "5.6",
+      "blood_pressure": "120",
+      "blood_group": "A-",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T04:35:39.580Z"
+    },
+    {
+      "id": "743f",
+      "patientId": "P-2025-1766384493970",
+      "weight": "1",
+      "height": "1",
+      "blood_pressure": "1",
+      "blood_group": "O+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T06:21:33.985Z"
+    },
+    {
+      "id": "0c07",
+      "patientId": "P-2025-1766384583937",
+      "weight": "20",
+      "height": "20",
+      "blood_pressure": "22",
+      "blood_group": "A+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T06:23:03.952Z"
+    },
+    {
+      "id": "84a6",
+      "patientId": "P/2025/1766384757714",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T06:25:57.723Z"
+    },
+    {
+      "id": "ba53",
+      "patientId": "P-2025-1766385098049",
+      "weight": "80",
+      "height": "5.6",
+      "blood_pressure": "100",
+      "blood_group": "A+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-22T06:31:38.069Z"
     }
   ]
 }

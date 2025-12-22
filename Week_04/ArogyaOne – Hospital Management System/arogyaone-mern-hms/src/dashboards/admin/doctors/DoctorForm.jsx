@@ -30,7 +30,7 @@ const DoctorForm = () => {
     if (id) {
       await api.put(`/doctors/${id}`, doctor);
     } else {
-      const doctorId = `D/${new Date().getFullYear()}/${Date.now()}`;
+      const doctorId = `D-${new Date().getFullYear()}-${Date.now()}`;
 
       await api.post("/doctors", {
         id: doctorId,

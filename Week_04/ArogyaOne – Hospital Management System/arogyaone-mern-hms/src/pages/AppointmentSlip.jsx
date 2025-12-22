@@ -64,6 +64,16 @@ const AppointmentSlip = () => {
         <h4 className="mb-3">ArogyaOne Hospital</h4>
         <hr />
 
+        <div class="card border-success mb-3">
+          <div class="card-body text-success">
+            <h5 class="card-title">Appointment Confirmed</h5>
+            <p class="card-text">
+              <strong>Appointment number : </strong>
+              <span class="fw-bold">{appointment.id}</span>
+            </p>
+          </div>
+        </div>
+
         <h6>Patient Information</h6>
         <p>Name: {appointment.name}</p>
         <p>Mobile: {appointment.phone}</p>
@@ -73,7 +83,7 @@ const AppointmentSlip = () => {
         <hr />
 
         <h6>Doctor Information</h6>
-        <p>{doctor.name}</p>
+        <p>{doctor.full_name}</p>
         <p>{doctor.department}</p>
 
         <hr />
@@ -81,7 +91,7 @@ const AppointmentSlip = () => {
         <h6>Appointment Details</h6>
         <p>Date: {appointment.date}</p>
         <p>Time: {appointment.time}</p>
-        <p>Status: {appointment.status}</p>
+        {/* <p>Status: {appointment.status}</p> */}
 
         <hr />
 

@@ -26,7 +26,7 @@ const RoomForm = () => {
     if (id) {
       await api.put(`/rooms/${id}`, room);
     } else {
-      const roomId = `R/${room.room_category}/${Date.now()}`;
+      const roomId = `R-${room.room_category}-${Date.now()}`;
 
       await api.post("/rooms", {
         id: roomId,

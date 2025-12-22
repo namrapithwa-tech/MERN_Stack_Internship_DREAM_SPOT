@@ -23,7 +23,7 @@ const RegistrationConfirm = () => {
 
   const confirmAppointment = async () => {
     const year = new Date().getFullYear();
-    const patientId = `P/${year}/${Date.now()}`;
+    const patientId = `P-${year}-${Date.now()}`;
 
     // Create patient
     await api.post("/patients", {

@@ -17,9 +17,11 @@ const Doctors = () => {
         {doctors.map(d => (
           <div className="col-md-4 mb-3" key={d.id}>
             <div className="card p-3">
-              <h5>{d.name}</h5>
+              <h5>{d.full_name}</h5>
+              <p>{d.qualification}</p>
               <p>{d.department}</p>
-              <p>Fees: ₹{d.fees}</p>
+              <p>Fees: ₹ {d.consultation_fee}</p>
+              <p>OPD Timmings: Morning : {d.opd_timings.morning}, Evening :{d.opd_timings.evening}</p>
 
               <Link to={`/doctors/${d.id}`} className="btn btn-outline-primary">
                 View Profile
