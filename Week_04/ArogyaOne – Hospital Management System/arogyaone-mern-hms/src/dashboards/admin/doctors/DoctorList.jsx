@@ -25,8 +25,8 @@ const DoctorList = () => {
             <th>Name</th>
             <th>Department</th>
             <th>Fees</th>
-            <th>Available Days</th>
-            <th>OPD Timings</th>
+            <th>Salary</th>
+            <th>Availability</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -36,9 +36,11 @@ const DoctorList = () => {
               <td>{d.full_name}</td>
               <td>{d.department}</td>
               <td>₹{d.consultation_fee}</td>
-              <td>{d.available_days?.join(", ")}</td>
+              <td>₹{d.salary}</td>
               <td>
-                {d.opd_timings?.morning} / {d.opd_timings?.evening}
+                <span className={`badge ${d.is_available ? "bg-success" : "bg-danger"}`}>
+                  {d.is_available ? "Available" : "Unavailable"}
+                </span>
               </td>
               <td>
                 <Link to={`/admin/doctors/view/${d.id}`} className="btn btn-sm btn-info me-1">

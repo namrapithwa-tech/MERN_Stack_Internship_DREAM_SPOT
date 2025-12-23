@@ -25,6 +25,8 @@ const WalkInPatientForm = () => {
     const year = new Date().getFullYear();
     const patientId = `P/${year}/${Date.now()}`;
 
+    const selectedDoctor = doctors.find(d => d.id === form.doctorId);
+
     await api.post("/patients", {
       id: patientId,
       full_name: form.full_name,
@@ -47,10 +49,17 @@ const WalkInPatientForm = () => {
 
     generateOPDSlip({
       patientId,
-      ...form,
+      patient_name: form.full_name,
+      age: form.age,
+      gender: form.gender,
+      blood_group: form.blood_group,
+      mobile_number: form.mobile_number,
+      doctor_name: selectedDoctor?.full_name,
+      consultation_fee: selectedDoctor?.consultation_fee,
       date: new Date().toLocaleDateString()
     });
   };
+
 
   return (
     <>

@@ -97,6 +97,13 @@
       "password": "doctor123",
       "role": "DOCTOR",
       "linked_id": "D-2025-102"
+    },
+    {
+      "id": "3c19",
+      "email": "jeel.pithwa@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2025-1766490365367"
     }
   ],
   "hospitalInfo": {
@@ -140,15 +147,17 @@
         "evening": "05:00 PM - 07:00 PM"
       },
       "consultation_fee": "500",
-      "introduction": "Deep Ghetiya is a good doctor in rajkot xfdshjlfsdvdfg,admnvasdkjvv,asnv.snvsnvdvn,mvndv",
-      "is_available": true
+      "introduction": "Expertise: Dr. Deep Ghetia is a dedicated Physician specializing in General Medicine with a DNB qualification.\n\nEducation: He completed his foundational medical training (MBBS) at the prestigious B.J. Medical College under Gujarat University.\n\nClinical Training: He furthered his clinical expertise by pursuing his DNB at Metas Hospital, equipping him to handle a wide range of medical treatments and procedures.",
+      "is_available": true,
+      "salary": "75000",
+      "doctor_image": "media/doctors/D-101.jpg"
     },
     {
       "id": "D-2025-102",
-      "full_name": "Dr. JEEP",
-      "email": "d.p@arogyaone.com",
+      "full_name": "Dr. HARESH KASWALA",
+      "email": "haresh.kaswala@arogyaone.com",
       "department": "Cardiology",
-      "qualification": "MBBS",
+      "qualification": "MBBS,DNB",
       "experience_years": "10",
       "languages_spoken": [
         "Gujrati",
@@ -166,8 +175,37 @@
         "morning": "09:00 AM - 12:30 PM",
         "evening": "05:00 PM - 07:00 PM"
       },
-      "consultation_fee": "200",
-      "introduction": "JEEP is a good doctor in rajkot xfdshjlfsdvdfg,admnvasdkjvv,asnv.snvsnvdvn,mvndv",
+      "consultation_fee": "700",
+      "introduction": "Experience\nConsultant interventional cardiologist at Dr.Ramesh Cardiac Hospital,Vijayawada (01-06-2019 To 31-08-2019)\nConsultant interventional cardiologist at Narayana Multispeciality Hospital,Ahmedabad (02-09-2019 To 31-07-2020)\nConsultant interventional cardiologist at Galaxy Heart Institute, Mehsana (01-08-2020 To 29-04-2021)\nConsultant interventional cardiologist at Shalby Multispeciality Hospital,Surat (01-05-2021 To 14-01-2025)\nConsultant Cardiologist at H.J.Doshi Hospital, Rajkot From (15-01-2025 To Continue).\nTreatment, Procedure and Others\n2D Echocardiography.\nTMT.\nCoronary Angiography, Coronary Angioplasty.\nElective and Primary.\nComplex Coronary intervention.\nPeripheral Angiography and Angioplasty.\nPacemker Implantation (Single and Dual Chamber)\nAICD Implantation.",
+      "is_available": true,
+      "salary": "100000",
+      "doctor_image": "media/doctors/D-2025-102.jpg"
+    },
+    {
+      "id": "D-2025-1766490365367",
+      "full_name": "Dr. Jeel Pithwa",
+      "email": "jeel.pithwa@agoryaone.com",
+      "department": "Neurology",
+      "qualification": "MBBS,MD",
+      "experience_years": "25",
+      "languages_spoken": [
+        "Gujarati",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "SAT",
+        "FRI"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "1000",
+      "salary": "150000",
+      "introduction": "Experience\nConsultant interventional cardiologist at Dr.Ramesh Cardiac Hospital,Vijayawada (01-06-2019 To 31-08-2019)\nConsultant interventional cardiologist at Narayana Multispeciality Hospital,Ahmedabad (02-09-2019 To 31-07-2020)\nConsultant interventional cardiologist at Galaxy Heart Institute, Mehsana (01-08-2020 To 29-04-2021)\nConsultant interventional cardiologist at Shalby Multispeciality Hospital,Surat (01-05-2021 To 14-01-2025)\nConsultant Cardiologist at H.J.Doshi Hospital, Rajkot From (15-01-2025 To Continue).\nTreatment, Procedure and Others\n2D Echocardiography.\nTMT.\nCoronary Angiography, Coronary Angioplasty.\nElective and Primary.\nComplex Coronary intervention.\nPeripheral Angiography and Angioplasty.\nPacemker Implantation (Single and Dual Chamber)\nAICD Implantation.",
+      "doctor_image": "media/doctors/D-2025-1766490365367.jpg",
       "is_available": true
     }
   ],
@@ -216,6 +254,42 @@
       "registration_type": "APPOINTMENT",
       "created_at": "2025-12-22T06:31:38.049Z",
       "room_number": "DELUXE-1"
+    },
+    {
+      "id": "P/2025/1766490894907",
+      "full_name": "Namss",
+      "age": "55",
+      "gender": "",
+      "blood_group": "B-",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-2025-1766490365367"
+    },
+    {
+      "id": "P/2025/1766491702940",
+      "full_name": "Premanshu",
+      "age": "22",
+      "gender": "",
+      "blood_group": "AB+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-2025-1766490365367"
+    },
+    {
+      "id": "P/2025/1766491741345",
+      "full_name": "Premanshu",
+      "age": "22",
+      "gender": "",
+      "blood_group": "AB+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-101"
+    },
+    {
+      "id": "P/2025/1766491875557",
+      "full_name": "",
+      "age": "",
+      "gender": "",
+      "blood_group": "",
+      "mobile_number": "",
+      "consultant_doctor_id": ""
     }
   ],
   "appointments": [
@@ -583,6 +657,46 @@
       "blood_group": "A+",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2025-12-22T06:31:38.069Z"
+    },
+    {
+      "id": "5695",
+      "patientId": "P/2025/1766490894907",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "B-",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-23T11:54:54.924Z"
+    },
+    {
+      "id": "790a",
+      "patientId": "P/2025/1766491702940",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-23T12:08:22.951Z"
+    },
+    {
+      "id": "97a4",
+      "patientId": "P/2025/1766491741345",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-23T12:09:01.354Z"
+    },
+    {
+      "id": "3dbb",
+      "patientId": "P/2025/1766491875557",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-23T12:11:15.566Z"
     }
   ]
 }

@@ -3,25 +3,55 @@ import jsPDF from "jspdf";
 const generateOPDSlip = (data) => {
   const pdf = new jsPDF("p", "mm", "a5");
 
+  /* COLORS */
+  const GREEN = [0, 128, 0];
+
+  /* HEADER */
+  pdf.setTextColor(...GREEN);
+  pdf.setFontSize(16);
+  pdf.text("AROGYAONE HOSPITAL", 40, 15);
+
+  pdf.setFontSize(9);
+  pdf.text("Complete Healthcare Solution", 50, 21);
+  pdf.text("Contact: +91 98765 43210 | Rajkot", 35, 26);
+
+  pdf.setDrawColor(...GREEN);
+  pdf.line(10, 30, 140, 30);
+
+  /* OPD TITLE */
+  pdf.setTextColor(0, 0, 0);
   pdf.setFontSize(12);
-  pdf.text("ArogyaOne Hospital", 10, 10);
-  pdf.text("OPD SLIP", 70, 10);
+  pdf.text("OPD SLIP", 65, 38);
 
-  pdf.line(10, 12, 140, 12);
+  /* PATIENT BOX */
+  pdf.setDrawColor(0, 128, 0);
+  pdf.rect(10, 42, 120, 30);
 
-  pdf.text(`Patient ID: ${data.patientId}`, 10, 20);
-  pdf.text(`Name: ${data.full_name}`, 10, 26);
-  pdf.text(`Blood Group: ${data.blood_group}`, 10, 32);
-  pdf.text(`Doctor: ${data.doctorId}`, 10, 38);
-  pdf.text(`Date: ${data.date}`, 10, 44);
+  pdf.setFontSize(10);
+  pdf.text(`Patient ID : ${data.patientId}`, 12, 50);
+  pdf.text(`Name       : ${data.patient_name}`, 12, 56);
+  pdf.text(`Age/Gender : ${data.age}`, 12, 62);
+  pdf.text(`Blood Group: ${data.blood_group}`, 12, 68);
 
-  pdf.line(10, 60, 70, 60);
-  pdf.text("Authorized By", 10, 66);
+  /* DOCTOR BOX */
+  pdf.rect(10, 75, 120, 20);
+  pdf.text(`Consultant Doctor : ${data.doctor_name}`, 12, 83);
+  pdf.text(`Consultation Fee  : Rs. ${data.consultation_fee}`, 12, 89);
 
-  pdf.line(80, 60, 140, 60);
-  pdf.text("Payment Received", 80, 66);
+  /* FOOTER BOX */
+  pdf.rect(10, 98, 120, 18);
+  pdf.text(`Date : ${data.date}`, 12, 106);
+  pdf.text("OPD Timing: Morning / Evening", 12, 112);
 
-  pdf.save(`OPD_${data.patientId}.pdf`);
+  /* SIGNATURES */
+  pdf.line(15, 125, 60, 125);
+  pdf.text("Registration Desk", 18, 130);
+
+  pdf.line(80, 125, 125, 125);
+  pdf.text("Billing Desk", 88, 130);
+
+  /* SAVE */
+  pdf.save(`OPD_Slip_${data.patientId}.pdf`);
 };
 
 export default generateOPDSlip;
