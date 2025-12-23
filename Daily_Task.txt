@@ -94,5 +94,8 @@
 		
 --> Week 05
 	-- Day 01
-		
+		Registration Module missing requirements solve.
+	
+	-- Day 02
+		Admin Module missing requirements solve.
 		
