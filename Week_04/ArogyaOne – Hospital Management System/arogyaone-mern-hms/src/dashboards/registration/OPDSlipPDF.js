@@ -13,7 +13,7 @@ const generateOPDSlip = (data) => {
 
   pdf.setFontSize(9);
   pdf.text("Complete Healthcare Solution", 50, 21);
-  pdf.text("Contact: +91 98765 43210 | Rajkot", 35, 26);
+  pdf.text("   Contact: +91 91733 16294 | Rajkot", 35, 26);
 
   pdf.setDrawColor(...GREEN);
   pdf.line(10, 30, 140, 30);
