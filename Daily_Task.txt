@@ -98,4 +98,13 @@
 	
 	-- Day 02
 		Admin Module missing requirements solve.
+
+	-- Day 03 
+		in admin module doctor form modify.
+	
+	-- Day 04 
+		in walk in patient registration form updated.
+		some changes in OPD Slip.
+	-- Day 05 
+		Raja rakhel che dwarka java mate [medam ne puch va nu che ke su karuvu em] 
 		
