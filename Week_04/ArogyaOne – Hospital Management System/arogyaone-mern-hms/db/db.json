@@ -211,85 +211,56 @@
   ],
   "patients": [
     {
-      "id": "P-2025-1766384493970",
-      "full_name": "Rushita",
-      "age": "22",
-      "gender": "Female",
-      "mobile_number": "1234567890",
-      "blood_group": "O+",
-      "consultant_doctor_id": "D-101",
-      "registration_type": "APPOINTMENT",
-      "created_at": "2025-12-22T06:21:33.970Z",
-      "room_number": "ICU-1"
-    },
-    {
-      "id": "P-2025-1766384583937",
-      "full_name": "Cumque omnis velit ",
-      "age": "Delectus sit fugiat",
-      "gender": "Laboriosam culpa l",
-      "mobile_number": "Aute molestiae culpa",
-      "blood_group": "A+",
-      "consultant_doctor_id": "D-101",
-      "registration_type": "APPOINTMENT",
-      "created_at": "2025-12-22T06:23:03.937Z",
-      "room_number": "ICU-2"
-    },
-    {
-      "id": "P/2025/1766384757714",
-      "full_name": "Sumit Chauhan",
-      "age": "21",
-      "gender": "",
-      "blood_group": "AB+",
-      "mobile_number": "",
-      "consultant_doctor_id": "D-101"
-    },
-    {
-      "id": "P-2025-1766385098049",
-      "full_name": "MEET",
-      "age": "20",
+      "id": "P-2025-1767156098797",
+      "full_name": "Namrakuamr Pithwa",
+      "age": "23",
       "gender": "Male",
-      "mobile_number": "0123456789",
-      "blood_group": "A+",
+      "mobile_number": "9173316294",
+      "blood_group": "AB+",
       "consultant_doctor_id": "D-101",
       "registration_type": "APPOINTMENT",
-      "created_at": "2025-12-22T06:31:38.049Z",
+      "created_at": "2025-12-31T04:41:38.797Z",
       "room_number": "DELUXE-1"
     },
     {
-      "id": "P/2025/1766490894907",
-      "full_name": "Namss",
-      "age": "55",
-      "gender": "",
-      "blood_group": "B-",
-      "mobile_number": "",
-      "consultant_doctor_id": "D-2025-1766490365367"
+      "id": "P-2025-1767156259875",
+      "full_name": "Sumit",
+      "age": "25",
+      "gender": "Female",
+      "mobile_number": "8866045280",
+      "blood_group": "AB+",
+      "consultant_doctor_id": "D-101",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2025-12-31T04:44:19.875Z"
     },
     {
-      "id": "P/2025/1766491702940",
-      "full_name": "Premanshu",
-      "age": "22",
+      "id": "P/2025/1767156289136",
+      "full_name": "Krish",
+      "age": "50",
       "gender": "",
-      "blood_group": "AB+",
-      "mobile_number": "",
-      "consultant_doctor_id": "D-2025-1766490365367"
-    },
-    {
-      "id": "P/2025/1766491741345",
-      "full_name": "Premanshu",
-      "age": "22",
-      "gender": "",
-      "blood_group": "AB+",
+      "blood_group": "B+",
       "mobile_number": "",
       "consultant_doctor_id": "D-101"
     },
     {
-      "id": "P/2025/1766491875557",
-      "full_name": "",
-      "age": "",
+      "id": "P/2025/1767156337330",
+      "full_name": "Tempore ea veniam ",
+      "age": "Aliquip nihil et in ",
       "gender": "",
-      "blood_group": "",
+      "blood_group": "O-",
       "mobile_number": "",
-      "consultant_doctor_id": ""
+      "consultant_doctor_id": "D-2025-1766490365367"
+    },
+    {
+      "id": "P-2025-1767156369173",
+      "full_name": "Provident aliquid v",
+      "age": "Voluptatem Incididu",
+      "gender": "Other",
+      "mobile_number": "Laborum non quisquam",
+      "blood_group": "B-",
+      "consultant_doctor_id": "D-101",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2025-12-31T04:46:09.173Z"
     }
   ],
   "appointments": [
@@ -328,46 +299,51 @@
       "gender": "Male",
       "date": "2025-12-22",
       "time": "05:00 PM - 07:00 PM"
+    },
+    {
+      "id": "A-2025-1767156020806",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1767156098797",
+      "status": "CONFIRMED",
+      "name": "Namrakuamr Pithwa",
+      "phone": "9173316294",
+      "age": "23",
+      "gender": "Male",
+      "date": "2003-03-23",
+      "time": "09:00 AM - 12:30 PM"
+    },
+    {
+      "id": "A-2025-1767156204646",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1767156259875",
+      "status": "CONFIRMED",
+      "name": "Sumit",
+      "phone": "8866045280",
+      "age": "25",
+      "gender": "Female",
+      "date": "2000-02-05",
+      "time": "05:00 PM - 07:00 PM"
+    },
+    {
+      "id": "A-2025-1767156353768",
+      "doctorId": "D-101",
+      "patientId": "P-2025-1767156369173",
+      "status": "CONFIRMED",
+      "name": "Provident aliquid v",
+      "phone": "Laborum non quisquam",
+      "age": "Voluptatem Incididu",
+      "gender": "Other",
+      "date": "1974-10-28",
+      "time": "09:00 AM - 12:30 PM"
     }
   ],
   "admissions": [
     {
-      "id": "ADM01",
-      "patientId": "P1001",
-      "roomId": "R101",
-      "admitDate": "2025-01-23",
-      "status": "ADMITTED"
-    },
-    {
-      "id": "1fae",
-      "patient_id": "P-2025-1766384493970",
-      "room_id": "R-GENERAL-102",
-      "admission_date": "2025-12-22T06:21:59.258Z",
-      "expected_discharge_date": "2025-12-23",
-      "status": "ADMITTED"
-    },
-    {
-      "id": "6ae6",
-      "patient_id": "P-2025-1766384493970",
-      "room_id": "R-ICU-102",
-      "admission_date": "2025-12-22T06:22:33.838Z",
-      "expected_discharge_date": "2025-12-23",
-      "status": "ADMITTED"
-    },
-    {
-      "id": "1213",
-      "patient_id": "P-2025-1766384583937",
-      "room_id": "R-ICU-1766384669647",
-      "admission_date": "2025-12-22T06:24:47.169Z",
-      "expected_discharge_date": "2025-12-22",
-      "status": "ADMITTED"
-    },
-    {
-      "id": "4270",
-      "patient_id": "P-2025-1766385098049",
+      "id": "caae",
+      "patient_id": "P-2025-1767156098797",
       "room_id": "R-DELUXE-1766384879359",
-      "admission_date": "2025-12-22T06:32:30.037Z",
-      "expected_discharge_date": "2025-12-22",
+      "admission_date": "2025-12-31T04:47:02.629Z",
+      "expected_discharge_date": "2025-12-09",
       "status": "ADMITTED"
     }
   ],
@@ -381,8 +357,8 @@
         "Fan",
         "1 Chair22"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2025-1766384493970"
+      "is_available": true,
+      "allocated_patient_id": ""
     },
     {
       "id": "R-ICU-102",
@@ -393,8 +369,8 @@
         "AC",
         "CHAIR -2"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2025-1766384493970"
+      "is_available": true,
+      "allocated_patient_id": ""
     },
     {
       "id": "R-ICU-1766384669647",
@@ -405,8 +381,8 @@
         "AC",
         " CHAIR -2"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2025-1766384583937"
+      "is_available": true,
+      "allocated_patient_id": ""
     },
     {
       "id": "R-DELUXE-1766384879359",
@@ -421,7 +397,7 @@
         " Extra Bed"
       ],
       "is_available": false,
-      "allocated_patient_id": "P-2025-1766385098049"
+      "allocated_patient_id": "P-2025-1767156098797"
     }
   ],
   "labReports": [
@@ -697,6 +673,66 @@
       "blood_group": "",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2025-12-23T12:11:15.566Z"
+    },
+    {
+      "id": "85e9",
+      "patientId": "P/2025/1767072928774",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-30T05:35:28.786Z"
+    },
+    {
+      "id": "b52c",
+      "patientId": "P-2025-1767156098797",
+      "weight": "95",
+      "height": "5.6",
+      "blood_pressure": "90",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-31T04:41:38.820Z"
+    },
+    {
+      "id": "c1d0",
+      "patientId": "P-2025-1767156259875",
+      "weight": "20",
+      "height": "20",
+      "blood_pressure": "20",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-31T04:44:19.888Z"
+    },
+    {
+      "id": "0f35",
+      "patientId": "P/2025/1767156289136",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "B+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-31T04:44:49.142Z"
+    },
+    {
+      "id": "9985",
+      "patientId": "P/2025/1767156337330",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "O-",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-31T04:45:37.337Z"
+    },
+    {
+      "id": "0749",
+      "patientId": "P-2025-1767156369173",
+      "weight": "Dolorum autem labore",
+      "height": "Dolor exercitation c",
+      "blood_pressure": "Sit veritatis quia ",
+      "blood_group": "B-",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2025-12-31T04:46:09.185Z"
     }
   ]
 }

@@ -9,6 +9,13 @@ const Home = () => {
       <Link to="/doctors" className="btn btn-primary">
         Book Appointment
       </Link>
+
+      <hr></hr>
+
+      <Link to="/login" className="btn btn-success">
+        Log in
+      </Link>
+
     </div>
   );
 };

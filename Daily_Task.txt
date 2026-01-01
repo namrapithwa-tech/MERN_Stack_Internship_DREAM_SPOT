@@ -113,5 +113,11 @@
 		Raja Rakhel Dada mate
 
 	-- Day 02
-		
+		UI Devlopment Started in Public pages. 
+
+	-- Day 03 
+		Home, Doctors , Services and Contact page designed.
+
+	-- Day 04 
+		Appoiment Booking UI Created.
 		
