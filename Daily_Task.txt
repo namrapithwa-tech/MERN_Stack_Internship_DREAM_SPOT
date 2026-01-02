@@ -120,4 +120,6 @@
 
 	-- Day 04 
 		Appoiment Booking UI Created.
-		
+
+	-- Day 05 
+		Registration Dashboard UI Designed in Stitch AI. from tech.namra@gmail.com
