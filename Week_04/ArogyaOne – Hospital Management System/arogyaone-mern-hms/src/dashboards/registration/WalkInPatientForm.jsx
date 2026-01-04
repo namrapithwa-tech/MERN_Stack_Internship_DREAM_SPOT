@@ -23,7 +23,7 @@ const WalkInPatientForm = () => {
 
   const handleSubmit = async () => {
     const year = new Date().getFullYear();
-    const patientId = `P/${year}/${Date.now()}`;
+    const patientId = `P-${year}-${Date.now()}`;
 
     const selectedDoctor = doctors.find(d => d.id === form.doctorId);
 

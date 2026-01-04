@@ -47,6 +47,7 @@ import ECGDashboard from "./dashboards/departments/ecg/ECGDashboard";
 import RadiologyDashboard from "./dashboards/departments/radiology/RadiologyDashboard";
 import MRIDashboard from "./dashboards/departments/mri/MRIDashboard";
 import SurgeryDashboard from "./dashboards/departments/surgery/SurgeryDashboard";
+import PatientView from "./dashboards/registration/PatientView";
 
 function App() {
   return (
@@ -160,6 +161,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/registration/patient/:id"
+          element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <PatientView />
+            </ProtectedRoute>
+          }
+        />
+
 
         <Route
           path="/registration/confirm/:appointmentId"

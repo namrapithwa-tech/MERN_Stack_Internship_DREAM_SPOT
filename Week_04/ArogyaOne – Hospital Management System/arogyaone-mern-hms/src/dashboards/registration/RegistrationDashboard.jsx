@@ -2,6 +2,7 @@ import RegistrationLayout from "./RegistrationLayout";
 import AppointmentsTable from "./AppointmentsTable";
 import WalkInPatientForm from "./WalkInPatientForm";
 import PatientsTable from "./PatientsTable";
+import PatientView from "./PatientView";
 
 const RegistrationDashboard = () => {
   return (
@@ -17,7 +18,7 @@ const RegistrationDashboard = () => {
 
       <hr />
 
-      <PatientsTable />
+      <PatientsTable />  
     </RegistrationLayout>
   );
 };

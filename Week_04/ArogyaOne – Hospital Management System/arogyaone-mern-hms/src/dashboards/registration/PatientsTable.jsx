@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../../api/axios";
 import RoomAllocationForm from "./RoomAllocationForm";
 import generateStickerPDF from "./StickerPDF";
@@ -51,7 +52,18 @@ const PatientsTable = () => {
                     Print Stickers
                   </button>
                 )}
+
+                 <Link
+                  to={`/registration/patient/${p.id}`}
+                  className="btn btn-sm btn-info"
+                >
+                  View
+                </Link>
+
               </td>
+
+                
+
             </tr>
           ))}
         </tbody>
