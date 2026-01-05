@@ -83,27 +83,6 @@
       "password": "patient123",
       "role": "PATIENT",
       "patientId": "P1001"
-    },
-    {
-      "id": "7c90",
-      "email": "deep.ghetiya@arogyaone.com",
-      "password": "doctor123",
-      "role": "DOCTOR",
-      "linked_id": "D/2025/1766321343018"
-    },
-    {
-      "id": "a557",
-      "email": "d.p@arogyaone.com",
-      "password": "doctor123",
-      "role": "DOCTOR",
-      "linked_id": "D-2025-102"
-    },
-    {
-      "id": "3c19",
-      "email": "jeel.pithwa@arogyaone.com",
-      "password": "doctor123",
-      "role": "DOCTOR",
-      "linked_id": "D-2025-1766490365367"
     }
   ],
   "hospitalInfo": {
