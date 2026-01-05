@@ -123,3 +123,7 @@
 
 	-- Day 05 
 		Registration Dashboard UI Designed in Stitch AI. from tech.namra@gmail.com
+
+--> Week 07
+	-- Day 01
+		Regsitration and Admin Dashboard Work Started from Scratch to resolve all vurnablitties and db.json clear for old record remove.
