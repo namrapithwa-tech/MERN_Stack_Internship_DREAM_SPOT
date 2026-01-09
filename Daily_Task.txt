@@ -127,3 +127,15 @@
 --> Week 07
 	-- Day 01
 		Regsitration and Admin Dashboard Work Started from Scratch to resolve all vurnablitties and db.json clear for old record remove.
+
+	-- Day 02
+		Registration Dashboard work UI work.
+
+	-- Day 03
+		Registration Dashboard work UI work.
+
+	-- Day 04
+		Registration Dashboard work UI work.	
+
+	-- Day 05
+		
