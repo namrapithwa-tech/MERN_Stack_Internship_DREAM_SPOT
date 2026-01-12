@@ -138,4 +138,8 @@
 		Registration Dashboard work UI work.	
 
 	-- Day 05
-		
+		Registration Dashboard work UI work and Vulnabrities
+
+--> Week 08
+	-- Day 01
+		Room Allocation PDF chaanges.

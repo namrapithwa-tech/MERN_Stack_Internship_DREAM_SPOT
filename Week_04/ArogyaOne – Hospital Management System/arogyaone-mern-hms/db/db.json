@@ -174,9 +174,37 @@
       "is_available": true
     }
   ],
-  "patients": [],
+  "patients": [
+    {
+      "id": "P-2026-1768194078214",
+      "full_name": "Nams Pithwa",
+      "age": "25",
+      "gender": "",
+      "blood_group": "AB+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-2026-1767591154344",
+      "room_number": "GEN-101"
+    }
+  ],
   "appointments": [],
-  "admissions": [],
+  "admissions": [
+    {
+      "id": "59d5",
+      "patient_id": "P-2026-1768194078214",
+      "room_id": "R-ICU-1767592266292",
+      "admission_date": "2026-01-12T05:40:05.571Z",
+      "expected_discharge_date": "2026-01-29",
+      "status": "ADMITTED"
+    },
+    {
+      "id": "7a3e",
+      "patient_id": "P-2026-1768194078214",
+      "room_id": "R-GENERAL-1767592052449",
+      "admission_date": "2026-01-12T06:29:03.986Z",
+      "expected_discharge_date": "2026-01-13",
+      "status": "ADMITTED"
+    }
+  ],
   "rooms": [
     {
       "id": "R-GENERAL-1767592052449",
@@ -189,8 +217,8 @@
         " Night Lamp",
         "Oxygen Supply"
       ],
-      "is_available": true,
-      "allocated_patient_id": null
+      "is_available": false,
+      "allocated_patient_id": "P-2026-1768194078214"
     },
     {
       "id": "R-GENERAL-1767592080749",
@@ -305,8 +333,8 @@
         " CCTV",
         " AC"
       ],
-      "is_available": true,
-      "allocated_patient_id": null
+      "is_available": false,
+      "allocated_patient_id": "P-2026-1768194078214"
     },
     {
       "id": "R-ICU-1767592282976",
@@ -867,5 +895,16 @@
       "due": 23600
     }
   ],
-  "vitals": []
+  "vitals": [
+    {
+      "id": "29db",
+      "patientId": "P-2026-1768194078214",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "AB+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-01-12T05:01:18.233Z"
+    }
+  ]
 }
