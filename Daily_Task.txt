@@ -143,3 +143,7 @@
 --> Week 08
 	-- Day 01
 		Room Allocation PDF chaanges.
+
+	-- Day 02
+		node api starting.
+	
