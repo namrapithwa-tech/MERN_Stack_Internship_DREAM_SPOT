@@ -146,4 +146,7 @@
 
 	-- Day 02
 		node api starting.
+
+	-- Day 03 
+		Public page all functionality with API integration.
 	
