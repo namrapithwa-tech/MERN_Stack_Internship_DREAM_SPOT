@@ -147,6 +147,11 @@
 	-- Day 02
 		node api starting.
 
-	-- Day 03 
+	-- Day 03
+		Makarsankranti Holiday
+
+	-- Day 04 
 		Public page all functionality with API integration.
 	
+	-- Day 05
+		Public page all functionality with API integration.
