@@ -186,7 +186,23 @@
       "room_number": "GEN-101"
     }
   ],
-  "appointments": [],
+  "appointments": [
+    {
+      "id": "A/2026/1768654034683",
+      "doctorId": "D-2026-1767591154344",
+      "patientId": null,
+      "status": "PENDING",
+      "name": "Namrakumar Pithwa",
+      "phone": "9173316294",
+      "age": 23,
+      "gender": "Male",
+      "date": "2026-01-19",
+      "time": "morning",
+      "doctorName": "Dr. Jensi Makwana",
+      "department": "Cardiology",
+      "createdAt": "2026-01-17T12:47:14.684Z"
+    }
+  ],
   "admissions": [
     {
       "id": "59d5",
