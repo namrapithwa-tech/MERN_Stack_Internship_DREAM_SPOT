@@ -4,13 +4,9 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import Unauthorized from "./pages/Unauthorized";
 
 /* =======================
-   PUBLIC WEBSITE PAGES
+   ADMIN HOME PAGE 
 ======================= */
 import Home from "./pages/Home";
-import Doctors from "./pages/Doctors";
-import DoctorProfile from "./pages/DoctorProfile";
-import BookAppointment from "./pages/BookAppointment";
-import AppointmentSlip from "./pages/AppointmentSlip";
 
 /* =======================
    DASHBOARDS
@@ -55,13 +51,9 @@ function App() {
       <Routes>
 
         {/* =======================
-           PUBLIC ROUTES
+           ADMIN HOME PAGE ROUTES
         ======================= */}
         <Route path="/" element={<Home />} />
-        <Route path="/doctors" element={<Doctors />} />
-        <Route path="/doctors/:id" element={<DoctorProfile />} />
-        <Route path="/book-appointment/:doctorId" element={<BookAppointment />} />
-        <Route path="/appointment-slip/:appointmentId" element={<AppointmentSlip />} />
 
         {/* =======================
            AUTH ROUTES

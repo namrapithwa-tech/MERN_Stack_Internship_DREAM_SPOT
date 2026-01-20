@@ -251,21 +251,21 @@ const Login = () => {
                   <div className="feature-card">
                     <span className="material-symbols-outlined text-primary-green mb-3">verified_user</span>
                     <h6 className="fw-bold">Enterprise Grade</h6>
-                    <p className="small text-muted mb-0">Full HIPAA compliance and end-to-end data encryption.</p>
+                    <p className="small text-muted mb-0">Private. Secure. Compliant.</p>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="feature-card">
                     <span className="material-symbols-outlined text-primary-green mb-3">speed</span>
                     <h6 className="fw-bold">Real-time Sync</h6>
-                    <p className="small text-muted mb-0">Instant updates across all clinical departments.</p>
+                    <p className="small text-muted mb-0">Synced. Fast. Connected.</p>
                   </div>
                 </div>
               </div>
               <div className="mt-5 text-muted small">
-                <span>© 2024 ArogyaOne Systems</span>
+                <span>© 2026 ArogyaOne Hospital Managment Systems</span>
                 <span className="mx-2">•</span>
-                <span>v4.2.0-stable</span>
+                <span>v1.0.0-stable</span>
               </div>
             </div>
           </div>
@@ -274,8 +274,8 @@ const Login = () => {
           <div className="col-lg-5 col-12 form-column">
             <div className="login-card">
               <div className="text-center text-lg-start mb-5">
-                <h3 className="fw-bold mb-2">Welcome Back</h3>
-                <p className="text-muted">Enter your credentials to access the admin portal.</p>
+                <h3 className="fw-bold mb-2">Welcome User!</h3>
+                <p className="text-muted">Enter your credentials to access the ArogyaOne-HMS</p>
               </div>
               <form onSubmit={handleLogin}>
                 <div className="mb-4">
@@ -296,9 +296,9 @@ const Login = () => {
                   <div className="d-flex justify-content-between align-items-center">
                     <label className="form-label">Password</label>
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a className="small text-decoration-none text-primary-green fw-bold" href="#">
+                    {/* <a className="small text-decoration-none text-primary-green fw-bold" href="#">
                       Forgot?
-                    </a>
+                    </a> */}
                   </div>
                   <div className="input-group-custom">
                     <span className="material-symbols-outlined input-icon">lock</span>
@@ -334,12 +334,12 @@ const Login = () => {
                     </span>
                     Contact Support
                   </button>
-                  <button className="btn btn-outline-secondary">
+                  {/* <button className="btn btn-outline-secondary">
                     <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
                       analytics
                     </span>
                     System Status
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
