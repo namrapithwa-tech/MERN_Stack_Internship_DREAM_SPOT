@@ -159,4 +159,9 @@
 --> Week 09
 	-- Day 01
 		API in Frontend Integration Done with Doctor fetch and Bookappointment funtionality completed with all working criteria.
+
 	-- Day 02
+		Registration dashboard work for a designing.
+
+	-- Day 03 
+		
