@@ -14,7 +14,7 @@
       "role": "REGISTRATION",
       "name": "Registration Desk"
     },
-    {
+    {   
       "id": "3",
       "email": "billing@arogyaone.com",
       "password": "bill123",
