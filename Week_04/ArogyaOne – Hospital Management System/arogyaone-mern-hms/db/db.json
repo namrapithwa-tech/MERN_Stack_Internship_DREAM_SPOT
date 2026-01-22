@@ -177,7 +177,7 @@
       "consultation_fee": "500",
       "salary": "125000",
       "introduction": "Senior Consultant Physician with over 12 years of experience in managing chronic lifestyle diseases, infectious diseases, and geriatric care. Committed to providing evidence-based medical treatment and patient-centric care.",
-      "doctor_image": "media/doctors/docmale.jpg",
+      "doctor_image": "https://drive.google.com/file/d/1YANVr6XgDYfLSlwkEi4YoV6t4s0W5OLI/view?usp=drive_link",
       "is_available": true
     },
     {
@@ -207,7 +207,7 @@
       "consultation_fee": "800",
       "salary": "225000",
       "introduction": "Dedicated Interventional Cardiologist specializing in non-invasive cardiac imaging, preventive heart care, and hypertension management. Extensive experience in performing echocardiograms and managing complex cardiac cases with a patient-first approach.",
-      "doctor_image": "media/doctors/docfemale.jpg",
+      "doctor_image": "https://shorturl.at/3s3xX",
       "is_available": true
     },
     {
@@ -234,7 +234,7 @@
       "consultation_fee": "1000",
       "salary": "250000",
       "introduction": "Senior Neurologist with expertise in treating stroke, epilepsy, and movement disorders. Highly skilled in neuro-rehabilitation and managing complex nervous system conditions using advanced diagnostic tools.",
-      "doctor_image": "media/doctors/docmale.jpg",
+      "doctor_image": "https://drive.google.com/file/d/1YANVr6XgDYfLSlwkEi4YoV6t4s0W5OLI/view?usp=drive_link",
       "is_available": true
     },
     {
@@ -264,7 +264,7 @@
       "consultation_fee": "600",
       "salary": "160000",
       "introduction": "Specialist in high-risk pregnancy management, laparoscopic surgery, and adolescent health. Dedicated to providing comprehensive prenatal and postnatal care with a focus on maternal wellness.",
-      "doctor_image": "media/doctors/docfemale.jpg",
+      "doctor_image": "https://shorturl.at/3s3xX",
       "is_available": true
     },
     {
@@ -292,7 +292,7 @@
       "consultation_fee": "700",
       "salary": "185000",
       "introduction": "Expert in sports medicine, fracture management, and joint replacement surgeries. Focused on restoring mobility and improving quality of life through advanced surgical and non-surgical interventions.",
-      "doctor_image": "media/doctors/docmale.jpg",
+      "doctor_image": "https://drive.google.com/file/d/1YANVr6XgDYfLSlwkEi4YoV6t4s0W5OLI/view?usp=drive_link",
       "is_available": true
     },
     {
@@ -321,7 +321,7 @@
       "consultation_fee": "650",
       "salary": "190000",
       "introduction": "Accomplished surgeon specializing in minimally invasive (laparoscopic) procedures, abdominal surgeries, and trauma care. Dedicated to surgical precision and ensuring rapid post-operative recovery for all patients.",
-      "doctor_image": "media/doctors/docfemale.jpg",
+      "doctor_image": "https://shorturl.at/3s3xX",
       "is_available": true
     },
     {
@@ -352,7 +352,7 @@
       "consultation_fee": "1200",
       "salary": "210000",
       "introduction": "Critical care specialist with extensive training in ACLS and BLS. Expert in handling acute trauma, cardiac emergencies, and respiratory distress. Focused on rapid stabilization and life-saving interventions in high-pressure environments.",
-      "doctor_image": "media/doctors/docmale.jpg",
+      "doctor_image": "https://drive.google.com/file/d/1YANVr6XgDYfLSlwkEi4YoV6t4s0W5OLI/view?usp=sharing",
       "is_available": true
     }
   ],

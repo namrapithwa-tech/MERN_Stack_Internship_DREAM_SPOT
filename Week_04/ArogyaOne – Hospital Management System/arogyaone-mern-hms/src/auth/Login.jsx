@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import api from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 
@@ -328,12 +328,12 @@ const Login = () => {
               <div className="mt-5 pt-4 border-top">
                 <p className="small text-center text-muted mb-3">Having trouble signing in?</p>
                 <div className="d-flex gap-2 justify-content-center footer-buttons">
-                  <button className="btn btn-outline-secondary">
+                  <Link to="https://github.com/namrapithwa-tech" className="btn btn-outline-secondary">
                     <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
                       contact_support
                     </span>
                     Contact Support
-                  </button>
+                  </Link>
                   {/* <button className="btn btn-outline-secondary">
                     <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
                       analytics

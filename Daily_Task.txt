@@ -135,6 +135,7 @@
 		Registration Dashboard work UI work.
 
 	-- Day 04
+
 		Registration Dashboard work UI work.	
 
 	-- Day 05
@@ -167,4 +168,5 @@
 		Admin Dashboard work for designing.
  
 	-- Day 04
+		Doctor new data added with a google drive link
 		
