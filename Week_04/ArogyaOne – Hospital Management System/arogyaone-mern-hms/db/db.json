@@ -14,7 +14,7 @@
       "role": "REGISTRATION",
       "name": "Registration Desk"
     },
-    {   
+    {
       "id": "3",
       "email": "billing@arogyaone.com",
       "password": "bill123",
@@ -85,18 +85,53 @@
       "patientId": "P1001"
     },
     {
-      "id": "c5f4",
-      "email": "jeel.pithwa@arogyaone.com",
+      "id": "8686",
+      "email": "aarav.mehta@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
-      "linked_id": "D-2026-1767590931262"
+      "linked_id": "D-2026-1769061755758"
     },
     {
-      "id": "f4a2",
-      "email": "jensi.makwana@arogyaone.com",
+      "id": "5668",
+      "email": "ishani.malhotra@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
-      "linked_id": "D-2026-1767591154344"
+      "linked_id": "D-2026-1769062412564"
+    },
+    {
+      "id": "3ea6",
+      "email": "raghav.joshi@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2026-1769063648290"
+    },
+    {
+      "id": "9ad7",
+      "email": "meera.shah@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2026-1769063781413"
+    },
+    {
+      "id": "d19f",
+      "email": "kabir.patel@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2026-1769063862452"
+    },
+    {
+      "id": "4ed8",
+      "email": "ananya.vyas@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2026-1769064028371"
+    },
+    {
+      "id": "e81f",
+      "email": "aryan.trivedi@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "linked_id": "D-2026-1769064195093"
     }
   ],
   "hospitalInfo": {
@@ -117,12 +152,98 @@
   },
   "doctors": [
     {
-      "id": "D-2026-1767590931262",
-      "full_name": "Dr. Jeel Pithwa",
-      "email": "jeel.pithwa@arogyaone.com",
-      "department": "Cardiology",
-      "qualification": "MD",
+      "id": "D-2026-1769061755758",
+      "full_name": "Dr. Aarav V. Mehta",
+      "email": "aarav.mehta@arogyaone.com",
+      "department": "Physician",
+      "qualification": "MBBS, MD (Internal Medicine)",
       "experience_years": "12",
+      "languages_spoken": [
+        "Gujarati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "500",
+      "salary": "125000",
+      "introduction": "Senior Consultant Physician with over 12 years of experience in managing chronic lifestyle diseases, infectious diseases, and geriatric care. Committed to providing evidence-based medical treatment and patient-centric care.",
+      "doctor_image": "media/doctors/docmale.jpg",
+      "is_available": true
+    },
+    {
+      "id": "D-2026-1769062412564",
+      "full_name": "Dr. Ishani S. Malhotra",
+      "email": "ishani.malhotra@arogyaone.com",
+      "department": "Cardiology",
+      "qualification": "MBBS, MD (Medicine), DM (Cardiology)",
+      "experience_years": "10",
+      "languages_spoken": [
+        "Gujarati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "SAT",
+        "WED",
+        "THU",
+        "FRI",
+        "TUE"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "800",
+      "salary": "225000",
+      "introduction": "Dedicated Interventional Cardiologist specializing in non-invasive cardiac imaging, preventive heart care, and hypertension management. Extensive experience in performing echocardiograms and managing complex cardiac cases with a patient-first approach.",
+      "doctor_image": "media/doctors/docfemale.jpg",
+      "is_available": true
+    },
+    {
+      "id": "D-2026-1769063648290",
+      "full_name": "Dr. Raghav N. Joshi",
+      "email": "raghav.joshi@arogyaone.com",
+      "department": "Neurology",
+      "qualification": "MBBS, MD (Medicine), DM (Neurology)",
+      "experience_years": "14",
+      "languages_spoken": [
+        "Gujarati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "FRI",
+        "SAT"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "1000",
+      "salary": "250000",
+      "introduction": "Senior Neurologist with expertise in treating stroke, epilepsy, and movement disorders. Highly skilled in neuro-rehabilitation and managing complex nervous system conditions using advanced diagnostic tools.",
+      "doctor_image": "media/doctors/docmale.jpg",
+      "is_available": true
+    },
+    {
+      "id": "D-2026-1769063781413",
+      "full_name": "Dr. Meera K. Shah",
+      "email": "meera.shah@arogyaone.com",
+      "department": "Gynecology",
+      "qualification": "MBBS, MS (Obstetrics & Gynaecology)",
+      "experience_years": "8",
       "languages_spoken": [
         "Gujarati",
         "Hindi",
@@ -138,21 +259,21 @@
       ],
       "opd_timings": {
         "morning": "09:00 AM - 12:30 PM",
-        "evening": "05:00 PM - 7:30 PM"
+        "evening": "05:00 PM - 07:00 PM"
       },
-      "consultation_fee": "1000",
-      "salary": "75000",
-      "introduction": "wdwsgosdlk.s/c,dopvamvlk;sdmvaldkmvs;vmds;lvamv;asvlkdafmv;Svmak;gjt[osb'fk clsdkh;lrhaefmsa;d mfb;d'AFEKNGF",
-      "doctor_image": "media/doctors/Jenuuu_DU.png",
+      "consultation_fee": "600",
+      "salary": "160000",
+      "introduction": "Specialist in high-risk pregnancy management, laparoscopic surgery, and adolescent health. Dedicated to providing comprehensive prenatal and postnatal care with a focus on maternal wellness.",
+      "doctor_image": "media/doctors/docfemale.jpg",
       "is_available": true
     },
     {
-      "id": "D-2026-1767591154344",
-      "full_name": "Dr. Jensi Makwana",
-      "email": "jensi.makwana@arogyaone.com",
-      "department": "Cardiology",
-      "qualification": "MD,MBBS",
-      "experience_years": "15",
+      "id": "D-2026-1769063862452",
+      "full_name": "Dr. Kabir R. Patel",
+      "email": "kabir.patel@arogyaone.com",
+      "department": "Orthopedics",
+      "qualification": "MBBS, MS (Orthopaedics), Fellowship in Joint Replacement",
+      "experience_years": "6",
       "languages_spoken": [
         "Gujarati",
         "Hindi",
@@ -160,97 +281,84 @@
       ],
       "available_days": [
         "MON",
-        "WED",
+        "TUE",
+        "THU",
         "FRI"
       ],
       "opd_timings": {
         "morning": "09:00 AM - 12:30 PM",
         "evening": "05:00 PM - 07:00 PM"
       },
-      "consultation_fee": "5000",
-      "salary": "10000",
-      "introduction": "Dr. jensi is a best heart patient in the world",
-      "doctor_image": "media/doctors/Jenuuu_DU.png",
+      "consultation_fee": "700",
+      "salary": "185000",
+      "introduction": "Expert in sports medicine, fracture management, and joint replacement surgeries. Focused on restoring mobility and improving quality of life through advanced surgical and non-surgical interventions.",
+      "doctor_image": "media/doctors/docmale.jpg",
+      "is_available": true
+    },
+    {
+      "id": "D-2026-1769064028371",
+      "full_name": "Dr. Ananya D. Vyas",
+      "email": "ananya.vyas@arogyaone.com",
+      "department": "General Surgery",
+      "qualification": "MBBS, MS (General Surgery), FMAS (Laparoscopy)",
+      "experience_years": "9",
+      "languages_spoken": [
+        "Gujarati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "WED",
+        "FRI",
+        "THU"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "650",
+      "salary": "190000",
+      "introduction": "Accomplished surgeon specializing in minimally invasive (laparoscopic) procedures, abdominal surgeries, and trauma care. Dedicated to surgical precision and ensuring rapid post-operative recovery for all patients.",
+      "doctor_image": "media/doctors/docfemale.jpg",
+      "is_available": true
+    },
+    {
+      "id": "D-2026-1769064195093",
+      "full_name": "Dr. Aryan K. Trivedi",
+      "email": "aryan.trivedi@arogyaone.com",
+      "department": "Emergency Medicine",
+      "qualification": "MBBS, MD (Emergency Medicine)",
+      "experience_years": "7",
+      "languages_spoken": [
+        "Gujarati",
+        "Hindi",
+        "English"
+      ],
+      "available_days": [
+        "MON",
+        "TUE",
+        "WED",
+        "SAT",
+        "THU",
+        "FRI",
+        "SUN"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "1200",
+      "salary": "210000",
+      "introduction": "Critical care specialist with extensive training in ACLS and BLS. Expert in handling acute trauma, cardiac emergencies, and respiratory distress. Focused on rapid stabilization and life-saving interventions in high-pressure environments.",
+      "doctor_image": "media/doctors/docmale.jpg",
       "is_available": true
     }
   ],
-  "patients": [
-    {
-      "id": "P-2026-1768194078214",
-      "full_name": "Nams Pithwa",
-      "age": "25",
-      "gender": "",
-      "blood_group": "AB+",
-      "mobile_number": "",
-      "consultant_doctor_id": "D-2026-1767591154344",
-      "room_number": "GEN-101"
-    }
-  ],
-  "appointments": [
-    {
-      "id": "A/2026/1768654034683",
-      "doctorId": "D-2026-1767591154344",
-      "patientId": null,
-      "status": "PENDING",
-      "name": "Namrakumar Pithwa",
-      "phone": "9173316294",
-      "age": 23,
-      "gender": "Male",
-      "date": "2026-01-19",
-      "time": "morning",
-      "doctorName": "Dr. Jensi Makwana",
-      "department": "Cardiology",
-      "createdAt": "2026-01-17T12:47:14.684Z"
-    },
-    {
-      "id": "A-2026-1768799148244",
-      "doctorId": "D-2026-1767591154344",
-      "patientId": null,
-      "status": "PENDING",
-      "name": "Sumit",
-      "phone": "9054277510",
-      "age": 22,
-      "gender": "Male",
-      "date": "2026-01-19",
-      "time": "morning",
-      "doctorName": "Dr. Jensi Makwana",
-      "department": "Cardiology",
-      "createdAt": "2026-01-19T05:05:48.244Z"
-    },
-    {
-      "id": "A-2026-1768799303655",
-      "doctorId": "D-2026-1767590931262",
-      "patientId": null,
-      "status": "PENDING",
-      "name": "jeel",
-      "phone": "9996456578",
-      "age": 33,
-      "gender": "Male",
-      "date": "2026-01-19",
-      "time": "evening",
-      "doctorName": "Dr. Jeel Pithwa",
-      "department": "Cardiology",
-      "createdAt": "2026-01-19T05:08:23.655Z"
-    }
-  ],
-  "admissions": [
-    {
-      "id": "59d5",
-      "patient_id": "P-2026-1768194078214",
-      "room_id": "R-ICU-1767592266292",
-      "admission_date": "2026-01-12T05:40:05.571Z",
-      "expected_discharge_date": "2026-01-29",
-      "status": "ADMITTED"
-    },
-    {
-      "id": "7a3e",
-      "patient_id": "P-2026-1768194078214",
-      "room_id": "R-GENERAL-1767592052449",
-      "admission_date": "2026-01-12T06:29:03.986Z",
-      "expected_discharge_date": "2026-01-13",
-      "status": "ADMITTED"
-    }
-  ],
+  "patients": [],
+  "appointments": [],
+  "admissions": [],
   "rooms": [
     {
       "id": "R-GENERAL-1767592052449",
@@ -263,8 +371,8 @@
         " Night Lamp",
         "Oxygen Supply"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2026-1768194078214"
+      "is_available": true,
+      "allocated_patient_id": null
     },
     {
       "id": "R-GENERAL-1767592080749",
@@ -281,260 +389,8 @@
       "allocated_patient_id": null
     },
     {
-      "id": "R-GENERAL-1767592101541",
-      "room_number": "GEN-103",
-      "room_category": "GENERAL",
-      "room_rent_per_day": "1000",
-      "facilities": [
-        "Shared Bathroom",
-        " Ceiling Fan",
-        " Night Lamp",
-        " Oxygen Supply"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-GENERAL-1767592116290",
-      "room_number": "GEN-104",
-      "room_category": "GENERAL",
-      "room_rent_per_day": "1000",
-      "facilities": [
-        "Shared Bathroom",
-        " Ceiling Fan",
-        " Night Lamp",
-        " Oxygen Supply"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-GENERAL-1767592130957",
-      "room_number": "GEN-105",
-      "room_category": "GENERAL",
-      "room_rent_per_day": "1000",
-      "facilities": [
-        "Shared Bathroom",
-        " Ceiling Fan",
-        " Night Lamp",
-        " Oxygen Supply"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
       "id": "R-ICU-1767592235386",
       "room_number": "ICU-101",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592266292",
-      "room_number": "ICU-102",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": false,
-      "allocated_patient_id": "P-2026-1768194078214"
-    },
-    {
-      "id": "R-ICU-1767592282976",
-      "room_number": "ICU-103",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592299614",
-      "room_number": "ICU-104",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592315044",
-      "room_number": "ICU-105",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592332712",
-      "room_number": "ICU-106",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592345898",
-      "room_number": "ICU-107",
-      "room_category": "ICU",
-      "room_rent_per_day": "5000",
-      "facilities": [
-        "Ventilator",
-        " Cardiac Monitor",
-        " Oxygen Supply",
-        " 24/7 Nursing",
-        " Infusion Pump",
-        " Defibrillator",
-        " Central Suction",
-        " Pulse Oximeter",
-        " Advanced Monitoring",
-        " Crash Cart Access",
-        " Air Purifier",
-        " AC",
-        " Isolation Setup",
-        " Specialized Bed",
-        " Digital Monitor",
-        " Oxygen",
-        " High-End Ventilator",
-        " Dialysis Support Ready",
-        " CCTV",
-        " AC"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-ICU-1767592370885",
-      "room_number": "ICU-108",
       "room_category": "ICU",
       "room_rent_per_day": "5000",
       "facilities": [
@@ -597,57 +453,6 @@
       "allocated_patient_id": null
     },
     {
-      "id": "R-SEMI_GENERAL-1767592554331",
-      "room_number": "SEMI-GEN-103",
-      "room_category": "SEMI_GENERAL",
-      "room_rent_per_day": "1800",
-      "facilities": [
-        "Twin Sharing",
-        " Attached Bathroom",
-        " Ceiling Fan",
-        " Curtains",
-        " Side Table",
-        " Charging Point",
-        " Comfortable Chair"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-SEMI_GENERAL-1767592573668",
-      "room_number": "SEMI-GEN-104",
-      "room_category": "SEMI_GENERAL",
-      "room_rent_per_day": "1800",
-      "facilities": [
-        "Twin Sharing",
-        " Attached Bathroom",
-        " Ceiling Fan",
-        " Curtains",
-        " Side Table",
-        " Charging Point",
-        " Comfortable Chair"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-SEMI_GENERAL-1767592637776",
-      "room_number": "SEMI-GEN-105",
-      "room_category": "SEMI_GENERAL",
-      "room_rent_per_day": "1800",
-      "facilities": [
-        "Twin Sharing",
-        " Attached Bathroom",
-        " Ceiling Fan",
-        " Curtains",
-        " Side Table",
-        " Charging Point",
-        " Comfortable Chair"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
       "id": "R-SEMI_DELUXE-1767592726108",
       "room_number": "SEMI-DELUEX-101",
       "room_category": "SEMI_DELUXE",
@@ -670,66 +475,6 @@
     {
       "id": "R-SEMI_GENERAL-1767592748243",
       "room_number": "SEMI-DELUEX-102",
-      "room_category": "SEMI_DELUXE",
-      "room_rent_per_day": "3500",
-      "facilities": [
-        "AC",
-        " Attached Bathroom",
-        " TV",
-        " Recliner Bed",
-        " Small Fridge",
-        " Wardrobe",
-        " Telephone",
-        " Sofa for Attendant",
-        " Wi-Fi",
-        " Water Heater"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-SEMI_DELUXE-1767592794619",
-      "room_number": "SEMI-DELUEX-103",
-      "room_category": "SEMI_DELUXE",
-      "room_rent_per_day": "3500",
-      "facilities": [
-        "AC",
-        " Attached Bathroom",
-        " TV",
-        " Recliner Bed",
-        " Small Fridge",
-        " Wardrobe",
-        " Telephone",
-        " Sofa for Attendant",
-        " Wi-Fi",
-        " Water Heater"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-SEMI_DELUXE-1767592850605",
-      "room_number": "SEMI-DELUEX-104",
-      "room_category": "SEMI_DELUXE",
-      "room_rent_per_day": "3500",
-      "facilities": [
-        "AC",
-        " Attached Bathroom",
-        " TV",
-        " Recliner Bed",
-        " Small Fridge",
-        " Wardrobe",
-        " Telephone",
-        " Sofa for Attendant",
-        " Wi-Fi",
-        " Water Heater"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-SEMI_DELUXE-1767592880600",
-      "room_number": "SEMI-DELUEX-105",
       "room_category": "SEMI_DELUXE",
       "room_rent_per_day": "3500",
       "facilities": [
@@ -774,54 +519,6 @@
     {
       "id": "R-DELUXE-1767593021207",
       "room_number": "DLX-102",
-      "room_category": "DELUXE",
-      "room_rent_per_day": "10000",
-      "facilities": [
-        "Private Suite",
-        " AC",
-        " Smart TV",
-        " Refrigerator",
-        " Sofa Set",
-        " Microwave",
-        " Wi-Fi",
-        " Wardrobe",
-        " Luxury Bathroom",
-        " Coffee Machine",
-        " Attendant Bed",
-        " Garden View",
-        " Private Balcony",
-        " Smart TV"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-DELUXE-1767593063594",
-      "room_number": "DLX-103",
-      "room_category": "DELUXE",
-      "room_rent_per_day": "10000",
-      "facilities": [
-        "Private Suite",
-        " AC",
-        " Smart TV",
-        " Refrigerator",
-        " Sofa Set",
-        " Microwave",
-        " Wi-Fi",
-        " Wardrobe",
-        " Luxury Bathroom",
-        " Coffee Machine",
-        " Attendant Bed",
-        " Garden View",
-        " Private Balcony",
-        " Smart TV"
-      ],
-      "is_available": true,
-      "allocated_patient_id": null
-    },
-    {
-      "id": "R-DELUXE-1767593081512",
-      "room_number": "DLX-104",
       "room_category": "DELUXE",
       "room_rent_per_day": "10000",
       "facilities": [
