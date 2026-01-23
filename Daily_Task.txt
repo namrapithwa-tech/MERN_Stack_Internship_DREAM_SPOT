@@ -168,5 +168,8 @@
 		Admin Dashboard work for designing.
  
 	-- Day 04
-		Doctor new data added with a google drive link
+		Doctor dasboard designing in stitch
+
+	-- Day 05 
+		Registration Dashboard funtionality tested and presentation. 
 		
