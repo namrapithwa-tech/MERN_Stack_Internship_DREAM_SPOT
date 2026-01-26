@@ -356,7 +356,17 @@
       "is_available": true
     }
   ],
-  "patients": [],
+  "patients": [
+    {
+      "id": "P-2026-1769340258452",
+      "full_name": "Jay Thadeshwer",
+      "age": "23",
+      "gender": "",
+      "blood_group": "A+",
+      "mobile_number": "",
+      "consultant_doctor_id": "D-2026-1769061755758"
+    }
+  ],
   "appointments": [],
   "admissions": [],
   "rooms": [
@@ -648,6 +658,16 @@
       "blood_group": "AB+",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-01-12T05:01:18.233Z"
+    },
+    {
+      "id": "d563",
+      "patientId": "P-2026-1769340258452",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "A+",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-01-25T11:24:18.465Z"
     }
   ]
 }
