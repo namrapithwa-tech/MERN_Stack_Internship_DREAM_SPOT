@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
-import RegistrationLayout from "./RegistrationLayout";
+import RegistrationLayout from "./layout/RegistrationLayout";
 import generateOPDSlip from "./OPDSlipPDF";
 
 const RegistrationConfirm = () => {

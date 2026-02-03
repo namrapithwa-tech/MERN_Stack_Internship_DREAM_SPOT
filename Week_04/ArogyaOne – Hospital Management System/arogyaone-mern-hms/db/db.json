@@ -64,27 +64,6 @@
       "name": "Surgery Department"
     },
     {
-      "id": "10",
-      "email": "doctor1@arogyaone.com",
-      "password": "doc123",
-      "role": "DOCTOR",
-      "doctorId": "D101"
-    },
-    {
-      "id": "11",
-      "email": "doctor2@arogyaone.com",
-      "password": "doc123",
-      "role": "DOCTOR",
-      "doctorId": "D102"
-    },
-    {
-      "id": "12",
-      "email": "patient@arogyaone.com",
-      "password": "patient123",
-      "role": "PATIENT",
-      "patientId": "P1001"
-    },
-    {
       "id": "8686",
       "email": "aarav.mehta@arogyaone.com",
       "password": "doctor123",
@@ -134,22 +113,6 @@
       "linked_id": "D-2026-1769064195093"
     }
   ],
-  "hospitalInfo": {
-    "name": "ArogyaOne Multispeciality Hospital",
-    "address": "Rajkot, Gujarat",
-    "contact": "91733 16294",
-    "email": "info@arogyaone.com",
-    "departments": [
-      "Cardiology",
-      "Orthopedics",
-      "Radiology",
-      "MRI",
-      "Lab",
-      "ECG",
-      "Surgery",
-      "Emergency"
-    ]
-  },
   "doctors": [
     {
       "id": "D-2026-1769061755758",
@@ -376,6 +339,64 @@
       "consultant_doctor_id": "D-2026-1769062412564",
       "registration_type": "APPOINTMENT",
       "created_at": "2026-01-27T06:10:51.238Z"
+    },
+    {
+      "id": "P-2026-1769580259213",
+      "full_name": "",
+      "age": "",
+      "gender": "",
+      "blood_group": "",
+      "mobile_number": "",
+      "consultant_doctor_id": ""
+    },
+    {
+      "id": "P/2026/1769641872169",
+      "full_name": "Holmes Robertson",
+      "mobile_number": "Dolore rerum lorem q",
+      "age": "17",
+      "gender": "Female",
+      "blood_group": "AB-",
+      "created_at": "2026-01-28T23:11:12.169Z"
+    },
+    {
+      "id": "P/2026/1769662055346",
+      "mobile_number": "9173316294"
+    },
+    {
+      "id": "P/2026/1769662195064",
+      "full_name": "Colton Cantu",
+      "mobile_number": "Mollitia qui impedit",
+      "age": "9",
+      "gender": "Female",
+      "blood_group": "B+",
+      "created_at": "2026-01-29T04:49:55.064Z"
+    },
+    {
+      "id": "P/2026/1769663447899",
+      "full_name": "yujk",
+      "mobile_number": "9173316294",
+      "age": "22",
+      "gender": "Male",
+      "blood_group": "A+",
+      "created_at": "2026-01-29T05:10:47.899Z"
+    },
+    {
+      "id": "P/2026/1769663951484",
+      "full_name": "Reed Wheeler",
+      "mobile_number": "Quia earum ut iusto ",
+      "age": "19",
+      "gender": "Other",
+      "blood_group": "A+",
+      "created_at": "2026-01-29T05:19:11.484Z"
+    },
+    {
+      "id": "P/2026/1769664251865",
+      "full_name": "Burton Sexton",
+      "mobile_number": "Temporibus provident",
+      "age": "42",
+      "gender": "Other",
+      "blood_group": "B+",
+      "created_at": "2026-01-29T05:24:11.865Z"
     }
   ],
   "appointments": [
@@ -393,6 +414,22 @@
       "doctorName": "Dr. Ishani S. Malhotra",
       "department": "Cardiology",
       "createdAt": "2026-01-27T06:09:26.376Z"
+    },
+    {
+      "id": "A-2026-1769662010216",
+      "doctorId": "D-2026-1769061755758",
+      "patientId": null,
+      "status": "CONFIRMED",
+      "name": "jay",
+      "phone": "9173316294",
+      "age": 25,
+      "gender": "Male",
+      "date": "2026-02-06",
+      "time": "morning",
+      "doctorName": "Dr. Aarav V. Mehta",
+      "department": "Physician",
+      "createdAt": "2026-01-29T04:46:50.216Z",
+      "patient_id": "P/2026/1769662055346"
     }
   ],
   "admissions": [],
@@ -705,8 +742,179 @@
       "blood_group": "A+",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-01-27T06:10:51.596Z"
+    },
+    {
+      "id": "9323",
+      "patientId": "P-2026-1769580259213",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "blood_group": "",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-01-28T06:04:19.230Z"
+    },
+    {
+      "id": "696c",
+      "patient_id": "P/2026/1769662055346",
+      "weight": "53",
+      "blood_pressure": "22",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-01-29T04:47:35.361Z"
     }
   ],
   "opd_consultations": [
+    {
+      "id": "OPD/2026/1769641872169",
+      "patient_id": "P/2026/1769641872169",
+      "patient_name": "Holmes Robertson",
+      "patient_age": "17",
+      "patient_gender": "Female",
+      "patinet_bloodgroup": "AB-",
+      "doctor_id": "D-2026-1769064028371",
+      "doctor_name": "Dr. Ananya D. Vyas",
+      "department": "General Surgery",
+      "visit_type": "OPD",
+      "opd_date": "2026-01-28",
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "650",
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": "650",
+        "transaction_id": null,
+        "payment_date": "2026-01-28T23:11:12.184Z"
+      },
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-28T23:11:12.184Z",
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD/2026/1769662055346",
+      "appointment_id": "A-2026-1769662010216",
+      "patient_id": "P/2026/1769662055346",
+      "opd_date": "2026-02-06",
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-29T04:47:35.373Z"
+    },
+    {
+      "id": "OPD/2026/1769662195064",
+      "patient_id": "P/2026/1769662195064",
+      "patient_name": "Colton Cantu",
+      "patient_age": "9",
+      "patient_gender": "Female",
+      "patinet_bloodgroup": "B+",
+      "doctor_id": "D-2026-1769064195093",
+      "doctor_name": "Dr. Aryan K. Trivedi",
+      "department": "Emergency Medicine",
+      "visit_type": "OPD",
+      "opd_date": "2026-01-29",
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "1200",
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": "1200",
+        "transaction_id": null,
+        "payment_date": "2026-01-29T04:49:55.075Z"
+      },
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-29T04:49:55.075Z",
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD/2026/1769663447899",
+      "patient_id": "P/2026/1769663447899",
+      "patient_name": "yujk",
+      "patient_age": "22",
+      "patient_gender": "Male",
+      "patinet_bloodgroup": "A+",
+      "doctor_id": "D-2026-1769061755758",
+      "doctor_name": "Dr. Aarav V. Mehta",
+      "department": "Physician",
+      "visit_type": "OPD",
+      "opd_date": "2026-01-29",
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "500",
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": "500",
+        "transaction_id": null,
+        "payment_date": "2026-01-29T05:10:47.924Z"
+      },
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-29T05:10:47.924Z",
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD/2026/1769663951484",
+      "patient_id": "P/2026/1769663951484",
+      "patient_name": "Reed Wheeler",
+      "patient_age": "19",
+      "patient_gender": "Other",
+      "patinet_bloodgroup": "A+",
+      "doctor_id": "D-2026-1769064195093",
+      "doctor_name": "Dr. Aryan K. Trivedi",
+      "department": "Emergency Medicine",
+      "visit_type": "OPD",
+      "opd_date": "2026-01-29",
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "1200",
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": "1200",
+        "transaction_id": null,
+        "payment_date": "2026-01-29T05:19:11.496Z"
+      },
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-29T05:19:11.496Z",
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD/2026/1769664251865",
+      "patient_id": "P/2026/1769664251865",
+      "patient_name": "Burton Sexton",
+      "patient_age": "42",
+      "patient_gender": "Other",
+      "patinet_bloodgroup": "B+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-01-29",
+      "opd_timings": {
+        "morning": "09:00 AM - 12:30 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "800",
+      "payment": {
+        "status": "PAID",
+        "mode": "UPI",
+        "amount_paid": "800",
+        "transaction_id": "",
+        "payment_date": "2026-01-29T05:24:11.876Z"
+      },
+      "created_by": "REGISTRATION",
+      "created_at": "2026-01-29T05:24:11.876Z",
+      "is_billed": true,
+      "is_closed": false
+    }
   ]
 }
