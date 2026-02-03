@@ -76,6 +76,7 @@
       "email": "ishani.malhotra@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Ishani S. Malhotra",
       "linked_id": "D-2026-1769062412564"
     },
     {
@@ -83,6 +84,7 @@
       "email": "raghav.joshi@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Raghav N. Joshi",
       "linked_id": "D-2026-1769063648290"
     },
     {
@@ -90,6 +92,7 @@
       "email": "meera.shah@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Meera K. Shah",
       "linked_id": "D-2026-1769063781413"
     },
     {
@@ -97,6 +100,7 @@
       "email": "kabir.patel@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Kabir R. Patel",
       "linked_id": "D-2026-1769063862452"
     },
     {
@@ -104,6 +108,7 @@
       "email": "ananya.vyas@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Ananya D. Vyas",
       "linked_id": "D-2026-1769064028371"
     },
     {
@@ -111,6 +116,7 @@
       "email": "aryan.trivedi@arogyaone.com",
       "password": "doctor123",
       "role": "DOCTOR",
+      "name": "Dr. Aryan S. Trivedi",
       "linked_id": "D-2026-1769064195093"
     }
   ],
