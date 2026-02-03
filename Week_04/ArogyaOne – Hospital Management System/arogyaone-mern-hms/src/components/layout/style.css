@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* --- COLORS --- */
+    --sidebar-bg: #121214;        /* Dark Blue/Black Professional */
+    --text-white: #ffffff;        /* Always White Text */
+    --active-bg: #ffffff;         /* Light Blue for Active State */
+    --hover-bg: rgba(21, 27, 225, 0.1); /* Subtle hover effect */
+    --logout-bg: #f1416c;         /* Red for Logout */
+    --logout-hover: #d9214e;      /* Darker Red for Logout Hover */
+    --body-bg: #f5f8fa;           
+    --sidebar-width: 250px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--body-bg);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 1050;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Logo Area */
+.sidebar-header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Menu Items Area */
+.sidebar-menu {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 25px 15px; /* Added spacing since categories are gone */
+}
+
+/* --- NAV ITEMS DESIGN --- */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: var(--text-white); /* White Text Default */
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    opacity: 0.8; /* Slightly dimmed when inactive */
+}
+
+.nav-link i {
+    width: 25px;
+    font-size: 1.1rem;
+    margin-right: 12px;
+    text-align: center;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-white);
+    opacity: 1;
+}
+
+/* Active State (Light Blue Background, White Text) */
+.nav-link.active {
+    background-color: var(--active-bg); /* Light Blue */
+    color: var(--text-white); /* Keep Text White */
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 158, 247, 0.3); /* Glow */
+}
+
+/* --- LOGOUT BUTTON --- */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.btn-logout {
+    width: 100%;
+    background-color: var(--logout-bg); /* Red Background */
+    color: #ffffff; /* White Text */
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: var(--logout-hover); /* Darker Red on Hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 4px 12px rgba(241, 65, 108, 0.4);
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.top-bar {
+    height: 70px;
+    background: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Clock Widget */
+.date-clock-widget {
+    background: #f8f9fa;
+    color: #1e1e2d;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 991px) {
+    .sidebar { margin-left: calc(var(--sidebar-width) * -1); }
+    .sidebar.active { margin-left: 0; }
+    .main-content { margin-left: 0; width: 100%; }
+}

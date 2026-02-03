@@ -1,109 +1,151 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import '../../assets/css/style.css'; // Importing your custom design
-
+import { AuthContext } from '../../context/AuthContext';
+import '../layout/style.css';
 const MainLayout = ({ children }) => {
   const [isSidebarActive, setSidebarActive] = useState(false);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get User Role from localStorage (Assuming you stored it during Login)
-  // Or you can use your AuthContext here: const { user } = useAuth();
-  const userRole = localStorage.getItem('role') || 'GUEST'; 
-  const userName = localStorage.getItem('userName') || 'User';
+  // 3. Use the user data from AuthContext instead of localStorage directly
+  const { user, logout } = useContext(AuthContext);
 
-  const toggleSidebar = () => setSidebarActive(!isSidebarActive);
+  // User Info
+  const userRole = user?.role || 'ADMIN';
+  const userName = user?.name || 'Administrator';
+
+  // Live Clock Logic
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Format Date (dd/mm/yyyy)
+  const formattedDate = currentDateTime.toLocaleDateString('en-GB', {
+    day: '2-digit', month: '2-digit', year: 'numeric'
+  });
+  const formattedTime = currentDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
   const handleLogout = () => {
-      localStorage.clear();
-      navigate('/login');
+    logout();
+    navigate('/login');
   };
 
   return (
     <div className="d-flex">
-      {/* --- SIDEBAR --- */}
+
+      {/* SIDEBAR */}
       <nav className={`sidebar ${isSidebarActive ? 'active' : ''}`}>
+
+        {/* LOGO */}
         <div className="sidebar-header">
-          <div className="logo-text"><i className="fa-solid fa-heart-pulse"></i> ArogyaOne</div>
-          <small className="opacity-75">HMS Dashboard</small>
+          <Link to="/" className="logo-brand">
+            <i className="fa-solid fa-heart-pulse text-primary"></i>
+            <span>ArogyaOne</span>
+          </Link>
         </div>
 
+        {/* MENU - NO CATEGORIES */}
         <div className="sidebar-menu">
-          <ul className="nav flex-column">
-            
-            {/* COMMON LINKS */}
-            <li className="nav-item">
+          {/* ADMIN LINKS */}
+          {(userRole === 'ADMIN') && (
+            <>
               <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
-                <i className="fa-solid fa-house"></i> Home
+                <i className="fa-solid fa-grid-2"></i> <span>Dashboard</span>
               </Link>
-            </li>
+              <Link to="/registration/dashboard" className={`nav-link ${location.pathname === '/registration/dashboard' ? 'active' : ''}`}>
+                <i className="fa-solid fa-chart-pie"></i> <span>Overview</span>
+              </Link>
 
-            {/* --- REGISTRATION MODULE --- */}
-            {/* We check role to show specific menus */}
-            {(userRole === 'REGISTRATION' || userRole === 'ADMIN') && (
-                <>
-                <div className="text-muted small px-4 mt-3 mb-1 fw-bold">FRONT DESK</div>
-                <li className="nav-item">
-                    <Link to="/registration/dashboard" className={`nav-link ${location.pathname.includes('registration') ? 'active' : ''}`}>
-                        <i className="fa-solid fa-desktop"></i> Dashboard
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/registration/new-patient" className="nav-link">
-                        <i className="fa-solid fa-user-plus"></i> New Patient
-                    </Link>
-                </li>
-                </>
-            )}
+              <Link to="/registration/walkin" className={`nav-link ${location.pathname === '/registration/walkin' ? 'active' : ''}`}>
+                <i className="fa-solid fa-user-plus"></i> <span>Walk-In Entry</span>
+              </Link>
 
-            {/* --- DOCTOR MODULE (Future) --- */}
-            {userRole === 'DOCTOR' && (
-                 <li className="nav-item">
-                    <Link to="/doctor/dashboard" className="nav-link">
-                        <i className="fa-solid fa-user-doctor"></i> My Queue
-                    </Link>
-                </li>
-            )}
-            
-            
-          </ul>
+              <Link to="/registration/appointments" className={`nav-link ${location.pathname.includes('/registration/appointments') ? 'active' : ''}`}>
+                <i className="fa-solid fa-calendar-check"></i> <span>Appointments</span>
+              </Link>
+
+              <Link to="/registration/patients" className={`nav-link ${location.pathname.includes('/registration/patients') ? 'active' : ''}`}>
+                <i className="fa-solid fa-hospital-user"></i> <span>All Patients</span>
+              </Link>
+              <Link to="/department/lab" className="nav-link">
+                <i className="fa-solid fa-flask"></i> <span>Laboratory</span>
+              </Link>
+              <Link to="/department/radiology" className="nav-link">
+                <i className="fa-solid fa-x-ray"></i> <span>Radiology</span>
+              </Link>
+            </>
+          )}
+
+          {/* DOCTOR LINKS */}
+          {(userRole === 'DOCTOR') && (
+            <>
+              <Link to="/doctor/ipd" className="nav-link">
+                <i className="fa-solid fa-bed-pulse"></i> <span>IPD Rounds</span>
+              </Link>
+            </>
+          )}
+
+          {/* REGISTRATION, BILLING.... ETC ROUTES ADDED HERE */}
         </div>
 
+        {/* RED LOGOUT BUTTON */}
         <div className="sidebar-footer">
           <button className="btn btn-logout" onClick={handleLogout}>
-            <i className="fa-solid fa-power-off me-2"></i> Logout
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log Out</span>
           </button>
         </div>
       </nav>
 
-      {/* --- MAIN CONTENT --- */}
-      <div className="main-content w-100">
-        
-        {/* TOP BAR */}
-        <div className="top-bar">
-          <div className="d-flex align-items-center">
-            <i className="fa-solid fa-bars mobile-toggle d-lg-none me-3 fs-4" onClick={toggleSidebar}></i>
-            <div>
-                <h5 className="m-0 text-dark fw-bold">Welcome, {userName}</h5>
-                <small className="text-muted">{userRole} ACCESS</small>
+      {/* MAIN CONTENT */}
+      <div className="main-content">
+
+        {/* HEADER */}
+        <header className="top-bar">
+          <div className="d-flex align-items-center gap-3">
+            <button className="btn border-0 p-0 d-lg-none" onClick={() => setSidebarActive(!isSidebarActive)}>
+              <i className="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
+            <h5 className="m-0 fw-bold text-dark d-none d-md-block">Hospital Management System</h5>
+          </div>
+
+          <div className="d-flex align-items-center gap-4">
+            {/* Live Clock */}
+            <div className="date-clock-widget d-none d-md-flex">
+              <i className="fa-regular fa-calendar"></i>
+              <span>{formattedDate}</span>
+              <span className="mx-2 text-muted">|</span>
+              <i className="fa-regular fa-clock"></i>
+              <span>{formattedTime}</span>
+            </div>
+
+            {/* Profile */}
+            <div className="d-flex align-items-center gap-2 cursor-pointer">
+              <div className="text-end d-none d-md-block line-height-1">
+                <div className="fw-bold small">{userName}</div>
+                <div className="text-muted" style={{ fontSize: '11px' }}>{userRole}</div>
+              </div>
+              <img
+                src={`https://ui-avatars.com/api/?name=${userName}&background=009ef7&color=fff`}
+                className="rounded-circle shadow-sm"
+                width="40"
+                alt="Profile"
+              />
             </div>
           </div>
-          
-          <div className="d-flex align-items-center gap-3">
-             <div className="live-clock d-none d-md-block bg-light px-3 py-1 rounded-pill text-primary fw-bold small">
-                <i className="fa-regular fa-clock me-2"></i> {new Date().toLocaleDateString()}
-             </div>
-             <img src={`https://ui-avatars.com/api/?name=${userName}&background=007bff&color=fff`} className="rounded-circle border border-2 border-white shadow-sm" width="40" alt="User" />
-          </div>
+        </header>
+
+        {/* PAGES */}
+        <div className="p-4" style={{ minHeight: 'calc(100vh - 140px)' }}>
+          {children}
         </div>
 
-        {/* CONTENT INJECTION */}
-        <div className="page-content">
-            {children} 
-        </div>
-
-        {/* FOOTER */}
-        <footer className="footer mt-auto text-center py-3 text-muted small">
-            <p className="mb-0">&copy; 2026 <strong>ArogyaOne HMS</strong>. Darshan University.</p>
+        {/* COPYRIGHT */}
+        <footer className="text-center py-3 bg-white border-top text-muted small">
+          &copy; 2026 <strong>ArogyaOne HMS</strong>.
         </footer>
       </div>
     </div>
