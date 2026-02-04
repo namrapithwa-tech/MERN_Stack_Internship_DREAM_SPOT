@@ -1,13 +1,13 @@
-import RegistrationLayout from "./layout/RegistrationLayout";
+import React from 'react';
 
 const RegistrationDashboard = () => {
   return (
-    <RegistrationLayout
-      pageTitle="Registration Dashboard"
-      pageDesc="Overview of OPD, appointments and rooms"
-    >
-      {/* existing content stays */}
-    </RegistrationLayout>
+    <div className="container-fluid">
+       <div className="alert alert-primary">
+          <h4><i className="fa-solid fa-chart-line me-2"></i> Registration Dashboard</h4>
+          <p>Charts and Stats will go here.</p>
+       </div>
+    </div>
   );
 };
 

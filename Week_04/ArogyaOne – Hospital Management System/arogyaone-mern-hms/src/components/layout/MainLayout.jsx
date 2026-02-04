@@ -88,6 +88,39 @@ const MainLayout = ({ children }) => {
             </>
           )}
 
+          {/* REGISTRATION LINKS */}
+          {(userRole === 'REGISTRATION') && (
+            <>
+              <Link to="/registration" className={`nav-link ${location.pathname === '/registration' ? 'active' : ''}`}>
+                <i className="fa-solid fa-gauge"></i> <span>Dashboard</span>
+              </Link>
+
+              <Link to="/registration/walkin" className={`nav-link ${location.pathname === '/registration/walkin' ? 'active' : ''}`}>
+                <i className="fa-solid fa-person-walking-arrow-right"></i> <span>New Walk-in Patients</span>
+              </Link>
+
+              <Link to="/registration/appointments" className={`nav-link ${location.pathname.includes('/registration/appointments') ? 'active' : ''}`}>
+                <i className="fa-solid fa-calendar-check"></i> <span>Appointments</span>
+              </Link>
+
+              <Link to="/registration/patients" className={`nav-link ${location.pathname.includes('/registration/patients') ? 'active' : ''}`}>
+                <i className="fa-solid fa-users"></i> <span>All Patients</span>
+              </Link>
+
+              <Link to="/registration/revisit" className={`nav-link ${location.pathname.includes('/registration/revisit') ? 'active' : ''}`}>
+                <i className="fa-solid fa-magnifying-glass"></i> <span>Search / Re-Visit</span>
+              </Link>
+
+              <Link to="/registration/room-allocation" className={`nav-link ${location.pathname.includes('/registration/room-allocation') ? 'active' : ''}`}>
+                <i className="fa-solid fa-bed"></i> <span>Room Allocation</span>
+              </Link>
+
+              <Link to="/registration/rooms" className={`nav-link ${location.pathname.includes('/registration/rooms') ? 'active' : ''}`}>
+                <i className="fa-solid fa-hospital"></i> <span>Rooms Master</span>
+              </Link>
+            </>
+          )}
+
           {/* REGISTRATION, BILLING.... ETC ROUTES ADDED HERE */}
         </div>
 

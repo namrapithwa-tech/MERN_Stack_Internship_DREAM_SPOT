@@ -1,0 +1,56 @@
+/* Registration Module Specific Styles */
+.reg-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+
+.reg-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4b5563;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.reg-input, .reg-select {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.reg-input:focus, .reg-select:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+}
+
+/* Vitals Table */
+.vitals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+}
+
+.opd-slip-modal {
+    font-family: 'Times New Roman', serif;
+    background: white;
+    padding: 40px;
+    border: 1px solid #ddd;
+}

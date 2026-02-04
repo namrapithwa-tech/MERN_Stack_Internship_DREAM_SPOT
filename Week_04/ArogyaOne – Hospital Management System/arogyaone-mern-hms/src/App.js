@@ -21,6 +21,10 @@ import DoctorView from "./dashboards/admin/doctors/DoctorView";
 import RoomCards from "./dashboards/admin/rooms/RoomCards";
 import RoomForm from "./dashboards/admin/rooms/RoomForm";
 
+// --- REGISTRATION DASHBOARD & PAGES ---
+import RegistrationDashboard from "./dashboards/registration/RegistrationDashboard";
+import NewWalkIn from "./dashboards/registration/NewWalkIn"; // Import the new file
+
 // --- OTHER DASHBOARDS ---
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
@@ -56,68 +60,78 @@ function App() {
           {/* ADMIN: DOCTOR MASTER */}
           <Route path="/admin/doctors" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><DoctorList /></MainLayout>
+              <MainLayout><DoctorList /></MainLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/doctors/add" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><DoctorForm /></MainLayout>
+              <MainLayout><DoctorForm /></MainLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/doctors/edit/:id" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><DoctorForm /></MainLayout>
+              <MainLayout><DoctorForm /></MainLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/doctors/view/:id" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><DoctorView /></MainLayout>
+              <MainLayout><DoctorView /></MainLayout>
             </ProtectedRoute>
           } />
 
           {/* ADMIN: ROOM MASTER */}
           <Route path="/admin/rooms" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><RoomCards /></MainLayout>
+              <MainLayout><RoomCards /></MainLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/rooms/add" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><RoomForm /></MainLayout>
+              <MainLayout><RoomForm /></MainLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/rooms/edit/:id" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <MainLayout><RoomForm /></MainLayout>
+              <MainLayout><RoomForm /></MainLayout>
             </ProtectedRoute>
           } />
 
           {/* =======================
               REGISTRATION DESK (CLEAN SLATE)
           ======================= */}
-          {/* We will add your new routes here shortly:
-              1. /registration/dashboard
-              2. /registration/walkin
-          */}
+
+          <Route path="/registration" element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <MainLayout><RegistrationDashboard /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/registration/walkin" element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <MainLayout><NewWalkIn /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          {/* Add other placeholders as needed for Appointments, etc. */}
 
           {/* =======================
               STAFF DASHBOARDS (All Wrapped in MainLayout)
           ======================= */}
           <Route path="/doctor" element={
             <ProtectedRoute allowedRoles={["DOCTOR"]}>
-                <MainLayout><DoctorDashboard /></MainLayout>
+              <MainLayout><DoctorDashboard /></MainLayout>
             </ProtectedRoute>
           } />
 
           <Route path="/billing" element={
             <ProtectedRoute allowedRoles={["BILLING"]}>
-                <MainLayout><BillingDashboard /></MainLayout>
+              <MainLayout><BillingDashboard /></MainLayout>
             </ProtectedRoute>
           } />
 
           <Route path="/patient" element={
             <ProtectedRoute allowedRoles={["PATIENT"]}>
-                <MainLayout><PatientDashboard /></MainLayout>
+              <MainLayout><PatientDashboard /></MainLayout>
             </ProtectedRoute>
           } />
 
@@ -126,31 +140,31 @@ function App() {
           ======================= */}
           <Route path="/department/lab" element={
             <ProtectedRoute allowedRoles={["LAB"]}>
-                <MainLayout><LabDashboard /></MainLayout>
+              <MainLayout><LabDashboard /></MainLayout>
             </ProtectedRoute>
           } />
-          
+
           <Route path="/department/ecg" element={
             <ProtectedRoute allowedRoles={["ECG"]}>
-                <MainLayout><ECGDashboard /></MainLayout>
+              <MainLayout><ECGDashboard /></MainLayout>
             </ProtectedRoute>
           } />
-          
+
           <Route path="/department/radiology" element={
             <ProtectedRoute allowedRoles={["RADIOLOGY"]}>
-                <MainLayout><RadiologyDashboard /></MainLayout>
+              <MainLayout><RadiologyDashboard /></MainLayout>
             </ProtectedRoute>
           } />
-          
+
           <Route path="/department/mri" element={
             <ProtectedRoute allowedRoles={["MRI"]}>
-                <MainLayout><MRIDashboard /></MainLayout>
+              <MainLayout><MRIDashboard /></MainLayout>
             </ProtectedRoute>
           } />
-          
+
           <Route path="/department/surgery" element={
             <ProtectedRoute allowedRoles={["SURGERY"]}>
-                <MainLayout><SurgeryDashboard /></MainLayout>
+              <MainLayout><SurgeryDashboard /></MainLayout>
             </ProtectedRoute>
           } />
 

@@ -2,14 +2,14 @@
 
 :root {
     /* --- COLORS --- */
-    --sidebar-bg: #121214;        /* Dark Blue/Black Professional */
+    --sidebar-bg: #0B0D0E;        /* Dark Blue/Black Professional */
     --text-white: #ffffff;        /* Always White Text */
-    --active-bg: #ffffff;         /* Light Blue for Active State */
+    --active-bg: #1F6DB2;         /* Light Blue for Active State */
     --hover-bg: rgba(21, 27, 225, 0.1); /* Subtle hover effect */
     --logout-bg: #f1416c;         /* Red for Logout */
     --logout-hover: #d9214e;      /* Darker Red for Logout Hover */
     --body-bg: #f5f8fa;           
-    --sidebar-width: 250px;
+    --sidebar-width: 230px;
 }
 
 body {
@@ -66,12 +66,12 @@ body {
 .nav-link {
     display: flex;
     align-items: center;
-    padding: 14px 20px;
+    padding: 10px 15px;
     color: var(--text-white); /* White Text Default */
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     transition: all 0.2s ease;
     opacity: 0.8; /* Slightly dimmed when inactive */
 }
@@ -140,7 +140,7 @@ body {
 
 /* Header */
 .top-bar {
-    height: 70px;
+    height: 60px;
     background: #ffffff;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
     display: flex;
@@ -154,8 +154,8 @@ body {
 
 /* Clock Widget */
 .date-clock-widget {
-    background: #f8f9fa;
-    color: #1e1e2d;
+    background: #dad9d9;
+    color: #131313;
     padding: 8px 16px;
     border-radius: 50px;
     font-weight: 600;
