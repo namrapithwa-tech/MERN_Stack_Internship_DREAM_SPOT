@@ -188,7 +188,7 @@ const NewWalkIn = () => {
 
             {/* 2. DOCTOR & TIMING */}
             <div className="section-title">Consultation Details</div>
-            <div className="row g-3 mb-4">
+            <div className="row g-4 mb-4">
                 <div className="col-md-5">
                     <label className="reg-label">Consultant Doctor <span className="text-danger">*</span></label>
                     <select name="doctorId" className="reg-select" required onChange={handleInput}>
@@ -200,16 +200,16 @@ const NewWalkIn = () => {
                         ))}
                     </select>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-6">
                     <label className="reg-label">OPD Slot</label>
                     <div className="d-flex gap-3 mt-2">
                         <div className="form-check">
                             <input className="form-check-input" type="radio" name="opdSlot" value="Morning" checked={formData.opdSlot === 'Morning'} onChange={handleInput}/>
-                            <label className="form-check-label">Morning</label>
+                            <label className="form-check-label">Morning 09:00 AM - 12:30 PM</label>
                         </div>
                         <div className="form-check">
                             <input className="form-check-input" type="radio" name="opdSlot" value="Evening" checked={formData.opdSlot === 'Evening'} onChange={handleInput}/>
-                            <label className="form-check-label">Evening</label>
+                            <label className="form-check-label">Evening 05:00 PM - 07:00 PM</label>
                         </div>
                     </div>
                 </div>

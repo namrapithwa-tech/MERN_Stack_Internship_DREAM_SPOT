@@ -178,7 +178,7 @@ const MainLayout = ({ children }) => {
 
         {/* COPYRIGHT */}
         <footer className="text-center py-3 bg-white border-top text-muted small">
-          &copy; 2026 <strong>ArogyaOne HMS</strong>.
+          &copy; 2026 <strong>ArogyaOne HMS - Designed By : namrapithwa-tech</strong>.
         </footer>
       </div>
     </div>

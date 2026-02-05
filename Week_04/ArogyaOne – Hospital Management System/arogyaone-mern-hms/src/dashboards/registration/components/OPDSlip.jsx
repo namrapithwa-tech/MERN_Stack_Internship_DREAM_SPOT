@@ -10,15 +10,16 @@ const OPDSlip = forwardRef(({ data, doctor }, ref) => {
       {/* HEADER */}
       <div className="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
         <div className="d-flex align-items-center gap-3">
-             {/* Replace src with your actual logo path */}
-            <div src={logo} style={{width:'60px', height:'60px',borderRadius:'50%'}}></div> 
+             {/* Replace src with your actual logo path rounded */}
+            <img src={logo} alt="Hospital Logo" style={{ width: '68px', height: '68px' }} />
             <div>
-                <h4 className="fw-bold m-0 text-primary">AROGYA ONE HOSPITAL</h4>
-                <small className="text-muted">Multi-Speciality & Trauma Center</small>
+                {/* Arogya in bold */}
+                <h4 className="m-0 text-success"><span className='fw-bold' >Arogya</span>One</h4>
+                <small className="text-muted">One Platform, Complete HealthCare</small>
             </div>
         </div>
         <div className="text-end small">
-            <p className="m-0"><strong>Emergency:</strong> +91 91733 16294</p>
+            <p className="m-0"><strong>Emergency / Contact:</strong> +91 91733 16294</p>
             <p className="m-0"> Mavdi Chokadi, 150ft Ring Road, Rajkot, Gujarat</p>
             <p className="m-0"> info@arogyaone.com</p>
         </div>
@@ -26,7 +27,7 @@ const OPDSlip = forwardRef(({ data, doctor }, ref) => {
 
       {/* TITLE */}
       <div className="text-center mb-4">
-        <h3 className="fw-bold text-decoration-underline">OPD SLIP</h3>
+        <h4 className="fw-bold text-decoration">OPD SLIP</h4>
         <p className="m-0 badge bg-light text-dark border">
             Slip No: {data.opdId} | Date: {new Date().toLocaleDateString('en-GB')}
         </p>
