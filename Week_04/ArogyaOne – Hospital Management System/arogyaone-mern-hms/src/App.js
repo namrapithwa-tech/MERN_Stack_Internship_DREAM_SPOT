@@ -24,6 +24,7 @@ import RoomForm from "./dashboards/admin/rooms/RoomForm";
 // --- REGISTRATION DASHBOARD & PAGES ---
 import RegistrationDashboard from "./dashboards/registration/RegistrationDashboard";
 import NewWalkIn from "./dashboards/registration/NewWalkIn"; // Import the new file
+import Appointments from "./dashboards/registration/pages/Appointments"; // Placeholder for future appointments page
 
 // --- OTHER DASHBOARDS ---
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
@@ -112,6 +113,11 @@ function App() {
             </ProtectedRoute>
           } />
 
+          <Route path="/registration/appointments" element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <MainLayout><Appointments /></MainLayout>
+            </ProtectedRoute>
+          } />
           {/* Add other placeholders as needed for Appointments, etc. */}
 
           {/* =======================

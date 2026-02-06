@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 import api from '../../api/axios';
 import '../../assets/css/registration.css';
 import OPDSlip from './components/OPDSlip';
@@ -6,24 +7,30 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
 const NewWalkIn = () => {
+  // --- HOOKS ---
+  const location = useLocation();
+  const appointmentData = location.state?.appointmentData; // Get passed data
+
   // --- STATE ---
   const [doctors, setDoctors] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const slipRef = useRef(); // Reference for Printing
+  const slipRef = useRef(); 
 
-  // Form State
-  const [formData, setFormData] = useState({
+  // Initial State
+  const initialState = {
     fullName: '', mobile: '', age: '', gender: 'Male', bloodGroup: '',
-    doctorId: '', consultationFee: 0,
+    doctorId: '', consultation_fee: 0,
     weight: '', height: '', bp: '', sugar: 'false', temp: '',
     paymentMode: 'Cash', upiTransactionId: '',
     opdSlot: 'Morning'
-  });
+  };
 
-  // --- FETCH DOCTORS ON LOAD ---
+  const [formData, setFormData] = useState(initialState);
+
+  // --- 1. FETCH DOCTORS ---
   useEffect(() => {
     const fetchDoctors = async () => {
         try {
@@ -34,20 +41,55 @@ const NewWalkIn = () => {
     fetchDoctors();
   }, []);
 
+  // --- 2. PRE-FILL FORM IF APPOINTMENT DATA EXISTS ---
+  useEffect(() => {
+    if (doctors.length > 0 && appointmentData) {
+        // Find the doctor to get the fee
+        const doc = doctors.find(d => d.id === appointmentData.doctorId);
+        const fee = doc ? doc.consultation_fee : 0;
+        
+        // Normalize Time Slot
+        let slot = 'Morning';
+        if (appointmentData.time && appointmentData.time.toLowerCase().includes('evening')) {
+            slot = 'Evening';
+        }
+
+        setFormData(prev => ({
+            ...prev,
+            fullName: appointmentData.name || '',
+            mobile: appointmentData.phone || '',
+            age: appointmentData.age || '',
+            gender: appointmentData.gender || 'Male',
+            doctorId: appointmentData.doctorId || '',
+            consultation_fee: fee,
+            opdSlot: slot
+        }));
+        
+        setSelectedDoctor(doc);
+    }
+  }, [doctors, appointmentData]);
+
   // --- HANDLERS ---
   const handleInput = (e) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
 
-      // Auto-set Fee and Doctor Object
       if (name === 'doctorId') {
           const doc = doctors.find(d => d.id === value);
           setSelectedDoctor(doc);
-          setFormData(prev => ({ ...prev, doctorId: value, consultation_fee: doc ? doc.consultation_fee : 0 }));
+          setFormData(prev => ({ 
+              ...prev, 
+              doctorId: value, 
+              consultation_fee: doc ? doc.consultation_fee : 0 
+          }));
       }
   };
 
-  // --- GENERATE IDS ---
+  const handleClear = () => {
+      setFormData(initialState);
+      setSelectedDoctor(null);
+  };
+
   const generateIDs = () => {
       const timestamp = Date.now();
       const year = new Date().getFullYear();
@@ -58,7 +100,7 @@ const NewWalkIn = () => {
       };
   };
 
-  // --- PRINT FUNCTION ---
+  // --- PRINT & SAVE FUNCTION ---
   const handlePrintAndSave = async () => {
     setIsSubmitting(true);
     const ids = generateIDs();
@@ -66,7 +108,7 @@ const NewWalkIn = () => {
     const todayDateOnly = new Date().toISOString().split('T')[0];
 
     try {
-        // 1. PREPARE PAYLOADS
+        // A. PREPARE PAYLOADS
         const patientPayload = {
             id: ids.patientId,
             patient_full_name: formData.fullName,
@@ -75,8 +117,9 @@ const NewWalkIn = () => {
             mobile_number: formData.mobile,
             blood_group: formData.bloodGroup,
             consultant_doctor_id: formData.doctorId,
-            consultant_doctor_name: selectedDoctor?.name,
-            registration_type: "WALK-IN",
+            consultant_doctor_name: selectedDoctor?.full_name || selectedDoctor?.name,
+            // LOGIC: If appointmentData exists, type is APPOINTMENT
+            registration_type: appointmentData ? "APPOINTMENT" : "WALK-IN",
             created_at: today,
             created_by: "REGISTRATION"
         };
@@ -95,21 +138,21 @@ const NewWalkIn = () => {
 
         const opdPayload = {
             id: ids.opdId,
-            appointment_id: null,
+            appointment_id: appointmentData ? appointmentData.id : null, // Link Appointment ID
             patient_id: ids.patientId,
             patient_name: formData.fullName,
             patient_age: Number(formData.age),
             patient_gender: formData.gender,
             patient_bloodgroup: formData.bloodGroup,
             doctor_id: formData.doctorId,
-            doctor_name: selectedDoctor?.name,
+            doctor_name: selectedDoctor?.full_name || selectedDoctor?.name,
             department: selectedDoctor?.department,
             visit_type: "OPD",
             opd_date: todayDateOnly,
             opd_time_slot: formData.opdSlot,
             opd_timings: formData.opdSlot === 'Morning' ? '09:30 AM - 12:30 PM' : '05:00 PM - 07:00 PM',
             chief_complaint: null, diagnosis: null, clinical_notes: null, medicines: [], LabTest_advised: [],
-            consultation_fee: Number(formData.consultationFee),
+            consultation_fee: Number(formData.consultation_fee),
             payment: {
                 status: "PAID",
                 mode: formData.paymentMode.toUpperCase(),
@@ -120,7 +163,7 @@ const NewWalkIn = () => {
             follow_up_required: false, is_billed: true, is_closed: false
         };
 
-        // 2. GENERATE PDF
+        // B. GENERATE PDF
         const canvas = await html2canvas(slipRef.current, { scale: 2 });
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', 'a4');
@@ -129,16 +172,26 @@ const NewWalkIn = () => {
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save(`OPD_Slip_${ids.opdId}.pdf`);
 
-        // 3. API CALLS (Parallel)
-        await Promise.all([
+        // C. API CALLS (Parallel Execution)
+        const apiCalls = [
             api.post('/patients', patientPayload),
             api.post('/vitals', vitalsPayload),
             api.post('/opd_consultations', opdPayload)
-        ]);
+        ];
+
+        // D. IF APPOINTMENT: Update Status to CONFIRMED
+        if (appointmentData) {
+            apiCalls.push(api.patch(`/appointments/${appointmentData.id}`, {
+                status: 'CONFIRMED',
+                patientId: ids.patientId
+            }));
+        }
+
+        await Promise.all(apiCalls);
 
         alert("Registration Successful! Slip Downloaded.");
         setShowPreview(false);
-        // Reset Form logic here if needed
+        handleClear();
 
     } catch (error) {
         console.error("Registration Failed", error);
@@ -150,7 +203,12 @@ const NewWalkIn = () => {
 
   return (
     <div className="container-fluid">
-       <h4 className="fw-bold text-dark mb-4">New Walk-In Registration</h4>
+       <div className="d-flex justify-content-between align-items-center mb-4">
+           <h4 className="fw-bold text-dark m-0">
+               {appointmentData ? <span className="text-primary"><i className="fa-solid fa-calendar-check me-2"></i>Confirm Appointment</span> : 'New Walk-In Registration'}
+           </h4>
+           {appointmentData && <span className="badge bg-primary">Appt ID: {appointmentData.id}</span>}
+       </div>
 
        <div className="reg-container">
           <form onSubmit={(e) => { e.preventDefault(); setShowPreview(true); }}>
@@ -160,25 +218,25 @@ const NewWalkIn = () => {
             <div className="row g-3 mb-4">
                 <div className="col-md-4">
                     <label className="reg-label">Full Name <span className="text-danger">*</span></label>
-                    <input type="text" name="fullName" className="reg-input" required onChange={handleInput} />
+                    <input type="text" name="fullName" value={formData.fullName} className="reg-input" required onChange={handleInput} />
                 </div>
                 <div className="col-md-3">
                     <label className="reg-label">Mobile Number <span className="text-danger">*</span></label>
-                    <input type="tel" name="mobile" className="reg-input" required maxLength="10" onChange={handleInput} />
+                    <input type="tel" name="mobile" value={formData.mobile} className="reg-input" required maxLength="10" onChange={handleInput} />
                 </div>
                 <div className="col-md-2">
                     <label className="reg-label">Age <span className="text-danger">*</span></label>
-                    <input type="number" name="age" className="reg-input" required onChange={handleInput} />
+                    <input type="number" name="age" value={formData.age} className="reg-input" required onChange={handleInput} />
                 </div>
                 <div className="col-md-3">
                     <label className="reg-label">Gender <span className="text-danger">*</span></label>
-                    <select name="gender" className="reg-select" onChange={handleInput}>
+                    <select name="gender" value={formData.gender} className="reg-select" onChange={handleInput}>
                         <option>Male</option><option>Female</option><option>Other</option>
                     </select>
                 </div>
                 <div className="col-md-3">
                     <label className="reg-label">Blood Group</label>
-                    <select name="bloodGroup" className="reg-select" onChange={handleInput}>
+                    <select name="bloodGroup" value={formData.bloodGroup} className="reg-select" onChange={handleInput}>
                         <option value="">Select</option>
                         <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
                         <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
@@ -191,7 +249,7 @@ const NewWalkIn = () => {
             <div className="row g-4 mb-4">
                 <div className="col-md-5">
                     <label className="reg-label">Consultant Doctor <span className="text-danger">*</span></label>
-                    <select name="doctorId" className="reg-select" required onChange={handleInput}>
+                    <select name="doctorId" value={formData.doctorId} className="reg-select" required onChange={handleInput}>
                         <option value="">-- Select Doctor --</option>
                         {doctors.map(doc => (
                             <option key={doc.id} value={doc.id}>
@@ -220,23 +278,23 @@ const NewWalkIn = () => {
             <div className="vitals-grid mb-4">
                 <div>
                     <label className="reg-label">Weight (kg)</label>
-                    <input type="number" name="weight" className="reg-input" onChange={handleInput} />
+                    <input type="number" name="weight" value={formData.weight} className="reg-input" onChange={handleInput} />
                 </div>
                 <div>
                     <label className="reg-label">Height (cm)</label>
-                    <input type="number" name="height" className="reg-input" onChange={handleInput} />
+                    <input type="number" name="height" value={formData.height} className="reg-input" onChange={handleInput} />
                 </div>
                 <div>
                     <label className="reg-label">BP (mmHg)</label>
-                    <input type="text" name="bp" placeholder="120/80" className="reg-input" onChange={handleInput} />
+                    <input type="text" name="bp" value={formData.bp} placeholder="120/80" className="reg-input" onChange={handleInput} />
                 </div>
                 <div>
                     <label className="reg-label">Temp (°F)</label>
-                    <input type="number" name="temp" className="reg-input" onChange={handleInput} />
+                    <input type="number" name="temp" value={formData.temp} className="reg-input" onChange={handleInput} />
                 </div>
                 <div>
                      <label className="reg-label">Sugar/Diabetes?</label>
-                     <select name="sugar" className="reg-select" onChange={handleInput}>
+                     <select name="sugar" value={formData.sugar} className="reg-select" onChange={handleInput}>
                         <option value="false">No</option>
                         <option value="true">Yes</option>
                      </select>
@@ -246,8 +304,8 @@ const NewWalkIn = () => {
             {/* 4. PAYMENT */}
             <div className="section-title">Payment & Confirmation</div>
             <div className="row g-3 align-items-end">
-                <div className="col-md-3">
-                    <label className="reg-label">Consultation Fee (₹)</label>
+                <div className="col-md-2">
+                    <label className="reg-label">Fee (₹)</label>
                     <input type="text" value={formData.consultation_fee} readOnly className="reg-input bg-light fw-bold" />
                 </div>
                 <div className="col-md-3">
@@ -263,16 +321,17 @@ const NewWalkIn = () => {
                         </div>
                     </div>
                 </div>
-                {formData.paymentMode === 'UPI' && (
+                {formData.paymentMode === 'UPI' ? (
                     <div className="col-md-4">
                         <label className="reg-label">Transaction ID</label>
-                        <input type="text" name="upiTransactionId" className="reg-input" placeholder="Enter UPI Ref No" required onChange={handleInput} />
+                        <input type="text" name="upiTransactionId" value={formData.upiTransactionId} className="reg-input" placeholder="Enter UPI Ref No" required onChange={handleInput} />
                     </div>
-                )}
+                ) : <div className="col-md-4"></div>}
                 
-                <div className="col-md-2">
-                    <button type="submit" className="btn btn-primary w-100 py-2 fw-bold">
-                        <i className="fa-solid fa-print me-2"></i> Register
+                <div className="col-md-3 d-flex gap-2">
+                    <button type="button" className="btn btn-secondary w-50 py-2" onClick={handleClear}>Clear</button>
+                    <button type="submit" className="btn btn-primary w-50 py-2 fw-bold">
+                        <i className="fa-solid fa-print"></i> Register
                     </button>
                 </div>
             </div>
@@ -290,7 +349,6 @@ const NewWalkIn = () => {
                         <button className="btn-close" onClick={() => setShowPreview(false)}></button>
                     </div>
                     <div className="modal-body bg-secondary bg-opacity-10 p-4 overflow-auto" style={{maxHeight: '70vh'}}>
-                        {/* THE SLIP COMPONENT */}
                         <div className="d-flex justify-content-center">
                             <OPDSlip 
                                 ref={slipRef} 
