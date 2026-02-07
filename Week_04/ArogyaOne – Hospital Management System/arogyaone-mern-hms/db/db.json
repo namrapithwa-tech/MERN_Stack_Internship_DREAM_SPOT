@@ -523,6 +523,36 @@
       "doctorName": "Dr. Aryan K. Trivedi",
       "department": "Emergency Medicine",
       "createdAt": "2026-02-06T06:26:46.672Z"
+    },
+    {
+      "id": "A-2026-1770438877148",
+      "doctorId": "D-2026-1769061755758",
+      "patientId": null,
+      "status": "CANCELLED",
+      "name": "Jenuu",
+      "phone": "9188660452",
+      "age": 23,
+      "gender": "Female",
+      "date": "2026-02-21",
+      "time": "evening",
+      "doctorName": "Dr. Aarav V. Mehta",
+      "department": "Physician",
+      "createdAt": "2026-02-07T04:34:37.148Z"
+    },
+    {
+      "id": "A-2026-1770443074062",
+      "doctorId": "D-2026-1769062412564",
+      "patientId": null,
+      "status": "CANCELLED",
+      "name": "Lalbapu",
+      "phone": "9856645666",
+      "age": 60,
+      "gender": "Male",
+      "date": "2026-02-09",
+      "time": "morning",
+      "doctorName": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "createdAt": "2026-02-07T05:44:34.062Z"
     }
   ],
   "admissions": [],

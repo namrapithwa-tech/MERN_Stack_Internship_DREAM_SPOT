@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import '../layout/style.css';
+import logo from '../../assets/images/logo.png';
 const MainLayout = ({ children }) => {
   const [isSidebarActive, setSidebarActive] = useState(false);
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -42,8 +43,8 @@ const MainLayout = ({ children }) => {
         {/* LOGO */}
         <div className="sidebar-header">
           <Link to="/" className="logo-brand">
-            <i className="fa-solid fa-heart-pulse text-primary"></i>
-            <span>ArogyaOne</span>
+            <img src={logo} alt="ArogyaOne Logo" className="logo-image w-25 h-25" />
+            <div><span className='fw-bolder'>Arogya</span>One</div>
           </Link>
         </div>
 
