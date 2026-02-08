@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
+import logo from "../assets/images/logo.png";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -236,14 +237,11 @@ const Home = () => {
             <div className="abstract-shape shape-2"></div>
             <div className="branding-content">
               <div className="brand-logo">
-                <div className="logo-icon">
-                  <span className="material-symbols-outlined">medical_services</span>
-                </div>
-                <h2 className="mb-0 fw-bold">ArogyaOne</h2>
+                <h1 className="mb-0 fw-bolder">Arogya<span className="fw-lighter">One</span></h1>
               </div>
-              <h1 className="display-5 fw-bold mb-4">
+              <h2 className="display-5 fw-bold mb-4">
                 The future of <span className="text-primary-green">clinical care</span> starts here.
-              </h1>
+              </h2>
               <p className="lead text-muted mb-5">
                 Manage patient records, staff scheduling, and facility logistics with our high-performance administrative engine.
               </p>
@@ -274,6 +272,10 @@ const Home = () => {
           {/* Form Column */}
           <div className="col-lg-5 col-12 form-column">
             <div className="login-card">
+              {/* I want logo here in center */}
+              <div className="text-center mb-4">
+                <img src={logo} alt="ArogyaOne Logo" width="65" className="" />
+              </div>
               <div className="text-center text-lg-start mb-5">
                 <h3 className="fw-bold mb-2">Welcome User!</h3>
                 <p className="text-muted">Enter your credentials to access the ArogyaOne-HMS</p>
@@ -312,6 +314,7 @@ const Home = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <button className="password-toggle" type="button">
+                      {/* create logic of a see password when click visbility button */}
                       <span className="material-symbols-outlined">visibility</span>
                     </button>
                   </div>
