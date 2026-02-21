@@ -118,6 +118,13 @@
       "role": "DOCTOR",
       "name": "Dr. Aryan S. Trivedi",
       "linked_id": "D-2026-1769064195093"
+    },
+    {
+      "id": "drgh",
+      "email": "namra.pithwa@arogyaone.com",
+      "password": "np123",
+      "role": "REGISTRATION",
+      "name": "Namra Pithwa"
     }
   ],
   "doctors": [
