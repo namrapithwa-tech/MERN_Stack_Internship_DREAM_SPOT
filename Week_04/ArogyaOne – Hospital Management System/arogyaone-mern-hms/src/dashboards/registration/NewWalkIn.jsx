@@ -17,6 +17,9 @@ const NewWalkIn = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
+  // NEW STATE TO HOLD IDS SO THEY DON'T CHANGE BETWEEN PREVIEW AND SAVE
+  const [generatedIds, setGeneratedIds] = useState(null);
+  
   const slipRef = useRef(); 
 
   // Initial State
@@ -88,6 +91,7 @@ const NewWalkIn = () => {
   const handleClear = () => {
       setFormData(initialState);
       setSelectedDoctor(null);
+      setGeneratedIds(null); // Clear IDs on reset
   };
 
   const generateIDs = () => {
@@ -103,7 +107,10 @@ const NewWalkIn = () => {
   // --- PRINT & SAVE FUNCTION ---
   const handlePrintAndSave = async () => {
     setIsSubmitting(true);
-    const ids = generateIDs();
+    
+    // USE THE IDS GENERATED WHEN THE PREVIEW OPENED
+    const ids = generatedIds; 
+    
     const today = new Date().toISOString();
     const todayDateOnly = new Date().toISOString().split('T')[0];
 
@@ -211,7 +218,12 @@ const NewWalkIn = () => {
        </div>
 
        <div className="reg-container">
-          <form onSubmit={(e) => { e.preventDefault(); setShowPreview(true); }}>
+          <form onSubmit={(e) => { 
+              e.preventDefault(); 
+              // GENERATE IDS ONCE WHEN CLICKING REGISTER
+              setGeneratedIds(generateIDs());
+              setShowPreview(true); 
+          }}>
             
             {/* 1. PERSONAL INFO */}
             <div className="section-title">Personal Information</div>
@@ -340,7 +352,7 @@ const NewWalkIn = () => {
        </div>
 
        {/* PREVIEW MODAL */}
-       {showPreview && (
+       {showPreview && generatedIds && (
          <div className="modal show d-block" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
@@ -354,8 +366,9 @@ const NewWalkIn = () => {
                                 ref={slipRef} 
                                 data={{
                                     ...formData, 
-                                    opdId: `OPD-${new Date().getFullYear()}-${Date.now()}`,
-                                    patientId: `P-${new Date().getFullYear()}-${Date.now()}`,
+                                    // USE THE STATE IDS HERE
+                                    opdId: generatedIds.opdId,
+                                    patientId: generatedIds.patientId,
                                     opdTimings: formData.opdSlot === 'Morning' ? '09:30 AM - 12:30 PM' : '05:00 PM - 07:00 PM'
                                 }} 
                                 doctor={selectedDoctor} 
