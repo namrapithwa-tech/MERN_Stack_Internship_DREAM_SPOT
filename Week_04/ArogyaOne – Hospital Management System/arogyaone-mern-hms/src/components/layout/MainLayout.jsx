@@ -109,7 +109,7 @@ const MainLayout = ({ children }) => {
               </Link>
 
               <Link to="/registration/revisit" className={`nav-link ${location.pathname.includes('/registration/revisit') ? 'active' : ''}`}>
-                <i className="fa-solid fa-magnifying-glass"></i> <span>Search / Re-Visit</span>
+                <i className="fa-solid fa-clock-rotate-left"></i> <span>OLD Patient / Re-Visit</span>
               </Link>
 
               <Link to="/registration/room-allocation" className={`nav-link ${location.pathname.includes('/registration/room-allocation') ? 'active' : ''}`}>

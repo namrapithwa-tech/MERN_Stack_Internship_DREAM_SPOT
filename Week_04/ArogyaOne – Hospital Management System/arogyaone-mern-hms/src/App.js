@@ -26,6 +26,8 @@ import RegistrationDashboard from "./dashboards/registration/RegistrationDashboa
 import NewWalkIn from "./dashboards/registration/NewWalkIn"; // Import the new file
 import Appointments from "./dashboards/registration/pages/Appointments"; // Placeholder for future appointments page
 import AllPatients from "./dashboards/registration/pages/AllPatients";
+import ReVisit from "./dashboards/registration/pages/ReVisit";
+import RoomAllocation from "./dashboards/registration/pages/RoomAllocation";
 
 // --- OTHER DASHBOARDS ---
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
@@ -123,6 +125,18 @@ function App() {
           <Route path="/registration/patients" element={
             <ProtectedRoute allowedRoles={["REGISTRATION"]}>
               <MainLayout><AllPatients /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/registration/revisit" element={
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
+              <MainLayout><ReVisit /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/registration/room-allocation" element={
+            <ProtectedRoute allowedRoles={["REGISTRATION", "ADMIN"]}>
+              <MainLayout><RoomAllocation /></MainLayout>
             </ProtectedRoute>
           } />
 

@@ -496,6 +496,8 @@ const AllPatients = () => {
                     {/* HIDDEN COMPREHENSIVE HISTORY LAYOUT (A4 Size scaled) */}
                     <div className="print-offscreen" ref={historyRef} style={{ width: '800px', padding: '40px', background: 'white', color: 'black' }}>
                         <div className="text-center border-bottom pb-3 mb-4">
+                            {/* logo here */}
+                            <img src={logo} alt="ArogyaOne Logo" className="logo-image mb-2" style={{ width: '50px', height: '50px' }} />
                             <h2>ArogyaOne Hospital</h2>
                             <h4>Comprehensive Patient Medical Record</h4>
                             <p className="text-muted">Generated on {new Date().toLocaleString()}</p>
