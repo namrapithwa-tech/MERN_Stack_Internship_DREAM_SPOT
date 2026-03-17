@@ -115,10 +115,6 @@ const MainLayout = ({ children }) => {
               <Link to="/registration/room-allocation" className={`nav-link ${location.pathname.includes('/registration/room-allocation') ? 'active' : ''}`}>
                 <i className="fa-solid fa-bed"></i> <span>Room Allocation</span>
               </Link>
-
-              <Link to="/registration/rooms" className={`nav-link ${location.pathname.includes('/registration/rooms') ? 'active' : ''}`}>
-                <i className="fa-solid fa-hospital"></i> <span>Rooms Master</span>
-              </Link>
             </>
           )}
 

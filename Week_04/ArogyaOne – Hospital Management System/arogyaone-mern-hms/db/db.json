@@ -385,6 +385,32 @@
       "registration_type": "WALK-IN",
       "created_at": "2026-03-17T10:46:39.697Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773757477313",
+      "patient_full_name": "Jaydeep Langrecha",
+      "age": 85,
+      "gender": "Male",
+      "mobile_number": "9909908899",
+      "blood_group": "B+",
+      "consultant_doctor_id": "D-2026-1769062412564",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T14:24:39.832Z",
+      "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773757555589",
+      "patient_full_name": "Sumit Chauhan",
+      "age": 21,
+      "gender": "Male",
+      "mobile_number": "9054277510",
+      "blood_group": "A+",
+      "consultant_doctor_id": "D-2026-1769064028371",
+      "consultant_doctor_name": "Dr. Ananya D. Vyas",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T14:25:58.911Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -1084,6 +1110,28 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-17T10:47:59.417Z"
+    },
+    {
+      "id": "V-1773757477313",
+      "patientId": "P-2026-1773757477313",
+      "weight": "51",
+      "height": "156",
+      "blood_pressure": "120",
+      "temprature": "59",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T14:24:39.832Z"
+    },
+    {
+      "id": "V-1773757555589",
+      "patientId": "P-2026-1773757555589",
+      "weight": "55",
+      "height": "156",
+      "blood_pressure": "123",
+      "temprature": "58",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T14:25:58.911Z"
     }
   ],
   "opd_consultations": [
@@ -1273,6 +1321,70 @@
         "mode": "CASH",
         "amount_paid": 1000,
         "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773757477313",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773757477313",
+      "patient_name": "Jaydeep Langrecha",
+      "patient_age": 85,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "B+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773757555589",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773757555589",
+      "patient_name": "Sumit Chauhan",
+      "patient_age": 21,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "A+",
+      "doctor_id": "D-2026-1769064028371",
+      "doctor_name": "Dr. Ananya D. Vyas",
+      "department": "General Surgery",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Evening",
+      "opd_timings": "05:00 PM - 07:00 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 650,
+      "payment": {
+        "status": "PAID",
+        "mode": "UPI",
+        "amount_paid": 650,
+        "transaction_id": "JSK",
         "payment_date": "2026-03-17"
       },
       "follow_up_required": false,

@@ -20,7 +20,8 @@ const AllPatients = () => {
 
     // View Modal & History State
     const [selectedPatient, setSelectedPatient] = useState(null);
-    const [patientHistory, setPatientHistory] = useState([]);
+    const [patientHistory, setPatientHistory] = useState([]); // OPD History
+    const [ipdHistory, setIpdHistory] = useState([]); // NEW: IPD History
     const [showModal, setShowModal] = useState(false);
     const [isPrinting, setIsPrinting] = useState(false);
 
@@ -138,9 +139,17 @@ const AllPatients = () => {
         setSelectedPatient(patient);
         setShowModal(true);
         try {
-            const res = await api.get(`/opd_consultations?patient_id=${patient.id}`);
-            const sortedHistory = res.data.sort((a, b) => new Date(b.opd_date) - new Date(a.opd_date));
-            setPatientHistory(sortedHistory);
+            // Fetch both OPD consultations and IPD admissions concurrently
+            const [opdRes, ipdRes] = await Promise.all([
+                api.get(`/opd_consultations?patient_id=${patient.id}`),
+                api.get(`/ipd_admissions?patient_id=${patient.id}`)
+            ]);
+
+            const sortedOpdHistory = opdRes.data.sort((a, b) => new Date(b.opd_date) - new Date(a.opd_date));
+            setPatientHistory(sortedOpdHistory);
+
+            const sortedIpdHistory = ipdRes.data.sort((a, b) => new Date(b.admission_date) - new Date(a.admission_date));
+            setIpdHistory(sortedIpdHistory);
         } catch (err) {
             console.error("Error fetching history", err);
         }
@@ -150,6 +159,7 @@ const AllPatients = () => {
         setShowModal(false);
         setSelectedPatient(null);
         setPatientHistory([]);
+        setIpdHistory([]); // Reset IPD history
     };
 
     // --- PDF PRINTER: ID CARD ---
@@ -403,8 +413,8 @@ const AllPatients = () => {
                                     </div>
                                 </div>
 
-                                {/* History Timeline */}
-                                <h6 className="fw-bold mb-3 border-bottom pb-2">Consultation History</h6>
+                                {/* --- OPD History Timeline --- */}
+                                <h6 className="fw-bold mb-3 border-bottom pb-2">OPD Consultation History</h6>
                                 {patientHistory.length > 0 ? (
                                     <div className="timeline">
                                         {patientHistory.map((visit, index) => (
@@ -431,12 +441,44 @@ const AllPatients = () => {
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="text-muted fst-italic">No past consultations found.</p>
+                                    <p className="text-muted fst-italic">No past OPD consultations found.</p>
                                 )}
+
+                                {/* --- IPD History Timeline --- */}
+                                <h6 className="fw-bold mb-3 mt-4 border-bottom pb-2 text-primary">IPD Admission History</h6>
+                                {ipdHistory.length > 0 ? (
+                                    <div className="timeline">
+                                        {ipdHistory.map((adm, index) => (
+                                            <div className="timeline-item" key={index}>
+                                                <div className="fw-bold text-dark">
+                                                    {new Date(adm.admission_date).toLocaleDateString('en-GB')} 
+                                                    {adm.status === 'DISCHARGED' && adm.discharge_details ? ` to ${new Date(adm.discharge_details.discharge_date).toLocaleDateString('en-GB')}` : ' (Currently Admitted)'}
+                                                     - {adm.consultant_doctor_name}
+                                                </div>
+                                                <div className="small text-muted mb-2">
+                                                    Room: {adm.room_number} | Status: <span className={adm.status === 'ADMITTED' ? 'text-success fw-bold' : 'text-secondary'}>{adm.status}</span>
+                                                </div>
+
+                                                <div className="bg-light p-3 rounded border border-primary border-opacity-25">
+                                                    <p className="mb-1"><strong>Reason for Admission:</strong> {adm.discharge_details?.reason_for_admission || 'N/A'}</p>
+                                                    {adm.status === 'DISCHARGED' && adm.discharge_details && (
+                                                        <>
+                                                            <p className="mb-1"><strong>Final Diagnosis / Summary:</strong> <span className="text-danger fw-bold">{adm.discharge_details.clinical_summary || 'N/A'}</span></p>
+                                                            <p className="mb-0"><strong>Condition at Discharge:</strong> {adm.discharge_details.discharge_condition || 'N/A'}</p>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="text-muted fst-italic">No past IPD admissions found.</p>
+                                )}
+
                             </div>
                             <div className="modal-footer">
                                 <button className="btn btn-secondary" onClick={closeModal}>Close</button>
-                                <button className="btn btn-primary" onClick={handlePrintHistory} disabled={isPrinting || patientHistory.length === 0}>
+                                <button className="btn btn-primary" onClick={handlePrintHistory} disabled={isPrinting || (patientHistory.length === 0 && ipdHistory.length === 0)}>
                                     <i className="fa-solid fa-file-pdf me-2"></i> {isPrinting ? 'Generating...' : 'Print Full History'}
                                 </button>
                             </div>
@@ -516,7 +558,8 @@ const AllPatients = () => {
                             </div>
                         </div>
 
-                        <h4 className="border-bottom pb-2 mb-3">Consultation History</h4>
+                        {/* PRINT: OPD HISTORY */}
+                        <h4 className="border-bottom pb-2 mb-3">OPD Consultation History</h4>
                         {patientHistory.map((visit, idx) => (
                             <div key={idx} className="mb-4 pb-3 border-bottom" style={{ pageBreakInside: 'avoid' }}>
                                 <div className="d-flex justify-content-between mb-2">
@@ -548,7 +591,42 @@ const AllPatients = () => {
                                 </div>
                             </div>
                         ))}
-                        {patientHistory.length === 0 && <p>No history available.</p>}
+                        {patientHistory.length === 0 && <p className="text-muted">No OPD history available.</p>}
+
+                        {/* PRINT: IPD HISTORY */}
+                        <h4 className="border-bottom pb-2 mb-3 mt-4 text-primary">IPD Admission History</h4>
+                        {ipdHistory.map((adm, idx) => (
+                            <div key={idx} className="mb-4 pb-3 border-bottom" style={{ pageBreakInside: 'avoid' }}>
+                                <div className="d-flex justify-content-between mb-2">
+                                    <h5 className="fw-bold m-0 text-dark">
+                                        Adm: {new Date(adm.admission_date).toLocaleDateString('en-GB')}
+                                        {adm.status === 'DISCHARGED' && adm.discharge_details ? ` | Dis: ${new Date(adm.discharge_details.discharge_date).toLocaleDateString('en-GB')}` : ' | Currently Admitted'}
+                                    </h5>
+                                    <span className="badge bg-secondary text-dark">Room: {adm.room_number}</span>
+                                </div>
+
+                                <div className="row mt-2">
+                                    <div className="col-12 mb-2">
+                                        <strong>Consultant Doctor:</strong> {adm.consultant_doctor_name}
+                                    </div>
+                                    <div className="col-12 mb-2">
+                                        <strong>Reason for Admission:</strong> {adm.discharge_details?.reason_for_admission || 'N/A'}
+                                    </div>
+                                    {adm.status === 'DISCHARGED' && adm.discharge_details && (
+                                        <>
+                                            <div className="col-12 mb-2">
+                                                <strong>Clinical Summary / Diagnosis:</strong> {adm.discharge_details.clinical_summary || 'N/A'}
+                                            </div>
+                                            <div className="col-12 mb-2">
+                                                <strong>Condition at Discharge:</strong> {adm.discharge_details.discharge_condition || 'N/A'}
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                        {ipdHistory.length === 0 && <p className="text-muted">No IPD history available.</p>}
+
                         <div className="text-center mt-5 pt-3 border-top text-muted small">
                             *** End of Medical Report ***
                         </div>
