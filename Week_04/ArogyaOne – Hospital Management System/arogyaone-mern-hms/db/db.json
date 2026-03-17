@@ -437,6 +437,19 @@
       "registration_type": "WALK-IN",
       "created_at": "2026-03-17T15:33:41.387Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773769575515",
+      "patient_full_name": "Meet Kacha",
+      "age": 22,
+      "gender": "Male",
+      "mobile_number": "9512588231",
+      "blood_group": "AB+",
+      "consultant_doctor_id": "D-2026-1769063862452",
+      "consultant_doctor_name": "Dr. Kabir R. Patel",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T17:46:26.461Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -630,6 +643,113 @@
           }
         ],
         "follow_up_instructions": "Next Visit after 5 Days (23/03/2026 Monday)"
+      }
+    },
+    {
+      "id": "IPD-2026-1773770360854",
+      "patient_id": "P-2026-1773769575515",
+      "patient_name": "Meet Kacha",
+      "mobile_number": "9512588231",
+      "blood_group": "AB+",
+      "consultant_doctor_name": "Dr. Kabir R. Patel",
+      "room_id": "R-SEMI_GENERAL-1767592480120",
+      "document_type": "Aadhar",
+      "document_number": "1234567891112",
+      "relative_name": "Parkashbhai Kacha",
+      "relationship": "Father",
+      "room_number": "SEMI-GEN-101",
+      "admission_date": "2026-03-17T17:59:20.854Z",
+      "status": "DISCHARGED",
+      "billing_status": "PENDING_FINAL_BILL",
+      "discharge_details": {
+        "discharge_date": "2026-03-17",
+        "discharge_time": "23:32",
+        "reason_for_admission": "ftjk[hjgfpd'redgfmjh",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "bgfbkld;,vxc[pgaldsfsfdfg\nge\ng\neg\ndb\nfdg\nrd\ng\nh\nrgwfgtrjykjhkjhgdfsghm,",
+        "treatment_provided": "asdnmn,hjgghfg,mhgdfs",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "dgfhjk,.",
+            "dosage": "1",
+            "duration_days": "10"
+          },
+          {
+            "medicine_name": "ghtfhjgfgdc",
+            "dosage": "1-1-1",
+            "duration_days": "10"
+          }
+        ],
+        "follow_up_instructions": "Visit After 20 days most probably 7 april 2026 "
+      }
+    },
+    {
+      "id": "IPD-2026-1773782267725",
+      "patient_id": "P-2026-1773760747093",
+      "patient_name": "Jay Dawad",
+      "mobile_number": "1111111111",
+      "blood_group": "A+",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "room_id": "R-SEMI_DELUXE-1767592726108",
+      "document_type": "Aadhar",
+      "document_number": "1022222222222222",
+      "relative_name": "Namra",
+      "relationship": "Father",
+      "room_number": "SEMI-DELUEX-101",
+      "admission_date": "2026-03-17T21:17:47.725Z",
+      "status": "DISCHARGED",
+      "billing_status": "PENDING_FINAL_BILL",
+      "discharge_details": {
+        "discharge_date": "2026-03-17",
+        "discharge_time": "02:56",
+        "reason_for_admission": "h",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "h",
+        "treatment_provided": "h",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "h",
+            "dosage": "h",
+            "duration_days": "h"
+          }
+        ],
+        "follow_up_instructions": "h"
+      }
+    },
+    {
+      "id": "IPD-2026-1773782405013",
+      "patient_id": "P-2026-1773744385250",
+      "patient_name": "Rajubhai Malvi",
+      "mobile_number": "9925611921",
+      "blood_group": "O+",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "room_id": "R-DELUXE-1767593021207",
+      "document_type": "Aadhar",
+      "document_number": "68542185285",
+      "relative_name": "Mila",
+      "relationship": "Child",
+      "room_number": "DLX-102",
+      "admission_date": "2026-03-17T21:20:05.013Z",
+      "status": "DISCHARGED",
+      "billing_status": "PENDING_FINAL_BILL",
+      "discharge_details": {
+        "discharge_date": "2026-03-17",
+        "discharge_time": "02:56",
+        "reason_for_admission": "h",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "h",
+        "treatment_provided": "h",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "h",
+            "dosage": "h",
+            "duration_days": "h"
+          }
+        ],
+        "follow_up_instructions": "h"
       }
     }
   ],
@@ -1180,6 +1300,39 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-17T15:33:41.387Z"
+    },
+    {
+      "id": "V-1773769575515",
+      "patientId": "P-2026-1773769575515",
+      "weight": "95",
+      "height": "156",
+      "blood_pressure": "80",
+      "temprature": "70",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T17:46:26.461Z"
+    },
+    {
+      "id": "V-1773769832039",
+      "patientId": "P-2026-1773743076979",
+      "weight": "555",
+      "height": "55",
+      "blood_pressure": "55",
+      "temprature": "55",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T17:50:35.815Z"
+    },
+    {
+      "id": "V-1773770049427",
+      "patientId": "P-2026-1773769575515",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T17:54:10.621Z"
     }
   ],
   "opd_consultations": [
@@ -1283,11 +1436,32 @@
       "opd_date": "2026-03-17",
       "opd_time_slot": "Morning",
       "opd_timings": "09:30 AM - 12:30 PM",
-      "chief_complaint": null,
-      "diagnosis": null,
-      "clinical_notes": null,
-      "medicines": [],
-      "LabTest_advised": [],
+      "chief_complaint": "Mathu dukhe che",
+      "diagnosis": "Viral Infectionq",
+      "clinical_notes": "divas ma 3 var garam pani pivu 1 glass",
+      "medicines": [
+        {
+          "medicine_name": "Dolo 650",
+          "dosage": "1-0-0",
+          "duration_days": "5"
+        },
+        {
+          "medicine_name": "Paractamol 700",
+          "dosage": "1 (When High Fever)",
+          "duration_days": "2"
+        },
+        {
+          "medicine_name": "Glynomide BT 500",
+          "dosage": "1-1-1",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "CBC",
+        "RBC",
+        "Urine",
+        "Cough"
+      ],
       "consultation_fee": 800,
       "payment": {
         "status": "PAID",
@@ -1296,9 +1470,10 @@
         "transaction_id": "85412",
         "payment_date": "2026-03-17"
       },
-      "follow_up_required": false,
+      "follow_up_required": true,
       "is_billed": true,
-      "is_closed": false
+      "is_closed": true,
+      "follow_up_date": "2026-03-23"
     },
     {
       "id": "OPD-2026-1773743409259",
@@ -1514,6 +1689,111 @@
       "opd_date": "2026-03-17",
       "opd_time_slot": "Morning",
       "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "j",
+      "diagnosis": "j",
+      "clinical_notes": "j",
+      "medicines": [
+        {
+          "medicine_name": "j",
+          "dosage": "j",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "j"
+      ],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": true,
+      "follow_up_date": null
+    },
+    {
+      "id": "OPD-2026-1773769575515",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773769575515",
+      "patient_name": "Meet Kacha",
+      "patient_age": 22,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "AB+",
+      "doctor_id": "D-2026-1769063862452",
+      "doctor_name": "Dr. Kabir R. Patel",
+      "department": "Orthopedics",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Evening",
+      "opd_timings": "05:00 PM - 07:00 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 700,
+      "payment": {
+        "status": "PAID",
+        "mode": "UPI",
+        "amount_paid": 700,
+        "transaction_id": "JAYSHREEKRISHAN5555555",
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773769832039",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773743076979",
+      "patient_name": "Premanshu Pithwa",
+      "patient_age": 21,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "AB+",
+      "doctor_id": "D-2026-1769064195093",
+      "doctor_name": "Dr. Aryan K. Trivedi",
+      "department": "Emergency Medicine",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 1200,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 1200,
+        "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773770049427",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773769575515",
+      "patient_name": "Meet Kacha",
+      "patient_age": 22,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "AB+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
       "chief_complaint": null,
       "diagnosis": null,
       "clinical_notes": null,
@@ -1530,6 +1810,46 @@
       "follow_up_required": false,
       "is_billed": true,
       "is_closed": false
+    }
+  ],
+  "ipd_rounds": [
+    {
+      "id": "RND-2026-1773782465627",
+      "ipd_admission_id": "IPD-2026-1773782405013",
+      "patient_id": "P-2026-1773744385250",
+      "patient_name": "Rajubhai Malvi",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-17",
+      "round_time": "02:51 AM",
+      "vitals": {
+        "bp": "120",
+        "temp": "22",
+        "pulse": "88",
+        "spo2": "222"
+      },
+      "clinical_progress": "ewrtyuikl;",
+      "nursing_instructions": "cfhjbhmvbhcghjhkn ",
+      "created_at": "2026-03-17T21:21:05.628Z"
+    },
+    {
+      "id": "RND-2026-1773782482146",
+      "ipd_admission_id": "IPD-2026-1773782405013",
+      "patient_id": "P-2026-1773744385250",
+      "patient_name": "Rajubhai Malvi",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-17",
+      "round_time": "02:51 AM",
+      "vitals": {
+        "bp": "22",
+        "temp": "22",
+        "pulse": "22",
+        "spo2": "22"
+      },
+      "clinical_progress": "hfcgjkl;.",
+      "nursing_instructions": "dtfvgyhjbnkm",
+      "created_at": "2026-03-17T21:21:22.146Z"
     }
   ]
 }

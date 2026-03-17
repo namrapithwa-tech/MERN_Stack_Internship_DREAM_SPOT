@@ -386,8 +386,10 @@ const OPDConsultation = () => {
                                 <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginRight: '15px' }} />
                                 <div>
                                     <h1 style={{ margin: '0', color: '#10b981', fontSize: '28px', fontWeight: 'bold' }}>ArogyaOne Hospital</h1>
-                                    <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>123 Health Avenue, Medical District, City</p>
-                                    <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>Phone: +91 98765 43210 | www.arogyaone.com</p>
+                                    {/* tagline */}
+                                    <p style={{ margin: '0', fontSize: '14px', fontWeight: 'bold', color: '#10b981' }}>One Platform, Complete Healthcare</p>
+                                    <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>Mavdi Chokadi, 150ft Ring Road, Rajkot - Gujarat.</p>
+                                    <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>Emergency / Contact: +91 91733 16294 | info@arogyaone.com</p>
                                 </div>
                             </div>
                             <div style={{ textAlign: 'right' }}>

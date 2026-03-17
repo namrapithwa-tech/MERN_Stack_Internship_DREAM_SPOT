@@ -30,7 +30,9 @@ import ReVisit from "./dashboards/registration/pages/ReVisit";
 import RoomAllocation from "./dashboards/registration/pages/RoomAllocation";
 
 // --- DOCTOR DASHBOARD & PAGES ---
-import OPDConsultation from "./dashboards/doctor/pages/OPDConsultation"; // Placeholder for OPD Consultation page
+import OPDConsultation from "./dashboards/doctor/pages/OPDConsultation";
+import DoctorAllPatients from "./dashboards/doctor/pages/DoctorAllPatients";
+import IPDRounds from './dashboards/doctor/pages/IPDRounds';
 // --- OTHER DASHBOARDS ---
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
@@ -147,8 +149,20 @@ function App() {
           ======================= */}
           {/* OPD Consultations (Live Queue) */}
           <Route path="/doctor/opd" element={
-            <ProtectedRoute allowedRoles={["DOCTOR", "ADMIN"]}>
+            <ProtectedRoute allowedRoles={["DOCTOR"]}>
               <MainLayout><OPDConsultation /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/doctor/patients" element={
+            <ProtectedRoute allowedRoles={["DOCTOR"]}>
+              <MainLayout><DoctorAllPatients /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/doctor/ipd" element={
+            <ProtectedRoute allowedRoles={["DOCTOR"]}>
+              <MainLayout><IPDRounds /></MainLayout>
             </ProtectedRoute>
           } />
 
