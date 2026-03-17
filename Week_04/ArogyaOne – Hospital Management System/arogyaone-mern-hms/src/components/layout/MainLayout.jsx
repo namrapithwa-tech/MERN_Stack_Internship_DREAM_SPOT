@@ -84,7 +84,7 @@ const MainLayout = ({ children }) => {
           {/* DOCTOR LINKS */}
           {(userRole === 'DOCTOR') && (
             <>
-              <Link to="/doctor/dashboard" className={`nav-link ${location.pathname === '/doctor/dashboard' ? 'active' : ''}`}>
+              <Link to="/doctor" className={`nav-link ${location.pathname === '/doctor' ? 'active' : ''}`}>
                 <i className="fa-solid fa-user-doctor"></i> <span>Dashboard</span>
               </Link>
 
@@ -98,10 +98,6 @@ const MainLayout = ({ children }) => {
 
               <Link to="/doctor/appointments" className={`nav-link ${location.pathname.includes('/doctor/appointments') ? 'active' : ''}`}>
                 <i className="fa-regular fa-calendar-check"></i> <span>My Appointments</span>
-              </Link>
-
-              <Link to="/doctor/lab-reports" className={`nav-link ${location.pathname.includes('/doctor/lab-reports') ? 'active' : ''}`}>
-                <i className="fa-solid fa-microscope"></i> <span>Lab Reports</span>
               </Link>
 
               <Link to="/doctor/patients" className={`nav-link ${location.pathname.includes('/doctor/patients') ? 'active' : ''}`}>

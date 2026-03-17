@@ -30,11 +30,12 @@ import ReVisit from "./dashboards/registration/pages/ReVisit";
 import RoomAllocation from "./dashboards/registration/pages/RoomAllocation";
 
 // --- DOCTOR DASHBOARD & PAGES ---
+import DoctorDashboard from './dashboards/doctor/pages/DoctorDashboard';
 import OPDConsultation from "./dashboards/doctor/pages/OPDConsultation";
 import DoctorAllPatients from "./dashboards/doctor/pages/DoctorAllPatients";
 import IPDRounds from './dashboards/doctor/pages/IPDRounds';
+import DoctorAppointments from './dashboards/doctor/pages/DoctorAppointments';
 // --- OTHER DASHBOARDS ---
-import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
 import PatientDashboard from "./dashboards/patient/PatientDashboard";
 import LabDashboard from "./dashboards/departments/lab/LabDashboard";
@@ -139,7 +140,7 @@ function App() {
           } />
 
           <Route path="/registration/room-allocation" element={
-            <ProtectedRoute allowedRoles={["REGISTRATION", "ADMIN"]}>
+            <ProtectedRoute allowedRoles={["REGISTRATION"]}>
               <MainLayout><RoomAllocation /></MainLayout>
             </ProtectedRoute>
           } />
@@ -147,7 +148,12 @@ function App() {
           {/* =======================
               DOCTOR DASHBOARD (CLEAN SLATE)
           ======================= */}
-          {/* OPD Consultations (Live Queue) */}
+          <Route path="/doctor" element={
+            <ProtectedRoute allowedRoles={["DOCTOR"]}>
+              <MainLayout><DoctorDashboard /></MainLayout>
+            </ProtectedRoute>
+          } />
+
           <Route path="/doctor/opd" element={
             <ProtectedRoute allowedRoles={["DOCTOR"]}>
               <MainLayout><OPDConsultation /></MainLayout>
@@ -163,6 +169,11 @@ function App() {
           <Route path="/doctor/ipd" element={
             <ProtectedRoute allowedRoles={["DOCTOR"]}>
               <MainLayout><IPDRounds /></MainLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/doctor/appointments" element={
+            <ProtectedRoute allowedRoles={["DOCTOR"]}>
+              <MainLayout><DoctorAppointments /></MainLayout>
             </ProtectedRoute>
           } />
 
