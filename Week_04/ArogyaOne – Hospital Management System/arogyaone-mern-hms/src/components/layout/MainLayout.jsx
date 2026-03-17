@@ -81,10 +81,31 @@ const MainLayout = ({ children }) => {
           )}
 
           {/* DOCTOR LINKS */}
+          {/* DOCTOR LINKS */}
           {(userRole === 'DOCTOR') && (
             <>
-              <Link to="/doctor/ipd" className="nav-link">
+              <Link to="/doctor/dashboard" className={`nav-link ${location.pathname === '/doctor/dashboard' ? 'active' : ''}`}>
+                <i className="fa-solid fa-user-doctor"></i> <span>Dashboard</span>
+              </Link>
+
+              <Link to="/doctor/opd" className={`nav-link ${location.pathname.includes('/doctor/opd') ? 'active' : ''}`}>
+                <i className="fa-solid fa-stethoscope"></i> <span>OPD Consultations</span>
+              </Link>
+
+              <Link to="/doctor/ipd" className={`nav-link ${location.pathname.includes('/doctor/ipd') ? 'active' : ''}`}>
                 <i className="fa-solid fa-bed-pulse"></i> <span>IPD Rounds</span>
+              </Link>
+
+              <Link to="/doctor/appointments" className={`nav-link ${location.pathname.includes('/doctor/appointments') ? 'active' : ''}`}>
+                <i className="fa-regular fa-calendar-check"></i> <span>My Appointments</span>
+              </Link>
+
+              <Link to="/doctor/lab-reports" className={`nav-link ${location.pathname.includes('/doctor/lab-reports') ? 'active' : ''}`}>
+                <i className="fa-solid fa-microscope"></i> <span>Lab Reports</span>
+              </Link>
+
+              <Link to="/doctor/patients" className={`nav-link ${location.pathname.includes('/doctor/patients') ? 'active' : ''}`}>
+                <i className="fa-solid fa-notes-medical"></i> <span>All Patients</span>
               </Link>
             </>
           )}

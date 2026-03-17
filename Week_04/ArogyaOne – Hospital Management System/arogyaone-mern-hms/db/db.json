@@ -411,6 +411,32 @@
       "registration_type": "WALK-IN",
       "created_at": "2026-03-17T14:25:58.911Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773760747093",
+      "patient_full_name": "Jay Dawad",
+      "age": 11,
+      "gender": "Male",
+      "mobile_number": "1111111111",
+      "blood_group": "A+",
+      "consultant_doctor_id": "D-2026-1769063648290",
+      "consultant_doctor_name": "Dr. Raghav N. Joshi",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T15:19:09.533Z",
+      "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773761618071",
+      "patient_full_name": "Nam",
+      "age": 6,
+      "gender": "Male",
+      "mobile_number": "1234567890",
+      "blood_group": "B+",
+      "consultant_doctor_id": "D-2026-1769062412564",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T15:33:41.387Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -1132,6 +1158,28 @@
       "sugar": "true",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-17T14:25:58.911Z"
+    },
+    {
+      "id": "V-1773760747093",
+      "patientId": "P-2026-1773760747093",
+      "weight": "11",
+      "height": "11",
+      "blood_pressure": "1",
+      "temprature": "11",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T15:19:09.533Z"
+    },
+    {
+      "id": "V-1773761618071",
+      "patientId": "P-2026-1773761618071",
+      "weight": "55",
+      "height": "55",
+      "blood_pressure": "5",
+      "temprature": "5",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T15:33:41.387Z"
     }
   ],
   "opd_consultations": [
@@ -1150,11 +1198,31 @@
       "opd_date": "2026-03-17",
       "opd_time_slot": "Evening",
       "opd_timings": "05:00 PM - 07:00 PM",
-      "chief_complaint": null,
-      "diagnosis": null,
-      "clinical_notes": null,
-      "medicines": [],
-      "LabTest_advised": [],
+      "chief_complaint": "Fever for Last 3 days, Headache, Cold",
+      "diagnosis": "Viral Infection",
+      "clinical_notes": "Don't Eat fry food, Hot water one glass in 3 time of days\ntemp : 50.c\n",
+      "medicines": [
+        {
+          "medicine_name": "Paractamol 650",
+          "dosage": "1-1-1",
+          "duration_days": "5"
+        },
+        {
+          "medicine_name": "Dolo 650",
+          "dosage": "1 (when high fever and extream condtions)",
+          "duration_days": "5"
+        },
+        {
+          "medicine_name": "Glucoreta ",
+          "dosage": "0-1-1",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "CBC",
+        "RBC",
+        "Urine"
+      ],
       "consultation_fee": 800,
       "payment": {
         "status": "PAID",
@@ -1163,9 +1231,10 @@
         "transaction_id": null,
         "payment_date": "2026-03-17"
       },
-      "follow_up_required": false,
+      "follow_up_required": true,
       "is_billed": true,
-      "is_closed": false
+      "is_closed": true,
+      "follow_up_date": "2026-03-23"
     },
     {
       "id": "OPD-2026-1773727118995",
@@ -1374,10 +1443,16 @@
       "opd_date": "2026-03-17",
       "opd_time_slot": "Evening",
       "opd_timings": "05:00 PM - 07:00 PM",
-      "chief_complaint": null,
-      "diagnosis": null,
-      "clinical_notes": null,
-      "medicines": [],
+      "chief_complaint": "wsfe",
+      "diagnosis": "",
+      "clinical_notes": "",
+      "medicines": [
+        {
+          "medicine_name": "4",
+          "dosage": "4",
+          "duration_days": "4"
+        }
+      ],
       "LabTest_advised": [],
       "consultation_fee": 650,
       "payment": {
@@ -1385,6 +1460,71 @@
         "mode": "UPI",
         "amount_paid": 650,
         "transaction_id": "JSK",
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": true,
+      "follow_up_date": null
+    },
+    {
+      "id": "OPD-2026-1773760747093",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773760747093",
+      "patient_name": "Jay Dawad",
+      "patient_age": 11,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "A+",
+      "doctor_id": "D-2026-1769063648290",
+      "doctor_name": "Dr. Raghav N. Joshi",
+      "department": "Neurology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 1000,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 1000,
+        "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773761618071",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773761618071",
+      "patient_name": "Nam",
+      "patient_age": 6,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "B+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
         "payment_date": "2026-03-17"
       },
       "follow_up_required": false,

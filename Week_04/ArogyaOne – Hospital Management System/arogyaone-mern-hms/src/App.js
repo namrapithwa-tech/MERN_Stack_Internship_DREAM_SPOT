@@ -29,6 +29,8 @@ import AllPatients from "./dashboards/registration/pages/AllPatients";
 import ReVisit from "./dashboards/registration/pages/ReVisit";
 import RoomAllocation from "./dashboards/registration/pages/RoomAllocation";
 
+// --- DOCTOR DASHBOARD & PAGES ---
+import OPDConsultation from "./dashboards/doctor/pages/OPDConsultation"; // Placeholder for OPD Consultation page
 // --- OTHER DASHBOARDS ---
 import DoctorDashboard from "./dashboards/doctor/DoctorDashboard";
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
@@ -140,6 +142,18 @@ function App() {
             </ProtectedRoute>
           } />
 
+          {/* =======================
+              DOCTOR DASHBOARD (CLEAN SLATE)
+          ======================= */}
+          {/* OPD Consultations (Live Queue) */}
+          <Route path="/doctor/opd" element={
+            <ProtectedRoute allowedRoles={["DOCTOR", "ADMIN"]}>
+              <MainLayout><OPDConsultation /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+
+          {/* ...... */}
           {/* Add other placeholders as needed for Appointments, etc. */}
 
           {/* =======================
