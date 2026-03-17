@@ -26,7 +26,7 @@ const RoomAllocation = () => {
 
     // --- MODAL & ACTION STATES ---
     const [selectedAdmission, setSelectedAdmission] = useState(null);
-    
+
     // Edit Modal
     const [showEditModal, setShowEditModal] = useState(false);
     const [editForm, setEditForm] = useState({});
@@ -65,7 +65,7 @@ const RoomAllocation = () => {
                 api.get('/doctors'),
                 api.get('/patients')
             ]);
-            
+
             const sortedAdmissions = admRes.data.sort((a, b) => new Date(b.admission_date) - new Date(a.admission_date));
             setAdmissions(sortedAdmissions);
             setRooms(roomsRes.data);
@@ -116,7 +116,7 @@ const RoomAllocation = () => {
 
             // 1. Create IPD Admission
             await api.post('/ipd_admissions', payload);
-            
+
             // 2. Mark Room as Unavailable
             await api.patch(`/rooms/${admForm.room_id}`, { is_available: false, allocated_patient_id: payload.patient_id });
 
@@ -124,7 +124,7 @@ const RoomAllocation = () => {
             setSelectedAdmission(payload);
             setPrintType('ADMISSION');
             setShowPrintModal(true);
-            
+
             // Reset Form & Fetch
             setAdmForm(initialAdmState);
             setSearchQuery('');
@@ -211,7 +211,7 @@ const RoomAllocation = () => {
                 const pdf = new jsPDF(orientation, 'mm', format);
                 const pdfWidth = pdf.internal.pageSize.getWidth();
                 const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-                
+
                 let heightLeft = pdfHeight;
                 let position = 0;
                 const pageHeight = pdf.internal.pageSize.getHeight();
@@ -238,7 +238,7 @@ const RoomAllocation = () => {
 
     return (
         <div className="container-fluid">
-            
+
             {/* --- STATS --- */}
             <div className="row g-3 mb-4">
                 <div className="col-md-4">
@@ -264,7 +264,7 @@ const RoomAllocation = () => {
             {/* --- NEW ADMISSION FORM (TWO COLUMN) --- */}
             <div className="reg-container mb-4">
                 <div className="section-title"><i className="fa-solid fa-hospital-user me-2"></i>New IPD Admission</div>
-                
+
                 {/* Search Row */}
                 <div className="row g-3 mb-4 align-items-end border-bottom pb-4">
                     <div className="col-md-6">
@@ -277,7 +277,7 @@ const RoomAllocation = () => {
                     {patientFound && (
                         <div className="col-md-6">
                             <div className="alert alert-success m-0 py-2">
-                                <i className="fa-solid fa-check-circle me-2"></i> 
+                                <i className="fa-solid fa-check-circle me-2"></i>
                                 Patient Found: <strong>{patientFound.patient_full_name}</strong> ({patientFound.age}Y / {patientFound.gender})
                             </div>
                         </div>
@@ -291,14 +291,14 @@ const RoomAllocation = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label className="reg-label">Consultant Doctor <span className="text-danger">*</span></label>
-                                <select className="reg-select" value={admForm.consultant_doctor_name} required onChange={(e) => setAdmForm({...admForm, consultant_doctor_name: e.target.value})}>
+                                <select className="reg-select" value={admForm.consultant_doctor_name} required onChange={(e) => setAdmForm({ ...admForm, consultant_doctor_name: e.target.value })}>
                                     <option value="">-- Select --</option>
                                     {doctors.map(d => <option key={d.id} value={d.full_name}>{d.full_name} ({d.department})</option>)}
                                 </select>
                             </div>
                             <div className="mb-3">
                                 <label className="reg-label">Room / Bed Allocation <span className="text-danger">*</span></label>
-                                <select className="reg-select" value={admForm.room_id} required onChange={(e) => setAdmForm({...admForm, room_id: e.target.value})}>
+                                <select className="reg-select" value={admForm.room_id} required onChange={(e) => setAdmForm({ ...admForm, room_id: e.target.value })}>
                                     <option value="">-- Select Available Room --</option>
                                     {rooms.filter(r => r.is_available).map(r => (
                                         <option key={r.id} value={r.id}>{r.room_number} ({r.room_category}) - ₹{r.room_rent_per_day}/day</option>
@@ -311,23 +311,23 @@ const RoomAllocation = () => {
                             <div className="row mb-3">
                                 <div className="col-4">
                                     <label className="reg-label">ID Type <span className="text-danger">*</span></label>
-                                    <select className="reg-select" value={admForm.document_type} onChange={(e) => setAdmForm({...admForm, document_type: e.target.value})}>
+                                    <select className="reg-select" value={admForm.document_type} onChange={(e) => setAdmForm({ ...admForm, document_type: e.target.value })}>
                                         <option value="Aadhar">Aadhar</option><option value="PAN">PAN</option><option value="PMJAY">PMJAY</option>
                                     </select>
                                 </div>
                                 <div className="col-8">
                                     <label className="reg-label">ID Number <span className="text-danger">*</span></label>
-                                    <input type="text" className="reg-input" value={admForm.document_number} required onChange={(e) => setAdmForm({...admForm, document_number: e.target.value})} />
+                                    <input type="text" className="reg-input" value={admForm.document_number} required onChange={(e) => setAdmForm({ ...admForm, document_number: e.target.value })} />
                                 </div>
                             </div>
                             <div className="row mb-3">
                                 <div className="col-8">
                                     <label className="reg-label">Relative / Guardian Name <span className="text-danger">*</span></label>
-                                    <input type="text" className="reg-input" value={admForm.relative_name} required onChange={(e) => setAdmForm({...admForm, relative_name: e.target.value})} />
+                                    <input type="text" className="reg-input" value={admForm.relative_name} required onChange={(e) => setAdmForm({ ...admForm, relative_name: e.target.value })} />
                                 </div>
                                 <div className="col-4">
                                     <label className="reg-label">Relationship <span className="text-danger">*</span></label>
-                                    <select className="reg-select" value={admForm.relationship} onChange={(e) => setAdmForm({...admForm, relationship: e.target.value})}>
+                                    <select className="reg-select" value={admForm.relationship} onChange={(e) => setAdmForm({ ...admForm, relationship: e.target.value })}>
                                         <option value="Father">Father</option><option value="Mother">Mother</option>
                                         <option value="Spouse">Spouse</option><option value="Child">Child</option><option value="Other">Other</option>
                                     </select>
@@ -381,29 +381,56 @@ const RoomAllocation = () => {
                                     {adm.status === 'DISCHARGED' && <div className="small text-danger"><strong>Dis:</strong> {new Date(adm.discharge_details?.discharge_date).toLocaleDateString()}</div>}
                                 </td>
                                 <td className="text-center">
-                                    {/* Action Dropdown for cleaner UI */}
-                                    <div className="dropdown">
-                                        <button className="btn btn-sm btn-light border" type="button" data-bs-toggle="dropdown"><i className="fa-solid fa-ellipsis-vertical"></i></button>
-                                        <ul className="dropdown-menu shadow-sm">
-                                            <li><button className="dropdown-item" onClick={() => { setSelectedAdmission(adm); setPrintType('ADMISSION'); setShowPrintModal(true); }}><i className="fa-solid fa-print text-primary me-2"></i> Print Admission Docs</button></li>
-                                            
-                                            {adm.status === 'ADMITTED' && (
-                                                <>
-                                                    <li><hr className="dropdown-divider"/></li>
-                                                    <li><button className="dropdown-item text-success fw-bold" onClick={() => { setSelectedAdmission(adm); setShowDischargeModal(true); }}><i className="fa-solid fa-person-walking-arrow-right me-2"></i> Discharge Patient</button></li>
-                                                    <li><button className="dropdown-item" onClick={() => { setSelectedAdmission(adm); setEditForm(adm); setShowEditModal(true); }}><i className="fa-solid fa-pen text-info me-2"></i> Edit Details</button></li>
-                                                    <li><button className="dropdown-item text-danger" onClick={() => handleDelete(adm)}><i className="fa-solid fa-trash me-2"></i> Delete Record</button></li>
-                                                </>
-                                            )}
-                                            
-                                            {adm.status === 'DISCHARGED' && (
-                                                <>
-                                                    <li><hr className="dropdown-divider"/></li>
-                                                    <li><button className="dropdown-item" onClick={() => { setSelectedAdmission(adm); setPrintType('DISCHARGE'); setShowPrintModal(true); }}><i className="fa-solid fa-file-medical text-dark me-2"></i> Print Discharge Summary</button></li>
-                                                </>
-                                            )}
-                                        </ul>
-                                    </div>
+                                    {/* Print Admission Docs (Always visible) */}
+                                    <button
+                                        className="btn btn-sm btn-outline-primary me-2 mb-1"
+                                        onClick={() => { setSelectedAdmission(adm); setPrintType('ADMISSION'); setShowPrintModal(true); }}
+                                        title="Print Admission Docs"
+                                    >
+                                        <i className="fa-solid fa-print"></i>
+                                    </button>
+
+                                    {adm.status === 'ADMITTED' && (
+                                        <>
+                                            {/* Discharge Button */}
+                                            <button
+                                                className="btn btn-sm btn-outline-success me-2 mb-1"
+                                                onClick={() => { setSelectedAdmission(adm); setShowDischargeModal(true); }}
+                                                title="Discharge Patient"
+                                            >
+                                                <i className="fa-solid fa-person-walking-arrow-right"></i>
+                                            </button>
+
+                                            {/* Edit Button */}
+                                            <button
+                                                className="btn btn-sm btn-outline-info me-2 mb-1"
+                                                onClick={() => { setSelectedAdmission(adm); setEditForm(adm); setShowEditModal(true); }}
+                                                title="Edit Details"
+                                            >
+                                                <i className="fa-solid fa-pen"></i>
+                                            </button>
+
+                                            {/* Delete Button */}
+                                            <button
+                                                className="btn btn-sm btn-outline-danger mb-1"
+                                                onClick={() => handleDelete(adm)}
+                                                title="Delete Record"
+                                            >
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
+                                        </>
+                                    )}
+
+                                    {adm.status === 'DISCHARGED' && (
+                                        /* Print Discharge Summary */
+                                        <button
+                                            className="btn btn-sm btn-outline-dark me-2 mb-1"
+                                            onClick={() => { setSelectedAdmission(adm); setPrintType('DISCHARGE'); setShowPrintModal(true); }}
+                                            title="Print Discharge Summary"
+                                        >
+                                            <i className="fa-solid fa-file-medical"></i>
+                                        </button>
+                                    )}
                                 </td>
                             </tr>
                         ))}
@@ -416,7 +443,7 @@ const RoomAllocation = () => {
                 MODAL: NABH DISCHARGE FORM
             ========================================= */}
             {showDischargeModal && selectedAdmission && (
-                <div className="modal show d-block" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
                     <div className="modal-dialog modal-xl modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="modal-header bg-light">
@@ -434,21 +461,21 @@ const RoomAllocation = () => {
                                     <div className="row g-3 mb-3">
                                         <div className="col-md-3">
                                             <label className="form-label fw-bold">Discharge Date</label>
-                                            <input type="date" className="form-control" value={dischargeForm.discharge_date} required onChange={(e) => setDischargeForm({...dischargeForm, discharge_date: e.target.value})} />
+                                            <input type="date" className="form-control" value={dischargeForm.discharge_date} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_date: e.target.value })} />
                                         </div>
                                         <div className="col-md-3">
                                             <label className="form-label fw-bold">Discharge Time</label>
-                                            <input type="time" className="form-control" value={dischargeForm.discharge_time} required onChange={(e) => setDischargeForm({...dischargeForm, discharge_time: e.target.value})} />
+                                            <input type="time" className="form-control" value={dischargeForm.discharge_time} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_time: e.target.value })} />
                                         </div>
                                         <div className="col-md-3">
                                             <label className="form-label fw-bold">Mode of Admission</label>
-                                            <select className="form-select" value={dischargeForm.mode_of_admission} onChange={(e) => setDischargeForm({...dischargeForm, mode_of_admission: e.target.value})}>
+                                            <select className="form-select" value={dischargeForm.mode_of_admission} onChange={(e) => setDischargeForm({ ...dischargeForm, mode_of_admission: e.target.value })}>
                                                 <option>Planned</option><option>Emergency</option><option>Transfer</option>
                                             </select>
                                         </div>
                                         <div className="col-md-3">
                                             <label className="form-label fw-bold">Discharge Condition</label>
-                                            <select className="form-select" value={dischargeForm.discharge_condition} onChange={(e) => setDischargeForm({...dischargeForm, discharge_condition: e.target.value})}>
+                                            <select className="form-select" value={dischargeForm.discharge_condition} onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_condition: e.target.value })}>
                                                 <option>Stable</option><option>Referred</option><option>LAMA</option><option>Deceased</option>
                                             </select>
                                         </div>
@@ -456,17 +483,17 @@ const RoomAllocation = () => {
 
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">Reason for Admission / Chief Complaint</label>
-                                        <input type="text" className="form-control" value={dischargeForm.reason_for_admission} required onChange={(e) => setDischargeForm({...dischargeForm, reason_for_admission: e.target.value})} />
+                                        <input type="text" className="form-control" value={dischargeForm.reason_for_admission} required onChange={(e) => setDischargeForm({ ...dischargeForm, reason_for_admission: e.target.value })} />
                                     </div>
-                                    
+
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">Clinical Summary & Final Diagnosis</label>
-                                        <textarea className="form-control" rows="3" value={dischargeForm.clinical_summary} required onChange={(e) => setDischargeForm({...dischargeForm, clinical_summary: e.target.value})} placeholder="Include diagnosis and major events..."></textarea>
+                                        <textarea className="form-control" rows="3" value={dischargeForm.clinical_summary} required onChange={(e) => setDischargeForm({ ...dischargeForm, clinical_summary: e.target.value })} placeholder="Include diagnosis and major events..."></textarea>
                                     </div>
 
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">Treatment Provided</label>
-                                        <textarea className="form-control" rows="3" value={dischargeForm.treatment_provided} required onChange={(e) => setDischargeForm({...dischargeForm, treatment_provided: e.target.value})} placeholder="Surgeries, major procedures, diet..."></textarea>
+                                        <textarea className="form-control" rows="3" value={dischargeForm.treatment_provided} required onChange={(e) => setDischargeForm({ ...dischargeForm, treatment_provided: e.target.value })} placeholder="Surgeries, major procedures, diet..."></textarea>
                                     </div>
 
                                     {/* Prescriptions Section */}
@@ -486,7 +513,7 @@ const RoomAllocation = () => {
 
                                     <div className="mb-3">
                                         <label className="form-label fw-bold">Follow-Up Instructions</label>
-                                        <input type="text" className="form-control" value={dischargeForm.follow_up_instructions} required onChange={(e) => setDischargeForm({...dischargeForm, follow_up_instructions: e.target.value})} placeholder="e.g., Visit OPD after 5 days" />
+                                        <input type="text" className="form-control" value={dischargeForm.follow_up_instructions} required onChange={(e) => setDischargeForm({ ...dischargeForm, follow_up_instructions: e.target.value })} placeholder="e.g., Visit OPD after 5 days" />
                                     </div>
                                 </div>
                                 <div className="modal-footer">
@@ -503,7 +530,7 @@ const RoomAllocation = () => {
                 MODAL: EDIT ADMISSION
             ========================================= */}
             {showEditModal && (
-                <div className="modal show d-block" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -512,9 +539,9 @@ const RoomAllocation = () => {
                             </div>
                             <form onSubmit={handleEditSubmit}>
                                 <div className="modal-body p-3">
-                                    <div className="mb-2"><label className="form-label">ID Type</label><input type="text" className="form-control" value={editForm.document_type} onChange={(e)=>setEditForm({...editForm, document_type: e.target.value})} /></div>
-                                    <div className="mb-2"><label className="form-label">ID Number</label><input type="text" className="form-control" value={editForm.document_number} onChange={(e)=>setEditForm({...editForm, document_number: e.target.value})} /></div>
-                                    <div className="mb-2"><label className="form-label">Relative Name</label><input type="text" className="form-control" value={editForm.relative_name} onChange={(e)=>setEditForm({...editForm, relative_name: e.target.value})} /></div>
+                                    <div className="mb-2"><label className="form-label">ID Type</label><input type="text" className="form-control" value={editForm.document_type} onChange={(e) => setEditForm({ ...editForm, document_type: e.target.value })} /></div>
+                                    <div className="mb-2"><label className="form-label">ID Number</label><input type="text" className="form-control" value={editForm.document_number} onChange={(e) => setEditForm({ ...editForm, document_number: e.target.value })} /></div>
+                                    <div className="mb-2"><label className="form-label">Relative Name</label><input type="text" className="form-control" value={editForm.relative_name} onChange={(e) => setEditForm({ ...editForm, relative_name: e.target.value })} /></div>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-primary">Save Updates</button>
@@ -529,7 +556,7 @@ const RoomAllocation = () => {
                 MODAL: PRINT PREVIEW (STICKERS / CONSENT / DISCHARGE)
             ========================================= */}
             {showPrintModal && selectedAdmission && (
-                <div className="modal show d-block" style={{backgroundColor: 'rgba(0,0,0,0.7)'}}>
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content text-center p-4">
                             <h4 className="fw-bold mb-4">Print Documents Ready</h4>
@@ -558,7 +585,7 @@ const RoomAllocation = () => {
             ========================================= */}
             {selectedAdmission && (
                 <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
-                    
+
                     {/* 1. ADMISSION STICKER SHEET (A4 Grid of 20) */}
                     <div ref={stickerRef} style={{ width: '210mm', height: '297mm', padding: '10mm', background: 'white' }}>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: 'repeat(5, 1fr)', gap: '5mm', height: '100%' }}>
@@ -569,12 +596,12 @@ const RoomAllocation = () => {
                                         <strong style={{ fontSize: '11px' }}>ArogyaOne</strong>
                                     </div>
                                     <div style={{ lineHeight: '1.2' }}>
-                                        <strong>Name:</strong> {selectedAdmission.patient_name}<br/>
-                                        <strong>UHID:</strong> {selectedAdmission.patient_id}<br/>
-                                        <strong>IPD No:</strong> {selectedAdmission.id}<br/>
-                                        <strong>Room:</strong> {selectedAdmission.room_number}<br/>
-                                        <strong>Dr:</strong> {selectedAdmission.consultant_doctor_name}<br/>
-                                        <strong>BG/Mob:</strong> {selectedAdmission.blood_group} | {selectedAdmission.mobile_number}<br/>
+                                        <strong>Name:</strong> {selectedAdmission.patient_name}<br />
+                                        <strong>UHID:</strong> {selectedAdmission.patient_id}<br />
+                                        <strong>IPD No:</strong> {selectedAdmission.id}<br />
+                                        <strong>Room:</strong> {selectedAdmission.room_number}<br />
+                                        <strong>Dr:</strong> {selectedAdmission.consultant_doctor_name}<br />
+                                        <strong>BG/Mob:</strong> {selectedAdmission.blood_group} | {selectedAdmission.mobile_number}<br />
                                         <strong>DOA:</strong> {new Date(selectedAdmission.admission_date).toLocaleDateString()}
                                     </div>
                                 </div>
@@ -592,31 +619,31 @@ const RoomAllocation = () => {
                         <div style={{ textAlign: 'right', marginBottom: '20px' }}>
                             <strong>Date:</strong> {new Date(selectedAdmission.admission_date).toLocaleDateString()}
                         </div>
-                        
+
                         <h5 style={{ textDecoration: 'underline', marginBottom: '10px' }}>Patient Information</h5>
                         <p><strong>Patient Name:</strong> {selectedAdmission.patient_name}</p>
                         <p><strong>UHID (Unique Health ID):</strong> {selectedAdmission.patient_id}</p>
                         <p><strong>Admission Date:</strong> {new Date(selectedAdmission.admission_date).toLocaleString()}</p>
                         <p><strong>Patient ID Type:</strong> {selectedAdmission.document_type} <strong>No:</strong> {selectedAdmission.document_number}</p>
-                        
+
                         <h5 style={{ textDecoration: 'underline', marginTop: '20px', marginBottom: '10px' }}>Relative / Guardian Information</h5>
                         <p><strong>Relative Name:</strong> {selectedAdmission.relative_name}</p>
                         <p><strong>Relationship to Patient:</strong> {selectedAdmission.relationship}</p>
-                        
+
                         <h5 style={{ textDecoration: 'underline', marginTop: '30px', marginBottom: '10px' }}>Terms of Consent</h5>
                         <p style={{ textAlign: 'justify', lineHeight: '1.6' }}>
-                            <strong>Authorization for Treatment:</strong> I hereby authorize the medical staff and consultants of the hospital to perform such diagnostic procedures, medical treatments, and surgical interventions as may be deemed necessary for the patient named above.<br/><br/>
-                            <strong>Financial Responsibility:</strong> I agree to be responsible for all charges incurred during the stay, including room rent, professional fees, medicines, and consumables, as per the hospital's tariff.<br/><br/>
-                            <strong>Emergency Procedures:</strong> In case of an emergency, the hospital authority has my full permission to take necessary life-saving measures.<br/><br/>
+                            <strong>Authorization for Treatment:</strong> I hereby authorize the medical staff and consultants of the hospital to perform such diagnostic procedures, medical treatments, and surgical interventions as may be deemed necessary for the patient named above.<br /><br />
+                            <strong>Financial Responsibility:</strong> I agree to be responsible for all charges incurred during the stay, including room rent, professional fees, medicines, and consumables, as per the hospital's tariff.<br /><br />
+                            <strong>Emergency Procedures:</strong> In case of an emergency, the hospital authority has my full permission to take necessary life-saving measures.<br /><br />
                             <strong>Privacy & Records:</strong> I consent to the hospital maintaining medical records and sharing necessary data with authorized insurance providers or government schemes (like PMJAY) for billing and treatment purposes.
                         </p>
-                        
+
                         <div style={{ marginTop: '80px', display: 'flex', justifyContent: 'space-between' }}>
                             <div style={{ borderTop: '1px solid #000', width: '200px', textAlign: 'center', paddingTop: '5px' }}>
-                                Authorized Signatory<br/>(ArogyaOne Authority)
+                                Authorized Signatory<br />(ArogyaOne Authority)
                             </div>
                             <div style={{ borderTop: '1px solid #000', width: '200px', textAlign: 'center', paddingTop: '5px' }}>
-                                Patient / Relative Guardian<br/>({selectedAdmission.relative_name})
+                                Patient / Relative Guardian<br />({selectedAdmission.relative_name})
                             </div>
                         </div>
                     </div>
@@ -629,7 +656,7 @@ const RoomAllocation = () => {
                                 <h2 style={{ margin: '0' }}>ArogyaOne Hospital</h2>
                                 <h4>Discharge Summary</h4>
                             </div>
-                            
+
                             <table style={{ width: '100%', marginBottom: '20px', border: '1px solid #ccc', borderCollapse: 'collapse' }}>
                                 <tbody>
                                     <tr>
@@ -685,10 +712,10 @@ const RoomAllocation = () => {
 
                             <div style={{ marginTop: '60px', display: 'flex', justifyContent: 'space-between' }}>
                                 <div style={{ borderTop: '1px solid #000', width: '250px', textAlign: 'center', paddingTop: '5px' }}>
-                                    <strong>{selectedAdmission.consultant_doctor_name}</strong><br/>Consultant Signature [cite: 48]
+                                    <strong>{selectedAdmission.consultant_doctor_name}</strong><br />Consultant Signature [cite: 48]
                                 </div>
                                 <div style={{ borderTop: '1px solid #000', width: '250px', textAlign: 'center', paddingTop: '5px' }}>
-                                    Patient / Relative Signature [cite: 54]<br/>I acknowledge receipt of this summary.
+                                    Patient / Relative Signature [cite: 54]<br />I acknowledge receipt of this summary.
                                 </div>
                             </div>
                         </div>
