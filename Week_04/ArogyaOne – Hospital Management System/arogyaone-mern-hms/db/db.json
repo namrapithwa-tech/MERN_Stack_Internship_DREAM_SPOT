@@ -542,22 +542,43 @@
   ],
   "ipd_admissions": [
     {
-      "id": "IPD-2026-1773748634860",
-      "patient_id": "P-2026-1773726373776",
-      "patient_name": "Jensi Makwana",
-      "mobile_number": "8866045280",
+      "id": "IPD-2026-1773751218420",
+      "patient_id": "P-2026-1773744385250",
+      "patient_name": "Rajubhai Malvi",
+      "mobile_number": "9925611921",
       "blood_group": "O+",
-      "consultant_doctor_name": "Dr. Raghav N. Joshi",
-      "room_id": "R-DELUXE-1767593007375",
-      "document_type": "PAN",
-      "document_number": "HGHPM5890N",
-      "relative_name": "HARESHBHAI SHANTIBHAI PITHWA",
+      "consultant_doctor_name": "Dr. Aarav V. Mehta",
+      "room_id": "R-GENERAL-1767592080749",
+      "document_type": "Aadhar",
+      "document_number": "123456789101",
+      "relative_name": "Harshbhai Pithwa",
       "relationship": "Father",
-      "room_number": "DLX-101",
-      "admission_date": "2026-03-17T11:57:14.860Z",
-      "status": "ADMITTED",
-      "billing_status": "OPEN",
-      "discharge_details": null
+      "room_number": "GEN-102",
+      "admission_date": "2026-03-17T12:40:18.420Z",
+      "status": "DISCHARGED",
+      "billing_status": "PENDING_FINAL_BILL",
+      "discharge_details": {
+        "discharge_date": "2026-03-17",
+        "discharge_time": "18:12",
+        "reason_for_admission": "Sevior Chest Pain",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "The patient presented with a chief complaint of severe chest pain of sudden onset. The pain was described as intense, central, and persistent, with possible radiation to the left arm/jaw and associated symptoms such as sweating, shortness of breath, and anxiety. On initial evaluation, vital signs were monitored and emergency management was initiated.\n\nElectrocardiogram (ECG) and cardiac biomarkers were performed, which indicated acute cardiac involvement. The patient was managed promptly with appropriate medical therapy including antiplatelets, analgesics, oxygen (if required), and other supportive measures. Continuous cardiac monitoring was maintained during the hospital stay. The patient showed gradual clinical improvement with stabilization of symptoms.\n\nAcute Coronary Syndrome (ACS) – likely Acute Myocardial Infarction (AMI).",
+        "treatment_provided": "The patient was admitted with severe chest pain and managed as a case of acute coronary syndrome. Immediate treatment was initiated in the emergency setting. The patient was given oxygen support as needed and placed under continuous cardiac monitoring.\n\nAntiplatelet therapy was administered, including aspirin and a second antiplatelet agent. Sublingual nitrates were given for relief of chest pain, along with intravenous analgesics for pain control. Anticoagulation therapy was started as per protocol.\n\nElectrocardiographic monitoring and serial cardiac enzyme assessments were carried out. Intravenous fluids were administered as required, and vital signs were closely monitored. Additional medications such as beta-blockers and statins were initiated based on clinical condition.\n\nThe patient responded well to treatment, with gradual resolution of chest pain and stabilization of hemodynamic status.",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "Tab. Aspirin 75 mg",
+            "dosage": "1-0-1",
+            "duration_days": "5"
+          },
+          {
+            "medicine_name": "Tab. Atorvastatin 40 mg",
+            "dosage": "1-0-1",
+            "duration_days": "5"
+          }
+        ],
+        "follow_up_instructions": "Next Visit after 5 Days (23/03/2026 Monday)"
+      }
     }
   ],
   "rooms": [
@@ -714,8 +735,8 @@
         " Private Balcony",
         " Smart TV"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2026-1773726373776"
+      "is_available": true,
+      "allocated_patient_id": null
     },
     {
       "id": "R-DELUXE-1767593021207",

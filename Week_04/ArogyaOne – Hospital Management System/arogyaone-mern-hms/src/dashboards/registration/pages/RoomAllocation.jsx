@@ -26,7 +26,7 @@ const RoomAllocation = () => {
 
     // --- MODAL & ACTION STATES ---
     const [selectedAdmission, setSelectedAdmission] = useState(null);
-
+    
     // Edit Modal
     const [showEditModal, setShowEditModal] = useState(false);
     const [editForm, setEditForm] = useState({});
@@ -451,7 +451,8 @@ const RoomAllocation = () => {
                                 <button className="btn-close" onClick={() => setShowDischargeModal(false)}></button>
                             </div>
                             <form onSubmit={handleDischargeSubmit}>
-                                <div className="modal-body p-4">
+                                {/* FIX: Added overflow-auto and maxHeight here */}
+                                <div className="modal-body p-4 overflow-auto" style={{ maxHeight: '70vh' }}>
                                     <div className="row g-3 border-bottom pb-3 mb-3 bg-light rounded p-2">
                                         <div className="col-md-4"><strong>Patient:</strong> {selectedAdmission.patient_name} ({selectedAdmission.patient_id})</div>
                                         <div className="col-md-4"><strong>Room:</strong> {selectedAdmission.room_number}</div>
@@ -538,7 +539,8 @@ const RoomAllocation = () => {
                                 <button className="btn-close" onClick={() => setShowEditModal(false)}></button>
                             </div>
                             <form onSubmit={handleEditSubmit}>
-                                <div className="modal-body p-3">
+                                {/* FIX: Added overflow-auto and maxHeight here too */}
+                                <div className="modal-body p-3 overflow-auto" style={{ maxHeight: '70vh' }}>
                                     <div className="mb-2"><label className="form-label">ID Type</label><input type="text" className="form-control" value={editForm.document_type} onChange={(e) => setEditForm({ ...editForm, document_type: e.target.value })} /></div>
                                     <div className="mb-2"><label className="form-label">ID Number</label><input type="text" className="form-control" value={editForm.document_number} onChange={(e) => setEditForm({ ...editForm, document_number: e.target.value })} /></div>
                                     <div className="mb-2"><label className="form-label">Relative Name</label><input type="text" className="form-control" value={editForm.relative_name} onChange={(e) => setEditForm({ ...editForm, relative_name: e.target.value })} /></div>
@@ -610,9 +612,9 @@ const RoomAllocation = () => {
                     </div>
 
                     {/* 2. CONSENT FORM (A4) */}
-                    <div ref={consentRef} style={{ width: '210mm', minHeight: '297mm', padding: '20mm', background: 'white', color: 'black', fontFamily: 'serif' }}>
+                    <div ref={consentRef} style={{ width: '210mm', minHeight: '297mm', padding: '10mm', background: 'white', color: 'black', fontFamily: 'serif' }}>
                         <div style={{ textAlign: 'center', marginBottom: '30px', borderBottom: '2px solid #000', paddingBottom: '10px' }}>
-                            <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginBottom: '10px' }} />
+                            <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginBottom: '8px' }} />
                             <h2>ArogyaOne Hospital</h2>
                             <h4>Patient Admission Consent Form</h4>
                         </div>
@@ -675,19 +677,19 @@ const RoomAllocation = () => {
                             </table>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6' }}>Admission Details</h5>
-                            <p><strong>Mode of Admission:</strong> {selectedAdmission.discharge_details.mode_of_admission} [cite: 29]</p>
-                            <p><strong>Reason for Admission:</strong> {selectedAdmission.discharge_details.reason_for_admission} [cite: 28]</p>
+                            <p><strong>Mode of Admission:</strong> {selectedAdmission.discharge_details.mode_of_admission} </p>
+                            <p><strong>Reason for Admission:</strong> {selectedAdmission.discharge_details.reason_for_admission} </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Clinical Summary & Final Diagnosis</h5>
-                            <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.clinical_summary} [cite: 31]</p>
+                            <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.clinical_summary}</p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Treatment Provided</h5>
-                            <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.treatment_provided} [cite: 38]</p>
+                            <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.treatment_provided} </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Discharge Condition</h5>
                             <p>{selectedAdmission.discharge_details.discharge_condition} [cite: 40]</p>
 
-                            <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Prescribed Medications at Discharge [cite: 42]</h5>
+                            <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Prescribed Medications at Discharge </h5>
                             <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '15px' }}>
                                 <thead style={{ background: '#eee' }}>
                                     <tr>
@@ -708,14 +710,14 @@ const RoomAllocation = () => {
                             </table>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Follow-Up Instructions</h5>
-                            <p>{selectedAdmission.discharge_details.follow_up_instructions} [cite: 45]</p>
+                            <p>{selectedAdmission.discharge_details.follow_up_instructions} </p>
 
                             <div style={{ marginTop: '60px', display: 'flex', justifyContent: 'space-between' }}>
                                 <div style={{ borderTop: '1px solid #000', width: '250px', textAlign: 'center', paddingTop: '5px' }}>
-                                    <strong>{selectedAdmission.consultant_doctor_name}</strong><br />Consultant Signature [cite: 48]
+                                    <strong>{selectedAdmission.consultant_doctor_name}</strong><br />Consultant Signature
                                 </div>
                                 <div style={{ borderTop: '1px solid #000', width: '250px', textAlign: 'center', paddingTop: '5px' }}>
-                                    Patient / Relative Signature [cite: 54]<br />I acknowledge receipt of this summary.
+                                    Patient / Relative Signature<br />I acknowledge receipt of this summary.
                                 </div>
                             </div>
                         </div>
