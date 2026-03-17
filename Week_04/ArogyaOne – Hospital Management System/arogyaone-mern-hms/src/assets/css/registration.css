@@ -54,3 +54,39 @@
     padding: 40px;
     border: 1px solid #ddd;
 }
+
+/* --- Add to the bottom of registration.css --- */
+
+/* Patient History Timeline inside Modal */
+.timeline {
+    border-left: 3px solid #e5e7eb;
+    padding-left: 20px;
+    margin-left: 10px;
+    position: relative;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #3b82f6;
+    border-radius: 50%;
+    left: -29px;
+    top: 5px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+/* Hidden container for PDF printing */
+.print-offscreen {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    width: 800px; /* Fixed width for standard A4 scale */
+    background: white;
+}
+
