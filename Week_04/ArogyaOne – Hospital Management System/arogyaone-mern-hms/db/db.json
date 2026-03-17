@@ -463,6 +463,19 @@
       "registration_type": "APPOINTMENT",
       "created_at": "2026-03-17T21:55:29.733Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773788175242",
+      "patient_full_name": "p",
+      "age": 22,
+      "gender": "Male",
+      "mobile_number": "1234657890",
+      "blood_group": "",
+      "consultant_doctor_id": "D-2026-1769062412564",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-17T22:56:18.686Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -1038,27 +1051,6 @@
       "charge": 25000
     }
   ],
-  "prescriptions": [
-    {
-      "id": "PR01",
-      "patientId": "P1001",
-      "doctorId": "D101",
-      "medicines": [
-        {
-          "name": "Paracetamol",
-          "dose": "1-0-1",
-          "days": 5
-        },
-        {
-          "name": "Pantoprazole",
-          "dose": "1-0-0",
-          "days": 5
-        }
-      ],
-      "notes": "Drink plenty of water",
-      "date": "2025-01-22"
-    }
-  ],
   "bills": [
     {
       "id": "BILL01",
@@ -1398,6 +1390,17 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-17T22:25:31.108Z"
+    },
+    {
+      "id": "V-1773788175242",
+      "patientId": "P-2026-1773788175242",
+      "weight": "22",
+      "height": "22",
+      "blood_pressure": "22",
+      "temprature": "22",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-17T22:56:18.686Z"
     }
   ],
   "opd_consultations": [
@@ -1933,6 +1936,38 @@
         "status": "PAID",
         "mode": "CASH",
         "amount_paid": 1000,
+        "transaction_id": null,
+        "payment_date": "2026-03-17"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773788175242",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773788175242",
+      "patient_name": "p",
+      "patient_age": 22,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-17",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
         "transaction_id": null,
         "payment_date": "2026-03-17"
       },
