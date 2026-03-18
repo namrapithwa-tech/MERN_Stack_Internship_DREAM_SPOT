@@ -476,6 +476,19 @@
       "registration_type": "WALK-IN",
       "created_at": "2026-03-17T22:56:18.686Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773836337966",
+      "patient_full_name": "Krisha Busa",
+      "age": 22,
+      "gender": "Female",
+      "mobile_number": "9979016294",
+      "blood_group": "O-",
+      "consultant_doctor_id": "D-2026-1769064195093",
+      "consultant_doctor_name": "Dr. Aryan K. Trivedi",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-18T12:19:03.276Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -1401,6 +1414,17 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-17T22:56:18.686Z"
+    },
+    {
+      "id": "V-1773836337966",
+      "patientId": "P-2026-1773836337966",
+      "weight": "89",
+      "height": "126",
+      "blood_pressure": "88",
+      "temprature": "69",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-18T12:19:03.276Z"
     }
   ],
   "opd_consultations": [
@@ -1974,6 +1998,65 @@
       "follow_up_required": false,
       "is_billed": true,
       "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1773836337966",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773836337966",
+      "patient_name": "Krisha Busa",
+      "patient_age": 22,
+      "patient_gender": "Female",
+      "patient_bloodgroup": "O-",
+      "doctor_id": "D-2026-1769064195093",
+      "doctor_name": "Dr. Aryan K. Trivedi",
+      "department": "Emergency Medicine",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-18",
+      "opd_time_slot": "Evening",
+      "opd_timings": "05:00 PM - 07:00 PM",
+      "chief_complaint": "Sudden onset severe colicky pain in the right flank radiating to the right groin for the last 4 hours. Associated with nausea and 2 episodes of non-bilious vomiting. No dysuria (painful urination) or gross hematuria (blood in urine) reported.",
+      "diagnosis": "Acute Right Renal Colic (Suspected Ureteric Calculus)",
+      "clinical_notes": "Patient is in severe acute distress, tossing in bed and unable to find a comfortable position.\n\nVitals: BP 140/90 mmHg, HR 105 bpm, Temp 98.6°F, RR 20/min, SpO2 99% on RA. Systemic Exam: CVS - S1S2 normal, RS - Bilateral clear.\nP/A (Per Abdomen): Soft. Marked right renal angle tenderness present. No guarding, rigidity, or rebound tenderness. Bowel sounds present and normal.",
+      "medicines": [
+        {
+          "medicine_name": "Tab. Drotaverine 80mg + Mefenamic Acid 250mg (Anti-spasmodic/Painkiller)",
+          "dosage": "1-0-1 (Post meals)",
+          "duration_days": "3"
+        },
+        {
+          "medicine_name": "Tab. Ondansetron 4mg (Anti-emetic for nausea/vomiting)",
+          "dosage": "1 SOS (When required",
+          "duration_days": "3"
+        },
+        {
+          "medicine_name": "Cap. Tamsulosin 0.4mg (Alpha-blocker to help pass the stone)",
+          "dosage": "0-0-1 (After dinner)",
+          "duration_days": "10"
+        },
+        {
+          "medicine_name": "Syp. Potassium Citrate (Alkalizer)",
+          "dosage": "1-1-1 (2 tsp in half glass water TID)",
+          "duration_days": "9"
+        }
+      ],
+      "LabTest_advised": [
+        "USG KUB (Kidney Ureters Bladder)",
+        "Urine Routine & Microscopy",
+        "Serum Creatinine",
+        "CBC"
+      ],
+      "consultation_fee": 1200,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 1200,
+        "transaction_id": null,
+        "payment_date": "2026-03-18"
+      },
+      "follow_up_required": true,
+      "is_billed": true,
+      "is_closed": true,
+      "follow_up_date": "2026-03-21"
     }
   ],
   "ipd_rounds": [
