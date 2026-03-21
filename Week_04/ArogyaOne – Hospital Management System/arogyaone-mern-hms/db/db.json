@@ -881,6 +881,24 @@
         ],
         "follow_up_instructions": "Visit aftwer 10 days"
       }
+    },
+    {
+      "id": "IPD-2026-1774071312881",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "mobile_number": "9512588231",
+      "blood_group": "B-",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "room_id": "R-ICU-1767592235386",
+      "document_type": "Aadhar",
+      "document_number": "1234567891000000",
+      "relative_name": "h",
+      "relationship": "Father",
+      "room_number": "ICU-101",
+      "admission_date": "2026-03-21T05:35:12.881Z",
+      "status": "ADMITTED",
+      "billing_status": "OPEN",
+      "discharge_details": null
     }
   ],
   "rooms": [
@@ -939,8 +957,8 @@
         " CCTV",
         " AC"
       ],
-      "is_available": true,
-      "allocated_patient_id": null
+      "is_available": false,
+      "allocated_patient_id": "P-2026-1773846587175"
     },
     {
       "id": "R-SEMI_GENERAL-1767592480120",
@@ -1508,6 +1526,61 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-18T15:13:26.523Z"
+    },
+    {
+      "id": "V-1774069923256",
+      "patientId": null,
+      "weight": "56",
+      "height": "189",
+      "blood_pressure": "110",
+      "temprature": "180",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-21T05:12:05.078Z"
+    },
+    {
+      "id": "V-1774070747827",
+      "patientId": null,
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-21T05:25:49.146Z"
+    },
+    {
+      "id": "V-1774075495998",
+      "patientId": "P-2026-1773726373776",
+      "weight": "75",
+      "height": "5.3",
+      "blood_pressure": "100",
+      "temprature": "96",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-21T06:44:57.137Z"
+    },
+    {
+      "id": "V-1774078017469",
+      "patientId": "P-2026-1773727118995",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-21T07:26:59.065Z"
+    },
+    {
+      "id": "V-1774078564800",
+      "patientId": "P-2026-1773743076979",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-21T07:36:06.748Z"
     }
   ],
   "opd_consultations": [
@@ -2219,6 +2292,138 @@
       "follow_up_required": false,
       "is_billed": true,
       "is_closed": false
+    },
+    {
+      "id": "OPD-2026-1774075495998",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773726373776",
+      "patient_name": "Jensi Makwana",
+      "patient_age": 23,
+      "patient_gender": "Female",
+      "patient_bloodgroup": "O+",
+      "doctor_id": "D-2026-1769063781413",
+      "doctor_name": "Dr. Meera K. Shah",
+      "department": "Gynecology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-21",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "chakar",
+      "diagnosis": "infe",
+      "clinical_notes": "fbgfdsdsd vvd cv cvdffq",
+      "medicines": [
+        {
+          "medicine_name": "p",
+          "dosage": "1",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "Complete Blood Count (CBC)",
+        "Routine Urine Examination",
+        "Liver Function Test (LFT)",
+        "Kidney Function Test (KFT)",
+        "Urine Culture & Sensitivity",
+        "Blood Culture"
+      ],
+      "consultation_fee": 600,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 600,
+        "transaction_id": null,
+        "payment_date": "2026-03-21"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": true,
+      "lab_status": "active",
+      "follow_up_date": null
+    },
+    {
+      "id": "OPD-2026-1774078017469",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773727118995",
+      "patient_name": "Hareshbhai Pithwa",
+      "patient_age": 59,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "AB+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-21",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "I",
+      "diagnosis": "i",
+      "clinical_notes": "i",
+      "medicines": [
+        {
+          "medicine_name": "p",
+          "dosage": "1",
+          "duration_days": "1"
+        }
+      ],
+      "LabTest_advised": [
+        "Thyroid Profile (T3, T4, TSH)",
+        "Erythrocyte Sedimentation Rate (ESR)"
+      ],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-21"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": true,
+      "lab_status": "active",
+      "follow_up_date": null
+    },
+    {
+      "id": "OPD-2026-1774078564800",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773743076979",
+      "patient_name": "Premanshu Pithwa",
+      "patient_age": 21,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "AB+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-21",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "k",
+      "diagnosis": "k",
+      "clinical_notes": "k",
+      "medicines": [
+        {
+          "medicine_name": "k",
+          "dosage": "1",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "Kidney Function Test (KFT)"
+      ],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-21"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": true,
+      "lab_status": "active",
+      "follow_up_date": null
     }
   ],
   "ipd_rounds": [
@@ -2297,6 +2502,30 @@
       "clinical_progress": "aewrhtmnb vcxz",
       "nursing_instructions": "oji';l",
       "created_at": "2026-03-18T15:16:04.051Z"
+    },
+    {
+      "id": "RND-2026-1774072390945",
+      "ipd_admission_id": "IPD-2026-1774071312881",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-21",
+      "round_time": "11:23 AM",
+      "vitals": {
+        "bp": "160",
+        "temp": "95.8",
+        "pulse": "75",
+        "spo2": "99"
+      },
+      "clinical_progress": "Pani no aapvo",
+      "nursing_instructions": "egegfv",
+      "LabTest_advised": [
+        "Complete Blood Count (CBC)",
+        "Routine Urine Examination"
+      ],
+      "lab_status": "active",
+      "created_at": "2026-03-21T05:53:10.945Z"
     }
   ],
   "doctor_notes": [
@@ -2359,7 +2588,7 @@
         },
         {
           "name": "Specific Gravity",
-          "unit": "nine",
+          "unit": "none",
           "normal_range": "1.005-1.030"
         }
       ]
@@ -2518,6 +2747,176 @@
           "normal_range": "< 14"
         }
       ]
+    }
+  ],
+  "lab_active_orders": [
+    {
+      "id": "ORD-LAB-1774073379843",
+      "original_request_id": "RND-2026-1774072390945",
+      "patient_name": "lalitaben",
+      "patient_id": "P-2026-1773846587175",
+      "source": "IPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Complete Blood Count (CBC)",
+        "Routine Urine Examination"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T06:09:39.843Z",
+      "results": {
+        "Complete Blood Count (CBC)": {
+          "Hemoglobin": "15.0",
+          "Total WBC Count": "5000",
+          "Platelet Count": "2.5"
+        },
+        "Routine Urine Examination": {
+          "pH": "5.0",
+          "Specific Gravity": "1.027"
+        }
+      },
+      "completed_at": "2026-03-21T06:43:07.750Z"
+    },
+    {
+      "id": "ORD-LAB-1774075640471",
+      "original_request_id": "OPD-2026-1774075495998",
+      "patient_name": "Jensi Makwana",
+      "patient_id": "P-2026-1773726373776",
+      "source": "OPD",
+      "doctor_name": "Dr. Meera K. Shah",
+      "tests": [
+        "Complete Blood Count (CBC)",
+        "Routine Urine Examination"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T06:47:20.471Z",
+      "results": {
+        "Complete Blood Count (CBC)": {
+          "Hemoglobin": "5",
+          "Total WBC Count": "5",
+          "Platelet Count": "5"
+        },
+        "Routine Urine Examination": {
+          "pH": "5",
+          "Specific Gravity": "5"
+        }
+      },
+      "completed_at": "2026-03-21T06:47:50.158Z"
+    },
+    {
+      "id": "ORD-LAB-1774076304476",
+      "original_request_id": "OPD-2026-1774075495998",
+      "patient_name": "Jensi Makwana",
+      "patient_id": "P-2026-1773726373776",
+      "source": "OPD",
+      "doctor_name": "Dr. Meera K. Shah",
+      "tests": [
+        "Complete Blood Count (CBC)",
+        "Routine Urine Examination",
+        "Liver Function Test (LFT)",
+        "Kidney Function Test (KFT)",
+        "Urine Culture & Sensitivity",
+        "Blood Culture"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T06:58:24.476Z",
+      "results": {
+        "Complete Blood Count (CBC)": {
+          "Hemoglobin": "14",
+          "Total WBC Count": "8000",
+          "Platelet Count": "3.2"
+        },
+        "Routine Urine Examination": {
+          "pH": "4.9",
+          "Specific Gravity": "1.025"
+        },
+        "Liver Function Test (LFT)": {
+          "Total Bilirubin": "0.5",
+          "SGPT (ALT)": "8"
+        },
+        "Kidney Function Test (KFT)": {
+          "Serum Creatinine": "0.8",
+          "Blood Urea Nitrogen (BUN)": "8"
+        },
+        "Urine Culture & Sensitivity": {
+          "Colony Count": "15000"
+        },
+        "Blood Culture": {
+          "Growth Status": "No Growth"
+        }
+      },
+      "completed_at": "2026-03-21T07:00:26.830Z",
+      "is_printed": true,
+      "is_billed": true
+    },
+    {
+      "id": "ORD-LAB-1774078121878",
+      "original_request_id": "OPD-2026-1774078017469",
+      "patient_name": "Hareshbhai Pithwa",
+      "patient_id": "P-2026-1773727118995",
+      "source": "OPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Thyroid Profile (T3, T4, TSH)"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T07:28:41.878Z",
+      "results": {
+        "Thyroid Profile (T3, T4, TSH)": {
+          "TSH": "3",
+          "Free T4": "1.8"
+        }
+      },
+      "completed_at": "2026-03-21T07:29:50.549Z",
+      "is_printed": true,
+      "is_billed": true
+    },
+    {
+      "id": "ORD-LAB-1774078259860",
+      "original_request_id": "OPD-2026-1774078017469",
+      "patient_name": "Hareshbhai Pithwa",
+      "patient_id": "P-2026-1773727118995",
+      "source": "OPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Thyroid Profile (T3, T4, TSH)",
+        "Erythrocyte Sedimentation Rate (ESR)"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T07:30:59.860Z",
+      "results": {
+        "Thyroid Profile (T3, T4, TSH)": {
+          "TSH": "5",
+          "Free T4": "1"
+        },
+        "Erythrocyte Sedimentation Rate (ESR)": {
+          "ESR": "10"
+        }
+      },
+      "completed_at": "2026-03-21T07:31:23.202Z",
+      "is_printed": true,
+      "is_billed": true
+    },
+    {
+      "id": "ORD-LAB-1774078633118",
+      "original_request_id": "OPD-2026-1774078564800",
+      "patient_name": "Premanshu Pithwa",
+      "patient_id": "P-2026-1773743076979",
+      "source": "OPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Kidney Function Test (KFT)"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-21T07:37:13.118Z",
+      "results": {
+        "Kidney Function Test (KFT)": {
+          "Serum Creatinine": "6",
+          "Blood Urea Nitrogen (BUN)": "8"
+        }
+      },
+      "completed_at": "2026-03-21T07:37:43.629Z",
+      "is_printed": true,
+      "is_billed": true
     }
   ]
 }

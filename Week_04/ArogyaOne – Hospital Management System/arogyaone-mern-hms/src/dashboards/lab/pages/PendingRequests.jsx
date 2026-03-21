@@ -1,342 +1,390 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import api from '../../../api/axios'; // Adjust path based on your structure
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const PendingRequests = () => {
-  // --- State Management ---
-  const [pendingRequests, setPendingRequests] = useState([]);
-  const [labMasterTests, setLabMasterTests] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  // Filters & Search
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sourceFilter, setSourceFilter] = useState('All');
-  
-  // Modal State
-  const [showProcessModal, setShowProcessModal] = useState(false);
-  const [selectedRequest, setSelectedRequest] = useState(null);
-  const [testMappings, setTestMappings] = useState({});
-
-  // --- Real API Data Fetching ---
-  const fetchPendingQueue = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      // Fetch OPD, IPD, and Master Tests concurrently
-      const [opdRes, ipdRes, masterRes] = await Promise.all([
-        fetch('http://localhost:5000/opd_consultation'),
-        fetch('http://localhost:5000/ipd_consultation'),
-        fetch('http://localhost:5000/lab_test_master')
-      ]);
-
-      if (!opdRes.ok || !ipdRes.ok || !masterRes.ok) {
-        throw new Error("Failed to fetch data from one or more APIs");
-      }
-
-      const opdData = await opdRes.json();
-      const ipdData = await ipdRes.json();
-      const masterData = await masterRes.json();
-
-      setLabMasterTests(masterData);
-
-      // Filter for pending lab status and format OPD data
-      const pendingOPD = opdData
-        .filter(item => item.lab_status === 'pending')
-        .map(item => ({
-          id: item._id, // Adjust if your schema uses a different ID field
-          date: new Date(item.createdAt).toLocaleString(),
-          patient_name: item.patient_name || item.patientName, 
-          source: 'OPD',
-          doctor: item.doctor_name || item.doctorName,
-          prescribed_tests: item.prescribed_tests || []
-        }));
-
-      // Filter for pending lab status and format IPD data
-      const pendingIPD = ipdData
-        .filter(item => item.lab_status === 'pending')
-        .map(item => ({
-          id: item._id,
-          date: new Date(item.createdAt).toLocaleString(),
-          patient_name: item.patient_name || item.patientName,
-          source: 'IPD',
-          doctor: item.doctor_name || item.doctorName,
-          prescribed_tests: item.prescribed_tests || []
-        }));
-
-      // Combine queues
-      const combinedQueue = [...pendingOPD, ...pendingIPD].sort(
-        (a, b) => new Date(b.date) - new Date(a.date) // Sort newest first
-      );
-
-      setPendingRequests(combinedQueue);
-    } catch (err) {
-      console.error("Error fetching lab queue:", err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPendingQueue();
-  }, []);
-
-  // --- Derived State (Stats & Filtering) ---
-  const totalPending = pendingRequests.length;
-  const pendingOPD = pendingRequests.filter(req => req.source === 'OPD').length;
-  const pendingIPD = pendingRequests.filter(req => req.source === 'IPD').length;
-
-  const filteredRequests = pendingRequests.filter(req => {
-    // Safely handle missing data
-    const patientName = req.patient_name ? req.patient_name.toLowerCase() : '';
-    const reqId = req.id ? req.id.toLowerCase() : '';
-    const search = searchTerm.toLowerCase();
+    // --- State Management ---
+    const [pendingRequests, setPendingRequests] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     
-    const matchesSearch = patientName.includes(search) || reqId.includes(search);
-    const matchesSource = sourceFilter === 'All' || req.source === sourceFilter;
+    // Filters & Search
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sourceFilter, setSourceFilter] = useState('All');
     
-    return matchesSearch && matchesSource;
-  });
+    // Modal State
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [selectedRequest, setSelectedRequest] = useState(null);
+    const [isProcessing, setIsProcessing] = useState(false);
 
-  // --- Handlers ---
-  const handleOpenModal = (request) => {
-    setSelectedRequest(request);
-    const initialMappings = {};
-    // Ensure prescribed_tests exists and is an array before iterating
-    if (Array.isArray(request.prescribed_tests)) {
-      request.prescribed_tests.forEach(test => { initialMappings[test] = ''; });
-    }
-    setTestMappings(initialMappings);
-    setShowProcessModal(true);
-  };
+    // --- NEW: Barcode Print State ---
+    const labelRef = useRef();
+    const [labelData, setLabelData] = useState(null);
 
-  const handleMappingChange = (prescribedTest, masterTestId) => {
-    setTestMappings(prev => ({ ...prev, [prescribedTest]: masterTestId }));
-  };
+    // --- Data Fetching ---
+    useEffect(() => {
+        fetchPendingQueue();
+        
+        // Optional: Live polling every 15 seconds to catch new doctor prescriptions automatically
+        const interval = setInterval(() => fetchPendingQueue(true), 15000);
+        return () => clearInterval(interval);
+    }, []);
 
-  const handleAcceptRequest = async () => {
-    const unmapped = Object.values(testMappings).some(val => val === '');
-    if (unmapped) {
-      alert("Please map all prescribed tests before accepting.");
-      return;
-    }
+    const fetchPendingQueue = async (isBackground = false) => {
+        if (!isBackground) setIsRefreshing(true);
+        try {
+            // Fetch concurrently from both sources
+            const [opdRes, ipdRes] = await Promise.all([
+                api.get('/opd_consultations'),
+                api.get('/ipd_rounds')
+            ]);
 
-    try {
-      const payload = {
-        original_request_id: selectedRequest.id,
-        patient_name: selectedRequest.patient_name,
-        source: selectedRequest.source,
-        mapped_tests: testMappings 
-      };
+            // Filter & Normalize OPD Data
+            const pendingOPD = opdRes.data
+                .filter(item => item.lab_status === 'pending')
+                .map(item => ({
+                    original_id: item.id,
+                    patient_name: item.patient_name,
+                    patient_id: item.patient_id,
+                    source: 'OPD',
+                    doctor_name: item.doctor_name,
+                    LabTest_advised: item.LabTest_advised || [],
+                    date: item.opd_date || item.created_at || new Date().toISOString()
+                }));
 
-      // Real POST request to your backend
-      const response = await fetch('http://localhost:5000/lab_active_orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-      });
+            // Filter & Normalize IPD Data
+            const pendingIPD = ipdRes.data
+                .filter(item => item.lab_status === 'pending')
+                .map(item => ({
+                    original_id: item.id,
+                    patient_name: item.patient_name,
+                    patient_id: item.patient_id,
+                    source: 'IPD',
+                    doctor_name: item.doctor_name,
+                    LabTest_advised: item.LabTest_advised || [],
+                    date: item.round_date || item.created_at || new Date().toISOString()
+                }));
 
-      if (!response.ok) {
-        throw new Error(`Failed to create active order: ${response.statusText}`);
-      }
+            // Combine and Sort FIFO (Oldest first to clear the oldest queue items)
+            const combinedQueue = [...pendingOPD, ...pendingIPD].sort(
+                (a, b) => new Date(a.date) - new Date(b.date)
+            );
 
-      // If successful, remove from local UI state
-      setPendingRequests(prev => prev.filter(req => req.id !== selectedRequest.id));
-      setShowProcessModal(false);
-      setSelectedRequest(null);
-      
-      // Optional: Add a success toast notification here
+            setPendingRequests(combinedQueue);
+        } catch (error) {
+            console.error("Error fetching pending lab queue:", error);
+        } finally {
+            setLoading(false);
+            setIsRefreshing(false);
+        }
+    };
 
-    } catch (err) {
-      console.error("Error processing request:", err);
-      alert("Failed to process request. Check console for details.");
-    }
-  };
+    // --- Derived State (Stats & Filtering) ---
+    const totalPending = pendingRequests.length;
+    const pendingOPD = pendingRequests.filter(req => req.source === 'OPD').length;
+    const pendingIPD = pendingRequests.filter(req => req.source === 'IPD').length;
 
-  return (
-    <div className="container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0">Pending Lab Requests</h2>
-        <button className="btn btn-outline-primary" onClick={fetchPendingQueue} disabled={loading}>
-          <i className="bi bi-arrow-clockwise me-2"></i>{loading ? 'Refreshing...' : 'Refresh Queue'}
-        </button>
-      </div>
+    const filteredRequests = pendingRequests.filter(req => {
+        const matchesSearch = req.patient_name?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                              req.original_id?.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSource = sourceFilter === 'All' || req.source === sourceFilter;
+        return matchesSearch && matchesSource;
+    });
 
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          <strong>Error:</strong> {error}
-        </div>
-      )}
+    // --- Handlers ---
+    const handleOpenModal = (request) => {
+        setSelectedRequest(request);
+        setShowConfirmModal(true);
+    };
 
-      {/* --- Stats Row --- */}
-      <div className="row mb-4">
-        <div className="col-md-4">
-          <div className="card card-common shadow-sm border-0 text-center py-3">
-            <h5 className="text-muted mb-1">Total Pending</h5>
-            <h2 className="mb-0 fw-bold">{loading ? '-' : totalPending}</h2>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card card-common shadow-sm border-0 text-center py-3 border-bottom border-primary border-3">
-            <h5 className="text-muted mb-1">OPD Requests</h5>
-            <h2 className="mb-0 fw-bold text-primary">{loading ? '-' : pendingOPD}</h2>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card card-common shadow-sm border-0 text-center py-3 border-bottom border-purple border-3" style={{ borderBottomColor: '#6f42c1'}}>
-            <h5 className="text-muted mb-1">IPD Requests</h5>
-            <h2 className="mb-0 fw-bold" style={{ color: '#6f42c1' }}>{loading ? '-' : pendingIPD}</h2>
-          </div>
-        </div>
-      </div>
+    const handleAcceptRequest = async () => {
+        setIsProcessing(true);
+        try {
+            const newOrderId = `ORD-LAB-${Date.now()}`;
+            
+            // 1. Push data to Lab Active Orders
+            const activeOrderPayload = {
+                id: newOrderId,
+                original_request_id: selectedRequest.original_id,
+                patient_name: selectedRequest.patient_name,
+                patient_id: selectedRequest.patient_id,
+                source: selectedRequest.source,
+                doctor_name: selectedRequest.doctor_name,
+                tests: selectedRequest.LabTest_advised,
+                status: 'active',
+                accepted_at: new Date().toISOString()
+            };
+            await api.post('/lab_active_orders', activeOrderPayload);
 
-      {/* --- Filter Bar --- */}
-      <div className="card card-common shadow-sm border-0 mb-4 p-3">
-        <div className="row g-3">
-          <div className="col-md-6">
-            <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Search by Patient Name or Request ID..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <div className="col-md-6">
-            <select 
-              className="form-select" 
-              value={sourceFilter} 
-              onChange={(e) => setSourceFilter(e.target.value)}
-            >
-              <option value="All">All Sources</option>
-              <option value="OPD">OPD Only</option>
-              <option value="IPD">IPD Only</option>
-            </select>
-          </div>
-        </div>
-      </div>
+            // 2. Update original record's lab_status so it leaves the pending queue
+            const endpoint = selectedRequest.source === 'OPD' ? '/opd_consultations' : '/ipd_rounds';
+            await api.patch(`${endpoint}/${selectedRequest.original_id}`, { lab_status: 'active' });
 
-      {/* --- Master Table --- */}
-      <div className="card card-common shadow-sm border-0">
-        <div className="card-body p-0 table-responsive">
-          <table className="table table-hover align-middle mb-0">
-            <thead className="table-light">
-              <tr>
-                <th className="px-3">Date & Time</th>
-                <th>Request ID</th>
-                <th>Patient Name</th>
-                <th>Source</th>
-                <th>Referring Doctor</th>
-                <th>Prescribed Tests</th>
-                <th className="text-end px-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr><td colSpan="7" className="text-center py-4">Loading queue from API...</td></tr>
-              ) : filteredRequests.length === 0 ? (
-                <tr><td colSpan="7" className="text-center py-4 text-muted">No pending requests found.</td></tr>
-              ) : (
-                filteredRequests.map((req) => (
-                  <tr key={req.id}>
-                    <td className="px-3 text-muted">{req.date}</td>
-                    <td><strong>{req.id.slice(-6).toUpperCase()}</strong></td> {/* Display short ID */}
-                    <td>{req.patient_name}</td>
-                    <td>
-                      <span className={`badge ${req.source === 'OPD' ? 'bg-primary' : 'bg-purple'}`} style={req.source === 'IPD' ? { backgroundColor: '#6f42c1' } : {}}>
-                        {req.source}
-                      </span>
-                    </td>
-                    <td>{req.doctor}</td>
-                    <td>
-                      {Array.isArray(req.prescribed_tests) 
-                        ? req.prescribed_tests.join(', ') 
-                        : "No tests listed"}
-                    </td>
-                    <td className="text-end px-3">
-                      <button 
-                        className="btn btn-sm btn-success fw-bold"
-                        onClick={() => handleOpenModal(req)}
-                      >
-                        Process
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            // 3. Setup data for the barcode label
+            setLabelData({ ...selectedRequest, newOrderId });
 
-      {/* --- Process Request Modal (Test Mapping) --- */}
-      {showProcessModal && selectedRequest && (
-        <>
-          <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-            <div className="modal-dialog modal-lg modal-dialog-centered">
-              <div className="modal-content border-0 shadow">
-                <div className="modal-header bg-light border-bottom-0">
-                  <h5 className="modal-title fw-bold">
-                    Process Request: {selectedRequest.patient_name}
-                  </h5>
-                  <button type="button" className="btn-close" onClick={() => setShowProcessModal(false)}></button>
-                </div>
-                
-                <div className="modal-body p-4">
-                  <div className="d-flex justify-content-between mb-4 pb-3 border-bottom">
-                    <div>
-                      <small className="text-muted d-block">Source</small>
-                      <strong>{selectedRequest.source} - {selectedRequest.doctor}</strong>
-                    </div>
-                    <div className="text-end">
-                      <small className="text-muted d-block">Request ID</small>
-                      <strong>{selectedRequest.id}</strong>
-                    </div>
-                  </div>
+            // 4. Generate PDF Barcode Label (Wait briefly for DOM to render hidden div)
+            setTimeout(async () => {
+                try {
+                    const canvas = await html2canvas(labelRef.current, { scale: 3 });
+                    const imgData = canvas.toDataURL('image/png');
+                    
+                    // Create a small 50mm x 30mm label PDF
+                    const pdf = new jsPDF('l', 'mm', [50, 30]);
+                    pdf.addImage(imgData, 'PNG', 0, 0, 50, 30);
+                    pdf.save(`Barcode_${selectedRequest.patient_name}_${newOrderId}.pdf`);
+                } catch (pdfErr) {
+                    console.error("Barcode PDF failed to generate:", pdfErr);
+                } finally {
+                    // 5. Update local state to reflect change instantly and close modal
+                    setPendingRequests(prev => prev.filter(req => req.original_id !== selectedRequest.original_id));
+                    setShowConfirmModal(false);
+                    setSelectedRequest(null);
+                    setLabelData(null);
+                    setIsProcessing(false);
+                }
+            }, 500);
+            
+        } catch (error) {
+            console.error("Failed to process lab request:", error);
+            alert("Failed to process request. Check server connection.");
+            setIsProcessing(false);
+        }
+    };
 
-                  <h6 className="fw-bold mb-3">Map Prescribed Tests to Lab Master</h6>
-                  
-                  {Array.isArray(selectedRequest.prescribed_tests) && selectedRequest.prescribed_tests.map((testStr, idx) => (
-                    <div className="row align-items-center mb-3 bg-light p-2 rounded" key={idx}>
-                      <div className="col-md-5">
-                        <span className="fw-semibold">"{testStr}"</span>
-                        <small className="d-block text-muted">As written by doctor</small>
-                      </div>
-                      <div className="col-md-2 text-center text-muted">
-                        <i className="bi bi-arrow-right fs-4"></i>
-                      </div>
-                      <div className="col-md-5">
-                        <select 
-                          className="form-select border-primary"
-                          value={testMappings[testStr] || ''}
-                          onChange={(e) => handleMappingChange(testStr, e.target.value)}
-                        >
-                          <option value="">-- Select Master Test --</option>
-                          {labMasterTests.map(master => (
-                            <option key={master._id || master.id} value={master._id || master.id}>
-                              {master.test_name}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="modal-footer border-top-0 bg-light">
-                  <button type="button" className="btn btn-secondary" onClick={() => setShowProcessModal(false)}>Cancel</button>
-                  <button type="button" className="btn btn-primary fw-bold" onClick={handleAcceptRequest}>
-                    Accept & Generate Barcode
-                  </button>
-                </div>
-              </div>
+    return (
+        <div className="container-fluid py-4">
+            {/* Header */}
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <h3 className="mb-0 fw-bold text-dark"><i className="fa-solid fa-flask text-primary me-2"></i> Pending Lab Requests</h3>
+                <button 
+                    className="btn btn-outline-success fw-bold px-3" 
+                    onClick={() => fetchPendingQueue(false)} 
+                    disabled={isRefreshing}
+                >
+                    <i className={`fa-solid fa-arrows-rotate me-2 ${isRefreshing ? 'fa-spin' : ''}`}></i>
+                    {isRefreshing ? 'Refreshing...' : 'Refresh Queue'}
+                </button>
             </div>
-          </div>
-        </>
-      )}
-    </div>
-  );
+
+            {/* --- Stats Row --- */}
+            <div className="row g-3 mb-4">
+                <div className="col-md-4">
+                    <div className="card-common bg-white shadow-sm border-0 text-center py-3 border-bottom border-secondary border-4">
+                        <h6 className="text-muted mb-1 text-uppercase fw-bold">Total Pending</h6>
+                        <h2 className="mb-0 fw-bold">{loading ? '-' : totalPending}</h2>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card-common bg-white shadow-sm border-0 text-center py-3 border-bottom border-primary border-4">
+                        <h6 className="text-muted mb-1 text-uppercase fw-bold">OPD Requests</h6>
+                        <h2 className="mb-0 fw-bold text-primary">{loading ? '-' : pendingOPD}</h2>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card-common bg-white shadow-sm border-0 text-center py-3 border-bottom border-4" style={{ borderBottomColor: '#6f42c1'}}>
+                        <h6 className="text-muted mb-1 text-uppercase fw-bold">IPD Requests</h6>
+                        <h2 className="mb-0 fw-bold" style={{ color: '#6f42c1' }}>{loading ? '-' : pendingIPD}</h2>
+                    </div>
+                </div>
+            </div>
+
+            {/* --- Filter Bar --- */}
+            <div className="card-common bg-white shadow-sm border-0 mb-4 p-3">
+                <div className="row g-3">
+                    <div className="col-md-8">
+                        <div className="input-group">
+                            <span className="input-group-text bg-light border-end-0"><i className="fa-solid fa-magnifying-glass text-muted"></i></span>
+                            <input 
+                                type="text" 
+                                className="form-control border-start-0 ps-0" 
+                                placeholder="Search by Patient Name or Request ID..." 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <select 
+                            className="form-select border-secondary text-dark fw-bold" 
+                            value={sourceFilter} 
+                            onChange={(e) => setSourceFilter(e.target.value)}
+                        >
+                            <option value="All">All Sources (OPD & IPD)</option>
+                            <option value="OPD">OPD Only</option>
+                            <option value="IPD">IPD Only</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            {/* --- Master Table --- */}
+            <div className="card-common bg-white p-0 overflow-hidden shadow-sm border-0">
+                <div className="table-responsive">
+                    <table className="table table-hover align-middle mb-0">
+                        <thead className="table-light text-muted small text-uppercase">
+                            <tr>
+                                <th className="ps-4">Date & Time</th>
+                                <th>Request Details</th>
+                                <th>Source</th>
+                                <th>Doctor</th>
+                                <th>Advised Tests</th>
+                                <th className="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loading ? (
+                                <tr><td colSpan="6" className="text-center py-5"><div className="spinner-border text-primary"></div></td></tr>
+                            ) : filteredRequests.length === 0 ? (
+                                <tr>
+                                    <td colSpan="6" className="text-center py-5 text-muted">
+                                        <i className="fa-solid fa-check-double fs-1 mb-3 text-success opacity-50"></i>
+                                        <h5>All caught up!</h5>
+                                        <p className="mb-0">There are no pending lab requests at the moment.</p>
+                                    </td>
+                                </tr>
+                            ) : (
+                                filteredRequests.map((req) => (
+                                    <tr key={req.original_id}>
+                                        <td className="ps-4">
+                                            <div className="fw-bold text-dark">{new Date(req.date).toLocaleDateString('en-GB')}</div>
+                                            <div className="small text-muted">{new Date(req.date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</div>
+                                        </td>
+                                        <td>
+                                            <div className="fw-bold text-primary">{req.patient_name}</div>
+                                            <div className="small text-muted">ID: {req.original_id}</div>
+                                        </td>
+                                        <td>
+                                            <span className={`badge ${req.source === 'OPD' ? 'bg-primary' : ''}`} style={req.source === 'IPD' ? { backgroundColor: '#6f42c1' } : {}}>
+                                                {req.source}
+                                            </span>
+                                        </td>
+                                        <td><span className="fw-semibold text-dark">{req.doctor_name}</span></td>
+                                        <td>
+                                            <div className="d-flex flex-wrap gap-1">
+                                                {req.LabTest_advised.map((test, i) => (
+                                                    <span key={i} className="badge bg-light text-dark border border-secondary">{test}</span>
+                                                ))}
+                                            </div>
+                                        </td>
+                                        <td className="text-end pe-4">
+                                            <button 
+                                                className="btn btn-sm btn-success fw-bold px-3 shadow-sm"
+                                                onClick={() => handleOpenModal(req)}
+                                            >
+                                                <i className="fa-solid fa-play me-2"></i> Process
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {/* --- Accept Request Confirmation Modal --- */}
+            {showConfirmModal && selectedRequest && (
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content border-0 shadow">
+                            <div className="modal-header bg-success text-white border-bottom-0">
+                                <h5 className="modal-title fw-bold">
+                                    <i className="fa-solid fa-clipboard-check me-2"></i> Process Lab Request
+                                </h5>
+                                <button type="button" className="btn-close btn-close-white" onClick={() => setShowConfirmModal(false)}></button>
+                            </div>
+                            
+                            <div className="modal-body p-4">
+                                <div className="bg-light p-3 rounded border mb-4">
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <small className="text-muted d-block text-uppercase fw-bold">Patient</small>
+                                            <h6 className="fw-bold text-primary mb-0">{selectedRequest.patient_name}</h6>
+                                        </div>
+                                        <div className="col-6 text-end">
+                                            <small className="text-muted d-block text-uppercase fw-bold">Source</small>
+                                            <h6 className="fw-bold text-dark mb-0">{selectedRequest.source} - {selectedRequest.doctor_name}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 className="fw-bold text-dark mb-3">Tests to be Processed:</h6>
+                                <ul className="list-group mb-4 shadow-sm">
+                                    {selectedRequest.LabTest_advised.map((testStr, idx) => (
+                                        <li className="list-group-item d-flex justify-content-between align-items-center bg-white" key={idx}>
+                                            <span className="fw-semibold text-dark">{testStr}</span>
+                                            <i className="fa-solid fa-circle-check text-success"></i>
+                                        </li>
+                                    ))}
+                                </ul>
+                                
+                                <div className="alert alert-warning py-2 small mb-0">
+                                    <i className="fa-solid fa-circle-info me-2"></i> Accepting this request will automatically generate a Specimen Barcode Label and move it to Active Orders.
+                                </div>
+                            </div>
+
+                            <div className="modal-footer bg-light border-top-0">
+                                <button type="button" className="btn btn-secondary" onClick={() => setShowConfirmModal(false)} disabled={isProcessing}>Cancel</button>
+                                <button type="button" className="btn btn-success fw-bold px-4" onClick={handleAcceptRequest} disabled={isProcessing}>
+                                    {isProcessing ? (
+                                        <><i className="fa-solid fa-circle-notch fa-spin me-2"></i>Printing Label...</>
+                                    ) : (
+                                        <><i className="fa-solid fa-barcode me-2"></i> Accept & Generate Label</>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* =========================================
+                HIDDEN PRINT LAYOUT (Specimen Label 50x30mm)
+            ========================================= */}
+            {labelData && (
+                <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
+                    <div 
+                        ref={labelRef} 
+                        style={{ 
+                            width: '50mm', 
+                            height: '30mm', 
+                            padding: '3mm', 
+                            background: 'white', 
+                            color: 'black', 
+                            fontFamily: 'Arial, sans-serif', 
+                            border: '1px solid #ccc',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #000', paddingBottom: '1mm', marginBottom: '1mm' }}>
+                            <strong style={{ fontSize: '8px', letterSpacing: '0.5px' }}>AROGYAONE LAB</strong>
+                            <span style={{ fontSize: '6px', paddingTop: '2px' }}>{new Date().toLocaleDateString('en-GB')}</span>
+                        </div>
+                        
+                        <div style={{ fontSize: '8px', lineHeight: '1.3' }}>
+                            <div className="fw-bold text-truncate">{labelData.patient_name}</div>
+                            <div>UHID: <strong>{labelData.patient_id}</strong></div>
+                            <div style={{ fontSize: '6px', color: '#444', marginTop: '2px' }}>
+                                Tests: {labelData.LabTest_advised.join(', ').substring(0, 30)}{labelData.LabTest_advised.join(', ').length > 30 ? '...' : ''}
+                            </div>
+                        </div>
+
+                        <div style={{ textAlign: 'center', marginTop: 'auto' }}>
+                            {/* Simulated Barcode - Monospace bold font with asterisks */}
+                            <div style={{ fontFamily: '"Courier New", Courier, monospace', fontSize: '12px', fontWeight: '900', letterSpacing: '1px' }}>
+                                *{labelData.newOrderId.slice(-8)}*
+                            </div>
+                            <div style={{ fontSize: '5px', marginTop: '1px' }}>{labelData.newOrderId}</div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default PendingRequests;

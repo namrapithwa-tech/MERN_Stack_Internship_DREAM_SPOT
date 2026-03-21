@@ -12,6 +12,12 @@ const IPDRounds = () => {
     const [dischargedAdmissions, setDischargedAdmissions] = useState([]);
     
     const [loading, setLoading] = useState(true);
+    const [isRefreshing, setIsRefreshing] = useState(false); // NEW: For manual refresh
+
+    // --- NEW: Master Lab Tests State ---
+    const [masterLabTests, setMasterLabTests] = useState([]);
+    const [labSearchTerm, setLabSearchTerm] = useState('');
+    const [showLabDropdown, setShowLabDropdown] = useState(false);
 
     // Workspace State
     const [selectedAdmission, setSelectedAdmission] = useState(null);
@@ -19,23 +25,44 @@ const IPDRounds = () => {
     const [activeTab, setActiveTab] = useState('new_note'); // 'new_note' or 'history'
     const [isSaving, setIsSaving] = useState(false);
 
-    // Form State
+    // Form State (UPDATED: Added LabTest_advised)
     const initialFormState = {
         vitals: { bp: '', temp: '', pulse: '', spo2: '' },
         clinical_progress: '',
-        nursing_instructions: ''
+        nursing_instructions: '',
+        LabTest_advised: [] 
     };
     const [formData, setFormData] = useState(initialFormState);
 
     // --- FETCH DATA ---
     useEffect(() => {
+        let interval;
         if (user) {
             fetchMyAdmissions();
+            fetchMasterLabTests(); // Fetch the lab master list on load
+
+            // NEW: Live Queue Polling (Fetches silently every 15 seconds)
+            interval = setInterval(() => {
+                fetchMyAdmissions(true); // background fetch
+            }, 15000); 
         }
+        return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
-    const fetchMyAdmissions = async () => {
+    // NEW: Fetch Master Lab Tests
+    const fetchMasterLabTests = async () => {
+        try {
+            const res = await api.get('/lab_test_master');
+            setMasterLabTests(res.data);
+        } catch (error) {
+            console.error("Error fetching lab test master:", error);
+        }
+    };
+
+    // UPDATED: Added isBackground parameter for silent polling
+    const fetchMyAdmissions = async (isBackground = false) => {
+        if (!isBackground) setIsRefreshing(true);
         try {
             // Fetch ALL admissions (Active and Discharged)
             const res = await api.get('/ipd_admissions');
@@ -54,10 +81,11 @@ const IPDRounds = () => {
 
             setActiveAdmissions(active);
             setDischargedAdmissions(discharged);
-            setLoading(false);
         } catch (error) {
             console.error("Error fetching IPD admissions:", error);
+        } finally {
             setLoading(false);
+            setIsRefreshing(false);
         }
     };
 
@@ -97,6 +125,31 @@ const IPDRounds = () => {
         }));
     };
 
+    // --- NEW: Lab Test Dropdown Handlers ---
+    const handleAddLabTest = (test) => {
+        const testIdentifier = test.test_name; // Hide ID, use name only
+        
+        if (!formData.LabTest_advised.includes(testIdentifier)) {
+            setFormData({
+                ...formData,
+                LabTest_advised: [...formData.LabTest_advised, testIdentifier]
+            });
+        }
+        setLabSearchTerm('');
+        setShowLabDropdown(false);
+    };
+
+    const handleRemoveLabTest = (testToRemove) => {
+        setFormData({
+            ...formData,
+            LabTest_advised: formData.LabTest_advised.filter(t => t !== testToRemove)
+        });
+    };
+
+    const filteredLabTests = masterLabTests.filter(test =>
+        test.test_name.toLowerCase().includes(labSearchTerm.toLowerCase())
+    );
+
     const handleSubmitRound = async (e) => {
         e.preventDefault();
         setIsSaving(true);
@@ -114,6 +167,8 @@ const IPDRounds = () => {
                 vitals: formData.vitals,
                 clinical_progress: formData.clinical_progress,
                 nursing_instructions: formData.nursing_instructions,
+                LabTest_advised: formData.LabTest_advised, // NEW: Added Lab Tests array
+                lab_status: formData.LabTest_advised.length > 0 ? 'pending' : 'none', // NEW: Triggers Lab Queue
                 created_at: new Date().toISOString()
             };
 
@@ -155,7 +210,18 @@ const IPDRounds = () => {
                     <div className="card-common bg-white p-0 overflow-hidden shadow-sm border border-light h-100">
                         <div className="bg-light p-3 border-bottom d-flex justify-content-between align-items-center">
                             <h6 className="fw-bold m-0 text-dark">My Admitted Queue</h6>
-                            <span className="badge bg-danger rounded-pill">{activeAdmissions.length} Active</span>
+                            {/* NEW: Refresh Button next to badge */}
+                            <div className="d-flex align-items-center gap-2">
+                                <button 
+                                    className="btn btn-sm btn-outline-success p-1 px-2 border-0" 
+                                    onClick={() => fetchMyAdmissions(false)}
+                                    disabled={isRefreshing}
+                                    title="Refresh Queue"
+                                >
+                                    <i className={`fa-solid fa-arrows-rotate ${isRefreshing ? 'fa-spin' : ''}`}></i>
+                                </button>
+                                <span className="badge bg-danger rounded-pill">{activeAdmissions.length} Active</span>
+                            </div>
                         </div>
                         <div className="list-group list-group-flush overflow-auto" style={{ height: 'calc(100% - 55px)' }}>
                             {activeAdmissions.length > 0 ? activeAdmissions.map(adm => (
@@ -270,12 +336,12 @@ const IPDRounds = () => {
                                             </div>
                                         </div>
 
-                                        <div className="row g-4">
+                                        <div className="row g-4 mb-4">
                                             <div className="col-md-6">
                                                 <h6 className="fw-bold text-dark mb-3"><i className="fa-solid fa-user-doctor text-primary me-2"></i>Clinical Progress Notes</h6>
                                                 <textarea 
                                                     className="doc-input border-primary" 
-                                                    rows="6" 
+                                                    rows="5" 
                                                     placeholder="Describe the patient's current condition, symptom improvements, or new observations..."
                                                     value={formData.clinical_progress}
                                                     onChange={(e) => setFormData({...formData, clinical_progress: e.target.value})}
@@ -286,7 +352,7 @@ const IPDRounds = () => {
                                                 <h6 className="fw-bold text-dark mb-3"><i className="fa-solid fa-user-nurse text-info me-2"></i>Nursing & Diet Instructions</h6>
                                                 <textarea 
                                                     className="doc-input border-info" 
-                                                    rows="6" 
+                                                    rows="5" 
                                                     placeholder="Instructions for the ward nurse (e.g., Medicine changes, IV fluid rate, shift to soft diet, monitor BP every 2 hours)..."
                                                     value={formData.nursing_instructions}
                                                     onChange={(e) => setFormData({...formData, nursing_instructions: e.target.value})}
@@ -295,7 +361,57 @@ const IPDRounds = () => {
                                             </div>
                                         </div>
 
-                                        <div className="text-end mt-4 pt-3 border-top">
+                                        {/* --- NEW: SMART LAB TEST DROPDOWN ROW --- */}
+                                        <div className="bg-light p-3 rounded border mb-4 position-relative">
+                                            <h6 className="fw-bold text-dark mb-3"><i className="fa-solid fa-flask text-warning me-2"></i>Advised Lab Tests (Optional)</h6>
+                                            
+                                            {/* Selected Tests Chips */}
+                                            <div className="d-flex flex-wrap gap-2 mb-2">
+                                                {formData.LabTest_advised.map((test, i) => (
+                                                    <span key={i} className="badge bg-primary d-flex align-items-center p-2 fs-6">
+                                                        {test}
+                                                        <i className="fa-solid fa-xmark ms-2" style={{ cursor: 'pointer' }} onClick={() => handleRemoveLabTest(test)}></i>
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            {/* Search Input */}
+                                            <input 
+                                                type="text" 
+                                                className="doc-input border-secondary" 
+                                                placeholder="Search & select tests to advise from Master List..." 
+                                                value={labSearchTerm}
+                                                onChange={(e) => {
+                                                    setLabSearchTerm(e.target.value);
+                                                    setShowLabDropdown(true);
+                                                }}
+                                                onFocus={() => setShowLabDropdown(true)}
+                                                onBlur={() => setTimeout(() => setShowLabDropdown(false), 200)} 
+                                            />
+
+                                            {/* Dropdown Results */}
+                                            {showLabDropdown && labSearchTerm && (
+                                                <ul className="list-group position-absolute w-100 shadow" style={{ zIndex: 1000, maxHeight: '200px', overflowY: 'auto', left: 0, top: '100%' }}>
+                                                    {filteredLabTests.length > 0 ? filteredLabTests.map(test => (
+                                                        <li 
+                                                            key={test._id || test.id} 
+                                                            className="list-group-item list-group-item-action"
+                                                            style={{ cursor: 'pointer' }}
+                                                            onMouseDown={(e) => {
+                                                                e.preventDefault(); 
+                                                                handleAddLabTest(test);
+                                                            }}
+                                                        >
+                                                            <strong>{test.test_name}</strong>
+                                                        </li>
+                                                    )) : (
+                                                        <li className="list-group-item text-muted">No tests found in Master</li>
+                                                    )}
+                                                </ul>
+                                            )}
+                                        </div>
+
+                                        <div className="text-end pt-3 border-top">
                                             <button type="submit" className="btn btn-success fw-bold px-4 py-2" disabled={isSaving}>
                                                 <i className="fa-solid fa-check-circle me-2"></i> {isSaving ? 'Saving Note...' : 'Save Round Note'}
                                             </button>
@@ -357,6 +473,14 @@ const IPDRounds = () => {
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        {/* NEW: Display Lab Tests if ordered in this round */}
+                                                        {round.LabTest_advised && round.LabTest_advised.length > 0 && (
+                                                            <div className="mt-3 bg-white border border-warning p-2 rounded shadow-sm">
+                                                                <strong className="text-warning small text-uppercase"><i className="fa-solid fa-flask me-2"></i>Lab Tests Advised: </strong>
+                                                                <span className="small text-dark fw-bold">{round.LabTest_advised.join(', ')}</span>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 ))}
                                             </div>

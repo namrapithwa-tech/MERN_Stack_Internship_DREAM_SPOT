@@ -14,7 +14,13 @@ const OPDConsultation = () => {
 
     const [consultations, setConsultations] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isRefreshing, setIsRefreshing] = useState(false); // NEW: State for the manual refresh button
     const [stats, setStats] = useState({ total: 0, pending: 0, completed: 0 });
+
+    // Master Lab Tests State
+    const [masterLabTests, setMasterLabTests] = useState([]);
+    const [labSearchTerm, setLabSearchTerm] = useState('');
+    const [showLabDropdown, setShowLabDropdown] = useState(false);
 
     // Selected Patient & Form State
     const [selectedConsult, setSelectedConsult] = useState(null);
@@ -27,7 +33,7 @@ const OPDConsultation = () => {
         chief_complaint: '',
         clinical_notes: '',
         diagnosis: '',
-        LabTest_advised: '',
+        LabTest_advised: [],
         follow_up_required: false,
         follow_up_date: '',
         medicines: []
@@ -37,20 +43,38 @@ const OPDConsultation = () => {
 
     // Re-run the fetch ONLY when the 'user' object is ready
     useEffect(() => {
+        let interval;
         if (user) {
-            fetchTodayQueue();
+            fetchTodayQueue(); // Initial fetch
+            fetchMasterLabTests(); 
+
+            // NEW: Live Queue Polling (Fetches silently every 15 seconds)
+            interval = setInterval(() => {
+                fetchTodayQueue(true); // pass true for background fetch (no loading spinners)
+            }, 15000); 
         }
+
+        // Cleanup the interval when the component unmounts
+        return () => clearInterval(interval);
     }, [user]);
 
-    const fetchTodayQueue = async () => {
+    const fetchMasterLabTests = async () => {
+        try {
+            const res = await api.get('/lab_test_master');
+            setMasterLabTests(res.data);
+        } catch (error) {
+            console.error("Error fetching lab test master:", error);
+        }
+    };
+
+    // NEW: Added 'isBackground' parameter to prevent blocking the UI during live polling
+    const fetchTodayQueue = async (isBackground = false) => {
+        if (!isBackground) setIsRefreshing(true); // Only show spinner if manually clicked
         try {
             const todayStr = new Date().toISOString().split('T')[0];
             const res = await api.get(`/opd_consultations?opd_date=${todayStr}`);
             
-            // ==========================================
             // SECURITY FIX: Filter for Logged-In Doctor
-            // ==========================================
-            // We use user.linked_id because that maps to the 'D-2026-...' format in the OPD records!
             const loggedInDoctorId = user?.linked_id; 
             
             // Filter the data so this doctor ONLY sees their own queue
@@ -65,10 +89,11 @@ const OPDConsultation = () => {
                 pending: sortedData.filter(c => !c.is_closed).length,
                 completed: sortedData.filter(c => c.is_closed).length
             });
-            setLoading(false);
         } catch (error) {
             console.error("Error fetching OPD queue:", error);
+        } finally {
             setLoading(false);
+            setIsRefreshing(false);
         }
     };
 
@@ -79,7 +104,7 @@ const OPDConsultation = () => {
             chief_complaint: consult.chief_complaint || '',
             clinical_notes: consult.clinical_notes || '',
             diagnosis: consult.diagnosis || '',
-            LabTest_advised: consult.LabTest_advised ? consult.LabTest_advised.join(', ') : '',
+            LabTest_advised: consult.LabTest_advised || [], // Initialize as array
             follow_up_required: consult.follow_up_required || false,
             follow_up_date: consult.follow_up_date || '',
             medicines: consult.medicines?.length > 0 ? consult.medicines : [{ medicine_name: '', dosage: '', duration_days: '' }]
@@ -87,6 +112,33 @@ const OPDConsultation = () => {
         setShowFormModal(true);
     };
 
+    // --- LAB TEST HANDLERS ---
+    const handleAddLabTest = (test) => {
+        // CHANGED: Only store the test_name, no IDs!
+        const testIdentifier = test.test_name; 
+        
+        if (!formData.LabTest_advised.includes(testIdentifier)) {
+            setFormData({
+                ...formData,
+                LabTest_advised: [...formData.LabTest_advised, testIdentifier]
+            });
+        }
+        setLabSearchTerm('');
+        setShowLabDropdown(false);
+    };
+
+    const handleRemoveLabTest = (testToRemove) => {
+        setFormData({
+            ...formData,
+            LabTest_advised: formData.LabTest_advised.filter(t => t !== testToRemove)
+        });
+    };
+
+    const filteredLabTests = masterLabTests.filter(test =>
+        test.test_name.toLowerCase().includes(labSearchTerm.toLowerCase())
+    );
+
+    // --- Medicine Handlers ---
     const handleAddMedicine = () => {
         setFormData({ ...formData, medicines: [...formData.medicines, { medicine_name: '', dosage: '', duration_days: '' }] });
     };
@@ -105,30 +157,27 @@ const OPDConsultation = () => {
     const handleSaveConsultation = async (e) => {
         e.preventDefault();
         try {
-            // Clean up empty medicines
             const cleanMeds = formData.medicines.filter(m => m.medicine_name.trim() !== '');
-            // Convert Lab tests string to array
-            const labTests = formData.LabTest_advised ? formData.LabTest_advised.split(',').map(t => t.trim()) : [];
 
             const payload = {
                 chief_complaint: formData.chief_complaint,
                 clinical_notes: formData.clinical_notes,
                 diagnosis: formData.diagnosis,
-                LabTest_advised: labTests,
+                LabTest_advised: formData.LabTest_advised, 
+                lab_status: formData.LabTest_advised.length > 0 ? 'pending' : 'none', 
                 medicines: cleanMeds,
                 follow_up_required: formData.follow_up_required,
                 follow_up_date: formData.follow_up_required ? formData.follow_up_date : null,
-                is_closed: true // Mark as completed
+                is_closed: true 
             };
 
             await api.patch(`/opd_consultations/${selectedConsult.id}`, payload);
             
-            // Update local state to immediately show in print preview
             setSelectedConsult({ ...selectedConsult, ...payload });
             
             setShowFormModal(false);
             setShowPrintModal(true);
-            fetchTodayQueue();
+            fetchTodayQueue(true); // Refresh queue silently after saving
         } catch (error) {
             console.error("Failed to save consultation:", error);
             alert("Failed to save. Check server.");
@@ -187,7 +236,18 @@ const OPDConsultation = () => {
             {/* QUEUE TABLE */}
             <div className="card-common bg-white p-0 overflow-hidden shadow-sm rounded-3 border border-light">
                 <div className="bg-light p-3 border-bottom d-flex justify-content-between align-items-center">
-                    <h5 className="fw-bold m-0 text-dark"><i className="fa-solid fa-list me-2 text-success"></i> My Waiting List (Today)</h5>
+                    <div className="d-flex align-items-center">
+                        <h5 className="fw-bold m-0 text-dark"><i className="fa-solid fa-list me-2 text-success"></i> My Waiting List (Today)</h5>
+                        {/* NEW: Manual Refresh Button */}
+                        <button 
+                            className="btn btn-sm btn-outline-success ms-3 fw-bold" 
+                            onClick={() => fetchTodayQueue(false)}
+                            disabled={isRefreshing}
+                        >
+                            <i className={`fa-solid fa-arrows-rotate me-1 ${isRefreshing ? 'fa-spin' : ''}`}></i> 
+                            {isRefreshing ? 'Refreshing...' : 'Refresh'}
+                        </button>
+                    </div>
                     <span className="text-muted fw-bold">{new Date().toLocaleDateString('en-GB')}</span>
                 </div>
                 <table className="table table-hover align-middle mb-0">
@@ -291,9 +351,56 @@ const OPDConsultation = () => {
                                                 <label className="doc-label">Clinical / Examination Notes</label>
                                                 <textarea className="doc-input" rows="4" value={formData.clinical_notes} onChange={(e) => setFormData({...formData, clinical_notes: e.target.value})} placeholder="BP: 120/80, Temp: 99.5F..."></textarea>
                                             </div>
-                                            <div className="mb-3">
+                                            
+                                            {/* --- SMART LAB TEST DROPDOWN --- */}
+                                            <div className="mb-3 position-relative">
                                                 <label className="doc-label">Advised Lab Tests / Investigations</label>
-                                                <input type="text" className="doc-input" value={formData.LabTest_advised} onChange={(e) => setFormData({...formData, LabTest_advised: e.target.value})} placeholder="e.g. CBC, Chest X-Ray (Comma separated)" />
+                                                
+                                                {/* Selected Tests Chips */}
+                                                <div className="d-flex flex-wrap gap-2 mb-2">
+                                                    {formData.LabTest_advised.map((test, i) => (
+                                                        <span key={i} className="badge bg-primary d-flex align-items-center p-2 fs-6">
+                                                            {test}
+                                                            <i className="fa-solid fa-xmark ms-2" style={{ cursor: 'pointer' }} onClick={() => handleRemoveLabTest(test)}></i>
+                                                        </span>
+                                                    ))}
+                                                </div>
+
+                                                {/* Search Input */}
+                                                <input 
+                                                    type="text" 
+                                                    className="doc-input border-secondary" 
+                                                    placeholder="Search & select from Master List..." 
+                                                    value={labSearchTerm}
+                                                    onChange={(e) => {
+                                                        setLabSearchTerm(e.target.value);
+                                                        setShowLabDropdown(true);
+                                                    }}
+                                                    onFocus={() => setShowLabDropdown(true)}
+                                                    onBlur={() => setTimeout(() => setShowLabDropdown(false), 200)} 
+                                                />
+
+                                                {/* Dropdown Results */}
+                                                {showLabDropdown && labSearchTerm && (
+                                                    <ul className="list-group position-absolute w-100 shadow" style={{ zIndex: 1000, maxHeight: '200px', overflowY: 'auto' }}>
+                                                        {filteredLabTests.length > 0 ? filteredLabTests.map(test => (
+                                                            <li 
+                                                                key={test._id || test.id} 
+                                                                className="list-group-item list-group-item-action"
+                                                                style={{ cursor: 'pointer' }}
+                                                                onMouseDown={(e) => {
+                                                                    e.preventDefault(); 
+                                                                    handleAddLabTest(test);
+                                                                }}
+                                                            >
+                                                                {/* CHANGED: Only showing the clean test name here now! */}
+                                                                <strong>{test.test_name}</strong>
+                                                            </li>
+                                                        )) : (
+                                                            <li className="list-group-item text-muted">No tests found in Master</li>
+                                                        )}
+                                                    </ul>
+                                                )}
                                             </div>
                                         </div>
 
@@ -386,7 +493,6 @@ const OPDConsultation = () => {
                                 <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginRight: '15px' }} />
                                 <div>
                                     <h1 style={{ margin: '0', color: '#10b981', fontSize: '28px', fontWeight: 'bold' }}>ArogyaOne Hospital</h1>
-                                    {/* tagline */}
                                     <p style={{ margin: '0', fontSize: '14px', fontWeight: 'bold', color: '#10b981' }}>One Platform, Complete Healthcare</p>
                                     <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>Mavdi Chokadi, 150ft Ring Road, Rajkot - Gujarat.</p>
                                     <p style={{ margin: '0', fontSize: '12px', color: '#555' }}>Emergency / Contact: +91 91733 16294 | info@arogyaone.com</p>
@@ -486,7 +592,7 @@ const OPDConsultation = () => {
                                     Valid only with Doctor's signature or digital stamp.
                                 </div>
                                 <div style={{ textAlign: 'center', width: '200px' }}>
-                                    <div style={{ height: '40px' }}></div> {/* Space for physical signature */}
+                                    <div style={{ height: '40px' }}></div>
                                     <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '0 0 5px 0' }}/>
                                     <strong>{selectedConsult.doctor_name}</strong><br/>
                                     <span style={{ fontSize: '12px' }}>Signature & Stamp</span>

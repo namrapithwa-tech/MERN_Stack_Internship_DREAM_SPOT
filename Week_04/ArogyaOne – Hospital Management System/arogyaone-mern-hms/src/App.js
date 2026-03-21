@@ -39,8 +39,9 @@ import DoctorAppointments from './dashboards/doctor/pages/DoctorAppointments';
 // --- LAB DEPARTMENT DASHBOARD & PAGES ---
 import LabDashboard from './dashboards/lab/pages/LabDashboard';
 import TestMaster from './dashboards/lab/pages/TestMaster';
-import PendingRequests from './dashboards/lab/pages/PendingRequests'; 
-
+import PendingRequests from './dashboards/lab/pages/PendingRequests';
+import ActiveOrders from './dashboards/lab/pages/ActiveOrders';
+import CompletedReports from './dashboards/lab/pages/CompletedReports';
 
 // --- OTHER DASHBOARDS ---
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
@@ -216,6 +217,18 @@ function App() {
           <Route path="/lab/requests" element={
             <ProtectedRoute allowedRoles={["LAB"]}>
               <MainLayout><PendingRequests /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/lab/active" element={
+            <ProtectedRoute allowedRoles={["LAB"]}>
+              <MainLayout><ActiveOrders /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/lab/reports" element={
+            <ProtectedRoute allowedRoles={["LAB"]}>
+              <MainLayout><CompletedReports /></MainLayout>
             </ProtectedRoute>
           } />
 

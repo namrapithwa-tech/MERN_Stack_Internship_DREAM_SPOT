@@ -151,6 +151,11 @@ const MainLayout = ({ children }) => {
                 <i className="fa-solid fa-vials"></i> <span>Pending Requests</span>
               </Link>
 
+              {/* NEW ACTIVE ORDERS LINK */}
+              <Link to="/lab/active" className={`nav-link ${location.pathname.includes('/lab/active') ? 'active' : ''}`}>
+                <i className="fa-solid fa-microscope"></i> <span>Active Orders</span>
+              </Link>
+
               <Link to="/lab/reports" className={`nav-link ${location.pathname.includes('/lab/reports') ? 'active' : ''}`}>
                 <i className="fa-solid fa-file-prescription"></i> <span>Completed Reports</span>
               </Link>
