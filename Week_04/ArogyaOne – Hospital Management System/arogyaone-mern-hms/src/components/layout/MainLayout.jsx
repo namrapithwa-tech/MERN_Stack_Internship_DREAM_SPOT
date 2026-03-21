@@ -161,6 +161,23 @@ const MainLayout = ({ children }) => {
               </Link>
             </>
           )}
+
+          {/* --- SURGERY / OT LINKS --- */}
+          {(userRole === 'SURGERY') && (
+            <>
+              <Link to="/surgery" className={`nav-link ${location.pathname === '/surgery' ? 'active' : ''}`}>
+                <i className="fa-solid fa-gauge"></i> <span>OT Dashboard</span>
+              </Link>
+
+              <Link to="/surgery/schedule" className={`nav-link ${location.pathname.includes('/surgery/schedule') ? 'active' : ''}`}>
+                <i className="fa-solid fa-calendar-plus"></i> <span>OT Scheduling</span>
+              </Link>
+
+              <Link to="/surgery/logs" className={`nav-link ${location.pathname.includes('/surgery/logs') ? 'active' : ''}`}>
+                <i className="fa-solid fa-file-medical"></i> <span>Surgery Logs</span>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* RED LOGOUT BUTTON */}

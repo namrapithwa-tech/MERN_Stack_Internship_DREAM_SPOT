@@ -43,10 +43,15 @@ import PendingRequests from './dashboards/lab/pages/PendingRequests';
 import ActiveOrders from './dashboards/lab/pages/ActiveOrders';
 import CompletedReports from './dashboards/lab/pages/CompletedReports';
 
+// --- SURGERY DEPARTMENT DASHBOARD & PAGES ---
+import SurgeryDashboard from './dashboards/surgery/pages/SurgeryDashboard';
+import OTSchedule from './dashboards/surgery/pages/OTSchedule';
+import SurgeryLogs from './dashboards/surgery/pages/SurgeryLogs';
+
 // --- OTHER DASHBOARDS ---
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
 import PatientDashboard from "./dashboards/patient/PatientDashboard";
-import SurgeryDashboard from "./dashboards/departments/surgery/SurgeryDashboard";
+
 
 function App() {
   return (
@@ -232,9 +237,26 @@ function App() {
             </ProtectedRoute>
           } />
 
-          <Route path="/department/surgery" element={
+          {/* =======================
+              SURGERY DASHBOARDS (All Wrapped in MainLayout)
+          ======================= */}
+          {/* --- SURGERY DEPARTMENT ROUTES --- */}
+
+          <Route path="/surgery" element={
             <ProtectedRoute allowedRoles={["SURGERY"]}>
               <MainLayout><SurgeryDashboard /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/surgery/schedule" element={
+            <ProtectedRoute allowedRoles={['SURGERY']}>
+              <MainLayout><OTSchedule /></MainLayout>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/surgery/logs" element={
+            <ProtectedRoute allowedRoles={['SURGERY', 'ADMIN']}>
+              <MainLayout><SurgeryLogs /></MainLayout>
             </ProtectedRoute>
           } />
 

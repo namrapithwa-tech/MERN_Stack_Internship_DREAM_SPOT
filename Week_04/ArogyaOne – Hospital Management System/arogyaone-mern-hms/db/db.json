@@ -2918,5 +2918,54 @@
       "is_printed": true,
       "is_billed": true
     }
+  ],
+  "operation_theaters": [
+    {
+      "id": "OT-001",
+      "name": "Major OT - 1",
+      "type": "Major Surgery",
+      "base_price": 5000,
+      "status": "Active",
+      "equipment": [
+        "Ventilator",
+        "C-Arm",
+        "Anesthesia Machine"
+      ]
+    },
+    {
+      "id": "OT-002",
+      "name": "Minor OT - 1",
+      "type": "Minor / Day Care",
+      "base_price": 2000,
+      "status": "Active",
+      "equipment": [
+        "Basic Monitor",
+        "Cautery Machine"
+      ]
+    }
+  ],
+  "surgery_schedules": [
+    {
+      "id": "SURG-1774096535416",
+      "ipd_admission_id": "IPD-2026-1774071312881",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "surgery_name": "Laprascopic",
+      "primary_surgeon": "Dr. Ananya D. Vyas",
+      "ot_room_id": "OT-001",
+      "ot_room_name": "Major OT - 1",
+      "schedule_date": "2026-03-21T10:00",
+      "estimated_duration": "2 Hours",
+      "status": "Completed",
+      "created_at": "2026-03-21T12:35:35.416Z",
+      "post_op_details": {
+        "actual_start_time": "10:00",
+        "actual_end_time": "11:45",
+        "surgical_notes": "Laparoscopic cholecystectomy performed under general anesthesia. Standard 4-port approach used. Pneumoperitoneum safely established. Cystic duct and cystic artery identified, doubly clipped, and divided. Gallbladder dissected from liver bed and extracted using an endocatch bag. Liver bed inspected; hemostasis confirmed. Fascia at the umbilical port closed. No intraoperative complications. Patient remained hemodynamically stable throughout the procedure and was transferred to the PACU (Post-Anesthesia Care Unit) for recovery.",
+        "surgeon_fee": 25000,
+        "anesthesia_fee": 8500,
+        "logged_at": "2026-03-21T12:47:15.245Z"
+      }
+    }
   ]
 }
