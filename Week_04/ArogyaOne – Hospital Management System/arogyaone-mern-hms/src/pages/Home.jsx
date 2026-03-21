@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import api from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import logo from "../assets/images/logo.png";
 
-const Home = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
@@ -41,23 +40,11 @@ const Home = () => {
       case "BILLING":
         navigate("/billing");
         break;
-      case "PATIENT":
-        navigate("/patient");
+      case "SURGERY":
+        navigate("/surgery");
         break;
       case "LAB":
-        navigate("/department/lab");
-        break;
-      case "ECG":
-        navigate("/department/ecg");
-        break;
-      case "RADIOLOGY":
-        navigate("/department/radiology");
-        break;
-      case "MRI":
-        navigate("/department/mri");
-        break;
-      case "SURGERY":
-        navigate("/department/surgery");
+        navigate("/lab");
         break;
       default:
         navigate("/");
@@ -354,4 +341,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

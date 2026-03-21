@@ -71,7 +71,7 @@ const MainLayout = ({ children }) => {
               <Link to="/registration/patients" className={`nav-link ${location.pathname.includes('/registration/patients') ? 'active' : ''}`}>
                 <i className="fa-solid fa-hospital-user"></i> <span>All Patients</span>
               </Link>
-              <Link to="/department/lab" className="nav-link">
+              <Link to="/lab" className="nav-link">
                 <i className="fa-solid fa-flask"></i> <span>Laboratory</span>
               </Link>
               <Link to="/department/radiology" className="nav-link">
@@ -80,7 +80,7 @@ const MainLayout = ({ children }) => {
             </>
           )}
 
-          {/* DOCTOR LINKS */}
+
           {/* DOCTOR LINKS */}
           {(userRole === 'DOCTOR') && (
             <>
@@ -135,7 +135,27 @@ const MainLayout = ({ children }) => {
             </>
           )}
 
-          {/* REGISTRATION, BILLING.... ETC ROUTES ADDED HERE */}
+          {/* LAB MASTER */}
+          {/* --- LAB DEPARTMENT MENU --- */}
+          {(userRole === 'LAB') && (
+            <>
+              <Link to="/lab" className={`nav-link ${location.pathname === '/lab' ? 'active' : ''}`}>
+                <i className="fa-solid fa-gauge"></i> <span>Dashboard</span>
+              </Link>
+
+              <Link to="/lab/master" className={`nav-link ${location.pathname.includes('/lab/master') ? 'active' : ''}`}>
+                <i className="fa-solid fa-tags"></i> <span>Test Master Pricing</span>
+              </Link>
+
+              <Link to="/lab/requests" className={`nav-link ${location.pathname.includes('/lab/requests') ? 'active' : ''}`}>
+                <i className="fa-solid fa-vials"></i> <span>Pending Requests</span>
+              </Link>
+
+              <Link to="/lab/reports" className={`nav-link ${location.pathname.includes('/lab/reports') ? 'active' : ''}`}>
+                <i className="fa-solid fa-file-prescription"></i> <span>Completed Reports</span>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* RED LOGOUT BUTTON */}

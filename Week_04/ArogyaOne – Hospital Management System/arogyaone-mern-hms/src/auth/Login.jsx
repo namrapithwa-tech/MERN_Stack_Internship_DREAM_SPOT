@@ -40,23 +40,11 @@ const Login = () => {
       case "BILLING":
         navigate("/billing");
         break;
-      case "PATIENT":
-        navigate("/patient");
+      case "SURGERY":
+        navigate("/surgery");
         break;
       case "LAB":
-        navigate("/department/lab");
-        break;
-      case "ECG":
-        navigate("/department/ecg");
-        break;
-      case "RADIOLOGY":
-        navigate("/department/radiology");
-        break;
-      case "MRI":
-        navigate("/department/mri");
-        break;
-      case "SURGERY":
-        navigate("/department/surgery");
+        navigate("/lab");
         break;
       default:
         navigate("/");

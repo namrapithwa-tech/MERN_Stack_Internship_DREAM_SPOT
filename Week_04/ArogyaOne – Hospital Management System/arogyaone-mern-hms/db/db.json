@@ -36,27 +36,6 @@
       "name": "Lab Department"
     },
     {
-      "id": "6",
-      "email": "ecg@arogyaone.com",
-      "password": "ecg123",
-      "role": "ECG",
-      "name": "ECG Department"
-    },
-    {
-      "id": "7",
-      "email": "radiology@arogyaone.com",
-      "password": "radio123",
-      "role": "RADIOLOGY",
-      "name": "Radiology Department"
-    },
-    {
-      "id": "8",
-      "email": "mri@arogyaone.com",
-      "password": "mri123",
-      "role": "MRI",
-      "name": "MRI Department"
-    },
-    {
       "id": "9",
       "email": "surgery@arogyaone.com",
       "password": "surg123",
@@ -489,6 +468,19 @@
       "registration_type": "WALK-IN",
       "created_at": "2026-03-18T12:19:03.276Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1773846587175",
+      "patient_full_name": "lalitaben",
+      "age": 68,
+      "gender": "Female",
+      "mobile_number": "9512588231",
+      "blood_group": "B-",
+      "consultant_doctor_id": "D-2026-1769062412564",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "registration_type": "APPOINTMENT",
+      "created_at": "2026-03-18T15:09:51.998Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -672,6 +664,36 @@
       "doctorName": "Dr. Ishani S. Malhotra",
       "department": "Cardiology",
       "createdAt": "2026-03-17T22:03:53.876Z"
+    },
+    {
+      "id": "A-2026-1773846350059",
+      "doctorId": "D-2026-1769062412564",
+      "patientId": null,
+      "status": "PENDING",
+      "name": "Manisha Pithwa",
+      "phone": "9687616294",
+      "age": 48,
+      "gender": "Female",
+      "date": "2026-03-18",
+      "time": "evening",
+      "doctorName": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "createdAt": "2026-03-18T15:05:50.059Z"
+    },
+    {
+      "id": "A-2026-1773846478876",
+      "doctorId": "D-2026-1769062412564",
+      "patientId": "P-2026-1773846587175",
+      "status": "CONFIRMED",
+      "name": "lalitaben",
+      "phone": "9512588231",
+      "age": 68,
+      "gender": "Female",
+      "date": "2026-03-21",
+      "time": "morning",
+      "doctorName": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "createdAt": "2026-03-18T15:07:58.876Z"
     }
   ],
   "ipd_admissions": [
@@ -819,6 +841,45 @@
           }
         ],
         "follow_up_instructions": "h"
+      }
+    },
+    {
+      "id": "IPD-2026-1773846862989",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "mobile_number": "9512588231",
+      "blood_group": "B-",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "room_id": "R-ICU-1767592235386",
+      "document_type": "Aadhar",
+      "document_number": "9562136523",
+      "relative_name": "Hareshbhai",
+      "relationship": "Child",
+      "room_number": "ICU-101",
+      "admission_date": "2026-03-18T15:14:22.989Z",
+      "status": "DISCHARGED",
+      "billing_status": "PENDING_FINAL_BILL",
+      "discharge_details": {
+        "discharge_date": "2026-03-20",
+        "discharge_time": "20:43",
+        "reason_for_admission": "chati ma dukh",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "vbdfgfsd c   ",
+        "treatment_provided": "rgbf   ERGHJHGM ",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "tgh",
+            "dosage": "1",
+            "duration_days": "5"
+          },
+          {
+            "medicine_name": "del",
+            "dosage": "1",
+            "duration_days": "2"
+          }
+        ],
+        "follow_up_instructions": "Visit aftwer 10 days"
       }
     }
   ],
@@ -1425,6 +1486,28 @@
       "sugar": "true",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-18T12:19:03.276Z"
+    },
+    {
+      "id": "V-1773846587175",
+      "patientId": "P-2026-1773846587175",
+      "weight": "252",
+      "height": "22",
+      "blood_pressure": "22",
+      "temprature": "2",
+      "sugar": "true",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-18T15:09:51.998Z"
+    },
+    {
+      "id": "V-1773846805231",
+      "patientId": "P-2026-1773846587175",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-18T15:13:26.523Z"
     }
   ],
   "opd_consultations": [
@@ -2057,6 +2140,85 @@
       "is_billed": true,
       "is_closed": true,
       "follow_up_date": "2026-03-21"
+    },
+    {
+      "id": "OPD-2026-1773846587175",
+      "appointment_id": "A-2026-1773846478876",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "patient_age": 68,
+      "patient_gender": "Female",
+      "patient_bloodgroup": "B-",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-18",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "mathu ",
+      "diagnosis": "viral inf",
+      "clinical_notes": "pani bp 120",
+      "medicines": [
+        {
+          "medicine_name": "dolo ",
+          "dosage": "1-0-1",
+          "duration_days": "5"
+        },
+        {
+          "medicine_name": "pars",
+          "dosage": "1-1-1",
+          "duration_days": "10"
+        }
+      ],
+      "LabTest_advised": [
+        "CBC",
+        "RBC"
+      ],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-18"
+      },
+      "follow_up_required": true,
+      "is_billed": true,
+      "is_closed": true,
+      "follow_up_date": "2026-03-23"
+    },
+    {
+      "id": "OPD-2026-1773846805231",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "patient_age": 68,
+      "patient_gender": "Female",
+      "patient_bloodgroup": "B-",
+      "doctor_id": "D-2026-1769063648290",
+      "doctor_name": "Dr. Raghav N. Joshi",
+      "department": "Neurology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-18",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 1000,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 1000,
+        "transaction_id": null,
+        "payment_date": "2026-03-18"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
     }
   ],
   "ipd_rounds": [
@@ -2097,6 +2259,44 @@
       "clinical_progress": "hfcgjkl;.",
       "nursing_instructions": "dtfvgyhjbnkm",
       "created_at": "2026-03-17T21:21:22.146Z"
+    },
+    {
+      "id": "RND-2026-1773846924483",
+      "ipd_admission_id": "IPD-2026-1773846862989",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-18",
+      "round_time": "08:45 PM",
+      "vitals": {
+        "bp": "55",
+        "temp": "55",
+        "pulse": "55",
+        "spo2": "55"
+      },
+      "clinical_progress": "fgffgfdvc fb",
+      "nursing_instructions": "hrgergc cgregrfc c",
+      "created_at": "2026-03-18T15:15:24.484Z"
+    },
+    {
+      "id": "RND-2026-1773846964051",
+      "ipd_admission_id": "IPD-2026-1773846862989",
+      "patient_id": "P-2026-1773846587175",
+      "patient_name": "lalitaben",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-18",
+      "round_time": "08:46 PM",
+      "vitals": {
+        "bp": "55",
+        "temp": "55",
+        "pulse": "55",
+        "spo2": "55"
+      },
+      "clinical_progress": "aewrhtmnb vcxz",
+      "nursing_instructions": "oji';l",
+      "created_at": "2026-03-18T15:16:04.051Z"
     }
   ],
   "doctor_notes": [
@@ -2120,6 +2320,204 @@
       "doctor_name": "Dr. Ishani S. Malhotra",
       "date": "2026-03-18",
       "note_text": "Meet Meeting"
+    }
+  ],
+  "lab_test_master": [
+    {
+      "id": "TEST-2026-1774005624217",
+      "test_name": "Complete Blood Count (CBC)",
+      "department": "Pathology",
+      "price": 350,
+      "parameters": [
+        {
+          "name": "Hemoglobin",
+          "unit": "g/dL",
+          "normal_range": "13.0 - 17.0"
+        },
+        {
+          "name": "Total WBC Count",
+          "unit": "cells/mcL",
+          "normal_range": "4,000 - 11,000"
+        },
+        {
+          "name": "Platelet Count",
+          "unit": "lakhs/cumm",
+          "normal_range": "1.5 - 4.5"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005688916",
+      "test_name": "Routine Urine Examination",
+      "department": "Pathology",
+      "price": 150,
+      "parameters": [
+        {
+          "name": "pH",
+          "unit": "none",
+          "normal_range": "4.5-8.0"
+        },
+        {
+          "name": "Specific Gravity",
+          "unit": "nine",
+          "normal_range": "1.005-1.030"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005720086",
+      "test_name": "Erythrocyte Sedimentation Rate (ESR)",
+      "department": "Pathology",
+      "price": 120,
+      "parameters": [
+        {
+          "name": "ESR",
+          "unit": "mm/hr",
+          "normal_range": "0 - 20"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005816040",
+      "test_name": "Lipid Profile",
+      "department": "Biochemistry",
+      "price": 700,
+      "parameters": [
+        {
+          "name": "Total Cholestero",
+          "unit": "mg/dL",
+          "normal_range": "< 200"
+        },
+        {
+          "name": "Triglycerides",
+          "unit": "mg/dL",
+          "normal_range": "< 150"
+        },
+        {
+          "name": "HDL Cholesterol",
+          "unit": "mg/dL",
+          "normal_range": "> 40"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005889700",
+      "test_name": "Liver Function Test (LFT)",
+      "department": "Biochemistry",
+      "price": 800,
+      "parameters": [
+        {
+          "name": "Total Bilirubin",
+          "unit": "mg/dL",
+          "normal_range": "0.1 - 1.2"
+        },
+        {
+          "name": "SGPT (ALT)",
+          "unit": "U/L",
+          "normal_range": "7 - 56"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005939142",
+      "test_name": "Kidney Function Test (KFT)",
+      "department": "Biochemistry",
+      "price": 650,
+      "parameters": [
+        {
+          "name": "Serum Creatinine",
+          "unit": "mg/dL",
+          "normal_range": "0.6 - 1.2"
+        },
+        {
+          "name": "Blood Urea Nitrogen (BUN)",
+          "unit": "mg/dL",
+          "normal_range": "7 - 20"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774005983646",
+      "test_name": "Blood Culture",
+      "department": "Microbiology",
+      "price": 1200,
+      "parameters": [
+        {
+          "name": "Growth Status",
+          "unit": "(None)",
+          "normal_range": "No Growth"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774006036876",
+      "test_name": "Urine Culture & Sensitivity",
+      "department": "Microbiology",
+      "price": 850,
+      "parameters": [
+        {
+          "name": "Colony Count",
+          "unit": "CFU/mL",
+          "normal_range": "< 10,000"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774006065680",
+      "test_name": "Sputum for AFB",
+      "department": "Microbiology",
+      "price": 400,
+      "parameters": [
+        {
+          "name": "AFB Smear Result",
+          "unit": "none",
+          "normal_range": "Negative"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774006120998",
+      "test_name": "Thyroid Profile (T3, T4, TSH)",
+      "department": "Immunology",
+      "price": 900,
+      "parameters": [
+        {
+          "name": "TSH",
+          "unit": "mIU/L",
+          "normal_range": "0.4 - 4.0"
+        },
+        {
+          "name": "Free T4",
+          "unit": "ng/dL",
+          "normal_range": "0.8 - 1.8"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774006155638",
+      "test_name": "Vitamin D (25-OH)",
+      "department": "Immunology",
+      "price": 1500,
+      "parameters": [
+        {
+          "name": "Vitamin D Level",
+          "unit": "ng/mL",
+          "normal_range": "30 - 100"
+        }
+      ]
+    },
+    {
+      "id": "TEST-2026-1774006181728",
+      "test_name": "Rheumatoid Factor (RA Test)",
+      "department": "Immunology",
+      "price": 550,
+      "parameters": [
+        {
+          "name": "RA Factor",
+          "unit": "IU/mL",
+          "normal_range": "< 14"
+        }
+      ]
     }
   ]
 }

@@ -35,13 +35,16 @@ import OPDConsultation from "./dashboards/doctor/pages/OPDConsultation";
 import DoctorAllPatients from "./dashboards/doctor/pages/DoctorAllPatients";
 import IPDRounds from './dashboards/doctor/pages/IPDRounds';
 import DoctorAppointments from './dashboards/doctor/pages/DoctorAppointments';
+
+// --- LAB DEPARTMENT DASHBOARD & PAGES ---
+import LabDashboard from './dashboards/lab/pages/LabDashboard';
+import TestMaster from './dashboards/lab/pages/TestMaster';
+import PendingRequests from './dashboards/lab/pages/PendingRequests'; 
+
+
 // --- OTHER DASHBOARDS ---
 import BillingDashboard from "./dashboards/billing/BillingDashboard";
 import PatientDashboard from "./dashboards/patient/PatientDashboard";
-import LabDashboard from "./dashboards/departments/lab/LabDashboard";
-import ECGDashboard from "./dashboards/departments/ecg/ECGDashboard";
-import RadiologyDashboard from "./dashboards/departments/radiology/RadiologyDashboard";
-import MRIDashboard from "./dashboards/departments/mri/MRIDashboard";
 import SurgeryDashboard from "./dashboards/departments/surgery/SurgeryDashboard";
 
 function App() {
@@ -177,18 +180,10 @@ function App() {
             </ProtectedRoute>
           } />
 
-
-          {/* ...... */}
-          {/* Add other placeholders as needed for Appointments, etc. */}
-
           {/* =======================
               STAFF DASHBOARDS (All Wrapped in MainLayout)
           ======================= */}
-          <Route path="/doctor" element={
-            <ProtectedRoute allowedRoles={["DOCTOR"]}>
-              <MainLayout><DoctorDashboard /></MainLayout>
-            </ProtectedRoute>
-          } />
+
 
           <Route path="/billing" element={
             <ProtectedRoute allowedRoles={["BILLING"]}>
@@ -203,29 +198,24 @@ function App() {
           } />
 
           {/* =======================
-              DEPARTMENT DASHBOARDS (All Wrapped in MainLayout)
+              LAB DASHBOARDS (All Wrapped in MainLayout)
           ======================= */}
-          <Route path="/department/lab" element={
+          {/* --- LAB DEPARTMENT ROUTES --- */}
+          <Route path="/lab" element={
             <ProtectedRoute allowedRoles={["LAB"]}>
               <MainLayout><LabDashboard /></MainLayout>
             </ProtectedRoute>
           } />
 
-          <Route path="/department/ecg" element={
-            <ProtectedRoute allowedRoles={["ECG"]}>
-              <MainLayout><ECGDashboard /></MainLayout>
+          <Route path="/lab/master" element={
+            <ProtectedRoute allowedRoles={["LAB"]}>
+              <MainLayout><TestMaster /></MainLayout>
             </ProtectedRoute>
           } />
 
-          <Route path="/department/radiology" element={
-            <ProtectedRoute allowedRoles={["RADIOLOGY"]}>
-              <MainLayout><RadiologyDashboard /></MainLayout>
-            </ProtectedRoute>
-          } />
-
-          <Route path="/department/mri" element={
-            <ProtectedRoute allowedRoles={["MRI"]}>
-              <MainLayout><MRIDashboard /></MainLayout>
+          <Route path="/lab/requests" element={
+            <ProtectedRoute allowedRoles={["LAB"]}>
+              <MainLayout><PendingRequests /></MainLayout>
             </ProtectedRoute>
           } />
 
