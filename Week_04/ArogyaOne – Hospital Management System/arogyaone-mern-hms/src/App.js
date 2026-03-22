@@ -48,8 +48,11 @@ import SurgeryDashboard from './dashboards/surgery/pages/SurgeryDashboard';
 import OTSchedule from './dashboards/surgery/pages/OTSchedule';
 import SurgeryLogs from './dashboards/surgery/pages/SurgeryLogs';
 
+// --- BILLING DEPARTMENT DASHBOARD & PAGES ---
+import BillingDashboard from './dashboards/billing/pages/BillingDashboard';
+import IPDBilling from './dashboards/billing/pages/IPDBilling';
+
 // --- OTHER DASHBOARDS ---
-import BillingDashboard from "./dashboards/billing/BillingDashboard";
 import PatientDashboard from "./dashboards/patient/PatientDashboard";
 
 
@@ -191,11 +194,21 @@ function App() {
           ======================= */}
 
 
+          {/* --- BILLING DEPARTMENT ROUTES --- */}
           <Route path="/billing" element={
             <ProtectedRoute allowedRoles={["BILLING"]}>
               <MainLayout><BillingDashboard /></MainLayout>
             </ProtectedRoute>
           } />
+
+          <Route path="/billing/ipd" element={
+            <ProtectedRoute allowedRoles={["BILLING"]}>
+              <MainLayout><IPDBilling /></MainLayout>
+            </ProtectedRoute>
+          } />
+          
+
+
 
           <Route path="/patient" element={
             <ProtectedRoute allowedRoles={["PATIENT"]}>
@@ -255,7 +268,7 @@ function App() {
           } />
 
           <Route path="/surgery/logs" element={
-            <ProtectedRoute allowedRoles={['SURGERY', 'ADMIN']}>
+            <ProtectedRoute allowedRoles={['SURGERY']}>
               <MainLayout><SurgeryLogs /></MainLayout>
             </ProtectedRoute>
           } />

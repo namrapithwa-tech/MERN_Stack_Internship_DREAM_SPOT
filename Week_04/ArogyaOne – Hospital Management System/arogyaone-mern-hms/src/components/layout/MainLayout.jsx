@@ -178,6 +178,20 @@ const MainLayout = ({ children }) => {
               </Link>
             </>
           )}
+
+          {/* --- CENTRAL BILLING LINKS --- */}
+          {(userRole === 'BILLING') && (
+            <>
+              <Link to="/billing" className={`nav-link ${location.pathname === '/billing' ? 'active' : ''}`}>
+                <i className="fa-solid fa-chart-line"></i> <span>Revenue Dashboard</span>
+              </Link>
+
+              <Link to="/billing/ipd" className={`nav-link ${location.pathname.includes('/billing/ipd') ? 'active' : ''}`}>
+                <i className="fa-solid fa-file-invoice-dollar"></i> <span>IPD Final Billing</span>
+              </Link>
+
+            </>
+          )}
         </div>
 
         {/* RED LOGOUT BUTTON */}

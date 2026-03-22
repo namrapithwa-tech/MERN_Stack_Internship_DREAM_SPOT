@@ -1,3 +1,5 @@
+// src/dashboards/registration/pages/RoomAllocation.jsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import api from '../../../api/axios';
 import '../../../assets/css/registration.css';
@@ -44,7 +46,7 @@ const RoomAllocation = () => {
 
     // Print Preview State
     const [showPrintModal, setShowPrintModal] = useState(false);
-    const [printType, setPrintType] = useState(null); // 'ADMISSION' or 'DISCHARGE'
+    const [printType, setPrintType] = useState(null); 
     const [isPrinting, setIsPrinting] = useState(false);
 
     // --- REFS FOR PRINTING ---
@@ -114,10 +116,7 @@ const RoomAllocation = () => {
                 discharge_details: null
             };
 
-            // 1. Create IPD Admission
             await api.post('/ipd_admissions', payload);
-
-            // 2. Mark Room as Unavailable
             await api.patch(`/rooms/${admForm.room_id}`, { is_available: false, allocated_patient_id: payload.patient_id });
 
             alert("Admission Successful!");
@@ -125,7 +124,6 @@ const RoomAllocation = () => {
             setPrintType('ADMISSION');
             setShowPrintModal(true);
 
-            // Reset Form & Fetch
             setAdmForm(initialAdmState);
             setSearchQuery('');
             setPatientFound(null);
@@ -151,15 +149,12 @@ const RoomAllocation = () => {
     const handleDischargeSubmit = async (e) => {
         e.preventDefault();
         try {
-            // 1. Update Admission Status
             const updatedAdm = {
                 status: 'DISCHARGED',
                 billing_status: 'PENDING_FINAL_BILL',
                 discharge_details: { ...dischargeForm }
             };
             await api.patch(`/ipd_admissions/${selectedAdmission.id}`, updatedAdm);
-
-            // 2. Free up the Room
             await api.patch(`/rooms/${selectedAdmission.room_id}`, { is_available: true, allocated_patient_id: null });
 
             alert("Patient Discharged Successfully! Sent to Billing.");
@@ -232,6 +227,13 @@ const RoomAllocation = () => {
                 setIsPrinting(false);
             }
         }, 500);
+    };
+
+    // Helper for safe dates
+    const safeDate = (dateString) => {
+        if (!dateString) return 'N/A';
+        const d = new Date(dateString);
+        return isNaN(d.getTime()) ? 'Invalid Date' : d.toLocaleDateString();
     };
 
     if (loading) return <div className="text-center p-5"><div className="spinner-border text-primary"></div></div>;
@@ -375,10 +377,16 @@ const RoomAllocation = () => {
                                 <td>
                                     <span className={`badge ${adm.status === 'ADMITTED' ? 'bg-success' : 'bg-secondary'}`}>{adm.status}</span>
                                     {adm.billing_status === 'PENDING_FINAL_BILL' && <div className="small text-warning fw-bold mt-1">Pending Bill</div>}
+                                    {adm.billing_status === 'CLOSED' && <div className="small text-success fw-bold mt-1">Bill Cleared</div>}
                                 </td>
                                 <td>
-                                    <div className="small"><strong>Adm:</strong> {new Date(adm.admission_date).toLocaleDateString()}</div>
-                                    {adm.status === 'DISCHARGED' && <div className="small text-danger"><strong>Dis:</strong> {new Date(adm.discharge_details?.discharge_date).toLocaleDateString()}</div>}
+                                    <div className="small"><strong>Adm:</strong> {safeDate(adm.admission_date)}</div>
+                                    {/* FIX: Check discharge_details safely */}
+                                    {adm.status === 'DISCHARGED' && (
+                                        <div className="small text-danger">
+                                            <strong>Dis:</strong> {adm.discharge_details?.discharge_date ? safeDate(adm.discharge_details.discharge_date) : safeDate(adm.discharge_date)}
+                                        </div>
+                                    )}
                                 </td>
                                 <td className="text-center">
                                     {/* Print Admission Docs (Always visible) */}
@@ -421,7 +429,7 @@ const RoomAllocation = () => {
                                         </>
                                     )}
 
-                                    {adm.status === 'DISCHARGED' && (
+                                    {adm.status === 'DISCHARGED' && adm.discharge_details && (
                                         /* Print Discharge Summary */
                                         <button
                                             className="btn btn-sm btn-outline-dark me-2 mb-1"
@@ -447,11 +455,10 @@ const RoomAllocation = () => {
                     <div className="modal-dialog modal-xl modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="modal-header bg-light">
-                                <h5 className="modal-title fw-bold text-success"><i className="fa-solid fa-file-medical me-2"></i>Discharge Summary Form (NABH Compliant)</h5>
+                                <h5 className="modal-title fw-bold text-success"><i className="fa-solid fa-file-medical me-2"></i>Clinical Discharge Summary (Sent to Billing)</h5>
                                 <button className="btn-close" onClick={() => setShowDischargeModal(false)}></button>
                             </div>
                             <form onSubmit={handleDischargeSubmit}>
-                                {/* FIX: Added overflow-auto and maxHeight here */}
                                 <div className="modal-body p-4 overflow-auto" style={{ maxHeight: '70vh' }}>
                                     <div className="row g-3 border-bottom pb-3 mb-3 bg-light rounded p-2">
                                         <div className="col-md-4"><strong>Patient:</strong> {selectedAdmission.patient_name} ({selectedAdmission.patient_id})</div>
@@ -519,7 +526,7 @@ const RoomAllocation = () => {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" onClick={() => setShowDischargeModal(false)}>Cancel</button>
-                                    <button type="submit" className="btn btn-success fw-bold"><i className="fa-solid fa-check me-2"></i> Confirm Discharge & Generate Bill</button>
+                                    <button type="submit" className="btn btn-success fw-bold"><i className="fa-solid fa-check me-2"></i> Clinical Discharge & Send to Billing</button>
                                 </div>
                             </form>
                         </div>
@@ -539,7 +546,6 @@ const RoomAllocation = () => {
                                 <button className="btn-close" onClick={() => setShowEditModal(false)}></button>
                             </div>
                             <form onSubmit={handleEditSubmit}>
-                                {/* FIX: Added overflow-auto and maxHeight here too */}
                                 <div className="modal-body p-3 overflow-auto" style={{ maxHeight: '70vh' }}>
                                     <div className="mb-2"><label className="form-label">ID Type</label><input type="text" className="form-control" value={editForm.document_type} onChange={(e) => setEditForm({ ...editForm, document_type: e.target.value })} /></div>
                                     <div className="mb-2"><label className="form-label">ID Number</label><input type="text" className="form-control" value={editForm.document_number} onChange={(e) => setEditForm({ ...editForm, document_number: e.target.value })} /></div>
@@ -555,7 +561,7 @@ const RoomAllocation = () => {
             )}
 
             {/* =========================================
-                MODAL: PRINT PREVIEW (STICKERS / CONSENT / DISCHARGE)
+                MODAL: PRINT PREVIEW
             ========================================= */}
             {showPrintModal && selectedAdmission && (
                 <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
@@ -588,7 +594,7 @@ const RoomAllocation = () => {
             {selectedAdmission && (
                 <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
 
-                    {/* 1. ADMISSION STICKER SHEET (A4 Grid of 20) */}
+                    {/* 1. ADMISSION STICKER SHEET */}
                     <div ref={stickerRef} style={{ width: '210mm', height: '297mm', padding: '10mm', background: 'white' }}>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: 'repeat(5, 1fr)', gap: '5mm', height: '100%' }}>
                             {Array.from({ length: 20 }).map((_, i) => (
@@ -604,14 +610,14 @@ const RoomAllocation = () => {
                                         <strong>Room:</strong> {selectedAdmission.room_number}<br />
                                         <strong>Dr:</strong> {selectedAdmission.consultant_doctor_name}<br />
                                         <strong>BG/Mob:</strong> {selectedAdmission.blood_group} | {selectedAdmission.mobile_number}<br />
-                                        <strong>DOA:</strong> {new Date(selectedAdmission.admission_date).toLocaleDateString()}
+                                        <strong>DOA:</strong> {safeDate(selectedAdmission.admission_date)}
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* 2. CONSENT FORM (A4) */}
+                    {/* 2. CONSENT FORM */}
                     <div ref={consentRef} style={{ width: '210mm', minHeight: '297mm', padding: '10mm', background: 'white', color: 'black', fontFamily: 'serif' }}>
                         <div style={{ textAlign: 'center', marginBottom: '30px', borderBottom: '2px solid #000', paddingBottom: '10px' }}>
                             <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginBottom: '8px' }} />
@@ -619,13 +625,13 @@ const RoomAllocation = () => {
                             <h4>Patient Admission Consent Form</h4>
                         </div>
                         <div style={{ textAlign: 'right', marginBottom: '20px' }}>
-                            <strong>Date:</strong> {new Date(selectedAdmission.admission_date).toLocaleDateString()}
+                            <strong>Date:</strong> {safeDate(selectedAdmission.admission_date)}
                         </div>
 
                         <h5 style={{ textDecoration: 'underline', marginBottom: '10px' }}>Patient Information</h5>
                         <p><strong>Patient Name:</strong> {selectedAdmission.patient_name}</p>
-                        <p><strong>UHID (Unique Health ID):</strong> {selectedAdmission.patient_id}</p>
-                        <p><strong>Admission Date:</strong> {new Date(selectedAdmission.admission_date).toLocaleString()}</p>
+                        <p><strong>UHID:</strong> {selectedAdmission.patient_id}</p>
+                        <p><strong>Admission Date:</strong> {safeDate(selectedAdmission.admission_date)}</p>
                         <p><strong>Patient ID Type:</strong> {selectedAdmission.document_type} <strong>No:</strong> {selectedAdmission.document_number}</p>
 
                         <h5 style={{ textDecoration: 'underline', marginTop: '20px', marginBottom: '10px' }}>Relative / Guardian Information</h5>
@@ -634,10 +640,10 @@ const RoomAllocation = () => {
 
                         <h5 style={{ textDecoration: 'underline', marginTop: '30px', marginBottom: '10px' }}>Terms of Consent</h5>
                         <p style={{ textAlign: 'justify', lineHeight: '1.6' }}>
-                            <strong>Authorization for Treatment:</strong> I hereby authorize the medical staff and consultants of the hospital to perform such diagnostic procedures, medical treatments, and surgical interventions as may be deemed necessary for the patient named above.<br /><br />
-                            <strong>Financial Responsibility:</strong> I agree to be responsible for all charges incurred during the stay, including room rent, professional fees, medicines, and consumables, as per the hospital's tariff.<br /><br />
-                            <strong>Emergency Procedures:</strong> In case of an emergency, the hospital authority has my full permission to take necessary life-saving measures.<br /><br />
-                            <strong>Privacy & Records:</strong> I consent to the hospital maintaining medical records and sharing necessary data with authorized insurance providers or government schemes (like PMJAY) for billing and treatment purposes.
+                            <strong>Authorization for Treatment:</strong> I hereby authorize the medical staff...<br /><br />
+                            <strong>Financial Responsibility:</strong> I agree to be responsible for all charges...<br /><br />
+                            <strong>Emergency Procedures:</strong> In case of an emergency, the hospital authority...<br /><br />
+                            <strong>Privacy & Records:</strong> I consent to the hospital maintaining medical records...
                         </p>
 
                         <div style={{ marginTop: '80px', display: 'flex', justifyContent: 'space-between' }}>
@@ -650,13 +656,13 @@ const RoomAllocation = () => {
                         </div>
                     </div>
 
-                    {/* 3. NABH DISCHARGE SUMMARY (A4 Multi-page capable) */}
+                    {/* 3. NABH DISCHARGE SUMMARY */}
                     {selectedAdmission.discharge_details && (
                         <div ref={dischargeSummaryRef} style={{ width: '210mm', padding: '15mm', background: 'white', color: 'black', fontFamily: 'serif', fontSize: '14px', lineHeight: '1.5' }}>
                             <div style={{ textAlign: 'center', borderBottom: '2px solid #000', paddingBottom: '10px', marginBottom: '20px' }}>
                                 <img src={logo} alt="Logo" style={{ width: '50px', height: '50px', marginBottom: '10px' }} />
                                 <h2 style={{ margin: '0' }}>ArogyaOne Hospital</h2>
-                                <h4>Discharge Summary</h4>
+                                <h4>Clinical Discharge Summary</h4>
                             </div>
 
                             <table style={{ width: '100%', marginBottom: '20px', border: '1px solid #ccc', borderCollapse: 'collapse' }}>
@@ -670,8 +676,8 @@ const RoomAllocation = () => {
                                         <td style={{ padding: '8px', border: '1px solid #ccc' }}><strong>IPD No:</strong> {selectedAdmission.id}</td>
                                     </tr>
                                     <tr>
-                                        <td style={{ padding: '8px', border: '1px solid #ccc' }}><strong>Date of Admission:</strong> {new Date(selectedAdmission.admission_date).toLocaleDateString()}</td>
-                                        <td style={{ padding: '8px', border: '1px solid #ccc' }}><strong>Date of Discharge:</strong> {selectedAdmission.discharge_details.discharge_date}</td>
+                                        <td style={{ padding: '8px', border: '1px solid #ccc' }}><strong>Date of Admission:</strong> {safeDate(selectedAdmission.admission_date)}</td>
+                                        <td style={{ padding: '8px', border: '1px solid #ccc' }}><strong>Date of Discharge:</strong> {safeDate(selectedAdmission.discharge_details.discharge_date)}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -687,7 +693,7 @@ const RoomAllocation = () => {
                             <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.treatment_provided} </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Discharge Condition</h5>
-                            <p>{selectedAdmission.discharge_details.discharge_condition} [cite: 40]</p>
+                            <p>{selectedAdmission.discharge_details.discharge_condition} </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Prescribed Medications at Discharge </h5>
                             <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '15px' }}>

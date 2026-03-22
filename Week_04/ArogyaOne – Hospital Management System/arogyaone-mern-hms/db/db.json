@@ -712,7 +712,7 @@
       "room_number": "GEN-102",
       "admission_date": "2026-03-17T12:40:18.420Z",
       "status": "DISCHARGED",
-      "billing_status": "PENDING_FINAL_BILL",
+      "billing_status": "CLOSED",
       "discharge_details": {
         "discharge_date": "2026-03-17",
         "discharge_time": "18:12",
@@ -751,7 +751,7 @@
       "room_number": "SEMI-GEN-101",
       "admission_date": "2026-03-17T17:59:20.854Z",
       "status": "DISCHARGED",
-      "billing_status": "PENDING_FINAL_BILL",
+      "billing_status": "CLOSED",
       "discharge_details": {
         "discharge_date": "2026-03-17",
         "discharge_time": "23:32",
@@ -790,7 +790,7 @@
       "room_number": "SEMI-DELUEX-101",
       "admission_date": "2026-03-17T21:17:47.725Z",
       "status": "DISCHARGED",
-      "billing_status": "PENDING_FINAL_BILL",
+      "billing_status": "CLOSED",
       "discharge_details": {
         "discharge_date": "2026-03-17",
         "discharge_time": "02:56",
@@ -824,7 +824,7 @@
       "room_number": "DLX-102",
       "admission_date": "2026-03-17T21:20:05.013Z",
       "status": "DISCHARGED",
-      "billing_status": "PENDING_FINAL_BILL",
+      "billing_status": "CLOSED",
       "discharge_details": {
         "discharge_date": "2026-03-17",
         "discharge_time": "02:56",
@@ -858,7 +858,7 @@
       "room_number": "ICU-101",
       "admission_date": "2026-03-18T15:14:22.989Z",
       "status": "DISCHARGED",
-      "billing_status": "PENDING_FINAL_BILL",
+      "billing_status": "CLOSED",
       "discharge_details": {
         "discharge_date": "2026-03-20",
         "discharge_time": "20:43",
@@ -883,19 +883,19 @@
       }
     },
     {
-      "id": "IPD-2026-1774071312881",
-      "patient_id": "P-2026-1773846587175",
-      "patient_name": "lalitaben",
-      "mobile_number": "9512588231",
-      "blood_group": "B-",
+      "id": "IPD-2026-1774183603483",
+      "patient_id": "P-2026-1773760747093",
+      "patient_name": "Jay Dawad",
+      "mobile_number": "1111111111",
+      "blood_group": "A+",
       "consultant_doctor_name": "Dr. Ishani S. Malhotra",
-      "room_id": "R-ICU-1767592235386",
+      "room_id": "R-DELUXE-1767593007375",
       "document_type": "Aadhar",
-      "document_number": "1234567891000000",
-      "relative_name": "h",
-      "relationship": "Father",
-      "room_number": "ICU-101",
-      "admission_date": "2026-03-21T05:35:12.881Z",
+      "document_number": "12304567890",
+      "relative_name": "Jaswant Bhai Dawada",
+      "relationship": "Other",
+      "room_number": "DLX-101",
+      "admission_date": "2026-03-22T12:46:43.483Z",
       "status": "ADMITTED",
       "billing_status": "OPEN",
       "discharge_details": null
@@ -957,8 +957,8 @@
         " CCTV",
         " AC"
       ],
-      "is_available": false,
-      "allocated_patient_id": "P-2026-1773846587175"
+      "is_available": true,
+      "allocated_patient_id": null
     },
     {
       "id": "R-SEMI_GENERAL-1767592480120",
@@ -1055,8 +1055,8 @@
         " Private Balcony",
         " Smart TV"
       ],
-      "is_available": true,
-      "allocated_patient_id": null
+      "is_available": false,
+      "allocated_patient_id": "P-2026-1773760747093"
     },
     {
       "id": "R-DELUXE-1767593021207",
@@ -2526,6 +2526,31 @@
       ],
       "lab_status": "active",
       "created_at": "2026-03-21T05:53:10.945Z"
+    },
+    {
+      "id": "RND-2026-1774183736393",
+      "ipd_admission_id": "IPD-2026-1774183603483",
+      "patient_id": "P-2026-1773760747093",
+      "patient_name": "Jay Dawad",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-22",
+      "round_time": "06:18 PM",
+      "vitals": {
+        "bp": "12",
+        "temp": "12",
+        "pulse": "12",
+        "spo2": "12"
+      },
+      "clinical_progress": "jay hind",
+      "nursing_instructions": "jay hind",
+      "LabTest_advised": [
+        "Erythrocyte Sedimentation Rate (ESR)",
+        "Routine Urine Examination",
+        "Blood Culture"
+      ],
+      "lab_status": "active",
+      "created_at": "2026-03-22T12:48:56.393Z"
     }
   ],
   "doctor_notes": [
@@ -2917,6 +2942,34 @@
       "completed_at": "2026-03-21T07:37:43.629Z",
       "is_printed": true,
       "is_billed": true
+    },
+    {
+      "id": "ORD-LAB-1774183757006",
+      "original_request_id": "RND-2026-1774183736393",
+      "patient_name": "Jay Dawad",
+      "patient_id": "P-2026-1773760747093",
+      "source": "IPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Erythrocyte Sedimentation Rate (ESR)",
+        "Routine Urine Examination",
+        "Blood Culture"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-22T12:49:17.006Z",
+      "results": {
+        "Erythrocyte Sedimentation Rate (ESR)": {
+          "ESR": "10"
+        },
+        "Routine Urine Examination": {
+          "pH": "4.8",
+          "Specific Gravity": "1.025"
+        },
+        "Blood Culture": {
+          "Growth Status": "High Growth"
+        }
+      },
+      "completed_at": "2026-03-22T12:49:46.870Z"
     }
   ],
   "operation_theaters": [
@@ -2980,6 +3033,244 @@
       "estimated_duration": "30 Mins",
       "status": "Scheduled",
       "created_at": "2026-03-21T13:03:18.922Z"
+    }
+  ],
+  "ipd_advances": [
+    {
+      "id": "ADV-1774180495176",
+      "ipd_admission_id": "IPD-2026-1774071312881",
+      "amount": 10000,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "date": "2026-03-22T11:54:55.176Z"
+    },
+    {
+      "id": "ADV-1774180520578",
+      "ipd_admission_id": "IPD-2026-1774071312881",
+      "amount": 200,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "date": "2026-03-22T11:55:20.578Z"
+    },
+    {
+      "id": "ADV-1774183649810",
+      "ipd_admission_id": "IPD-2026-1774183603483",
+      "amount": 15000,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "date": "2026-03-22T12:47:29.810Z"
+    }
+  ],
+  "ipd_bills": [
+    {
+      "id": "INV-IPD-1774182225802",
+      "ipd_admission_id": "IPD-2026-1774181234668",
+      "patient_name": "Rajubhai Malvi",
+      "patient_id": "P-2026-1773744385250",
+      "admitting_doctor": "Dr. Raghav N. Joshi",
+      "doctor_dept": "Neurology",
+      "room_number": "SEMI-DELUEX-102",
+      "admission_date": "2026-03-22T12:07:14.668Z",
+      "discharge_date": "2026-03-22T12:23:45.802Z",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 3500,
+          "total": 3500
+        },
+        "rounds": {
+          "count": 0,
+          "rate": 400,
+          "total": 0
+        },
+        "labTotal": 0,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 3500,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 3500,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T12:23:45.802Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774187209684",
+      "ipd_admission_id": "IPD-2026-1773846862989",
+      "patient_name": "lalitaben",
+      "patient_id": "P-2026-1773846587175",
+      "admitting_doctor": "Dr. Ishani S. Malhotra",
+      "doctor_dept": "Cardiology",
+      "room_number": "ICU-101",
+      "admission_date": "2026-03-18T15:14:22.989Z",
+      "discharge_date": "2026-03-20",
+      "itemized": {
+        "room": {
+          "days": 2,
+          "rate": 5000,
+          "total": 10000
+        },
+        "rounds": {
+          "count": 2,
+          "rate": 400,
+          "total": 800
+        },
+        "labTotal": 500,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 11300,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 11300,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T13:46:49.684Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774187233977",
+      "ipd_admission_id": "IPD-2026-1773782405013",
+      "patient_name": "Rajubhai Malvi",
+      "patient_id": "P-2026-1773744385250",
+      "admitting_doctor": "Dr. Ishani S. Malhotra",
+      "doctor_dept": "Cardiology",
+      "room_number": "DLX-102",
+      "admission_date": "2026-03-17T21:20:05.013Z",
+      "discharge_date": "2026-03-17",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 10000,
+          "total": 10000
+        },
+        "rounds": {
+          "count": 2,
+          "rate": 400,
+          "total": 800
+        },
+        "labTotal": 0,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 10800,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 10800,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T13:47:13.977Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774187243797",
+      "ipd_admission_id": "IPD-2026-1773782267725",
+      "patient_name": "Jay Dawad",
+      "patient_id": "P-2026-1773760747093",
+      "admitting_doctor": "Dr. Ishani S. Malhotra",
+      "doctor_dept": "Cardiology",
+      "room_number": "SEMI-DELUEX-101",
+      "admission_date": "2026-03-17T21:17:47.725Z",
+      "discharge_date": "2026-03-17",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 3500,
+          "total": 3500
+        },
+        "rounds": {
+          "count": 0,
+          "rate": 400,
+          "total": 0
+        },
+        "labTotal": 1470,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 4970,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 4970,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T13:47:23.797Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774187250283",
+      "ipd_admission_id": "IPD-2026-1773770360854",
+      "patient_name": "Meet Kacha",
+      "patient_id": "P-2026-1773769575515",
+      "admitting_doctor": "Dr. Kabir R. Patel",
+      "doctor_dept": "Orthopedics",
+      "room_number": "SEMI-GEN-101",
+      "admission_date": "2026-03-17T17:59:20.854Z",
+      "discharge_date": "2026-03-17",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 1800,
+          "total": 1800
+        },
+        "rounds": {
+          "count": 0,
+          "rate": 400,
+          "total": 0
+        },
+        "labTotal": 0,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 1800,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 1800,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T13:47:30.283Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774187271093",
+      "ipd_admission_id": "IPD-2026-1773751218420",
+      "patient_name": "Rajubhai Malvi",
+      "patient_id": "P-2026-1773744385250",
+      "admitting_doctor": "Dr. Aarav V. Mehta",
+      "doctor_dept": "Physician",
+      "room_number": "GEN-102",
+      "admission_date": "2026-03-17T12:40:18.420Z",
+      "discharge_date": "2026-03-17",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 1000,
+          "total": 1000
+        },
+        "rounds": {
+          "count": 0,
+          "rate": 400,
+          "total": 0
+        },
+        "labTotal": 0,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": []
+      },
+      "gross_total": 1000,
+      "discount": 0,
+      "advance_paid": 0,
+      "net_payable": 1000,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-22T13:47:51.093Z",
+      "status": "Billed"
     }
   ]
 }
