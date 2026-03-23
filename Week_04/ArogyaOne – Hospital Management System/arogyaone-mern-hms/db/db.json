@@ -99,11 +99,20 @@
       "linked_id": "D-2026-1769064195093"
     },
     {
-      "id": "drgh",
+      "id": "U-1774244592172",
+      "email": "jensi.makwana@arogyaone.com",
+      "password": "doctor123",
+      "role": "DOCTOR",
+      "name": "Dr. Jensi Makwana",
+      "linked_id": "D-2026-1774244592155"
+    },
+    {
+      "id": "U-1774244729568",
       "email": "namra.pithwa@arogyaone.com",
-      "password": "np123",
-      "role": "REGISTRATION",
-      "name": "Namra Pithwa"
+      "password": "np2333",
+      "role": "BILLING",
+      "name": "Namra Pithwa",
+      "linked_id": "STAFF-1774244729568"
     }
   ],
   "doctors": [
@@ -310,6 +319,33 @@
       "introduction": "Critical care specialist with extensive training in ACLS and BLS. Expert in handling acute trauma, cardiac emergencies, and respiratory distress. Focused on rapid stabilization and life-saving interventions in high-pressure environments.",
       "doctor_image": "https://drive.google.com/file/d/1YANVr6XgDYfLSlwkEi4YoV6t4s0W5OLI/view?usp=sharing",
       "is_available": true
+    },
+    {
+      "id": "D-2026-1774244592155",
+      "full_name": "Dr. Jensi Makwana",
+      "email": "jensi.makwana@arogyaone.com",
+      "department": "Neurology",
+      "qualification": "MD",
+      "experience_years": "15",
+      "languages_spoken": [
+        "Gujarati",
+        "English",
+        "Hindi"
+      ],
+      "available_days": [
+        "MON",
+        "WED",
+        "FRI"
+      ],
+      "opd_timings": {
+        "morning": "09:00 AM - 12:00 PM",
+        "evening": "05:00 PM - 07:00 PM"
+      },
+      "consultation_fee": "600",
+      "salary": "16000",
+      "introduction": "Jay Hind ",
+      "doctor_image": "media/doctors/D-2026-1774244592155.jpg",
+      "is_available": true
     }
   ],
   "patients": [
@@ -471,7 +507,7 @@
     },
     {
       "id": "P-2026-1773846587175",
-      "patient_full_name": "lalitaben",
+      "patient_full_name": "Lalitaben Pithwa",
       "age": 68,
       "gender": "Female",
       "mobile_number": "9512588231",

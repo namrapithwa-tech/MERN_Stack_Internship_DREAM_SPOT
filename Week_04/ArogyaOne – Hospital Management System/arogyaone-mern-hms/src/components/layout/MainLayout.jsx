@@ -50,32 +50,24 @@ const MainLayout = ({ children }) => {
 
         {/* MENU - NO CATEGORIES */}
         <div className="sidebar-menu">
-          {/* ADMIN LINKS */}
+
+          {/* --- ADMIN LINKS --- */}
           {(userRole === 'ADMIN') && (
             <>
-              <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
-                <i className="fa-solid fa-grid-2"></i> <span>Dashboard</span>
-              </Link>
-              <Link to="/registration/dashboard" className={`nav-link ${location.pathname === '/registration/dashboard' ? 'active' : ''}`}>
-                <i className="fa-solid fa-chart-pie"></i> <span>Overview</span>
+              <Link to="/admin" className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`}>
+                <i className="fa-solid fa-chess-king"></i> <span>Command Center</span>
               </Link>
 
-              <Link to="/registration/walkin" className={`nav-link ${location.pathname === '/registration/walkin' ? 'active' : ''}`}>
-                <i className="fa-solid fa-user-plus"></i> <span>Walk-In Entry</span>
+              <Link to="/admin/patients" className={`nav-link ${location.pathname.includes('/admin/patients') ? 'active' : ''}`}>
+                <i className="fa-solid fa-hospital-user"></i> <span>Patient Directory</span>
               </Link>
 
-              <Link to="/registration/appointments" className={`nav-link ${location.pathname.includes('/registration/appointments') ? 'active' : ''}`}>
-                <i className="fa-solid fa-calendar-check"></i> <span>Appointments</span>
+              <Link to="/admin/staff" className={`nav-link ${location.pathname.includes('/admin/staff') ? 'active' : ''}`}>
+                <i className="fa-solid fa-user-doctor"></i> <span>Staff Management</span>
               </Link>
 
-              <Link to="/registration/patients" className={`nav-link ${location.pathname.includes('/registration/patients') ? 'active' : ''}`}>
-                <i className="fa-solid fa-hospital-user"></i> <span>All Patients</span>
-              </Link>
-              <Link to="/lab" className="nav-link">
-                <i className="fa-solid fa-flask"></i> <span>Laboratory</span>
-              </Link>
-              <Link to="/department/radiology" className="nav-link">
-                <i className="fa-solid fa-x-ray"></i> <span>Radiology</span>
+              <Link to="/admin/facility" className={`nav-link ${location.pathname.includes('/admin/facility') ? 'active' : ''}`}>
+                <i className="fa-solid fa-building-circle-check"></i> <span>Facility Master</span>
               </Link>
             </>
           )}

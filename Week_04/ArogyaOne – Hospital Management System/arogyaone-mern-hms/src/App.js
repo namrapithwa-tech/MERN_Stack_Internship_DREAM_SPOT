@@ -14,12 +14,12 @@ import MainLayout from "./components/layout/MainLayout";
 
 // --- ADMIN PAGES ---
 import Home from "./pages/Home";
-import AdminDashboard from "./dashboards/admin/AdminDashboard";
-import DoctorList from "./dashboards/admin/doctors/DoctorList";
-import DoctorForm from "./dashboards/admin/doctors/DoctorForm";
-import DoctorView from "./dashboards/admin/doctors/DoctorView";
-import RoomCards from "./dashboards/admin/rooms/RoomCards";
-import RoomForm from "./dashboards/admin/rooms/RoomForm";
+import AdminDashboard from "./dashboards/admin/pages/AdminDashboard";
+import PatientDirectory from "./dashboards/admin/pages/PatientDirectory";
+import StaffManagement from "./dashboards/admin/pages/StaffManagement";
+import FacilityMaster from "./dashboards/admin/pages/FacilityMaster";
+
+
 
 // --- REGISTRATION DASHBOARD & PAGES ---
 import RegistrationDashboard from "./dashboards/registration/RegistrationDashboard";
@@ -78,44 +78,24 @@ function App() {
             </ProtectedRoute>
           } />
 
-          {/* ADMIN: DOCTOR MASTER */}
-          <Route path="/admin/doctors" element={
+          <Route path="/admin/patients" element={
             <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><DoctorList /></MainLayout>
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/doctors/add" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><DoctorForm /></MainLayout>
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/doctors/edit/:id" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><DoctorForm /></MainLayout>
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/doctors/view/:id" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><DoctorView /></MainLayout>
+              <MainLayout><PatientDirectory /></MainLayout>
             </ProtectedRoute>
           } />
 
-          {/* ADMIN: ROOM MASTER */}
-          <Route path="/admin/rooms" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><RoomCards /></MainLayout>
+          <Route path="/admin/staff" element={
+            <ProtectedRoute allowedRoles={['ADMIN']}>
+              <MainLayout><StaffManagement /></MainLayout>
             </ProtectedRoute>
           } />
-          <Route path="/admin/rooms/add" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><RoomForm /></MainLayout>
+
+          <Route path="/admin/facility" element={
+            <ProtectedRoute allowedRoles={['ADMIN']}>
+              <MainLayout><FacilityMaster /></MainLayout>
             </ProtectedRoute>
           } />
-          <Route path="/admin/rooms/edit/:id" element={
-            <ProtectedRoute allowedRoles={["ADMIN"]}>
-              <MainLayout><RoomForm /></MainLayout>
-            </ProtectedRoute>
-          } />
+
 
           {/* =======================
               REGISTRATION DESK (CLEAN SLATE)
@@ -206,7 +186,7 @@ function App() {
               <MainLayout><IPDBilling /></MainLayout>
             </ProtectedRoute>
           } />
-          
+
 
 
 

@@ -1,5 +1,3 @@
-// src/dashboards/registration/pages/RoomAllocation.jsx
-
 import React, { useState, useEffect, useRef } from 'react';
 import api from '../../../api/axios';
 import '../../../assets/css/registration.css';
@@ -16,15 +14,20 @@ const RoomAllocation = () => {
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({ admitted: 0, dischargedToday: 0, availableRooms: 0 });
 
-    // --- FORM STATES ---
+    // --- FORM STATES (NEW ADMISSION) ---
     const initialAdmState = {
         patient_id: '', patient_name: '', mobile_number: '', blood_group: '',
         consultant_doctor_name: '', room_id: '', document_type: 'Aadhar', document_number: '',
         relative_name: '', relationship: 'Father'
     };
     const [admForm, setAdmForm] = useState(initialAdmState);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState(''); // Used ONLY for finding new patients to admit
     const [patientFound, setPatientFound] = useState(null);
+
+    // --- TABLE FILTER STATES ---
+    const [tableSearch, setTableSearch] = useState('');
+    const [filterStatus, setFilterStatus] = useState('');
+    const [filterDate, setFilterDate] = useState('');
 
     // --- MODAL & ACTION STATES ---
     const [selectedAdmission, setSelectedAdmission] = useState(null);
@@ -97,7 +100,7 @@ const RoomAllocation = () => {
             setPatientFound(p);
             setAdmForm({ ...admForm, patient_id: p.id, patient_name: p.patient_full_name, mobile_number: p.mobile_number, blood_group: p.blood_group || 'Unknown' });
         } else {
-            alert("Patient not found!");
+            alert("Patient not found in Master Database!");
             setPatientFound(null);
         }
     };
@@ -229,304 +232,364 @@ const RoomAllocation = () => {
         }, 500);
     };
 
-    // Helper for safe dates
     const safeDate = (dateString) => {
         if (!dateString) return 'N/A';
         const d = new Date(dateString);
-        return isNaN(d.getTime()) ? 'Invalid Date' : d.toLocaleDateString();
+        return isNaN(d.getTime()) ? 'Invalid Date' : d.toLocaleDateString('en-GB');
     };
 
-    if (loading) return <div className="text-center p-5"><div className="spinner-border text-primary"></div></div>;
+    // --- FILTER ADMISSIONS TABLE ---
+    const filteredAdmissions = admissions.filter(adm => {
+        const matchesSearch = (adm.patient_name || '').toLowerCase().includes(tableSearch.toLowerCase()) || 
+                              (adm.patient_id || '').toLowerCase().includes(tableSearch.toLowerCase()) || 
+                              (adm.id || '').toLowerCase().includes(tableSearch.toLowerCase());
+        const matchesStatus = filterStatus ? adm.status === filterStatus : true;
+        const matchesDate = filterDate ? (adm.admission_date || '').startsWith(filterDate) : true;
+        return matchesSearch && matchesStatus && matchesDate;
+    });
+
+    if (loading) return <div className="text-center p-5 mt-5"><div className="spinner-border text-primary" style={{width:'3rem', height:'3rem'}}></div></div>;
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid py-4">
 
-            {/* --- STATS --- */}
-            <div className="row g-3 mb-4">
+            {/* --- HEADER --- */}
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 className="mb-0 fw-bold text-dark">
+                        <i className="fa-solid fa-bed-pulse text-primary me-2"></i> IPD Admissions & Room Allocation
+                    </h2>
+                    <p className="text-muted mb-0 mt-1">Manage patient admissions, assign beds, and generate clinical discharges.</p>
+                </div>
+                <button className="btn btn-outline-secondary fw-bold rounded-pill px-4 shadow-sm" onClick={fetchData}>
+                    <i className="fa-solid fa-arrows-rotate me-2"></i> Refresh Live Data
+                </button>
+            </div>
+
+            {/* --- STATS CARDS (NEW UI) --- */}
+            <div className="row g-4 mb-4">
                 <div className="col-md-4">
-                    <div className="card-common d-flex align-items-center bg-white p-3 border-start border-primary border-4">
-                        <div className="bg-primary bg-opacity-10 p-3 rounded-circle me-3"><i className="fa-solid fa-bed text-primary fs-4"></i></div>
-                        <div><h6 className="text-muted mb-0">Admitted Patients</h6><h3 className="fw-bold mb-0">{stats.admitted}</h3></div>
+                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%)' }}>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Currently Admitted</h6>
+                                <h2 className="fw-bold mb-0">{stats.admitted} <span className="fs-6 fw-normal opacity-75">Patients</span></h2>
+                            </div>
+                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3"><i className="fa-solid fa-bed"></i></div>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="card-common d-flex align-items-center bg-white p-3 border-start border-success border-4">
-                        <div className="bg-success bg-opacity-10 p-3 rounded-circle me-3"><i className="fa-solid fa-door-open text-success fs-4"></i></div>
-                        <div><h6 className="text-muted mb-0">Available Rooms</h6><h3 className="fw-bold mb-0">{stats.availableRooms}</h3></div>
+                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #198754 0%, #146c43 100%)' }}>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Available Rooms</h6>
+                                <h2 className="fw-bold mb-0">{stats.availableRooms} <span className="fs-6 fw-normal opacity-75">Beds Free</span></h2>
+                            </div>
+                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3"><i className="fa-solid fa-door-open"></i></div>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="card-common d-flex align-items-center bg-white p-3 border-start border-warning border-4">
-                        <div className="bg-warning bg-opacity-10 p-3 rounded-circle me-3"><i className="fa-solid fa-person-walking-arrow-right text-warning fs-4"></i></div>
-                        <div><h6 className="text-muted mb-0">Discharged Today</h6><h3 className="fw-bold mb-0">{stats.dischargedToday}</h3></div>
+                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #ffc107 0%, #d39e00 100%)' }}>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Discharged Today</h6>
+                                <h2 className="fw-bold mb-0">{stats.dischargedToday} <span className="fs-6 fw-normal opacity-75">Patients</span></h2>
+                            </div>
+                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3 text-dark"><i className="fa-solid fa-person-walking-arrow-right"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* --- NEW ADMISSION FORM (TWO COLUMN) --- */}
-            <div className="reg-container mb-4">
-                <div className="section-title"><i className="fa-solid fa-hospital-user me-2"></i>New IPD Admission</div>
+            {/* --- NEW ADMISSION FORM SECTION --- */}
+            <div className="card-common bg-white rounded-4 shadow-sm border-0 mb-5 overflow-hidden">
+                <div className="bg-light p-3 border-bottom d-flex align-items-center">
+                    <div className="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-3" style={{width:'35px', height:'35px'}}>
+                        <i className="fa-solid fa-plus"></i>
+                    </div>
+                    <h5 className="fw-bold m-0 text-dark">Register New IPD Admission</h5>
+                </div>
+                
+                <div className="p-4">
+                    {/* Search Row for Admission */}
+                    <div className="row g-3 mb-4 align-items-end border-bottom pb-4">
+                        <div className="col-md-6">
+                            <label className="form-label fw-bold text-muted small">Search Master Patient DB (UHID / Mobile) <span className="text-danger">*</span></label>
+                            <div className="input-group">
+                                <input type="text" className="form-control rounded-start-3" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Enter ID or Phone..." />
+                                <button className="btn btn-primary fw-bold px-4 rounded-end-3" type="button" onClick={handlePatientSearch}>Verify Patient</button>
+                            </div>
+                        </div>
+                        {patientFound && (
+                            <div className="col-md-6">
+                                <div className="alert alert-success m-0 py-2 d-flex align-items-center border-0 rounded-3">
+                                    <i className="fa-solid fa-check-circle fs-4 me-3"></i>
+                                    <div>
+                                        <div className="fw-bold text-dark">Patient Verified: {patientFound.patient_full_name}</div>
+                                        <div className="small opacity-75">{patientFound.age} Yrs | {patientFound.gender} | UHID: {patientFound.id}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
 
-                {/* Search Row */}
-                <div className="row g-3 mb-4 align-items-end border-bottom pb-4">
-                    <div className="col-md-6">
-                        <label className="reg-label">Search Patient (UHID / Mobile)</label>
+                    {/* Admission Form */}
+                    <form onSubmit={handleAdmSubmit}>
+                        <div className="row g-4">
+                            <div className="col-md-6">
+                                <div className="mb-3">
+                                    <label className="form-label fw-bold text-muted small">Consultant Doctor <span className="text-danger">*</span></label>
+                                    <select className="form-select rounded-3" value={admForm.consultant_doctor_name} required onChange={(e) => setAdmForm({ ...admForm, consultant_doctor_name: e.target.value })}>
+                                        <option value="">-- Select Doctor --</option>
+                                        {doctors.map(d => <option key={d.id} value={d.full_name}>{d.full_name} ({d.department})</option>)}
+                                    </select>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label fw-bold text-muted small">Room / Bed Allocation <span className="text-danger">*</span></label>
+                                    <select className="form-select rounded-3" value={admForm.room_id} required onChange={(e) => setAdmForm({ ...admForm, room_id: e.target.value })}>
+                                        <option value="">-- Select Available Room --</option>
+                                        {rooms.filter(r => r.is_available).map(r => (
+                                            <option key={r.id} value={r.id}>{r.room_number} ({r.room_category}) - ₹{r.room_rent_per_day}/day</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="row mb-3 g-2">
+                                    <div className="col-4">
+                                        <label className="form-label fw-bold text-muted small">ID Type <span className="text-danger">*</span></label>
+                                        <select className="form-select rounded-3" value={admForm.document_type} onChange={(e) => setAdmForm({ ...admForm, document_type: e.target.value })}>
+                                            <option value="Aadhar">Aadhar</option><option value="PAN">PAN</option><option value="PMJAY">PMJAY</option>
+                                        </select>
+                                    </div>
+                                    <div className="col-8">
+                                        <label className="form-label fw-bold text-muted small">ID Number <span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control rounded-3" value={admForm.document_number} required onChange={(e) => setAdmForm({ ...admForm, document_number: e.target.value })} />
+                                    </div>
+                                </div>
+                                <div className="row mb-3 g-2">
+                                    <div className="col-8">
+                                        <label className="form-label fw-bold text-muted small">Relative / Guardian Name <span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control rounded-3" value={admForm.relative_name} required onChange={(e) => setAdmForm({ ...admForm, relative_name: e.target.value })} />
+                                    </div>
+                                    <div className="col-4">
+                                        <label className="form-label fw-bold text-muted small">Relationship <span className="text-danger">*</span></label>
+                                        <select className="form-select rounded-3" value={admForm.relationship} onChange={(e) => setAdmForm({ ...admForm, relationship: e.target.value })}>
+                                            <option value="Father">Father</option><option value="Mother">Mother</option>
+                                            <option value="Spouse">Spouse</option><option value="Child">Child</option><option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 border-top pt-3 text-end">
+                                <button type="submit" className="btn btn-primary fw-bold px-5 rounded-pill shadow-sm" disabled={!patientFound}>
+                                    <i className="fa-solid fa-bed-pulse me-2"></i> Confirm Admission & Print Docs
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {/* --- MASTER IPD TABLE WITH FILTERS --- */}
+            <h5 className="fw-bold text-dark mb-3"><i className="fa-solid fa-list-check text-primary me-2"></i> Master IPD Admissions List</h5>
+            
+            {/* Table Filter Bar */}
+            <div className="card-common bg-white rounded-4 shadow-sm border-0 p-3 mb-4">
+                <div className="row g-3">
+                    <div className="col-md-5">
                         <div className="input-group">
-                            <input type="text" className="form-control" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Enter ID or Phone..." />
-                            <button className="btn btn-primary" type="button" onClick={handlePatientSearch}>Search</button>
+                            <span className="input-group-text bg-light border-end-0 rounded-start-pill"><i className="fa-solid fa-magnifying-glass text-muted"></i></span>
+                            <input type="text" className="form-control border-start-0 bg-light rounded-end-pill" placeholder="Filter List by Name, UHID, or IPD ID..." value={tableSearch} onChange={(e) => setTableSearch(e.target.value)} />
                         </div>
                     </div>
-                    {patientFound && (
-                        <div className="col-md-6">
-                            <div className="alert alert-success m-0 py-2">
-                                <i className="fa-solid fa-check-circle me-2"></i>
-                                Patient Found: <strong>{patientFound.patient_full_name}</strong> ({patientFound.age}Y / {patientFound.gender})
-                            </div>
-                        </div>
-                    )}
+                    <div className="col-md-3">
+                        <input type="date" className="form-control rounded-pill bg-light text-muted fw-bold" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
+                    </div>
+                    <div className="col-md-2">
+                        <select className="form-select rounded-pill bg-light fw-bold text-muted" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+                            <option value="">All Statuses</option>
+                            <option value="ADMITTED">Admitted</option>
+                            <option value="DISCHARGED">Discharged</option>
+                        </select>
+                    </div>
+                    <div className="col-md-2 text-end">
+                        <button className="btn btn-outline-secondary rounded-pill w-100 fw-bold" onClick={() => { setTableSearch(''); setFilterDate(''); setFilterStatus(''); }}>Clear Filters</button>
+                    </div>
                 </div>
-
-                {/* Admission Form */}
-                <form onSubmit={handleAdmSubmit}>
-                    <div className="row g-4">
-                        {/* Column 1 */}
-                        <div className="col-md-6">
-                            <div className="mb-3">
-                                <label className="reg-label">Consultant Doctor <span className="text-danger">*</span></label>
-                                <select className="reg-select" value={admForm.consultant_doctor_name} required onChange={(e) => setAdmForm({ ...admForm, consultant_doctor_name: e.target.value })}>
-                                    <option value="">-- Select --</option>
-                                    {doctors.map(d => <option key={d.id} value={d.full_name}>{d.full_name} ({d.department})</option>)}
-                                </select>
-                            </div>
-                            <div className="mb-3">
-                                <label className="reg-label">Room / Bed Allocation <span className="text-danger">*</span></label>
-                                <select className="reg-select" value={admForm.room_id} required onChange={(e) => setAdmForm({ ...admForm, room_id: e.target.value })}>
-                                    <option value="">-- Select Available Room --</option>
-                                    {rooms.filter(r => r.is_available).map(r => (
-                                        <option key={r.id} value={r.id}>{r.room_number} ({r.room_category}) - ₹{r.room_rent_per_day}/day</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-                        {/* Column 2 */}
-                        <div className="col-md-6">
-                            <div className="row mb-3">
-                                <div className="col-4">
-                                    <label className="reg-label">ID Type <span className="text-danger">*</span></label>
-                                    <select className="reg-select" value={admForm.document_type} onChange={(e) => setAdmForm({ ...admForm, document_type: e.target.value })}>
-                                        <option value="Aadhar">Aadhar</option><option value="PAN">PAN</option><option value="PMJAY">PMJAY</option>
-                                    </select>
-                                </div>
-                                <div className="col-8">
-                                    <label className="reg-label">ID Number <span className="text-danger">*</span></label>
-                                    <input type="text" className="reg-input" value={admForm.document_number} required onChange={(e) => setAdmForm({ ...admForm, document_number: e.target.value })} />
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col-8">
-                                    <label className="reg-label">Relative / Guardian Name <span className="text-danger">*</span></label>
-                                    <input type="text" className="reg-input" value={admForm.relative_name} required onChange={(e) => setAdmForm({ ...admForm, relative_name: e.target.value })} />
-                                </div>
-                                <div className="col-4">
-                                    <label className="reg-label">Relationship <span className="text-danger">*</span></label>
-                                    <select className="reg-select" value={admForm.relationship} onChange={(e) => setAdmForm({ ...admForm, relationship: e.target.value })}>
-                                        <option value="Father">Father</option><option value="Mother">Mother</option>
-                                        <option value="Spouse">Spouse</option><option value="Child">Child</option><option value="Other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 text-end mt-3">
-                            <button type="submit" className="btn btn-primary fw-bold px-4" disabled={!patientFound}>
-                                <i className="fa-solid fa-bed-pulse me-2"></i> Admit Patient
-                            </button>
-                        </div>
-                    </div>
-                </form>
             </div>
 
-            {/* --- IPD MASTER TABLE --- */}
-            <div className="card-common bg-white p-0 overflow-hidden">
-                <div className="bg-light p-3 border-bottom fw-bold"><i className="fa-solid fa-list me-2"></i>Master IPD Admissions List</div>
-                <table className="table table-hover align-middle mb-0">
-                    <thead className="bg-light">
-                        <tr>
-                            <th className="ps-4">IPD ID / UHID</th>
-                            <th>Patient Details</th>
-                            <th>Room / Consultant</th>
-                            <th>Status</th>
-                            <th>Dates</th>
-                            <th className="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {admissions.map(adm => (
-                            <tr key={adm.id}>
-                                <td className="ps-4">
-                                    <div className="fw-bold text-primary">{adm.id}</div>
-                                    <div className="small text-muted">{adm.patient_id}</div>
-                                </td>
-                                <td>
-                                    <div className="fw-bold">{adm.patient_name}</div>
-                                    <div className="small text-muted"><i className="fa-solid fa-phone me-1"></i>{adm.mobile_number}</div>
-                                </td>
-                                <td>
-                                    <div className="fw-bold text-dark"><i className="fa-solid fa-bed me-1 text-muted"></i>{adm.room_number}</div>
-                                    <div className="small text-muted">{adm.consultant_doctor_name}</div>
-                                </td>
-                                <td>
-                                    <span className={`badge ${adm.status === 'ADMITTED' ? 'bg-success' : 'bg-secondary'}`}>{adm.status}</span>
-                                    {adm.billing_status === 'PENDING_FINAL_BILL' && <div className="small text-warning fw-bold mt-1">Pending Bill</div>}
-                                    {adm.billing_status === 'CLOSED' && <div className="small text-success fw-bold mt-1">Bill Cleared</div>}
-                                </td>
-                                <td>
-                                    <div className="small"><strong>Adm:</strong> {safeDate(adm.admission_date)}</div>
-                                    {/* FIX: Check discharge_details safely */}
-                                    {adm.status === 'DISCHARGED' && (
-                                        <div className="small text-danger">
-                                            <strong>Dis:</strong> {adm.discharge_details?.discharge_date ? safeDate(adm.discharge_details.discharge_date) : safeDate(adm.discharge_date)}
-                                        </div>
-                                    )}
-                                </td>
-                                <td className="text-center">
-                                    {/* Print Admission Docs (Always visible) */}
-                                    <button
-                                        className="btn btn-sm btn-outline-primary me-2 mb-1"
-                                        onClick={() => { setSelectedAdmission(adm); setPrintType('ADMISSION'); setShowPrintModal(true); }}
-                                        title="Print Admission Docs"
-                                    >
-                                        <i className="fa-solid fa-print"></i>
-                                    </button>
-
-                                    {adm.status === 'ADMITTED' && (
-                                        <>
-                                            {/* Discharge Button */}
-                                            <button
-                                                className="btn btn-sm btn-outline-success me-2 mb-1"
-                                                onClick={() => { setSelectedAdmission(adm); setShowDischargeModal(true); }}
-                                                title="Discharge Patient"
-                                            >
-                                                <i className="fa-solid fa-person-walking-arrow-right"></i>
-                                            </button>
-
-                                            {/* Edit Button */}
-                                            <button
-                                                className="btn btn-sm btn-outline-info me-2 mb-1"
-                                                onClick={() => { setSelectedAdmission(adm); setEditForm(adm); setShowEditModal(true); }}
-                                                title="Edit Details"
-                                            >
-                                                <i className="fa-solid fa-pen"></i>
-                                            </button>
-
-                                            {/* Delete Button */}
-                                            <button
-                                                className="btn btn-sm btn-outline-danger mb-1"
-                                                onClick={() => handleDelete(adm)}
-                                                title="Delete Record"
-                                            >
-                                                <i className="fa-solid fa-trash"></i>
-                                            </button>
-                                        </>
-                                    )}
-
-                                    {adm.status === 'DISCHARGED' && adm.discharge_details && (
-                                        /* Print Discharge Summary */
-                                        <button
-                                            className="btn btn-sm btn-outline-dark me-2 mb-1"
-                                            onClick={() => { setSelectedAdmission(adm); setPrintType('DISCHARGE'); setShowPrintModal(true); }}
-                                            title="Print Discharge Summary"
-                                        >
-                                            <i className="fa-solid fa-file-medical"></i>
-                                        </button>
-                                    )}
-                                </td>
+            {/* Data Table */}
+            <div className="card-common bg-white p-0 overflow-hidden rounded-4 shadow-sm border-0">
+                <div className="table-responsive">
+                    <table className="table table-hover align-middle mb-0">
+                        <thead className="table-light text-muted small text-uppercase">
+                            <tr>
+                                <th className="ps-4">IPD ID / UHID</th>
+                                <th>Patient Details</th>
+                                <th>Room / Consultant</th>
+                                <th>Status</th>
+                                <th>Dates</th>
+                                <th className="text-center pe-4">Actions</th>
                             </tr>
-                        ))}
-                        {admissions.length === 0 && <tr><td colSpan="6" className="text-center p-5 text-muted">No records found.</td></tr>}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {filteredAdmissions.map(adm => (
+                                <tr key={adm.id}>
+                                    <td className="ps-4">
+                                        <div className="fw-bold text-primary">{adm.id}</div>
+                                        <div className="small text-muted">{adm.patient_id}</div>
+                                    </td>
+                                    <td>
+                                        <div className="fw-bold text-dark">{adm.patient_name}</div>
+                                        <div className="small text-muted"><i className="fa-solid fa-phone me-1"></i>{adm.mobile_number}</div>
+                                    </td>
+                                    <td>
+                                        <div className="fw-bold text-dark"><i className="fa-solid fa-bed me-1 text-muted"></i>{adm.room_number}</div>
+                                        <div className="small text-muted">{adm.consultant_doctor_name}</div>
+                                    </td>
+                                    <td>
+                                        <span className={`badge rounded-pill ${adm.status === 'ADMITTED' ? 'bg-primary' : 'bg-secondary'}`}>{adm.status}</span>
+                                        {adm.billing_status === 'PENDING_FINAL_BILL' && <div className="small text-warning fw-bold mt-1"><i className="fa-solid fa-clock me-1"></i> Pending Bill</div>}
+                                        {adm.billing_status === 'CLOSED' && <div className="small text-success fw-bold mt-1"><i className="fa-solid fa-check-double me-1"></i> Bill Cleared</div>}
+                                    </td>
+                                    <td>
+                                        <div className="small text-muted fw-bold">Adm: {safeDate(adm.admission_date)}</div>
+                                        {adm.status === 'DISCHARGED' && (
+                                            <div className="small text-danger fw-bold">Dis: {adm.discharge_details?.discharge_date ? safeDate(adm.discharge_details.discharge_date) : safeDate(adm.discharge_date)}</div>
+                                        )}
+                                    </td>
+                                    <td className="text-center pe-4">
+                                        <div className="d-flex justify-content-center gap-2">
+                                            {/* Print Admission Docs (Always visible) */}
+                                            <button className="btn btn-sm btn-outline-primary rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => { setSelectedAdmission(adm); setPrintType('ADMISSION'); setShowPrintModal(true); }} title="Print Admission Docs">
+                                                <i className="fa-solid fa-print"></i>
+                                            </button>
+
+                                            {adm.status === 'ADMITTED' && (
+                                                <>
+                                                    <button className="btn btn-sm btn-outline-success rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => { setSelectedAdmission(adm); setShowDischargeModal(true); }} title="Clinical Discharge">
+                                                        <i className="fa-solid fa-person-walking-arrow-right"></i>
+                                                    </button>
+                                                    <button className="btn btn-sm btn-outline-info rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => { setSelectedAdmission(adm); setEditForm(adm); setShowEditModal(true); }} title="Edit Record">
+                                                        <i className="fa-solid fa-pen"></i>
+                                                    </button>
+                                                    <button className="btn btn-sm btn-outline-danger rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => handleDelete(adm)} title="Delete Record">
+                                                        <i className="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </>
+                                            )}
+
+                                            {adm.status === 'DISCHARGED' && adm.discharge_details && (
+                                                <button className="btn btn-sm btn-outline-dark rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => { setSelectedAdmission(adm); setPrintType('DISCHARGE'); setShowPrintModal(true); }} title="Reprint Discharge Summary">
+                                                    <i className="fa-solid fa-file-medical"></i>
+                                                </button>
+                                            )}
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                            {filteredAdmissions.length === 0 && <tr><td colSpan="6" className="text-center p-5 text-muted fst-italic">No admissions match the current filters.</td></tr>}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             {/* =========================================
                 MODAL: NABH DISCHARGE FORM
             ========================================= */}
             {showDischargeModal && selectedAdmission && (
-                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                    <div className="modal-dialog modal-xl modal-dialog-scrollable">
-                        <div className="modal-content">
-                            <div className="modal-header bg-light">
-                                <h5 className="modal-title fw-bold text-success"><i className="fa-solid fa-file-medical me-2"></i>Clinical Discharge Summary (Sent to Billing)</h5>
-                                <button className="btn-close" onClick={() => setShowDischargeModal(false)}></button>
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
+                    <div className="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+                        <div className="modal-content rounded-4 border-0 shadow">
+                            <div className="modal-header bg-success text-white border-bottom-0 p-4">
+                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-file-medical me-2"></i>Clinical Discharge Summary (Sent to Billing)</h5>
+                                <button className="btn-close btn-close-white" onClick={() => setShowDischargeModal(false)}></button>
                             </div>
                             <form onSubmit={handleDischargeSubmit}>
-                                <div className="modal-body p-4 overflow-auto" style={{ maxHeight: '70vh' }}>
-                                    <div className="row g-3 border-bottom pb-3 mb-3 bg-light rounded p-2">
-                                        <div className="col-md-4"><strong>Patient:</strong> {selectedAdmission.patient_name} ({selectedAdmission.patient_id})</div>
-                                        <div className="col-md-4"><strong>Room:</strong> {selectedAdmission.room_number}</div>
-                                        <div className="col-md-4"><strong>Admitted:</strong> {new Date(selectedAdmission.admission_date).toLocaleString()}</div>
+                                <div className="modal-body p-4 bg-light overflow-auto" style={{ maxHeight: '70vh' }}>
+                                    
+                                    {/* Patient Context Banner */}
+                                    <div className="bg-white p-3 rounded-4 shadow-sm border mb-4 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h5 className="fw-bold text-primary mb-1">{selectedAdmission.patient_name}</h5>
+                                            <small className="text-muted">UHID: {selectedAdmission.patient_id} | Room: {selectedAdmission.room_number}</small>
+                                        </div>
+                                        <div className="text-end">
+                                            <span className="badge bg-secondary mb-1">Adm: {safeDate(selectedAdmission.admission_date)}</span>
+                                            <br />
+                                            <small className="text-dark fw-bold">Dr. {selectedAdmission.consultant_doctor_name}</small>
+                                        </div>
                                     </div>
 
-                                    <div className="row g-3 mb-3">
+                                    <div className="row g-3 mb-4 bg-white p-3 rounded-4 shadow-sm border mx-0">
                                         <div className="col-md-3">
-                                            <label className="form-label fw-bold">Discharge Date</label>
-                                            <input type="date" className="form-control" value={dischargeForm.discharge_date} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_date: e.target.value })} />
+                                            <label className="form-label fw-bold small text-muted">Discharge Date</label>
+                                            <input type="date" className="form-control rounded-3" value={dischargeForm.discharge_date} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_date: e.target.value })} />
                                         </div>
                                         <div className="col-md-3">
-                                            <label className="form-label fw-bold">Discharge Time</label>
-                                            <input type="time" className="form-control" value={dischargeForm.discharge_time} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_time: e.target.value })} />
+                                            <label className="form-label fw-bold small text-muted">Discharge Time</label>
+                                            <input type="time" className="form-control rounded-3" value={dischargeForm.discharge_time} required onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_time: e.target.value })} />
                                         </div>
                                         <div className="col-md-3">
-                                            <label className="form-label fw-bold">Mode of Admission</label>
-                                            <select className="form-select" value={dischargeForm.mode_of_admission} onChange={(e) => setDischargeForm({ ...dischargeForm, mode_of_admission: e.target.value })}>
+                                            <label className="form-label fw-bold small text-muted">Mode of Admission</label>
+                                            <select className="form-select rounded-3" value={dischargeForm.mode_of_admission} onChange={(e) => setDischargeForm({ ...dischargeForm, mode_of_admission: e.target.value })}>
                                                 <option>Planned</option><option>Emergency</option><option>Transfer</option>
                                             </select>
                                         </div>
                                         <div className="col-md-3">
-                                            <label className="form-label fw-bold">Discharge Condition</label>
-                                            <select className="form-select" value={dischargeForm.discharge_condition} onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_condition: e.target.value })}>
-                                                <option>Stable</option><option>Referred</option><option>LAMA</option><option>Deceased</option>
+                                            <label className="form-label fw-bold small text-muted">Discharge Condition</label>
+                                            <select className="form-select rounded-3 border-danger fw-bold" value={dischargeForm.discharge_condition} onChange={(e) => setDischargeForm({ ...dischargeForm, discharge_condition: e.target.value })}>
+                                                <option>Stable</option>
+                                                <option>Referred</option>
+                                                <option>LAMA</option>
+                                                {/* FIX: ADDED DEATH OPTION HERE */}
+                                                <option value="Death" className="text-danger fw-bold">Death</option> 
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">Reason for Admission / Chief Complaint</label>
-                                        <input type="text" className="form-control" value={dischargeForm.reason_for_admission} required onChange={(e) => setDischargeForm({ ...dischargeForm, reason_for_admission: e.target.value })} />
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">Clinical Summary & Final Diagnosis</label>
-                                        <textarea className="form-control" rows="3" value={dischargeForm.clinical_summary} required onChange={(e) => setDischargeForm({ ...dischargeForm, clinical_summary: e.target.value })} placeholder="Include diagnosis and major events..."></textarea>
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">Treatment Provided</label>
-                                        <textarea className="form-control" rows="3" value={dischargeForm.treatment_provided} required onChange={(e) => setDischargeForm({ ...dischargeForm, treatment_provided: e.target.value })} placeholder="Surgeries, major procedures, diet..."></textarea>
+                                    <div className="bg-white p-4 rounded-4 shadow-sm border mb-4">
+                                        <div className="mb-3">
+                                            <label className="form-label fw-bold text-dark">Reason for Admission / Chief Complaint</label>
+                                            <input type="text" className="form-control rounded-3" value={dischargeForm.reason_for_admission} required onChange={(e) => setDischargeForm({ ...dischargeForm, reason_for_admission: e.target.value })} />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label fw-bold text-dark">Clinical Summary & Final Diagnosis</label>
+                                            <textarea className="form-control rounded-3" rows="3" value={dischargeForm.clinical_summary} required onChange={(e) => setDischargeForm({ ...dischargeForm, clinical_summary: e.target.value })} placeholder="Include diagnosis and major events..."></textarea>
+                                        </div>
+                                        <div className="mb-0">
+                                            <label className="form-label fw-bold text-dark">Treatment Provided</label>
+                                            <textarea className="form-control rounded-3" rows="2" value={dischargeForm.treatment_provided} required onChange={(e) => setDischargeForm({ ...dischargeForm, treatment_provided: e.target.value })} placeholder="Surgeries, major procedures, diet..."></textarea>
+                                        </div>
                                     </div>
 
                                     {/* Prescriptions Section */}
-                                    <div className="mb-3 border p-3 rounded">
-                                        <div className="d-flex justify-content-between mb-2">
-                                            <label className="form-label fw-bold mb-0">Discharge Medications</label>
-                                            <button type="button" className="btn btn-sm btn-outline-primary" onClick={handleAddPrescriptionRow}>+ Add Med</button>
+                                    <div className="bg-white p-4 rounded-4 shadow-sm border mb-4">
+                                        <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                                            <label className="form-label fw-bold text-dark m-0"><i className="fa-solid fa-pills text-primary me-2"></i> Discharge Medications</label>
+                                            <button type="button" className="btn btn-sm btn-outline-primary rounded-pill fw-bold" onClick={handleAddPrescriptionRow}>+ Add Med</button>
                                         </div>
                                         {dischargeForm.prescriptions.map((med, idx) => (
                                             <div className="row g-2 mb-2" key={idx}>
-                                                <div className="col-5"><input type="text" className="form-control form-control-sm" placeholder="Medicine Name" value={med.medicine_name} onChange={(e) => handlePrescriptionChange(idx, 'medicine_name', e.target.value)} required /></div>
-                                                <div className="col-4"><input type="text" className="form-control form-control-sm" placeholder="Dosage (e.g., 1-0-1)" value={med.dosage} onChange={(e) => handlePrescriptionChange(idx, 'dosage', e.target.value)} required /></div>
-                                                <div className="col-3"><input type="text" className="form-control form-control-sm" placeholder="Days" value={med.duration_days} onChange={(e) => handlePrescriptionChange(idx, 'duration_days', e.target.value)} required /></div>
+                                                <div className="col-5"><input type="text" className="form-control form-control-sm rounded-3" placeholder="Medicine Name" value={med.medicine_name} onChange={(e) => handlePrescriptionChange(idx, 'medicine_name', e.target.value)} required /></div>
+                                                <div className="col-4"><input type="text" className="form-control form-control-sm rounded-3" placeholder="Dosage (e.g., 1-0-1)" value={med.dosage} onChange={(e) => handlePrescriptionChange(idx, 'dosage', e.target.value)} required /></div>
+                                                <div className="col-3"><input type="text" className="form-control form-control-sm rounded-3" placeholder="Days" value={med.duration_days} onChange={(e) => handlePrescriptionChange(idx, 'duration_days', e.target.value)} required /></div>
                                             </div>
                                         ))}
                                     </div>
 
-                                    <div className="mb-3">
-                                        <label className="form-label fw-bold">Follow-Up Instructions</label>
-                                        <input type="text" className="form-control" value={dischargeForm.follow_up_instructions} required onChange={(e) => setDischargeForm({ ...dischargeForm, follow_up_instructions: e.target.value })} placeholder="e.g., Visit OPD after 5 days" />
+                                    <div className="bg-white p-4 rounded-4 shadow-sm border">
+                                        <label className="form-label fw-bold text-dark">Follow-Up Instructions</label>
+                                        <input type="text" className="form-control rounded-3" value={dischargeForm.follow_up_instructions} required onChange={(e) => setDischargeForm({ ...dischargeForm, follow_up_instructions: e.target.value })} placeholder="e.g., Visit OPD after 5 days" />
                                     </div>
+
                                 </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" onClick={() => setShowDischargeModal(false)}>Cancel</button>
-                                    <button type="submit" className="btn btn-success fw-bold"><i className="fa-solid fa-check me-2"></i> Clinical Discharge & Send to Billing</button>
+                                <div className="modal-footer bg-white border-top-0 p-3 rounded-bottom-4">
+                                    <button type="button" className="btn btn-secondary fw-bold rounded-pill px-4" onClick={() => setShowDischargeModal(false)}>Cancel</button>
+                                    <button type="submit" className="btn btn-success fw-bold rounded-pill px-4 shadow-sm"><i className="fa-solid fa-check me-2"></i> Confirm Clinical Discharge & Send to Billing</button>
                                 </div>
                             </form>
                         </div>
@@ -538,21 +601,31 @@ const RoomAllocation = () => {
                 MODAL: EDIT ADMISSION
             ========================================= */}
             {showEditModal && (
-                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title fw-bold">Edit Details</h5>
+                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content rounded-4 border-0 shadow overflow-hidden">
+                            <div className="modal-header bg-light border-bottom-0 p-4">
+                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-pen text-primary me-2"></i> Edit Admission Details</h5>
                                 <button className="btn-close" onClick={() => setShowEditModal(false)}></button>
                             </div>
                             <form onSubmit={handleEditSubmit}>
-                                <div className="modal-body p-3 overflow-auto" style={{ maxHeight: '70vh' }}>
-                                    <div className="mb-2"><label className="form-label">ID Type</label><input type="text" className="form-control" value={editForm.document_type} onChange={(e) => setEditForm({ ...editForm, document_type: e.target.value })} /></div>
-                                    <div className="mb-2"><label className="form-label">ID Number</label><input type="text" className="form-control" value={editForm.document_number} onChange={(e) => setEditForm({ ...editForm, document_number: e.target.value })} /></div>
-                                    <div className="mb-2"><label className="form-label">Relative Name</label><input type="text" className="form-control" value={editForm.relative_name} onChange={(e) => setEditForm({ ...editForm, relative_name: e.target.value })} /></div>
+                                <div className="modal-body p-4 bg-white">
+                                    <div className="mb-3">
+                                        <label className="form-label small fw-bold text-muted">ID Type</label>
+                                        <input type="text" className="form-control rounded-3" value={editForm.document_type || ''} onChange={(e) => setEditForm({ ...editForm, document_type: e.target.value })} />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label small fw-bold text-muted">ID Number</label>
+                                        <input type="text" className="form-control rounded-3" value={editForm.document_number || ''} onChange={(e) => setEditForm({ ...editForm, document_number: e.target.value })} />
+                                    </div>
+                                    <div className="mb-2">
+                                        <label className="form-label small fw-bold text-muted">Relative Name</label>
+                                        <input type="text" className="form-control rounded-3" value={editForm.relative_name || ''} onChange={(e) => setEditForm({ ...editForm, relative_name: e.target.value })} />
+                                    </div>
                                 </div>
-                                <div className="modal-footer">
-                                    <button type="submit" className="btn btn-primary">Save Updates</button>
+                                <div className="modal-footer bg-light border-top-0 p-3">
+                                    <button type="button" className="btn btn-secondary fw-bold rounded-pill px-4" onClick={() => setShowEditModal(false)}>Cancel</button>
+                                    <button type="submit" className="btn btn-primary fw-bold rounded-pill px-4 shadow-sm">Save Updates</button>
                                 </div>
                             </form>
                         </div>
@@ -566,23 +639,24 @@ const RoomAllocation = () => {
             {showPrintModal && selectedAdmission && (
                 <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
                     <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content text-center p-4">
-                            <h4 className="fw-bold mb-4">Print Documents Ready</h4>
+                        <div className="modal-content text-center p-5 rounded-4 shadow-lg border-0">
+                            <i className="fa-solid fa-print fs-1 text-primary mb-3"></i>
+                            <h4 className="fw-bold mb-4 text-dark">Print Documents Ready</h4>
                             {printType === 'ADMISSION' ? (
                                 <div className="d-grid gap-3">
-                                    <button className="btn btn-primary btn-lg" disabled={isPrinting} onClick={() => generatePDF(stickerRef, `Stickers_${selectedAdmission.id}`)}>
+                                    <button className="btn btn-primary btn-lg rounded-pill fw-bold shadow-sm" disabled={isPrinting} onClick={() => generatePDF(stickerRef, `Stickers_${selectedAdmission.id}`)}>
                                         <i className="fa-solid fa-tags me-2"></i> Print Sticker Sheet (x20)
                                     </button>
-                                    <button className="btn btn-info btn-lg text-white" disabled={isPrinting} onClick={() => generatePDF(consentRef, `Consent_${selectedAdmission.id}`)}>
+                                    <button className="btn btn-info btn-lg text-white rounded-pill fw-bold shadow-sm" disabled={isPrinting} onClick={() => generatePDF(consentRef, `Consent_${selectedAdmission.id}`)}>
                                         <i className="fa-solid fa-file-contract me-2"></i> Print Consent Form
                                     </button>
                                 </div>
                             ) : (
-                                <button className="btn btn-dark btn-lg w-100" disabled={isPrinting} onClick={() => generatePDF(dischargeSummaryRef, `Discharge_${selectedAdmission.id}`)}>
+                                <button className="btn btn-dark btn-lg w-100 rounded-pill fw-bold shadow-sm" disabled={isPrinting} onClick={() => generatePDF(dischargeSummaryRef, `Discharge_${selectedAdmission.id}`)}>
                                     <i className="fa-solid fa-file-medical me-2"></i> Print NABH Discharge Summary
                                 </button>
                             )}
-                            <button className="btn btn-outline-secondary mt-4" onClick={() => setShowPrintModal(false)}>Close Window</button>
+                            <button className="btn btn-outline-secondary mt-4 rounded-pill fw-bold" onClick={() => setShowPrintModal(false)}>Close Window</button>
                         </div>
                     </div>
                 </div>
@@ -631,7 +705,7 @@ const RoomAllocation = () => {
                         <h5 style={{ textDecoration: 'underline', marginBottom: '10px' }}>Patient Information</h5>
                         <p><strong>Patient Name:</strong> {selectedAdmission.patient_name}</p>
                         <p><strong>UHID:</strong> {selectedAdmission.patient_id}</p>
-                        <p><strong>Admission Date:</strong> {safeDate(selectedAdmission.admission_date)}</p>
+                        <p><strong>Admission Date:</strong> {new Date(selectedAdmission.admission_date).toLocaleString('en-GB')}</p>
                         <p><strong>Patient ID Type:</strong> {selectedAdmission.document_type} <strong>No:</strong> {selectedAdmission.document_number}</p>
 
                         <h5 style={{ textDecoration: 'underline', marginTop: '20px', marginBottom: '10px' }}>Relative / Guardian Information</h5>
@@ -693,7 +767,9 @@ const RoomAllocation = () => {
                             <p style={{ textAlign: 'justify' }}>{selectedAdmission.discharge_details.treatment_provided} </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Discharge Condition</h5>
-                            <p>{selectedAdmission.discharge_details.discharge_condition} </p>
+                            <p className={selectedAdmission.discharge_details.discharge_condition === 'Death' ? 'text-danger fw-bold' : ''}>
+                                {selectedAdmission.discharge_details.discharge_condition} 
+                            </p>
 
                             <h5 style={{ background: '#f0f0f0', padding: '5px', borderLeft: '3px solid #3b82f6', marginTop: '15px' }}>Prescribed Medications at Discharge </h5>
                             <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '15px' }}>

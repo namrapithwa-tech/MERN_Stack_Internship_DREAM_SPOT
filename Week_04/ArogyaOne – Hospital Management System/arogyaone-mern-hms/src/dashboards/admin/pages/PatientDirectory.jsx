@@ -5,7 +5,7 @@ import jsPDF from 'jspdf';
 import logo from '../../../assets/images/logo.png'; 
 import html2canvas from 'html2canvas';
 
-const AllPatients = () => {
+const PatientDirectory = () => {
     // --- STATE ---
     const [patients, setPatients] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -44,8 +44,10 @@ const AllPatients = () => {
     const fetchPatients = async () => {
         try {
             const res = await api.get('/patients');
-            setPatients(res.data);
-            calculateStats(res.data);
+            // Sort newest first
+            const sorted = res.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            setPatients(sorted);
+            calculateStats(sorted);
             setLoading(false);
         } catch (err) {
             console.error("Error fetching patients", err);
@@ -76,15 +78,40 @@ const AllPatients = () => {
         return matchSearch && matchGender && matchDate;
     });
 
+    // --- ADMIN SUPERPOWER: EXPORT TO CSV ---
+    const exportToCSV = () => {
+        const headers = ["UHID", "Full Name", "Age", "Gender", "Blood Group", "Mobile Number", "Registration Type", "Registered Date"];
+        const csvRows = filteredPatients.map(p => {
+            const date = p.created_at ? new Date(p.created_at).toLocaleDateString('en-GB') : 'N/A';
+            return `"${p.id}","${p.patient_full_name}","${p.age}","${p.gender}","${p.blood_group || 'N/A'}","${p.mobile_number}","${p.registration_type}","${date}"`;
+        });
+
+        const csvContent = [headers.join(','), ...csvRows].join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ArogyaOne_Patient_Directory_${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+
     // --- HANDLERS: DELETE (CASCADE) ---
     const handleDelete = async (patient) => {
-        if (window.confirm(`Are you sure you want to delete ${patient.patient_full_name}?\nThis will also permanently delete all their consultation history.`)) {
+        if (window.confirm(`⚠️ ADMIN WARNING ⚠️\n\nAre you sure you want to permanently delete ${patient.patient_full_name}?\nThis will purge all their clinical history from the system. This cannot be undone.`)) {
             try {
+                // 1. Fetch all consultations linked to this patient
                 const consRes = await api.get(`/opd_consultations?patient_id=${patient.id}`);
                 const consultations = consRes.data;
+
+                // 2. Delete all their consultations
                 const deletePromises = consultations.map(c => api.delete(`/opd_consultations/${c.id}`));
                 await Promise.all(deletePromises);
+
+                // 3. Delete the patient record itself
                 await api.delete(`/patients/${patient.id}`);
+
+                // 4. Refresh Table
                 fetchPatients();
             } catch (err) {
                 console.error("Error during cascade delete", err);
@@ -115,7 +142,7 @@ const AllPatients = () => {
         try {
             await api.patch(`/patients/${editingPatientId}`, {
                 ...editFormData,
-                age: Number(editFormData.age) 
+                age: Number(editFormData.age)
             });
             setShowEditModal(false);
             setEditingPatientId(null);
@@ -198,7 +225,7 @@ const AllPatients = () => {
                 heightLeft -= pageHeight;
             }
 
-            pdf.save(`Patient_History_${selectedPatient.id}.pdf`);
+            pdf.save(`Patient_Audit_History_${selectedPatient.id}.pdf`);
         } catch (err) {
             console.error("Print History Error", err);
         } finally {
@@ -206,56 +233,48 @@ const AllPatients = () => {
         }
     };
 
-    if (loading) return <div className="text-center p-5 mt-5"><div className="spinner-border text-primary" style={{width:'3rem', height:'3rem'}}></div></div>;
+    if (loading) return <div className="text-center p-5 mt-5"><div className="spinner-border text-primary" style={{width: '3rem', height: '3rem'}}></div></div>;
 
     return (
         <div className="container-fluid py-4">
-
-            {/* HEADER */}
+            
+            {/* ADMIN HEADER */}
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 className="mb-0 fw-bold text-dark">
-                        <i className="fa-solid fa-hospital-user text-primary me-2"></i> All Registered Patients
+                        <i className="fa-solid fa-hospital-user text-primary me-2"></i> Master Patient Directory
                     </h2>
-                    <p className="text-muted mb-0 mt-1">Search, update, and manage the master patient database.</p>
+                    <p className="text-muted mb-0 mt-1">Admin oversight of all registered patients, historical records, and data export.</p>
                 </div>
+                <button className="btn btn-dark fw-bold rounded-pill px-4 shadow-sm" onClick={exportToCSV}>
+                    <i className="fa-solid fa-file-csv me-2"></i> Export to CSV
+                </button>
             </div>
 
             {/* STATS CARDS */}
             <div className="row g-4 mb-4">
-                <div className="col-md-4">
-                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%)' }}>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Total Patients</h6>
-                                <h2 className="fw-bold mb-0">{stats.total}</h2>
-                            </div>
-                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3"><i className="fa-solid fa-users"></i></div>
-                        </div>
+                <div className="col-md-3">
+                    <div className="card-common bg-white rounded-4 shadow-sm border-0 p-4 border-start border-primary border-5 h-100">
+                        <h6 className="text-muted fw-bold mb-1 text-uppercase" style={{fontSize: '12px'}}>Total Patients in System</h6>
+                        <h3 className="fw-bold mb-0 text-dark">{stats.total}</h3>
                     </div>
                 </div>
-                <div className="col-md-4">
-                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #198754 0%, #146c43 100%)' }}>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Registered Today</h6>
-                                <h2 className="fw-bold mb-0">{stats.today}</h2>
-                            </div>
-                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3"><i className="fa-solid fa-user-plus"></i></div>
-                        </div>
+                <div className="col-md-3">
+                    <div className="card-common bg-white rounded-4 shadow-sm border-0 p-4 border-start border-success border-5 h-100">
+                        <h6 className="text-muted fw-bold mb-1 text-uppercase" style={{fontSize: '12px'}}>Registered Today</h6>
+                        <h3 className="fw-bold mb-0 text-success">{stats.today}</h3>
                     </div>
                 </div>
-                <div className="col-md-4">
-                    <div className="card-common rounded-4 shadow-sm border-0 p-4 text-white h-100" style={{ background: 'linear-gradient(135deg, #6f42c1 0%, #59339d 100%)' }}>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 className="text-uppercase fw-bold text-white-50 mb-1" style={{fontSize: '12px'}}>Visit Types</h6>
-                                <div className="fw-bold fs-5 mt-1">
-                                    Walk-in: {stats.walkin} <span className="opacity-50 mx-2">|</span> Appt: {stats.appt}
-                                </div>
-                            </div>
-                            <div className="bg-white bg-opacity-25 p-3 rounded-circle fs-3"><i className="fa-solid fa-hospital-user"></i></div>
-                        </div>
+                <div className="col-md-3">
+                    <div className="card-common bg-white rounded-4 shadow-sm border-0 p-4 border-start border-secondary border-5 h-100">
+                        <h6 className="text-muted fw-bold mb-1 text-uppercase" style={{fontSize: '12px'}}>Walk-in Registrations</h6>
+                        <h3 className="fw-bold mb-0 text-dark">{stats.walkin}</h3>
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="card-common bg-white rounded-4 shadow-sm border-0 p-4 border-start border-info border-5 h-100">
+                        <h6 className="text-muted fw-bold mb-1 text-uppercase" style={{fontSize: '12px'}}>Appt. Registrations</h6>
+                        <h3 className="fw-bold mb-0 text-dark">{stats.appt}</h3>
                     </div>
                 </div>
             </div>
@@ -266,18 +285,17 @@ const AllPatients = () => {
                     <div className="col-md-5">
                         <div className="input-group">
                             <span className="input-group-text bg-light border-end-0 rounded-start-pill"><i className="fa-solid fa-magnifying-glass text-muted"></i></span>
-                            <input type="text" className="form-control border-start-0 bg-light rounded-end-pill" placeholder="Search Name, UHID, Phone..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                            <input type="text" className="form-control border-start-0 bg-light rounded-end-pill" placeholder="Search Master DB by Name, UHID, Phone..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                         </div>
                     </div>
                     <div className="col-md-3">
-                        <input type="date" className="form-control rounded-pill bg-light text-muted fw-bold" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
+                        <input type="date" className="form-control rounded-pill bg-light" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
                     </div>
                     <div className="col-md-2">
-                        <select className="form-select rounded-pill bg-light text-muted fw-bold" value={filterGender} onChange={(e) => setFilterGender(e.target.value)}>
+                        <select className="form-select rounded-pill bg-light" value={filterGender} onChange={(e) => setFilterGender(e.target.value)}>
                             <option value="">All Genders</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
-                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div className="col-md-2 text-end">
@@ -287,7 +305,7 @@ const AllPatients = () => {
             </div>
 
             {/* TABLE */}
-            <div className="card-common bg-white p-0 overflow-hidden rounded-4 shadow-sm border-0">
+            <div className="card-common bg-white p-0 overflow-hidden shadow-sm border-0 rounded-4">
                 <div className="table-responsive">
                     <table className="table table-hover align-middle mb-0">
                         <thead className="table-light text-muted small text-uppercase">
@@ -297,7 +315,7 @@ const AllPatients = () => {
                                 <th>Contact Info</th>
                                 <th>Reg. Type</th>
                                 <th>Registered On</th>
-                                <th className="text-center pe-4">Actions</th>
+                                <th className="text-center pe-4">Admin Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -305,46 +323,37 @@ const AllPatients = () => {
                                 <tr key={p.id}>
                                     <td className="ps-4 fw-bold text-primary">{p.id}</td>
                                     <td>
-                                        <div className="d-flex align-items-center">
-                                            <div className="bg-primary bg-opacity-10 text-primary rounded-circle d-flex justify-content-center align-items-center fw-bold me-3 shadow-sm border border-primary border-opacity-25" style={{width:'40px', height:'40px', fontSize: '16px'}}>
-                                                {(p.patient_full_name || 'U').charAt(0)}
-                                            </div>
-                                            <div>
-                                                <div className="fw-bold text-dark">{p.patient_full_name}</div>
-                                                <small className="text-muted">{p.age} Y | {p.gender} | {p.blood_group || 'N/A'}</small>
-                                            </div>
-                                        </div>
+                                        <div className="fw-bold text-dark">{p.patient_full_name}</div>
+                                        <small className="text-muted">{p.age} Y | {p.gender} | {p.blood_group || 'N/A'}</small>
                                     </td>
                                     <td>
                                         <div className="text-dark fw-bold"><i className="fa-solid fa-phone me-1 text-muted"></i>{p.mobile_number}</div>
                                     </td>
                                     <td>
-                                        <span className={`badge rounded-pill px-3 py-2 ${p.registration_type === 'WALK-IN' ? 'bg-secondary' : 'bg-primary'}`}>
+                                        <span className={`badge rounded-pill ${p.registration_type === 'WALK-IN' ? 'bg-secondary' : 'bg-primary'}`}>
                                             {p.registration_type || 'WALK-IN'}
                                         </span>
                                     </td>
                                     <td>
-                                        <div className="small fw-bold text-dark">{p.created_at ? new Date(p.created_at).toLocaleDateString('en-GB') : 'N/A'}</div>
+                                        <div className="fw-bold text-dark">{p.created_at ? new Date(p.created_at).toLocaleDateString('en-GB') : 'N/A'}</div>
                                     </td>
                                     <td className="text-center pe-4">
-                                        <div className="d-flex justify-content-center gap-2">
-                                            <button className="btn btn-sm btn-outline-primary rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => handleView(p)} title="View History">
-                                                <i className="fa-solid fa-eye"></i>
-                                            </button>
-                                            <button className="btn btn-sm btn-outline-dark rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => handlePrintIDCard(p)} title="Print ID Card" disabled={isPrinting}>
-                                                <i className="fa-solid fa-print"></i>
-                                            </button>
-                                            <button className="btn btn-sm btn-outline-info rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => handleEditClick(p)} title="Edit Patient">
-                                                <i className="fa-solid fa-pen"></i>
-                                            </button>
-                                            <button className="btn btn-sm btn-outline-danger rounded-circle" style={{width:'32px', height:'32px'}} onClick={() => handleDelete(p)} title="Delete Patient">
-                                                <i className="fa-solid fa-trash"></i>
-                                            </button>
-                                        </div>
+                                        <button className="btn btn-sm btn-outline-primary rounded-circle me-2" style={{width: '32px', height: '32px'}} onClick={() => handleView(p)} title="Audit Patient History">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button className="btn btn-sm btn-outline-dark rounded-circle me-2" style={{width: '32px', height: '32px'}} onClick={() => handlePrintIDCard(p)} title="Reprint ID Card" disabled={isPrinting}>
+                                            <i className="fa-solid fa-print"></i>
+                                        </button>
+                                        <button className="btn btn-sm btn-outline-info rounded-circle me-2" style={{width: '32px', height: '32px'}} onClick={() => handleEditClick(p)} title="Edit Master Data">
+                                            <i className="fa-solid fa-pen"></i>
+                                        </button>
+                                        <button className="btn btn-sm btn-outline-danger rounded-circle" style={{width: '32px', height: '32px'}} onClick={() => handleDelete(p)} title="Cascade Delete Patient">
+                                            <i className="fa-solid fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             )) : (
-                                <tr><td colSpan="6" className="text-center py-5 text-muted fst-italic">No patients found matching filters.</td></tr>
+                                <tr><td colSpan="6" className="text-center py-5 text-muted fst-italic">No patients found in the master database.</td></tr>
                             )}
                         </tbody>
                     </table>
@@ -357,29 +366,29 @@ const AllPatients = () => {
             {showEditModal && (
                 <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
                     <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content rounded-4 border-0 shadow overflow-hidden">
+                        <div className="modal-content border-0 shadow rounded-4 overflow-hidden">
                             <div className="modal-header bg-light border-bottom-0 p-4">
-                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-user-pen text-primary me-2"></i> Edit Patient Details</h5>
+                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-user-pen text-primary me-2"></i> Edit Master Data</h5>
                                 <button type="button" className="btn-close" onClick={() => setShowEditModal(false)}></button>
                             </div>
                             <form onSubmit={handleEditSubmit}>
-                                <div className="modal-body p-4 bg-white">
+                                <div className="modal-body p-4">
                                     <div className="mb-3">
-                                        <label className="form-label small fw-bold text-muted">Full Name</label>
-                                        <input type="text" className="form-control rounded-3" name="patient_full_name" value={editFormData.patient_full_name} onChange={handleEditInput} required />
+                                        <label className="form-label fw-bold small text-muted">Full Name</label>
+                                        <input type="text" className="form-control rounded-3 border-secondary" name="patient_full_name" value={editFormData.patient_full_name} onChange={handleEditInput} required />
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label small fw-bold text-muted">Mobile Number</label>
-                                        <input type="tel" className="form-control rounded-3" name="mobile_number" value={editFormData.mobile_number} onChange={handleEditInput} required maxLength="10" />
+                                        <label className="form-label fw-bold small text-muted">Mobile Number</label>
+                                        <input type="tel" className="form-control rounded-3 border-secondary" name="mobile_number" value={editFormData.mobile_number} onChange={handleEditInput} required maxLength="10" />
                                     </div>
                                     <div className="row mb-3 g-3">
                                         <div className="col-6">
-                                            <label className="form-label small fw-bold text-muted">Age</label>
-                                            <input type="number" className="form-control rounded-3" name="age" value={editFormData.age} onChange={handleEditInput} required />
+                                            <label className="form-label fw-bold small text-muted">Age</label>
+                                            <input type="number" className="form-control rounded-3 border-secondary" name="age" value={editFormData.age} onChange={handleEditInput} required />
                                         </div>
                                         <div className="col-6">
-                                            <label className="form-label small fw-bold text-muted">Gender</label>
-                                            <select className="form-select rounded-3" name="gender" value={editFormData.gender} onChange={handleEditInput} required>
+                                            <label className="form-label fw-bold small text-muted">Gender</label>
+                                            <select className="form-select rounded-3 border-secondary" name="gender" value={editFormData.gender} onChange={handleEditInput} required>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                                 <option value="Other">Other</option>
@@ -387,8 +396,8 @@ const AllPatients = () => {
                                         </div>
                                     </div>
                                     <div className="mb-2">
-                                        <label className="form-label small fw-bold text-muted">Blood Group</label>
-                                        <select className="form-select rounded-3" name="blood_group" value={editFormData.blood_group} onChange={handleEditInput}>
+                                        <label className="form-label fw-bold small text-muted">Blood Group</label>
+                                        <select className="form-select rounded-3 border-secondary" name="blood_group" value={editFormData.blood_group} onChange={handleEditInput}>
                                             <option value="">Select</option>
                                             <option value="A+">A+</option><option value="A-">A-</option>
                                             <option value="B+">B+</option><option value="B-">B-</option>
@@ -397,9 +406,9 @@ const AllPatients = () => {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="modal-footer bg-light border-top-0 p-3">
-                                    <button type="button" className="btn btn-secondary fw-bold rounded-pill px-4" onClick={() => setShowEditModal(false)}>Cancel</button>
-                                    <button type="submit" className="btn btn-primary fw-bold rounded-pill px-4 shadow-sm">Save Changes</button>
+                                <div className="modal-footer bg-light border-top-0 p-3 rounded-bottom-4">
+                                    <button type="button" className="btn btn-secondary rounded-pill px-4 fw-bold" onClick={() => setShowEditModal(false)}>Cancel</button>
+                                    <button type="submit" className="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Save Changes</button>
                                 </div>
                             </form>
                         </div>
@@ -408,14 +417,14 @@ const AllPatients = () => {
             )}
 
             {/* =========================================
-                MODAL: VIEW PATIENT & HISTORY
+                MODAL: VIEW PATIENT & HISTORY (AUDIT VIEW)
             ========================================= */}
             {showModal && selectedPatient && (
                 <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
                     <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                        <div className="modal-content rounded-4 border-0 shadow overflow-hidden">
+                        <div className="modal-content border-0 shadow rounded-4 overflow-hidden">
                             <div className="modal-header bg-dark text-white border-bottom-0 p-4">
-                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-file-medical me-2"></i> Patient Profile & Timeline</h5>
+                                <h5 className="modal-title fw-bold"><i className="fa-solid fa-file-medical me-2"></i> Patient Master Audit Log</h5>
                                 <button className="btn-close btn-close-white" onClick={closeModal}></button>
                             </div>
                             <div className="modal-body p-4 bg-light">
@@ -427,8 +436,9 @@ const AllPatients = () => {
                                             <h4 className="fw-bold text-primary mb-1">{selectedPatient.patient_full_name}</h4>
                                             <p className="mb-0 text-muted fw-bold">UHID: {selectedPatient.id}</p>
                                         </div>
-                                        <div className="col-md-6 text-md-end mt-3 mt-md-0">
-                                            <div className="text-dark small fw-bold mb-2">
+                                        <div className="col-md-6 text-md-end">
+                                            <span className="badge bg-secondary mb-2 rounded-pill px-3 py-2">Reg: {selectedPatient.created_at ? new Date(selectedPatient.created_at).toLocaleString() : 'N/A'}</span>
+                                            <div className="text-dark small fw-bold">
                                                 <span className="me-3"><i className="fa-solid fa-cake-candles text-warning me-1"></i>{selectedPatient.age} Y / {selectedPatient.gender}</span>
                                                 <span className="me-3"><i className="fa-solid fa-droplet text-danger me-1"></i>{selectedPatient.blood_group || 'Unknown'}</span>
                                                 <span><i className="fa-solid fa-phone text-success me-1"></i>{selectedPatient.mobile_number}</span>
@@ -443,7 +453,7 @@ const AllPatients = () => {
                                         <div className="bg-white p-4 rounded-4 shadow-sm border h-100">
                                             <h6 className="fw-bold mb-4 text-dark border-bottom pb-2"><i className="fa-solid fa-stethoscope text-primary me-2"></i> OPD Consultations ({patientHistory.length})</h6>
                                             {patientHistory.length > 0 ? (
-                                                <div className="pe-2" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                                                <div className="timeline-container pe-2" style={{ maxHeight: '500px', overflowY: 'auto' }}>
                                                     {patientHistory.map((visit, index) => (
                                                         <div className="border-start border-primary border-3 ps-3 mb-4 position-relative" key={index}>
                                                             <div className="position-absolute bg-primary rounded-circle" style={{ width: '10px', height: '10px', left: '-6.5px', top: '5px' }}></div>
@@ -469,7 +479,7 @@ const AllPatients = () => {
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <div className="text-center text-muted p-5 bg-light rounded-4 fst-italic">No OPD history recorded.</div>
+                                                <div className="text-center text-muted p-5 bg-light rounded-4">No OPD history recorded.</div>
                                             )}
                                         </div>
                                     </div>
@@ -479,7 +489,7 @@ const AllPatients = () => {
                                         <div className="bg-white p-4 rounded-4 shadow-sm border h-100">
                                             <h6 className="fw-bold mb-4 text-dark border-bottom pb-2"><i className="fa-solid fa-bed text-success me-2"></i> IPD Admissions ({ipdHistory.length})</h6>
                                             {ipdHistory.length > 0 ? (
-                                                <div className="pe-2" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                                                <div className="timeline-container pe-2" style={{ maxHeight: '500px', overflowY: 'auto' }}>
                                                     {ipdHistory.map((adm, index) => (
                                                         <div className="border-start border-success border-3 ps-3 mb-4 position-relative" key={index}>
                                                             <div className="position-absolute bg-success rounded-circle" style={{ width: '10px', height: '10px', left: '-6.5px', top: '5px' }}></div>
@@ -507,7 +517,7 @@ const AllPatients = () => {
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <div className="text-center text-muted p-5 bg-light rounded-4 fst-italic">No IPD history recorded.</div>
+                                                <div className="text-center text-muted p-5 bg-light rounded-4">No IPD history recorded.</div>
                                             )}
                                         </div>
                                     </div>
@@ -515,9 +525,9 @@ const AllPatients = () => {
 
                             </div>
                             <div className="modal-footer bg-white border-top p-3 rounded-bottom-4">
-                                <button className="btn btn-secondary rounded-pill px-4 fw-bold" onClick={closeModal}>Close</button>
+                                <button className="btn btn-secondary rounded-pill px-4 fw-bold" onClick={closeModal}>Close Window</button>
                                 <button className="btn btn-dark rounded-pill px-4 fw-bold shadow-sm" onClick={handlePrintHistory} disabled={isPrinting || (patientHistory.length === 0 && ipdHistory.length === 0)}>
-                                    <i className="fa-solid fa-file-pdf me-2"></i> {isPrinting ? 'Generating PDF...' : 'Print Full History'}
+                                    <i className="fa-solid fa-file-pdf me-2"></i> {isPrinting ? 'Generating Audit PDF...' : 'Print Full Medical Audit'}
                                 </button>
                             </div>
                         </div>
@@ -529,16 +539,18 @@ const AllPatients = () => {
                 HIDDEN LAYOUTS FOR PDF GENERATION
             ========================================= */}
             {selectedPatient && (
-                <>
-                    {/* HIDDEN ID CARD LAYOUT */}
-                    <div className="print-offscreen" ref={idCardRef} style={{ width: '400px', height: '250px', padding: '20px', border: '2px solid #2C80FF', borderRadius: '10px', background: 'white' }}>
+                <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
+
+                    {/* 1. ADMISSION STICKER SHEET */}
+                    <div ref={idCardRef} style={{ width: '400px', height: '250px', padding: '20px', border: '2px solid #2C80FF', borderRadius: '10px', background: 'white' }}>
                         <div className="d-flex align-items-center justify-content-center mb-3 border-bottom pb-2">
                             <img src={logo} alt="ArogyaOne Logo" className="logo-image me-2" style={{ width: '40px', height: '40px' }} />
                             <div>
                                 <h4 className="fw-bold text-success m-0">ArogyaOne Hospital</h4>
-                                <small className="text-muted">Patient Identification Card</small>
+                                <small className="text-muted">Master Patient ID</small>
                             </div>
                         </div>
+
                         <div className="d-flex align-items-center mb-2">
                             <div style={{
                                 width: '60px', height: '60px', background: '#eee', borderRadius: '50%',
@@ -552,6 +564,7 @@ const AllPatients = () => {
                                 <p className="m-0 text-muted">{selectedPatient.id}</p>
                             </div>
                         </div>
+
                         <div className="row small mt-3 text-dark">
                             <div className="col-6"><strong>Age/Sex:</strong> {selectedPatient.age} / {selectedPatient.gender}</div>
                             <div className="col-6"><strong>Blood:</strong> <span className="text-danger fw-bold">{selectedPatient.blood_group || 'N/A'}</span></div>
@@ -559,13 +572,13 @@ const AllPatients = () => {
                         </div>
                     </div>
 
-                    {/* HIDDEN COMPREHENSIVE HISTORY LAYOUT */}
+                    {/* 2. COMPREHENSIVE HISTORY LAYOUT (A4 Size scaled) */}
                     <div className="print-offscreen" ref={historyRef} style={{ width: '800px', padding: '40px', background: 'white', color: 'black' }}>
                         <div className="text-center border-bottom pb-3 mb-4">
                             <img src={logo} alt="ArogyaOne Logo" className="logo-image mb-2" style={{ width: '50px', height: '50px' }} />
                             <h2>ArogyaOne Hospital</h2>
-                            <h4>Comprehensive Patient Medical Record</h4>
-                            <p className="text-muted">Generated on {new Date().toLocaleString()}</p>
+                            <h4>Comprehensive Master Medical Audit</h4>
+                            <p className="text-muted">Generated by Admin on {new Date().toLocaleString()}</p>
                         </div>
 
                         <div className="row border p-3 mb-4 rounded bg-light">
@@ -634,14 +647,14 @@ const AllPatients = () => {
                         {ipdHistory.length === 0 && <p className="text-muted">No IPD history available.</p>}
 
                         <div className="text-center mt-5 pt-3 border-top text-muted small">
-                            *** End of Medical Report ***
+                            *** End of Master Medical Audit Report ***
                         </div>
                     </div>
-                </>
+                </div>
             )}
 
         </div>
     );
 };
 
-export default AllPatients;
+export default PatientDirectory;
