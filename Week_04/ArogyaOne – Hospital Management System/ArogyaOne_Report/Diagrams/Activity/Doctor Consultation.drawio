@@ -1,0 +1,130 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="GSx7xPDUdWJFPi_d0Xeo">
+    <mxGraphModel dx="1281" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="X2LRx34Ob2eu21gRleGt-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="394" y="320" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-2" value="Doctor Consultation" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="349" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-3" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" target="X2LRx34Ob2eu21gRleGt-2" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="409" y="346" as="sourcePoint" />
+            <mxPoint x="409" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-4" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="409" y="420" as="sourcePoint" />
+            <mxPoint x="409" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-49" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.482;exitY=0.963;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="X2LRx34Ob2eu21gRleGt-71" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="409" y="493" as="sourcePoint" />
+            <mxPoint x="409" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-50" value="Lab Test" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="149" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-52" value="Surgery" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="349" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-53" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="408" y="630" as="sourcePoint" />
+            <mxPoint x="408" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-54" value="Admission" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="559" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-55" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="X2LRx34Ob2eu21gRleGt-70" target="X2LRx34Ob2eu21gRleGt-54" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="619" y="615" />
+            </Array>
+            <mxPoint x="468" y="610" as="sourcePoint" />
+            <mxPoint x="619" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-56" value="[Lab Test Required]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="87" y="710" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-57" value="[Surgery Required]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="287.5" y="710" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-58" value="[Admission Required]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="489" y="710" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-59" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.51;entryY=-0.009;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="X2LRx34Ob2eu21gRleGt-70" target="X2LRx34Ob2eu21gRleGt-50" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="615" />
+            </Array>
+            <mxPoint x="348" y="610" as="sourcePoint" />
+            <mxPoint x="259" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-60" value="" style="shape=line;html=1;strokeWidth=3;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="164" y="780" width="490" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-63" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.093;entryY=0.462;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="X2LRx34Ob2eu21gRleGt-60" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="209" y="700" as="sourcePoint" />
+            <mxPoint x="209" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-64" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.093;entryY=0.462;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="409" y="700" as="sourcePoint" />
+            <mxPoint x="410" y="785" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-65" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.093;entryY=0.462;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="619" y="700" as="sourcePoint" />
+            <mxPoint x="620" y="785" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-66" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="410" y="786" as="sourcePoint" />
+            <mxPoint x="410" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-67" value="Update/ReWrite Prescription" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="349" y="820" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-68" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="400" y="890" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-69" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="409.5" y="860" as="sourcePoint" />
+            <mxPoint x="409.5" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-70" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="352.5" y="590" width="111" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-71" value="Take Diagnosis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="351" y="450" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-73" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.482;exitY=0.963;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="X2LRx34Ob2eu21gRleGt-74" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="408" y="563" as="sourcePoint" />
+            <mxPoint x="408" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="X2LRx34Ob2eu21gRleGt-74" value="Write Consultation" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="350" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

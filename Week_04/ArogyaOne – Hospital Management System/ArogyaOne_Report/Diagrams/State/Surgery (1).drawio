@@ -1,0 +1,57 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="vI0zLB522S6bvFjrM_Gb">
+    <mxGraphModel dx="643" dy="383" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=110;height=40;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Surgery&lt;/span&gt;" vertex="1">
+          <mxGeometry height="360" width="510" x="110" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-2" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="185" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-3" edge="1" parent="1" source="KX4DM3YZZCHGSkxGlc-J-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="KX4DM3YZZCHGSkxGlc-J-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-4" edge="1" parent="1" source="KX4DM3YZZCHGSkxGlc-J-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="KX4DM3YZZCHGSkxGlc-J-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;span style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;Prescription&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Available&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="140" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-6" edge="1" parent="1" source="KX4DM3YZZCHGSkxGlc-J-2" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0.861;exitDx=0;exitDy=0;exitPerimeter=0;" target="KX4DM3YZZCHGSkxGlc-J-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="200.01" y="176" as="sourcePoint" />
+            <mxPoint x="200" y="216" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-7" edge="1" parent="1" source="KX4DM3YZZCHGSkxGlc-J-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="KX4DM3YZZCHGSkxGlc-J-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237)); background-color: transparent; font-size: 13px;&quot;&gt;Surgery&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;Scheduled&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="440" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-9" edge="1" parent="1" source="KX4DM3YZZCHGSkxGlc-J-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="KX4DM3YZZCHGSkxGlc-J-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;span style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;Doctor Revisit&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="440" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font size=&quot;1&quot;&gt;Decide Surgery date&lt;/font&gt;" vertex="1">
+          <mxGeometry height="10" width="108" x="296" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;rotation=-90;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;After Surgery Completion&lt;/font&gt;" vertex="1">
+          <mxGeometry height="7.5" width="119" x="455.25" y="328" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;rotation=90;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;If not available&lt;/font&gt;" vertex="1">
+          <mxGeometry height="10" width="86" x="168.64999999999998" y="328.71" as="geometry" />
+        </mxCell>
+        <mxCell id="KX4DM3YZZCHGSkxGlc-J-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;span style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;Return&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="140" y="420" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="0mSeTljchNwpttV_uj27">
+    <mxGraphModel dx="1281" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nXXFgKl8vffpPSNzNRov-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="344" y="100" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-2" value="Check Doctor Availibility" style="rounded=1;whiteSpace=wrap;html=1;arcSize=34;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="299" y="160" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-3" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" target="nXXFgKl8vffpPSNzNRov-2" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="359" y="126" as="sourcePoint" />
+            <mxPoint x="359" y="156" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-4" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="359" y="200" as="sourcePoint" />
+            <mxPoint x="359" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-5" value="" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="334.5" y="231" width="49" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-6" value="[Doctor not Available]" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="383" y="248.39999999999998" as="sourcePoint" />
+            <mxPoint x="568" y="248" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-7" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Doctor not Available&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="568" y="228" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-8" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="359" y="266" as="sourcePoint" />
+            <mxPoint x="359" y="296" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-9" value="Take Patient Details" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="299" y="296" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-10" value="[Doctor Available]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="260" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-11" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="349.5" y="436" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-12" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="359" y="336" as="sourcePoint" />
+            <mxPoint x="359" y="366" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-13" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="618.5" y="298" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-14" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="627.91" y="268" as="sourcePoint" />
+            <mxPoint x="627.91" y="298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-15" value="Register Patient" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="299" y="366" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nXXFgKl8vffpPSNzNRov-16" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="359" y="406" as="sourcePoint" />
+            <mxPoint x="359" y="436" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

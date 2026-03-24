@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="b5LxHaVO9BtbWl2XBire">
+    <mxGraphModel dx="822" dy="490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=110;height=40;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;OPD&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Registration&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="360" width="510" x="510" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-2" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="585" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-3" edge="1" parent="1" source="9cb8hIfHH3rYTsgwEIBO-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="9cb8hIfHH3rYTsgwEIBO-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Doctor Available&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="540" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-5" edge="1" parent="1" source="9cb8hIfHH3rYTsgwEIBO-2" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0.861;exitDx=0;exitDy=0;exitPerimeter=0;" target="9cb8hIfHH3rYTsgwEIBO-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="600.01" y="145.99999999999997" as="sourcePoint" />
+            <mxPoint x="600" y="186" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-6" edge="1" parent="1" source="9cb8hIfHH3rYTsgwEIBO-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9cb8hIfHH3rYTsgwEIBO-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="905" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Patient&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Registered&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="840" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=light-dark(#ffffff, #1a1a00);strokeColor=light-dark(#000000, #ff9090);fillStyle=auto;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Return&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="840" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font size=&quot;1&quot;&gt;Take Patient Details&lt;/font&gt;" vertex="1">
+          <mxGeometry height="10" width="108" x="696" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;rotation=-90;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;After Patient Registration&lt;/font&gt;" vertex="1">
+          <mxGeometry height="7.5" width="117.5" x="854" y="296.75" as="geometry" />
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-11" edge="1" parent="1" source="9cb8hIfHH3rYTsgwEIBO-4" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.955;exitY=0.906;exitDx=0;exitDy=0;exitPerimeter=0;" target="9cb8hIfHH3rYTsgwEIBO-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="730" y="280" as="sourcePoint" />
+            <mxPoint x="780" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9cb8hIfHH3rYTsgwEIBO-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;rotation=45;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;If not available&lt;/font&gt;" vertex="1">
+          <mxGeometry height="10" width="86" x="698.65" y="288.71" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

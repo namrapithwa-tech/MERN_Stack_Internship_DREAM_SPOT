@@ -1,0 +1,94 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="WVNYdTB_FAEtLxpRhmrg">
+    <mxGraphModel dx="857" dy="510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-1" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="404" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Search Appointment ID" vertex="1">
+          <mxGeometry height="40" width="120" x="359" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Kdmhj1ubRiio_qOvdhcI-2" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="419" y="176" as="sourcePoint" />
+            <mxPoint x="419" y="206" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="419" y="250" as="sourcePoint" />
+            <mxPoint x="419" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-5" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="35" width="49" x="394.5" y="281" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="[Appointment not Available]">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="443" y="298.4" as="sourcePoint" />
+            <mxPoint x="628" y="298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Go to OPD Registration" vertex="1">
+          <mxGeometry height="40" width="120" x="628" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="419" y="316" as="sourcePoint" />
+            <mxPoint x="419" y="346" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Register Patient" vertex="1">
+          <mxGeometry height="40" width="120" x="359" y="346" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Appointment Available]" vertex="1">
+          <mxGeometry height="30" width="130" x="280" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-13" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="19" width="19" x="549.5" y="521" as="geometry" />
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.153;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="zg7QY8pU0e4ZTFnXwCYP-3" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="419" y="386" as="sourcePoint" />
+            <mxPoint x="419" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kdmhj1ubRiio_qOvdhcI-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="687.91" y="318" as="sourcePoint" />
+            <mxPoint x="687.91" y="348" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Take Patient Details" vertex="1">
+          <mxGeometry height="40" width="120" x="628" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-2" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.849;entryY=0.527;entryDx=0;entryDy=0;entryPerimeter=0;" target="zg7QY8pU0e4ZTFnXwCYP-3" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="690" y="388" as="sourcePoint" />
+            <mxPoint x="690" y="418" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-3" parent="1" style="shape=line;html=1;strokeWidth=3;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="10" width="390" x="359" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="559" y="421" as="sourcePoint" />
+            <mxPoint x="559" y="451" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Register Patient" vertex="1">
+          <mxGeometry height="40" width="120" x="499" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="zg7QY8pU0e4ZTFnXwCYP-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="559" y="491" as="sourcePoint" />
+            <mxPoint x="559" y="521" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

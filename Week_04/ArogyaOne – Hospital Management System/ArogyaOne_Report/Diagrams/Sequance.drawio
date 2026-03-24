@@ -1,0 +1,916 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="ENHhFseKbdrq0B7avWh0">
+    <mxGraphModel dx="5068" dy="2448" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;A:Admin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-1" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="250" width="10" x="45" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-39" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-66" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-91" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-110" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="1540" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-139" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="10" x="45" y="1930" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-158" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="2190" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-204" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="120" width="10" x="45" y="2830" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-218" parent="xR-dAwPr5jF3U_3Z-Vw9-1" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;R:Reception&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-21" parent="xR-dAwPr5jF3U_3Z-Vw9-2" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="250" width="10" x="45" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-121" parent="xR-dAwPr5jF3U_3Z-Vw9-2" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="240" width="10" x="45" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-217" parent="xR-dAwPr5jF3U_3Z-Vw9-2" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;D:Doctor&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="620" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-44" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="300" width="10" x="45" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-105" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="60" width="10" x="45" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-115" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="60" width="10" x="45" y="1610" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-148" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="120" width="10" x="45" y="2060" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-163" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="45" y="2260" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-195" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="120" width="10" x="45" y="2700" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-216" parent="xR-dAwPr5jF3U_3Z-Vw9-3" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;L:Lab&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="900" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-71" parent="xR-dAwPr5jF3U_3Z-Vw9-4" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="240" width="10" x="45" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-96" parent="xR-dAwPr5jF3U_3Z-Vw9-4" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="120" width="10" x="45" y="1340" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-215" parent="xR-dAwPr5jF3U_3Z-Vw9-4" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;B:Bill&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="1180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-169" parent="xR-dAwPr5jF3U_3Z-Vw9-5" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="360" width="10" x="45.71" y="2330" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-214" parent="xR-dAwPr5jF3U_3Z-Vw9-5" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;System&lt;/font&gt;" vertex="1">
+          <mxGeometry height="3000" width="100" x="1460" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xR-dAwPr5jF3U_3Z-Vw9-7" parent="xR-dAwPr5jF3U_3Z-Vw9-6" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="2890" width="10" x="45" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-213" parent="xR-dAwPr5jF3U_3Z-Vw9-6" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="40" y="2970" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-4" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770.3440545194892" y="150" as="sourcePoint" />
+            <mxPoint x="116" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="120" as="sourcePoint" />
+            <mxPoint x="1505" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="01. Request for Login" vertex="1">
+          <mxGeometry height="30" width="120" x="123" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="02. Login Successfully" vertex="1">
+          <mxGeometry height="30" width="130" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="180" as="sourcePoint" />
+            <mxPoint x="1505" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="03. View Dashboard" vertex="1">
+          <mxGeometry height="30" width="120" x="120" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-10" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="210" as="sourcePoint" />
+            <mxPoint x="116" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="04. Dashboard Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="200" x="121" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="05. Manage Department" vertex="1">
+          <mxGeometry height="30" width="200" x="90" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="240" as="sourcePoint" />
+            <mxPoint x="1505" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="06. Department Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="210" x="124" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="270" as="sourcePoint" />
+            <mxPoint x="116" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="07. Manage Patient" vertex="1">
+          <mxGeometry height="30" width="210" x="73" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-18" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="300" as="sourcePoint" />
+            <mxPoint x="1505" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="08. Patient Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="210" x="111" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-20" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="330" as="sourcePoint" />
+            <mxPoint x="116" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="09. Request for Login" vertex="1">
+          <mxGeometry height="30" width="210" x="358" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-23" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="370" as="sourcePoint" />
+            <mxPoint x="1500" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-24" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="400" as="sourcePoint" />
+            <mxPoint x="396" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="10. Login Successfully" vertex="1">
+          <mxGeometry height="30" width="210" x="360" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="11. View Dashboard" vertex="1">
+          <mxGeometry height="30" width="210" x="355" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-27" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="430" as="sourcePoint" />
+            <mxPoint x="1505" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="12. Dashboard Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="210" x="396" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-30" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="460" as="sourcePoint" />
+            <mxPoint x="396" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="13. Register OPD Patient" vertex="1">
+          <mxGeometry height="30" width="210" x="368" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-32" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="490" as="sourcePoint" />
+            <mxPoint x="1505" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="14. OPD Patient Registered Successfully" vertex="1">
+          <mxGeometry height="30" width="222" x="404" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-34" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="520" as="sourcePoint" />
+            <mxPoint x="396" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="15. Manage Online Appointment" vertex="1">
+          <mxGeometry height="30" width="222" x="380.96" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-36" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="550" as="sourcePoint" />
+            <mxPoint x="1505" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="16. Online Appointment Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="400" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-38" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="590" as="sourcePoint" />
+            <mxPoint x="396" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-40" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="630" as="sourcePoint" />
+            <mxPoint x="1505" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-41" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="17. Manage Doctor" vertex="1">
+          <mxGeometry height="30" width="260" x="47" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-42" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="660" as="sourcePoint" />
+            <mxPoint x="116" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="18. Doctor Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="85" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="19. Request for Login" vertex="1">
+          <mxGeometry height="30" width="260" x="613" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-46" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="700" as="sourcePoint" />
+            <mxPoint x="1500" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-47" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1470" y="730" as="sourcePoint" />
+            <mxPoint x="676" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="20. Login Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="615" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="21. View Dashboard" vertex="1">
+          <mxGeometry height="30" width="260" x="610" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-50" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="760" as="sourcePoint" />
+            <mxPoint x="1505" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-51" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="22. Dashboard Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="651" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-52" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="790" as="sourcePoint" />
+            <mxPoint x="676" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-53" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="23. View Assigned Patients" vertex="1">
+          <mxGeometry height="30" width="260" x="628" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-54" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="820" as="sourcePoint" />
+            <mxPoint x="1505" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="24. Assigned Patient Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="666" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-56" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="850" as="sourcePoint" />
+            <mxPoint x="676" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="25. Manage Prescription" vertex="1">
+          <mxGeometry height="30" width="260" x="620" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-58" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="880" as="sourcePoint" />
+            <mxPoint x="1505" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-59" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="26. Prescription Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="659" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-60" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="910" as="sourcePoint" />
+            <mxPoint x="676" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-61" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="27. Request for Lab Test" vertex="1">
+          <mxGeometry height="30" width="260" x="621" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-63" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="940" as="sourcePoint" />
+            <mxPoint x="1505" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-64" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="28. Lab Test Requested Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="654" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-65" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="970" as="sourcePoint" />
+            <mxPoint x="676" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-67" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="1010" as="sourcePoint" />
+            <mxPoint x="1505" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-68" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="29. Manage Lab Staff" vertex="1">
+          <mxGeometry height="30" width="260" x="53" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-69" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="30. Lab Staff Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="91" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-70" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1040" as="sourcePoint" />
+            <mxPoint x="116" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-72" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="31. Request For Login" vertex="1">
+          <mxGeometry height="30" width="260" x="895" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-73" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1080" as="sourcePoint" />
+            <mxPoint x="1490" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-74" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="32. Login Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="895" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-75" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="1110" as="sourcePoint" />
+            <mxPoint x="956" y="1110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-76" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="33. View Dashboard" vertex="1">
+          <mxGeometry height="30" width="260" x="889" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-77" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1140" as="sourcePoint" />
+            <mxPoint x="1505" y="1140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-78" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="34. Dashboard Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="931" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-79" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1170" as="sourcePoint" />
+            <mxPoint x="956" y="1170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-80" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="35. View Assigned Lab Test" vertex="1">
+          <mxGeometry height="30" width="260" x="909" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-81" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1200" as="sourcePoint" />
+            <mxPoint x="1505" y="1200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-82" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="36. Assigned Lab Test Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="951" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-83" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1230" as="sourcePoint" />
+            <mxPoint x="956" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-84" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="37. Manage Lab Tests" vertex="1">
+          <mxGeometry height="30" width="260" x="895" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-85" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1260" as="sourcePoint" />
+            <mxPoint x="1505" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-87" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="38. Lab tests Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="932" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-88" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1290" as="sourcePoint" />
+            <mxPoint x="956" y="1290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-92" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="1330" as="sourcePoint" />
+            <mxPoint x="1505" y="1330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-93" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1360" as="sourcePoint" />
+            <mxPoint x="116" y="1360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-94" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="39. Manage Lab Tests" vertex="1">
+          <mxGeometry height="30" width="260" x="54" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-95" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="40. Lab tests Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="92" y="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-97" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1400" as="sourcePoint" />
+            <mxPoint x="1505" y="1400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-98" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1430" as="sourcePoint" />
+            <mxPoint x="956" y="1430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-99" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="41. Update Lab test Result" vertex="1">
+          <mxGeometry height="30" width="260" x="907" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-100" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="42. Lab Test Result Updated Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="947" y="1400" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-101" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="956" y="1460" as="sourcePoint" />
+            <mxPoint x="1505" y="1460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-102" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="43. Request for Logout" vertex="1">
+          <mxGeometry height="30" width="260" x="897" y="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-103" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="44. Logout Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="899" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-104" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1490" as="sourcePoint" />
+            <mxPoint x="956" y="1490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-106" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="45. View Lab Test Result" vertex="1">
+          <mxGeometry height="30" width="260" x="621" y="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-107" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="1530" as="sourcePoint" />
+            <mxPoint x="1505" y="1530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-108" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1506" y="1560" as="sourcePoint" />
+            <mxPoint x="677" y="1560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-109" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="46. Lab Test Results Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="666" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-111" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="1600" as="sourcePoint" />
+            <mxPoint x="1505" y="1600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-112" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1630" as="sourcePoint" />
+            <mxPoint x="116" y="1630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-113" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="47. View Lab Test Result" vertex="1">
+          <mxGeometry height="30" width="260" x="61" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-114" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="48. Lab Test Results Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="106" y="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-116" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="1670" as="sourcePoint" />
+            <mxPoint x="1505" y="1670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-118" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1700" as="sourcePoint" />
+            <mxPoint x="676" y="1700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-119" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="49. Request for Patient Admission" vertex="1">
+          <mxGeometry height="30" width="260" x="646" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-120" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="50. Patient Admission Requested Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="679" y="1670" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-122" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="51. Manage Room" vertex="1">
+          <mxGeometry height="30" width="260" x="325" y="1710" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-124" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="1740" as="sourcePoint" />
+            <mxPoint x="1505" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-125" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1504.5" y="1770" as="sourcePoint" />
+            <mxPoint x="395.5" y="1770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-126" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="52. Room Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="363" y="1740" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-127" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="1800" as="sourcePoint" />
+            <mxPoint x="1505" y="1800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-128" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1830" as="sourcePoint" />
+            <mxPoint x="396" y="1830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-129" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="53. View Patient Admitt Request" vertex="1">
+          <mxGeometry height="30" width="260" x="361" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-130" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="54. Patient Admitt Request Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="393" y="1800" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-131" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="55. Admit Patient" vertex="1">
+          <mxGeometry height="30" width="280" x="311" y="1830" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-132" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="1860" as="sourcePoint" />
+            <mxPoint x="1505" y="1860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-133" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="56. Patient Admitted Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="354" y="1860" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-134" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1890" as="sourcePoint" />
+            <mxPoint x="396" y="1890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-135" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="57. Request for Logout" vertex="1">
+          <mxGeometry height="30" width="280" x="327" y="1890" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-136" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="396" y="1920" as="sourcePoint" />
+            <mxPoint x="1505" y="1920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-137" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="58. Logout Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="329" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-138" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="1950" as="sourcePoint" />
+            <mxPoint x="396" y="1950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-140" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="59. Manage Room" vertex="1">
+          <mxGeometry height="30" width="280" x="35" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-141" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="1990" as="sourcePoint" />
+            <mxPoint x="1505" y="1990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-142" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2020" as="sourcePoint" />
+            <mxPoint x="116" y="2020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-143" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="60. Room Managed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="73" y="1990" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-144" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="61. View Admitted Patient" vertex="1">
+          <mxGeometry height="30" width="280" x="54" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-145" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="2050" as="sourcePoint" />
+            <mxPoint x="1505" y="2050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-146" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1509" y="2080" as="sourcePoint" />
+            <mxPoint x="120" y="2080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-147" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="62. Admitted Patient Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="95" y="2050" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-149" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="2120" as="sourcePoint" />
+            <mxPoint x="1505" y="2120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-150" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2150" as="sourcePoint" />
+            <mxPoint x="676" y="2150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-151" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="63. Schedule Surgery" vertex="1">
+          <mxGeometry height="30" width="280" x="603" y="2090" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-152" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="64. Surgery Scheduled Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="642" y="2120" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-153" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="675" y="2180" as="sourcePoint" />
+            <mxPoint x="1504" y="2180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-154" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2210" as="sourcePoint" />
+            <mxPoint x="676" y="2210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-155" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="65. Perform Surgery" vertex="1">
+          <mxGeometry height="30" width="280" x="600" y="2150" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-156" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="66. Surgery Performed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="641" y="2180" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-159" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="67. View Surgery Status" vertex="1">
+          <mxGeometry height="30" width="280" x="50" y="2220" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-160" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="2250" as="sourcePoint" />
+            <mxPoint x="1505" y="2250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-161" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2280" as="sourcePoint" />
+            <mxPoint x="116" y="2280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-162" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="68. Surgery Status Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="91" y="2250" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-165" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="675" y="2320" as="sourcePoint" />
+            <mxPoint x="1504" y="2320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-166" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2350" as="sourcePoint" />
+            <mxPoint x="676" y="2350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-167" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="69. Request for Discharge" vertex="1">
+          <mxGeometry height="30" width="280" x="615" y="2290" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-168" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="70. Discharge Requested Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="648" y="2320" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-170" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="71. Request For Login" vertex="1">
+          <mxGeometry height="30" width="260" x="1175" y="2360" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-171" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2390" as="sourcePoint" />
+            <mxPoint x="1500" y="2390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-172" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="72. Login Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1175" y="2390" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-173" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1480" y="2420" as="sourcePoint" />
+            <mxPoint x="1236" y="2420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-174" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="73. View Dashboard" vertex="1">
+          <mxGeometry height="30" width="260" x="1169" y="2420" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-175" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2450" as="sourcePoint" />
+            <mxPoint x="1480" y="2450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-176" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="74. Dashboard Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1211" y="2450" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-177" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="2480" as="sourcePoint" />
+            <mxPoint x="1236" y="2480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-178" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="75. Discharge Patient" vertex="1">
+          <mxGeometry height="30" width="260" x="1173" y="2480" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-179" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2510" as="sourcePoint" />
+            <mxPoint x="1785" y="2510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-180" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="76. Patient Discharged Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1211" y="2510" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-181" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="2540" as="sourcePoint" />
+            <mxPoint x="1236" y="2540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-182" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="77. Generate Bill" vertex="1">
+          <mxGeometry height="30" width="260" x="1160" y="2540" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-183" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" target="xR-dAwPr5jF3U_3Z-Vw9-7" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2570" as="sourcePoint" />
+            <mxPoint x="1490" y="2570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-184" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="78. Bill Generated Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1198" y="2570" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-185" edge="1" parent="1" source="xR-dAwPr5jF3U_3Z-Vw9-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="2600" as="sourcePoint" />
+            <mxPoint x="1236" y="2600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-187" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2630" as="sourcePoint" />
+            <mxPoint x="1505" y="2630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-188" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="80. Payment Processed Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1214" y="2630" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-189" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2660" as="sourcePoint" />
+            <mxPoint x="1236" y="2660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-190" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1236" y="2690" as="sourcePoint" />
+            <mxPoint x="1505" y="2690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-191" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="82. Logout Successfully" vertex="1">
+          <mxGeometry height="30" width="260" x="1179" y="2690" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-192" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2720" as="sourcePoint" />
+            <mxPoint x="1236" y="2720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-193" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="79. Process Payment" vertex="1">
+          <mxGeometry height="30" width="260" x="1173" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-194" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="81. Request for Logout" vertex="1">
+          <mxGeometry height="30" width="260" x="1177" y="2660" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-196" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="676" y="2760" as="sourcePoint" />
+            <mxPoint x="1505" y="2760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-197" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2790" as="sourcePoint" />
+            <mxPoint x="676" y="2790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-198" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="83. View Patient Medical History" vertex="1">
+          <mxGeometry height="30" width="280" x="631" y="2730" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-199" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="84. Patient Medical History Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="673" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-200" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="675" y="2820" as="sourcePoint" />
+            <mxPoint x="1504" y="2820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-201" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2850" as="sourcePoint" />
+            <mxPoint x="676" y="2850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-202" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="85. Request for Logout" vertex="1">
+          <mxGeometry height="30" width="280" x="606" y="2790" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-203" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="86. Logout Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="609" y="2820" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-205" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="87. View Patient Medical History" vertex="1">
+          <mxGeometry height="30" width="280" x="72" y="2860" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-206" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="2890" as="sourcePoint" />
+            <mxPoint x="1505" y="2890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-207" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2920" as="sourcePoint" />
+            <mxPoint x="116" y="2920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-208" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="88. Patient Medical History Viewed Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="113" y="2890" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-209" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="89. Request for Logout" vertex="1">
+          <mxGeometry height="30" width="280" x="47" y="2920" as="geometry" />
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-210" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="116" y="2950" as="sourcePoint" />
+            <mxPoint x="1505" y="2950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-211" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1505" y="2980" as="sourcePoint" />
+            <mxPoint x="116" y="2980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DolX8HcUdE-L1_T4gKFG-212" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="90. Logout Successfully" vertex="1">
+          <mxGeometry height="30" width="280" x="49" y="2950" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

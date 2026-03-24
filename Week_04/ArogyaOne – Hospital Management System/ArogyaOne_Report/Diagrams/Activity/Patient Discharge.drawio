@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="umZcvB8EbGHs536F9Ce7">
+    <mxGraphModel dx="979" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-1" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="334" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Check Patient&lt;div&gt;Admission&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="289" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="wDs8MXFxIdrTmEhTNEHC-2" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="349" y="136" as="sourcePoint" />
+            <mxPoint x="349" y="166" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="349" y="210" as="sourcePoint" />
+            <mxPoint x="349" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-5" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="35" width="49" x="324.5" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="[Patient not Admitted]">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="373" y="258.4" as="sourcePoint" />
+            <mxPoint x="558" y="258" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Patient Not Admitted&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="558" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="349" y="276" as="sourcePoint" />
+            <mxPoint x="349" y="306" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Procced to&lt;div&gt;Discharge&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="289" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Patient Admitted]" vertex="1">
+          <mxGeometry height="30" width="130" x="210" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-11" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="19" width="19" x="339.5" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-12" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="349" y="346" as="sourcePoint" />
+            <mxPoint x="349" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-13" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="19" width="19" x="608.5" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="617.91" y="278" as="sourcePoint" />
+            <mxPoint x="617.91" y="308" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-23" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="349" y="420" as="sourcePoint" />
+            <mxPoint x="349" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wDs8MXFxIdrTmEhTNEHC-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Generate Discharge&lt;div&gt;Summary&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="289" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

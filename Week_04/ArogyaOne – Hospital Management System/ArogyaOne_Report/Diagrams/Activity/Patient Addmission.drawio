@@ -1,0 +1,109 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="kvQz7Bn19oJF-d9IAAqL">
+    <mxGraphModel dx="1281" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="334" y="50" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-2" value="Check Prescription&lt;div&gt;Availibility&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="289" y="110" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-3" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" target="_NNoDyXR8pcyahE0pl0S-2" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="76" as="sourcePoint" />
+            <mxPoint x="349" y="106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-4" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="150" as="sourcePoint" />
+            <mxPoint x="349" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-5" value="" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="324.5" y="181" width="49" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-6" value="[Prescription not Available]" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="373" y="198.39999999999998" as="sourcePoint" />
+            <mxPoint x="558" y="198" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-7" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Admission Not&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Required&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="558" y="178" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-8" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="216" as="sourcePoint" />
+            <mxPoint x="349" y="246" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-9" value="Check Room&lt;div&gt;Availibility&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="289" y="246" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-10" value="[Prescription Available]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="210" y="210" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-11" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="339.5" y="450" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-12" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="286" as="sourcePoint" />
+            <mxPoint x="349" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-13" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="608.5" y="248" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-14" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="617.91" y="218" as="sourcePoint" />
+            <mxPoint x="617.91" y="248" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-17" value="" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="324.5" y="316" width="49" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-18" value="[Room Not Available]" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="373" y="333.70000000000005" as="sourcePoint" />
+            <mxPoint x="558" y="333.29999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-19" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="350" as="sourcePoint" />
+            <mxPoint x="349" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-20" value="[Room Available]" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="210" y="341" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-21" value="Admit Patient" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="289" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-22" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Room Not Available&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="558" y="313.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-23" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="617.91" y="353.5" as="sourcePoint" />
+            <mxPoint x="617.91" y="383.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-24" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="608.5" y="383.5" width="19" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="_NNoDyXR8pcyahE0pl0S-25" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="349" y="420" as="sourcePoint" />
+            <mxPoint x="349" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

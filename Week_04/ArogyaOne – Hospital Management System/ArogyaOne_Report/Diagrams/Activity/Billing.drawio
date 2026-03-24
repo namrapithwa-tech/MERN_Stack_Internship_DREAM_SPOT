@@ -1,0 +1,130 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="T2UqiAVaCdeBGXFrRvUG">
+    <mxGraphModel dx="979" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-1" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="314" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Check Discharge&lt;div&gt;Summary Availibility&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="269" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="5Rd2-arKb_fyDi5PmfYQ-2" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="216" as="sourcePoint" />
+            <mxPoint x="329" y="246" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="290" as="sourcePoint" />
+            <mxPoint x="329" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-5" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="35" width="49" x="304.5" y="321" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="[Summary Not Available]">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="353" y="338.4" as="sourcePoint" />
+            <mxPoint x="538" y="338" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Patient Not&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;Discharged&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="538" y="318" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="356" as="sourcePoint" />
+            <mxPoint x="329" y="386" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Calculate Bill" vertex="1">
+          <mxGeometry height="40" width="120" x="269" y="386" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Summary Available]" vertex="1">
+          <mxGeometry height="30" width="130" x="190" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-11" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="19" width="19" x="319.5" y="696" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-12" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="426" as="sourcePoint" />
+            <mxPoint x="329" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-13" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="19" width="19" x="588.5" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="597.91" y="358" as="sourcePoint" />
+            <mxPoint x="597.91" y="388" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="666" as="sourcePoint" />
+            <mxPoint x="329" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Generate Bill" vertex="1">
+          <mxGeometry height="40" width="120" x="269" y="626" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-28" parent="1" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="35" width="49" x="304.5" y="456" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-30" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="[Partial Bill]">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="353.5" y="473.67999999999995" as="sourcePoint" />
+            <mxPoint x="470" y="473" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-31" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="[Full Bill]">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="304.5" y="474" as="sourcePoint" />
+            <mxPoint x="190" y="474" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Full Bill" vertex="1">
+          <mxGeometry height="40" width="120" x="70" y="453.5" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Partial Bill" vertex="1">
+          <mxGeometry height="40" width="120" x="470.5" y="452.5" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-34" parent="1" style="shape=line;html=1;strokeWidth=3;strokeColor=default;" value="" vertex="1">
+          <mxGeometry height="10" width="520" x="70" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-36" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="129.8" y="493.5" as="sourcePoint" />
+            <mxPoint x="129.8" y="523.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-37" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="530.3" y="492.5" as="sourcePoint" />
+            <mxPoint x="530.3" y="522.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-38" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="526" as="sourcePoint" />
+            <mxPoint x="329" y="556" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#FFFFFF;strokeColor=default;" value="Take Payment" vertex="1">
+          <mxGeometry height="40" width="120" x="269" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="5Rd2-arKb_fyDi5PmfYQ-40" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="329" y="596" as="sourcePoint" />
+            <mxPoint x="329" y="626" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
