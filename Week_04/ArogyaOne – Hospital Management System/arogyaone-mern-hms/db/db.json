@@ -517,6 +517,19 @@
       "registration_type": "APPOINTMENT",
       "created_at": "2026-03-18T15:09:51.998Z",
       "created_by": "REGISTRATION"
+    },
+    {
+      "id": "P-2026-1774867218525",
+      "patient_full_name": "Pranav Pithwa",
+      "age": 15,
+      "gender": "Male",
+      "mobile_number": "9014588796",
+      "blood_group": "A-",
+      "consultant_doctor_id": "D-2026-1769062412564",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "registration_type": "WALK-IN",
+      "created_at": "2026-03-30T10:40:19.610Z",
+      "created_by": "REGISTRATION"
     }
   ],
   "appointments": [
@@ -730,6 +743,21 @@
       "doctorName": "Dr. Ishani S. Malhotra",
       "department": "Cardiology",
       "createdAt": "2026-03-18T15:07:58.876Z"
+    },
+    {
+      "id": "A-2026-1774862204445",
+      "doctorId": "D-2026-1769061755758",
+      "patientId": null,
+      "status": "PENDING",
+      "name": "Vivek Pithwa",
+      "phone": "9265678084",
+      "age": 20,
+      "gender": "Male",
+      "date": "2026-03-31",
+      "time": "morning",
+      "doctorName": "Dr. Aarav V. Mehta",
+      "department": "Physician",
+      "createdAt": "2026-03-30T09:16:44.445Z"
     }
   ],
   "ipd_admissions": [
@@ -1586,6 +1614,17 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-29T18:13:25.359Z"
+    },
+    {
+      "id": "V-1774867218525",
+      "patientId": "P-2026-1774867218525",
+      "weight": "",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-30T10:40:19.610Z"
     }
   ],
   "opd_consultations": [
@@ -2473,6 +2512,38 @@
       "is_closed": true,
       "lab_status": "active",
       "follow_up_date": "2026-04-04"
+    },
+    {
+      "id": "OPD-2026-1774867218525",
+      "appointment_id": null,
+      "patient_id": "P-2026-1774867218525",
+      "patient_name": "Pranav Pithwa",
+      "patient_age": 15,
+      "patient_gender": "Male",
+      "patient_bloodgroup": "A-",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-30",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": null,
+      "diagnosis": null,
+      "clinical_notes": null,
+      "medicines": [],
+      "LabTest_advised": [],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-30"
+      },
+      "follow_up_required": false,
+      "is_billed": true,
+      "is_closed": false
     }
   ],
   "ipd_rounds": [
