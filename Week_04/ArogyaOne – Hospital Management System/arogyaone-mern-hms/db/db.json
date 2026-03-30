@@ -933,8 +933,42 @@
       "room_number": "DLX-101",
       "admission_date": "2026-03-22T12:46:43.483Z",
       "status": "ADMITTED",
-      "billing_status": "OPEN",
+      "billing_status": "CLOSED",
       "discharge_details": null
+    },
+    {
+      "id": "IPD-2026-1774808052954",
+      "patient_id": "P-2026-1773726373776",
+      "patient_name": "Jensi Makwana",
+      "mobile_number": "8866045280",
+      "blood_group": "O+",
+      "consultant_doctor_name": "Dr. Ishani S. Malhotra",
+      "room_id": "R-SEMI_GENERAL-1767592748243",
+      "document_type": "Aadhar",
+      "document_number": "12346",
+      "relative_name": "Namra",
+      "relationship": "Spouse",
+      "room_number": "SEMI-DELUEX-102",
+      "admission_date": "2026-03-29T18:14:12.954Z",
+      "status": "DISCHARGED",
+      "billing_status": "CLOSED",
+      "discharge_details": {
+        "discharge_date": "2026-03-29",
+        "discharge_time": "16:07",
+        "reason_for_admission": "rytuio",
+        "mode_of_admission": "Planned",
+        "clinical_summary": "tyuiop[",
+        "treatment_provided": "46578o90-",
+        "discharge_condition": "Stable",
+        "prescriptions": [
+          {
+            "medicine_name": "m",
+            "dosage": "1-1-1",
+            "duration_days": "5"
+          }
+        ],
+        "follow_up_instructions": "1weekl"
+      }
     }
   ],
   "rooms": [
@@ -1541,6 +1575,17 @@
       "sugar": "false",
       "recorded_by": "REGISTRATION",
       "recorded_at": "2026-03-21T07:36:06.748Z"
+    },
+    {
+      "id": "V-1774808002684",
+      "patientId": "P-2026-1773726373776",
+      "weight": "-1",
+      "height": "",
+      "blood_pressure": "",
+      "temprature": "",
+      "sugar": "false",
+      "recorded_by": "REGISTRATION",
+      "recorded_at": "2026-03-29T18:13:25.359Z"
     }
   ],
   "opd_consultations": [
@@ -2384,6 +2429,50 @@
       "is_closed": true,
       "lab_status": "active",
       "follow_up_date": null
+    },
+    {
+      "id": "OPD-2026-1774808002684",
+      "appointment_id": null,
+      "patient_id": "P-2026-1773726373776",
+      "patient_name": "Jensi Makwana",
+      "patient_age": 23,
+      "patient_gender": "Female",
+      "patient_bloodgroup": "O+",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "department": "Cardiology",
+      "visit_type": "OPD",
+      "opd_date": "2026-03-29",
+      "opd_time_slot": "Morning",
+      "opd_timings": "09:30 AM - 12:30 PM",
+      "chief_complaint": "nmmmnmh",
+      "diagnosis": "cfhvm",
+      "clinical_notes": "ujhjghjh",
+      "medicines": [
+        {
+          "medicine_name": "m",
+          "dosage": "1-1-1",
+          "duration_days": "5"
+        }
+      ],
+      "LabTest_advised": [
+        "Complete Blood Count (CBC)",
+        "Vitamin D (25-OH)",
+        "Blood Culture"
+      ],
+      "consultation_fee": 800,
+      "payment": {
+        "status": "PAID",
+        "mode": "CASH",
+        "amount_paid": 800,
+        "transaction_id": null,
+        "payment_date": "2026-03-29"
+      },
+      "follow_up_required": true,
+      "is_billed": true,
+      "is_closed": true,
+      "lab_status": "active",
+      "follow_up_date": "2026-04-04"
     }
   ],
   "ipd_rounds": [
@@ -2511,6 +2600,71 @@
       ],
       "lab_status": "active",
       "created_at": "2026-03-22T12:48:56.393Z"
+    },
+    {
+      "id": "RND-2026-1774808399397",
+      "ipd_admission_id": "IPD-2026-1774808052954",
+      "patient_id": "P-2026-1773726373776",
+      "patient_name": "Jensi Makwana",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-29",
+      "round_time": "11:49 PM",
+      "vitals": {
+        "bp": "12",
+        "temp": "98",
+        "pulse": "75",
+        "spo2": "99"
+      },
+      "clinical_progress": "uohiuhiuhuhoiuo",
+      "nursing_instructions": "hkjuruo9ot",
+      "LabTest_advised": [],
+      "lab_status": "none",
+      "created_at": "2026-03-29T18:19:59.398Z"
+    },
+    {
+      "id": "RND-2026-1774808441244",
+      "ipd_admission_id": "IPD-2026-1774808052954",
+      "patient_id": "P-2026-1773726373776",
+      "patient_name": "Jensi Makwana",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-29",
+      "round_time": "11:50 PM",
+      "vitals": {
+        "bp": "120",
+        "temp": "22",
+        "pulse": "22",
+        "spo2": "22"
+      },
+      "clinical_progress": "hyhjkl",
+      "nursing_instructions": "uiol;'",
+      "LabTest_advised": [],
+      "lab_status": "none",
+      "created_at": "2026-03-29T18:20:41.244Z"
+    },
+    {
+      "id": "RND-2026-1774808457323",
+      "ipd_admission_id": "IPD-2026-1774183603483",
+      "patient_id": "P-2026-1773760747093",
+      "patient_name": "Jay Dawad",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "round_date": "2026-03-29",
+      "round_time": "11:50 PM",
+      "vitals": {
+        "bp": "89",
+        "temp": "889",
+        "pulse": "88",
+        "spo2": "899"
+      },
+      "clinical_progress": "hguhkjl",
+      "nursing_instructions": "hkjl",
+      "LabTest_advised": [
+        "Complete Blood Count (CBC)"
+      ],
+      "lab_status": "active",
+      "created_at": "2026-03-29T18:20:57.324Z"
     }
   ],
   "doctor_notes": [
@@ -2534,6 +2688,13 @@
       "doctor_name": "Dr. Ishani S. Malhotra",
       "date": "2026-03-18",
       "note_text": "Meet Meeting"
+    },
+    {
+      "id": "NOTE-1774808524403",
+      "doctor_id": "D-2026-1769062412564",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "date": "2026-03-30",
+      "note_text": "meeting trustee"
     }
   ],
   "lab_test_master": [
@@ -2930,6 +3091,59 @@
         }
       },
       "completed_at": "2026-03-22T12:49:46.870Z"
+    },
+    {
+      "id": "ORD-LAB-1774808657185",
+      "original_request_id": "OPD-2026-1774808002684",
+      "patient_name": "Jensi Makwana",
+      "patient_id": "P-2026-1773726373776",
+      "source": "OPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Complete Blood Count (CBC)",
+        "Vitamin D (25-OH)",
+        "Blood Culture"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-29T18:24:17.185Z",
+      "results": {
+        "Complete Blood Count (CBC)": {
+          "Hemoglobin": "15",
+          "Total WBC Count": "9000",
+          "Platelet Count": "2.5"
+        },
+        "Vitamin D (25-OH)": {
+          "Vitamin D Level": "60"
+        },
+        "Blood Culture": {
+          "Growth Status": "no "
+        }
+      },
+      "completed_at": "2026-03-29T18:25:48.632Z",
+      "is_printed": true,
+      "is_billed": true
+    },
+    {
+      "id": "ORD-LAB-1774808680750",
+      "original_request_id": "RND-2026-1774808457323",
+      "patient_name": "Jay Dawad",
+      "patient_id": "P-2026-1773760747093",
+      "source": "IPD",
+      "doctor_name": "Dr. Ishani S. Malhotra",
+      "tests": [
+        "Complete Blood Count (CBC)"
+      ],
+      "status": "completed",
+      "accepted_at": "2026-03-29T18:24:40.750Z",
+      "results": {
+        "Complete Blood Count (CBC)": {
+          "Hemoglobin": "14",
+          "Total WBC Count": "5000",
+          "Platelet Count": "2.5"
+        }
+      },
+      "completed_at": "2026-03-29T18:25:23.331Z",
+      "is_printed": true
     }
   ],
   "operation_theaters": [
@@ -2991,8 +3205,16 @@
       "ot_room_name": "Minor OT - 1",
       "schedule_date": "2026-03-22T16:40",
       "estimated_duration": "30 Mins",
-      "status": "Scheduled",
-      "created_at": "2026-03-21T13:03:18.922Z"
+      "status": "Completed",
+      "created_at": "2026-03-21T13:03:18.922Z",
+      "post_op_details": {
+        "actual_start_time": "03:02",
+        "actual_end_time": "07:04",
+        "surgical_notes": "rytuihuygo;liuio",
+        "surgeon_fee": 95000,
+        "anesthesia_fee": 1200,
+        "logged_at": "2026-03-29T18:31:01.113Z"
+      }
     }
   ],
   "ipd_advances": [
@@ -3019,6 +3241,22 @@
       "payment_mode": "Cash",
       "transaction_id": null,
       "date": "2026-03-22T12:47:29.810Z"
+    },
+    {
+      "id": "ADV-1774809352782",
+      "ipd_admission_id": "IPD-2026-1774808052954",
+      "amount": 10000,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "date": "2026-03-29T18:35:52.782Z"
+    },
+    {
+      "id": "ADV-1774809519431",
+      "ipd_admission_id": "IPD-2026-1774183603483",
+      "amount": 20000,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "date": "2026-03-29T18:38:39.431Z"
     }
   ],
   "ipd_bills": [
@@ -3230,6 +3468,109 @@
       "payment_mode": "Cash",
       "transaction_id": null,
       "bill_date": "2026-03-22T13:47:51.093Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774809435784",
+      "ipd_admission_id": "IPD-2026-1774808052954",
+      "patient_name": "Jensi Makwana",
+      "patient_id": "P-2026-1773726373776",
+      "admitting_doctor": "Dr. Ishani S. Malhotra",
+      "doctor_dept": "Cardiology",
+      "room_number": "SEMI-DELUEX-102",
+      "admission_date": "2026-03-29T18:14:12.954Z",
+      "discharge_date": "2026-03-29",
+      "itemized": {
+        "room": {
+          "days": 1,
+          "rate": 3500,
+          "total": 3500
+        },
+        "rounds": {
+          "count": 2,
+          "rate": 400,
+          "total": 800
+        },
+        "labTotal": 0,
+        "surgeryTotal": 0,
+        "extras": [
+          {
+            "name": "o2",
+            "rate": "1500",
+            "qty": "5",
+            "amount": 7500
+          }
+        ],
+        "advances": [
+          {
+            "id": "ADV-1774809352782",
+            "ipd_admission_id": "IPD-2026-1774808052954",
+            "amount": 10000,
+            "payment_mode": "Cash",
+            "transaction_id": null,
+            "date": "2026-03-29T18:35:52.782Z"
+          }
+        ]
+      },
+      "gross_total": 11800,
+      "discount": 0,
+      "advance_paid": 10000,
+      "net_payable": 1800,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-29T18:37:15.784Z",
+      "status": "Billed"
+    },
+    {
+      "id": "INV-IPD-1774809531633",
+      "ipd_admission_id": "IPD-2026-1774183603483",
+      "patient_name": "Jay Dawad",
+      "patient_id": "P-2026-1773760747093",
+      "admitting_doctor": "Dr. Ishani S. Malhotra",
+      "doctor_dept": "Cardiology",
+      "room_number": "DLX-101",
+      "admission_date": "2026-03-22T12:46:43.483Z",
+      "discharge_date": "2026-03-29T18:38:51.633Z",
+      "itemized": {
+        "room": {
+          "days": 8,
+          "rate": 10000,
+          "total": 80000
+        },
+        "rounds": {
+          "count": 2,
+          "rate": 400,
+          "total": 800
+        },
+        "labTotal": 1820,
+        "surgeryTotal": 0,
+        "extras": [],
+        "advances": [
+          {
+            "id": "ADV-1774183649810",
+            "ipd_admission_id": "IPD-2026-1774183603483",
+            "amount": 15000,
+            "payment_mode": "Cash",
+            "transaction_id": null,
+            "date": "2026-03-22T12:47:29.810Z"
+          },
+          {
+            "id": "ADV-1774809519431",
+            "ipd_admission_id": "IPD-2026-1774183603483",
+            "amount": 20000,
+            "payment_mode": "Cash",
+            "transaction_id": null,
+            "date": "2026-03-29T18:38:39.431Z"
+          }
+        ]
+      },
+      "gross_total": 82620,
+      "discount": 0,
+      "advance_paid": 35000,
+      "net_payable": 47620,
+      "payment_mode": "Cash",
+      "transaction_id": null,
+      "bill_date": "2026-03-29T18:38:51.633Z",
       "status": "Billed"
     }
   ]
